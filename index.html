@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Preprint Digest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <div>
+          <div class="text-lg font-semibold">Daily Preprint Digest</div>
+          
+          <div class="text-sm text-slate-600">Generative AI and AI4Science papers from arXiv, bioRxiv, and ChemRxiv</div>
+          
+        </div>
+        <nav class="flex items-center gap-3 text-sm">
+          <a class="rounded-md px-3 py-2 text-slate-700 hover:bg-slate-100" href="./list.html">All reports</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-6">
+      
+      <div class="mb-4 flex items-baseline justify-between gap-4">
+        <div>
+          <div class="text-sm text-slate-600">Latest report</div>
+          <div class="text-xl font-semibold">2026-02-19</div>
+        </div>
+        <div class="text-sm text-slate-600">Generated at 2026-02-19T15:10:52.926342+00:00</div>
+      </div>
+
+      <div class="h-[75vh] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+        <iframe class="h-full w-full" src="./daily_html/2026_02_19.html" title="Latest report"></iframe>
+      </div>
+      
+    </main>
+  </body>
+</html>

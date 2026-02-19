@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ site_title }} - Reports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
+        <div>
+          <div class="text-lg font-semibold">{{ site_title }}</div>
+          <div class="text-sm text-slate-600">Report archive</div>
+        </div>
+        <nav class="flex items-center gap-3 text-sm">
+          <a class="rounded-md px-3 py-2 text-slate-700 hover:bg-slate-100" href="./index.html">Latest</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-4xl px-4 py-6">
+      <div class="mb-4 text-sm text-slate-600">Generated at {{ generated_at }}</div>
+
+      {% if reports and reports|length > 0 %}
+      <div class="space-y-2">
+        {% for r in reports %}
+        <a
+          class="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm hover:bg-slate-50"
+          href="./daily_html/{{ r.html }}"
+        >
+          <div class="font-medium">{{ r.date }}</div>
+          <div class="text-sm text-slate-600">{{ r.paper_count }} papers</div>
+        </a>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div class="text-lg font-semibold">No reports available</div>
+        <p class="mt-2 text-sm text-slate-600">Generate a daily report to populate this list.</p>
+      </div>
+      {% endif %}
+    </main>
+  </body>
+</html>

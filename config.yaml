@@ -1,0 +1,89 @@
+run:
+  days_back: 2
+
+output:
+  json_dir: daily_json
+  html_dir: daily_html
+  templates_dir: templates
+  daily_template: paper_template.html
+  index_template: index_template.html
+  list_template: list_template.html
+  reports_json: reports.json
+  index_html: index.html
+  list_html: list.html
+  retention_days: 365
+  site_title: Daily Preprint Digest
+  site_subtitle: Generative AI and AI4Science papers from arXiv, bioRxiv, and ChemRxiv
+
+llm:
+  provider: openrouter
+  api_key_env: OPENROUTER_API_KEY
+  base_url: https://openrouter.ai/api/v1/chat/completions
+  model: minimax/minimax-m2.5
+  temperature: 0
+  timeout_s: 60
+  max_retries: 2
+  cache_dir: .cache/llm
+
+filter:
+  interests:
+    - image generation
+    - video generation
+    - multimodal generation
+    - large language models
+    - molecule generation
+    - protein design
+    - AI for chemistry
+    - AI for biology
+  llm_batch_size: 15
+  max_abstract_chars: 1600
+  keyword_prefilter:
+    enabled: true
+    include:
+      - diffusion
+      - generative
+      - "text-to-image"
+      - "text to image"
+      - "text-to-video"
+      - "video generation"
+      - multimodal
+      - molecule
+      - protein
+      - "structure-based"
+      - "protein folding"
+      - "molecular"
+    exclude: []
+
+rating:
+  enabled: true
+  max_papers: 80
+  max_abstract_chars: 2000
+  max_tokens: 320
+
+sources:
+  adaptive_scope:
+    enabled: true
+    min_candidates_after_keyword_prefilter: 120
+    max_tiers: 3
+
+  arxiv:
+    enabled: true
+    max_results_per_category: 300
+    submitted_date_offset_hours: -6
+    category_tiers:
+      - [cs.CV, cs.AI]
+      - [cs.LG, cs.CL, stat.ML]
+      - [q-bio.BM, q-bio.QM, physics.chem-ph]
+    query_terms: []
+
+  biorxiv:
+    enabled: true
+    server: biorxiv
+    categories: []
+
+  chemrxiv:
+    enabled: true
+    doi_prefix: "10.26434"
+    crossref_rows: 1000
+    openalex_base_url: https://api.openalex.org
+    crossref_base_url: https://api.crossref.org
