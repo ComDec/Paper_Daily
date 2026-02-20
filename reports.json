@@ -1,18 +1,24 @@
 {
-  "generated_at": "2026-02-19T15:10:52.923850+00:00",
-  "latest": "2026_02_19.html",
+  "generated_at": "2026-02-20T04:40:09.593250+00:00",
+  "latest": "2026_02_20.html",
   "reports": [
+    {
+      "date": "2026-02-20",
+      "html": "2026_02_20.html",
+      "json": "2026-02-20.json",
+      "paper_count": 63
+    },
     {
       "date": "2026-02-19",
       "html": "2026_02_19.html",
       "json": "2026-02-19.json",
-      "paper_count": 4
+      "paper_count": 128
     },
     {
       "date": "2026-02-18",
       "html": "2026_02_18.html",
       "json": "2026-02-18.json",
-      "paper_count": 7
+      "paper_count": 190
     },
     {
       "date": "2026-02-17",

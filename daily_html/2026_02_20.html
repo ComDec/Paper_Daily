@@ -1,0 +1,2872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Preprint Digest - 2026-02-20</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.dev.js"></script>
+    <!-- Example using Font Awesome (replace with your preferred icon library if needed) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            /* New Palette: Light, Clean, Futuristic with Teal/Aqua accents */
+            --bg-color: #f8fafc; /* Tailwind slate-50 (Very Light Gray) */
+            --card-bg-color: #ffffff; /* White */
+            --text-color: #1e293b; /* Tailwind slate-800 (Dark Gray-Blue) */
+            --text-muted-color: #64748b; /* Tailwind slate-500 (Medium Gray-Blue) */
+            --header-color: #0f172a; /* Tailwind slate-900 (Very Dark Blue) */
+            --highlight-primary: #14b8a6; /* Tailwind teal-500 */
+            --highlight-secondary: #67e8f9; /* Tailwind cyan-300 */
+            --border-color: #e2e8f0; /* Tailwind slate-200 (Light Gray) */
+            --shadow-color: rgba(15, 23, 42, 0.08); /* Subtle shadow based on slate-900 */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            line-height: 1.6;
+        }
+
+        .bento-grid {
+            display: grid;
+            gap: 1.5rem; /* Tailwind gap-6 */
+            grid-template-columns: 1fr; /* Force single column */
+            padding-bottom: 4rem; /* Add padding at the bottom */
+        }
+
+        .bento-item {
+            /* Apply semi-transparent white background and blur */
+            background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari prefix */
+            border-radius: 1rem; /* Slightly larger radius */
+            padding: 1.75rem; /* Slightly more padding */
+            border: 1px solid rgba(226, 232, 240, 0.5); /* Lighter border with transparency */
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease-out;
+            overflow: hidden; /* Ensure content doesn't overflow */
+            position: relative; /* For potential pseudo-elements */
+        }
+
+        /* Removed ::before pseudo-element for a cleaner look */
+
+
+        .bento-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px var(--shadow-color), 0 4px 8px rgba(15, 23, 42, 0.06); /* Adjusted hover shadow */
+        }
+
+        .paper-title {
+            font-size: 1.125rem; /* Tailwind text-lg */
+            font-weight: 600; /* Tailwind font-semibold */
+            color: var(--highlight-primary); /* Use new primary highlight */
+            margin-bottom: 0.75rem; /* Tailwind mb-3 */
+            line-height: 1.4;
+        }
+
+        .paper-summary {
+            font-size: 0.875rem; /* Tailwind text-sm */
+            color: var(--text-muted-color);
+            margin-bottom: 1.25rem; /* Tailwind mb-5 */
+            line-height: 1.6;
+        }
+
+        .paper-link {
+            display: inline-flex; /* Use flex for icon alignment */
+            align-items: center;
+            font-size: 0.875rem; /* Tailwind text-sm */
+            font-weight: 600;
+            color: var(--highlight-primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem; /* Add padding */
+            border-radius: 0.5rem; /* Slightly rounder */
+            background-color: rgba(20, 184, 166, 0.08); /* Subtle teal background */
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .paper-link i {
+            margin-right: 0.5rem; /* Tailwind mr-2 */
+            transition: transform 0.3s ease;
+        }
+
+        .paper-link:hover {
+            background-color: rgba(20, 184, 166, 0.15);
+            color: #0d9488; /* Darker teal on hover */
+            transform: translateY(-1px);
+        }
+        .paper-link:hover i {
+             transform: translateX(2px);
+        }
+
+        .paper-authors {
+            font-size: 0.75rem; /* Tailwind text-xs */
+            color: var(--text-muted-color);
+            margin-top: 1rem; /* Tailwind mt-4 */
+            font-style: italic;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem; /* Tailwind mb-12 */
+            padding-top: 3rem; /* Tailwind pt-12 */
+        }
+
+        .header h1 {
+            font-size: 2.5rem; /* Tailwind text-4xl or 5xl */
+            font-weight: 700; /* Tailwind font-bold */
+            color: var(--header-color);
+            letter-spacing: -0.025em; /* Tailwind tracking-tight */
+            margin-bottom: 0.5rem;
+            /* Optional: Add a subtle text gradient */
+            /* background: linear-gradient(90deg, var(--highlight-primary), var(--highlight-secondary)); */
+            /* -webkit-background-clip: text; */
+            /* -webkit-text-fill-color: transparent; */
+        }
+
+        .header p {
+            font-size: 1.125rem; /* Tailwind text-lg */
+            color: var(--text-muted-color);
+            margin-top: 0.5rem; /* Tailwind mt-2 */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-muted-color);
+            font-size: 0.875rem; /* Tailwind text-sm */
+            padding-top: 2rem;
+            padding-bottom: 2rem; /* Tailwind py-8 */
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* Simple line graphic element (optional) */
+        .line-graphic {
+            height: 1px; /* Thinner line */
+            background: linear-gradient(90deg, rgba(20, 184, 166, 0), var(--highlight-primary), rgba(20, 184, 166, 0));
+            opacity: 0.6;
+            margin: 1.5rem 0; /* Adjust margin */
+        }
+
+        /* Framer Motion requires the script, styles enhance appearance */
+        [data-motion-element] {
+             /* Base styles for elements animated by Framer Motion */
+        }
+
+        .paper-tldr {
+            font-size: 0.95rem; /* Slightly bigger than summary */
+            color: #475569; /* Changed to Tailwind slate-600 (slightly darker than summary) */
+            margin-top: 0.75rem; /* Tailwind mt-3 */
+            margin-bottom: 0.75rem; /* Tailwind mb-2 */
+            /* font-style: italic; */
+            font-weight: bold;
+        }
+
+        .paper-rating {
+            margin-top: 1rem; /* Tailwind mt-4 */
+            margin-bottom: 1rem; /* Tailwind mb-4 */
+            color: #f59e0b; /* Tailwind amber-500 */
+        }
+
+        .paper-rating i {
+            margin-right: 0.125rem; /* Tailwind mr-0.5 */
+        }
+
+        /* Apply consistent star color to sub-ratings */
+        .paper-sub-ratings .rating-item i {
+            color: #f59e0b; /* Match overall rating star color (amber-500) */
+            margin-right: 0.125rem; /* Consistent spacing */
+        }
+
+    </style>
+</head>
+<body class="container mx-auto px-4 antialiased">
+
+    <motion.div
+        initial="{ opacity: 0, y: -30 }"
+        animate="{ opacity: 1, y: 0 }"
+        transition="{ duration: 0.6, ease: 'easeOut' }"
+        class="header"
+        data-motion-element
+    >
+        <h1>Daily Preprint Digest</h1>
+        
+        <p>Generative AI and AI4Science papers from arXiv, bioRxiv, and ChemRxiv</p>
+        
+        <p>February 20, 2026</p>
+        <div class="line-graphic mt-4 mb-8 mx-auto w-1/4"></div> <!-- Added line graphic -->
+    </motion.div>
+
+    <div class="bento-grid" id="paper-grid">
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">RetouchIQ: MLLM Agents for Instruction-Based Image Retouching with Generalist Reward</h2>
+            <p class="paper-summary">Recent advances in multimodal large language models (MLLMs) have shown great potential for extending vision-language reasoning to professional tool-based image editing, enabling intuitive and creative editing. A promising direction is to use reinforcement learning (RL) to enable MLLMs to reason about and execute optimal tool-use plans within professional image-editing software. However, training remains challenging due to the lack of reliable, verifiable reward signals that can reflect the inherently subjective nature of creative editing. In this work, we introduce RetouchIQ, a framework that performs instruction-based executable image editing through MLLM agents guided by a generalist reward model. RetouchIQ interprets user-specified editing intentions and generates corresponding, executable image adjustments, bridging high-level aesthetic goals with precise parameter control. To move beyond conventional, rule-based rewards that compute similarity against a fixed reference image using handcrafted metrics, we propose a generalist reward model, an RL fine-tuned MLLM that evaluates edited results through a set of generated metrics on a case-by-case basis. Then, the reward model provides scalar feedback through multimodal reasoning, enabling reinforcement learning with high-quality, instruction-consistent gradients. We curate an extended dataset with 190k instruction-reasoning pairs and establish a new benchmark for instruction-based image editing. Experiments show that RetouchIQ substantially improves both semantic consistency and perceptual quality over previous MLLM-based and diffusion-based editing systems. Our findings demonstrate the potential of generalist reward-driven MLLM agents as flexible, explainable, and executable assistants for professional image editing.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17558v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17558v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Qiucheng Wu, Jing Shi, Simon Jenni, Kushal Kafle, Tianyu Wang, Shiyu Chang, Handong Zhao</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.05, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">GraphThinker: Reinforcing Video Reasoning with Event Graph Thinking</h2>
+            <p class="paper-summary">Video reasoning requires understanding the causal relationships between events in a video. However, such relationships are often implicit and costly to annotate manually. While existing multimodal large language models (MLLMs) often infer event relations through dense captions or video summaries for video reasoning, such modeling still lacks causal understanding. Without explicit causal structure modeling within and across video events, these models suffer from hallucinations during the video reasoning. In this work, we propose GraphThinker, a reinforcement finetuning-based method that constructs structural event-level scene graphs and enhances visual grounding to jointly reduce hallucinations in video reasoning. Specifically, we first employ an MLLM to construct an event-based video scene graph (EVSG) that explicitly models both intra- and inter-event relations, and incorporate these formed scene graphs into the MLLM as an intermediate thinking process. We also introduce a visual attention reward during reinforcement finetuning, which strengthens video grounding and further mitigates hallucinations. We evaluate GraphThinker on two datasets, RexTime and VidHalluc, where it shows superior ability to capture object and event relations with more precise event localization, reducing hallucinations in video reasoning compared to prior methods.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17555v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17555v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Zixu Cheng, Da Li, Jian Hu, Ziquan Liu, Wei Li, Shaogang Gong</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">QuPAINT: Physics-Aware Instruction Tuning Approach to Quantum Material Discovery</h2>
+            <p class="paper-summary">Characterizing two-dimensional quantum materials from optical microscopy images is challenging due to the subtle layer-dependent contrast, limited labeled data, and significant variation across laboratories and imaging setups. Existing vision models struggle in this domain since they lack physical priors and cannot generalize to new materials or hardware conditions. This work presents a new physics-aware multimodal framework that addresses these limitations from both the data and model perspectives. We first present Synthia, a physics-based synthetic data generator that simulates realistic optical responses of quantum material flakes under thin-film interference. Synthia produces diverse and high-quality samples, helping reduce the dependence on expert manual annotation. We introduce QMat-Instruct, the first large-scale instruction dataset for quantum materials, comprising multimodal, physics-informed question-answer pairs designed to teach Multimodal Large Language Models (MLLMs) to understand the appearance and thickness of flakes. Then, we propose Physics-Aware Instruction Tuning (QuPAINT), a multimodal architecture that incorporates a Physics-Informed Attention module to fuse visual embeddings with optical priors, enabling more robust and discriminative flake representations. Finally, we establish QF-Bench, a comprehensive benchmark spanning multiple materials, substrates, and imaging settings, offering standardized protocols for fair and reproducible evaluation.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17478v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17478v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Xuan-Bac Nguyen, Hoang-Quan Nguyen, Sankalp Pandey, Tim Faltermeier, Nicholas Borys, Hugh Churchill, Khoa Luu</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.15000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">EAGLE: Expert-Augmented Attention Guidance for Tuning-Free Industrial Anomaly Detection in Multimodal Large Language Models</h2>
+            <p class="paper-summary">Industrial anomaly detection is important for smart manufacturing, but many deep learning approaches produce only binary decisions and provide limited semantic explanations. Multimodal large language models (MLLMs) can potentially generate fine-grained, language-based analyses, yet existing methods often require costly fine-tuning and do not consistently improve anomaly detection accuracy compared to lightweight specialist detectors. We propose expert-augmented attention guidance for industrial anomaly detection in MLLMs (EAGLE), a tuning-free framework that integrates outputs from expert model to guide MLLMs toward both accurate detection and interpretable anomaly descriptions. We further study how EAGLE affects MLLMs internals by examining the attention distribution of MLLMs to the anomalous image regions in the intermediate layers. We observe that successful anomaly detection is associated with increased attention concentration on anomalous regions, and EAGLE tends to encourage this alignment. Experiments on MVTec-AD and VisA show that EAGLE improves anomaly detection performance across multiple MLLMs without any parameter updates, achieving results comparable to fine-tuning based methods. Code is available at \href{https://github.com/shengtun/Eagle}{https://github.com/shengtun/Eagle}</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17419v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17419v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Xiaomeng Peng, Xilang Huang, Seon Han Choi</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.2, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">SpectralGCD: Spectral Concept Selection and Cross-modal Representation Learning for Generalized Category Discovery</h2>
+            <p class="paper-summary">Generalized Category Discovery (GCD) aims to identify novel categories in unlabeled data while leveraging a small labeled subset of known classes. Training a parametric classifier solely on image features often leads to overfitting to old classes, and recent multimodal approaches improve performance by incorporating textual information. However, they treat modalities independently and incur high computational cost. We propose SpectralGCD, an efficient and effective multimodal approach to GCD that uses CLIP cross-modal image-concept similarities as a unified cross-modal representation. Each image is expressed as a mixture over semantic concepts from a large task-agnostic dictionary, which anchors learning to explicit semantics and reduces reliance on spurious visual cues. To maintain the semantic quality of representations learned by an efficient student, we introduce Spectral Filtering which exploits a cross-modal covariance matrix over the softmaxed similarities measured by a strong teacher model to automatically retain only relevant concepts from the dictionary. Forward and reverse knowledge distillation from the same teacher ensures that the cross-modal representations of the student remain both semantically sufficient and well-aligned. Across six benchmarks, SpectralGCD delivers accuracy comparable to or significantly superior to state-of-the-art methods at a fraction of the computational cost. The code is publicly available at: https://github.com/miccunifi/SpectralGCD.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV, cs.AI, cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17395v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17395v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Lorenzo Caselli, Marco Mistretta, Simone Magistri, Andrew D. Bagdanov</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Physics Encoded Spatial and Temporal Generative Adversarial Network for Tropical Cyclone Image Super-resolution</h2>
+            <p class="paper-summary">High-resolution satellite imagery is indispensable for tracking the genesis, intensification, and trajectory of tropical cyclones (TCs). However, existing deep learning-based super-resolution (SR) methods often treat satellite image sequences as generic videos, neglecting the underlying atmospheric physical laws governing cloud motion. To address this, we propose a Physics Encoded Spatial and Temporal Generative Adversarial Network (PESTGAN) for TC image super-resolution. Specifically, we design a disentangled generator architecture incorporating a PhyCell module, which approximates the vorticity equation via constrained convolutions and encodes the resulting approximate physical dynamics as implicit latent representations to separate physical dynamics from visual textures. Furthermore, a dual-discriminator framework is introduced, employing a temporal discriminator to enforce motion consistency alongside spatial realism. Experiments on the Digital Typhoon dataset for 4$\times$ upscaling demonstrate that PESTGAN establishes a better performance in structural fidelity and perceptual quality. While maintaining competitive pixel-wise accuracy compared to existing approaches, our method significantly excels in reconstructing meteorologically plausible cloud structures with superior physical fidelity.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17277v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17277v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ruoyi Zhang, Jiawei Yuan, Lujia Ye, Runling Yu, Liling Zhao</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.30000000000000004, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Unified Latents (UL): How to train your latents</h2>
+            <p class="paper-summary">We present Unified Latents (UL), a framework for learning latent representations that are jointly regularized by a diffusion prior and decoded by a diffusion model. By linking the encoder's output noise to the prior's minimum noise level, we obtain a simple training objective that provides a tight upper bound on the latent bitrate. On ImageNet-512, our approach achieves competitive FID of 1.4, with high reconstruction quality (PSNR) while requiring fewer training FLOPs than models trained on Stable Diffusion latents. On Kinetics-600, we set a new state-of-the-art FVD of 1.3.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17270v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17270v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Jonathan Heek, Emiel Hoogeboom, Thomas Mensink, Tim Salimans</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.35000000000000003, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">A Multi-modal Detection System for Infrastructure-based Freight Signal Priority</h2>
+            <p class="paper-summary">Freight vehicles approaching signalized intersections require reliable detection and motion estimation to support infrastructure-based Freight Signal Priority (FSP). Accurate and timely perception of vehicle type, position, and speed is essential for enabling effective priority control strategies. This paper presents the design, deployment, and evaluation of an infrastructure-based multi-modal freight vehicle detection system integrating LiDAR and camera sensors. A hybrid sensing architecture is adopted, consisting of an intersection-mounted subsystem and a midblock subsystem, connected via wireless communication for synchronized data transmission. The perception pipeline incorporates both clustering-based and deep learning-based detection methods with Kalman filter tracking to achieve stable real-time performance. LiDAR measurements are registered into geodetic reference frames to support lane-level localization and consistent vehicle tracking. Field evaluations demonstrate that the system can reliably monitor freight vehicle movements at high spatio-temporal resolution. The design and deployment provide practical insights for developing infrastructure-based sensing systems to support FSP applications.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV, eess.IV, eess.SY
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17252v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17252v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ziyan Zhang, Chuheng Wei, Xuanpeng Zhao, Siyan Li, Will Snyder, Mike Stas, Peng Hao, Kanok Boriboonsomsin, Guoyuan Wu</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.4, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Inferring Height from Earth Embeddings: First insights using Google AlphaEarth</h2>
+            <p class="paper-summary">This study investigates whether the geospatial and multimodal features encoded in \textit{Earth Embeddings} can effectively guide deep learning (DL) regression models for regional surface height mapping. In particular, we focused on AlphaEarth Embeddings at 10 m spatial resolution and evaluated their capability to support terrain height inference using a high-quality Digital Surface Model (DSM) as reference. U-Net and U-Net++ architectures were thus employed as lightweight convolutional decoders to assess how well the geospatial information distilled in the embeddings can be translated into accurate surface height estimates. Both architectures achieved strong training performance (both with $R^2 = 0.97$), confirming that the embeddings encode informative and decodable height-related signals. On the test set, performance decreased due to distribution shifts in height frequency between training and testing areas. Nevertheless, U-Net++ shows better generalization ($R^2 = 0.84$, median difference = -2.62 m) compared with the standard U-Net ($R^2 = 0.78$, median difference = -7.22 m), suggesting enhanced robustness to distribution mismatch. While the testing RMSE (approximately 16 m for U-Net++) and residual bias highlight remaining challenges in generalization, strong correlations indicate that the embeddings capture transferable topographic patterns. Overall, the results demonstrate the promising potential of AlphaEarth Embeddings to guide DL-based height mapping workflows, particularly when combined with spatially aware convolutional architectures, while emphasizing the need to address bias for improved regional transferability.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17250v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17250v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Alireza Hamoudzadeh, Valeria Belloni, Roberta Ravanelli</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.45, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">GASS: Geometry-Aware Spherical Sampling for Disentangled Diversity Enhancement in Text-to-Image Generation</h2>
+            <p class="paper-summary">Despite high semantic alignment, modern text-to-image (T2I) generative models still struggle to synthesize diverse images from a given prompt. This lack of diversity not only restricts user choice, but also risks amplifying societal biases. In this work, we enhance the T2I diversity through a geometric lens. Unlike most existing methods that rely primarily on entropy-based guidance to increase sample dissimilarity, we introduce Geometry-Aware Spherical Sampling (GASS) to enhance diversity by explicitly controlling both prompt-dependent and prompt-independent sources of variation. Specifically, we decompose the diversity measure in CLIP embeddings using two orthogonal directions: the text embedding, which captures semantic variation related to the prompt, and an identified orthogonal direction that captures prompt-independent variation (e.g., backgrounds). Based on this decomposition, GASS increases the geometric projection spread of generated image embeddings along both axes and guides the T2I sampling process via expanded predictions along the generation trajectory. Our experiments on different frozen T2I backbones (U-Net and DiT, diffusion and flow) and benchmarks demonstrate the effectiveness of disentangled diversity enhancement with minimal impact on image fidelity and semantic alignment.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17200v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17200v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ye Zhu, Kaleb S. Newman, Johannes F. Lutzeyer, Adriana Romero-Soriano, Michal Drozdzal, Olga Russakovsky</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">EntropyPrune: Matrix Entropy Guided Visual Token Pruning for Multimodal Large Language Models</h2>
+            <p class="paper-summary">Multimodal large language models (MLLMs) incur substantial inference cost due to the processing of hundreds of visual tokens per image. Although token pruning has proven effective for accelerating inference, determining when and where to prune remains largely heuristic. Existing approaches typically rely on static, empirically selected layers, which limit interpretability and transferability across models. In this work, we introduce a matrix-entropy perspective and identify an "Entropy Collapse Layer" (ECL), where the information content of visual representations exhibits a sharp and consistent drop, which provides a principled criterion for selecting the pruning stage. Building on this observation, we propose EntropyPrune, a novel matrix-entropy-guided token pruning framework that quantifies the information value of individual visual tokens and prunes redundant ones without relying on attention maps. Moreover, to enable efficient computation, we exploit the spectral equivalence of dual Gram matrices, reducing the complexity of entropy computation and yielding up to a 64x theoretical speedup. Extensive experiments on diverse multimodal benchmarks demonstrate that EntropyPrune consistently outperforms state-of-the-art pruning methods in both accuracy and efficiency. On LLaVA-1.5-7B, our method achieves a 68.2% reduction in FLOPs while preserving 96.0% of the original performance. Furthermore, EntropyPrune generalizes effectively to high-resolution and video-based models, highlighting the strong robustness and scalability in practical MLLM acceleration. The code will be publicly available at https://github.com/YahongWang1/EntropyPrune.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17196v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17196v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Yahong Wang, Juncheng Wu, Zhangkai Ni, Chengmei Yang, Yihang Liu, Longzhen Yang, Yuyin Zhou, Ying Wen, Lianghua He</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.55, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">BadCLIP++: Stealthy and Persistent Backdoors in Multimodal Contrastive Learning</h2>
+            <p class="paper-summary">Research on backdoor attacks against multimodal contrastive learning models faces two key challenges: stealthiness and persistence. Existing methods often fail under strong detection or continuous fine-tuning, largely due to (1) cross-modal inconsistency that exposes trigger patterns and (2) gradient dilution at low poisoning rates that accelerates backdoor forgetting. These coupled causes remain insufficiently modeled and addressed. We propose BadCLIP++, a unified framework that tackles both challenges. For stealthiness, we introduce a semantic-fusion QR micro-trigger that embeds imperceptible patterns near task-relevant regions, preserving clean-data statistics while producing compact trigger distributions. We further apply target-aligned subset selection to strengthen signals at low injection rates. For persistence, we stabilize trigger embeddings via radius shrinkage and centroid alignment, and stabilize model parameters through curvature control and elastic weight consolidation, maintaining solutions within a low-curvature wide basin resistant to fine-tuning. We also provide the first theoretical analysis showing that, within a trust region, gradients from clean fine-tuning and backdoor objectives are co-directional, yielding a non-increasing upper bound on attack success degradation. Experiments demonstrate that with only 0.3% poisoning, BadCLIP++ achieves 99.99% attack success rate (ASR) in digital settings, surpassing baselines by 11.4 points. Across nineteen defenses, ASR remains above 99.90% with less than 0.8% drop in clean accuracy. The method further attains 65.03% success in physical attacks and shows robustness against watermark removal defenses.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17168v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17168v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Siyuan Liang, Yongcheng Jing, Yingjie Wang, Jiaxing Huang, Ee-chien Chang, Dacheng Tao</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.6000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">3D Scene Rendering with Multimodal Gaussian Splatting</h2>
+            <p class="paper-summary">3D scene reconstruction and rendering are core tasks in computer vision, with applications spanning industrial monitoring, robotics, and autonomous driving. Recent advances in 3D Gaussian Splatting (GS) and its variants have achieved impressive rendering fidelity while maintaining high computational and memory efficiency. However, conventional vision-based GS pipelines typically rely on a sufficient number of camera views to initialize the Gaussian primitives and train their parameters, typically incurring additional processing cost during initialization while falling short in conditions where visual cues are unreliable, such as adverse weather, low illumination, or partial occlusions. To cope with these challenges, and motivated by the robustness of radio-frequency (RF) signals to weather, lighting, and occlusions, we introduce a multimodal framework that integrates RF sensing, such as automotive radar, with GS-based rendering as a more efficient and robust alternative to vision-only GS rendering. The proposed approach enables efficient depth prediction from only sparse RF-based depth measurements, yielding a high-quality 3D point cloud for initializing Gaussian functions across diverse GS architectures. Numerical tests demonstrate the merits of judiciously incorporating RF sensing into GS pipelines, achieving high-fidelity 3D scene rendering driven by RF-informed structural accuracy.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV, cs.AI, cs.RO
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17124v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17124v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Chi-Shiang Gau, Konstantinos D. Polyzos, Athanasios Bacharis, Saketh Madhuvarasu, Tara Javidi</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.65, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Amber-Image: Efficient Compression of Large-Scale Diffusion Transformers</h2>
+            <p class="paper-summary">Diffusion Transformer (DiT) architectures have significantly advanced Text-to-Image (T2I) generation but suffer from prohibitive computational costs and deployment barriers. To address these challenges, we propose an efficient compression framework that transforms the 60-layer dual-stream MMDiT-based Qwen-Image into lightweight models without training from scratch. Leveraging this framework, we introduce Amber-Image, a series of streamlined T2I models. We first derive Amber-Image-10B using a timestep-sensitive depth pruning strategy, where retained layers are reinitialized via local weight averaging and optimized through layer-wise distillation and full-parameter fine-tuning. Building on this, we develop Amber-Image-6B by introducing a hybrid-stream architecture that converts deep-layer dual streams into a single stream initialized from the image branch, further refined via progressive distillation and lightweight fine-tuning. Our approach reduces parameters by 70% and eliminates the need for large-scale data engineering. Notably, the entire compression and training pipeline-from the 10B to the 6B variant-requires fewer than 2,000 GPU hours, demonstrating exceptional cost-efficiency compared to training from scratch. Extensive evaluations on benchmarks like DPG-Bench and LongText-Bench show that Amber-Image achieves high-fidelity synthesis and superior text rendering, matching much larger models.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17047v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17047v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Chaojie Yang, Tian Li, Yue Zhang, Jun Gao</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.7000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">PartRAG: Retrieval-Augmented Part-Level 3D Generation and Editing</h2>
+            <p class="paper-summary">Single-image 3D generation with part-level structure remains challenging: learned priors struggle to cover the long tail of part geometries and maintain multi-view consistency, and existing systems provide limited support for precise, localized edits. We present PartRAG, a retrieval-augmented framework that integrates an external part database with a diffusion transformer to couple generation with an editable representation. To overcome the first challenge, we introduce a Hierarchical Contrastive Retrieval module that aligns dense image patches with 3D part latents at both part and object granularity, retrieving from a curated bank of 1,236 part-annotated assets to inject diverse, physically plausible exemplars into denoising. To overcome the second challenge, we add a masked, part-level editor that operates in a shared canonical space, enabling swaps, attribute refinements, and compositional updates without regenerating the whole object while preserving non-target parts and multi-view consistency. PartRAG achieves competitive results on Objaverse, ShapeNet, and ABO-reducing Chamfer Distance from 0.1726 to 0.1528 and raising F-Score from 0.7472 to 0.844 on Objaverse-with inference of 38s and interactive edits in 5-8s. Qualitatively, PartRAG produces sharper part boundaries, better thin-structure fidelity, and robust behavior on articulated objects. Code: https://github.com/AIGeeksGroup/PartRAG. Website: https://aigeeksgroup.github.io/PartRAG.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17033v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17033v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Peize Li, Zeyu Zhang, Hao Tang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.75, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Characterizing the Predictive Impact of Modalities with Supervised Latent-Variable Modeling</h2>
+            <p class="paper-summary">Despite the recent success of Multimodal Large Language Models (MLLMs), existing approaches predominantly assume the availability of multiple modalities during training and inference. In practice, multimodal data is often incomplete because modalities may be missing, collected asynchronously, or available only for a subset of examples. In this work, we propose PRIMO, a supervised latent-variable imputation model that quantifies the predictive impact of any missing modality within the multimodal learning setting. PRIMO enables the use of all available training examples, whether modalities are complete or partial. Specifically, it models the missing modality through a latent variable that captures its relationship with the observed modality in the context of prediction. During inference, we draw many samples from the learned distribution over the missing modality to both obtain the marginal predictive distribution (for the purpose of prediction) and analyze the impact of the missing modalities on the prediction for each instance. We evaluate PRIMO on a synthetic XOR dataset, Audio-Vision MNIST, and MIMIC-III for mortality and ICD-9 prediction. Across all datasets, PRIMO obtains performance comparable to unimodal baselines when a modality is fully missing and to multimodal baselines when all modalities are available. PRIMO quantifies the predictive impact of a modality at the instance level using a variance-based metric computed from predictions across latent completions. We visually demonstrate how varying completions of the missing modality result in a set of plausible labels.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV, cs.CL, cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16979v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16979v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Divyam Madaan, Sumit Chopra, Kyunghyun Cho</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">DDiT: Dynamic Patch Scheduling for Efficient Diffusion Transformers</h2>
+            <p class="paper-summary">Diffusion Transformers (DiTs) have achieved state-of-the-art performance in image and video generation, but their success comes at the cost of heavy computation. This inefficiency is largely due to the fixed tokenization process, which uses constant-sized patches throughout the entire denoising phase, regardless of the content's complexity. We propose dynamic tokenization, an efficient test-time strategy that varies patch sizes based on content complexity and the denoising timestep. Our key insight is that early timesteps only require coarser patches to model global structure, while later iterations demand finer (smaller-sized) patches to refine local details. During inference, our method dynamically reallocates patch sizes across denoising steps for image and video generation and substantially reduces cost while preserving perceptual generation quality. Extensive experiments demonstrate the effectiveness of our approach: it achieves up to $3.52\times$ and $3.2\times$ speedup on FLUX-1.Dev and Wan $2.1$, respectively, without compromising the generation quality and prompt adherence.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16968v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16968v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Dahye Kim, Deepti Ghadiyaram, Raghudeep Gadde</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Xray-Visual Models: Scaling Vision models on Industry Scale Data</h2>
+            <p class="paper-summary">We present Xray-Visual, a unified vision model architecture for large-scale image and video understanding trained on industry-scale social media data. Our model leverages over 15 billion curated image-text pairs and 10 billion video-hashtag pairs from Facebook and Instagram, employing robust data curation pipelines that incorporate balancing and noise suppression strategies to maximize semantic diversity while minimizing label noise. We introduce a three-stage training pipeline that combines self-supervised MAE, semi-supervised hashtag classification, and CLIP-style contrastive learning to jointly optimize image and video modalities. Our architecture builds on a Vision Transformer backbone enhanced with efficient token reorganization (EViT) for improved computational efficiency. Extensive experiments demonstrate that Xray-Visual achieves state-of-the-art performance across diverse benchmarks, including ImageNet for image classification, Kinetics and HMDB51 for video understanding, and MSCOCO for cross-modal retrieval. The model exhibits strong robustness to domain shift and adversarial perturbations. We further demonstrate that integrating large language models as text encoders (LLM2CLIP) significantly enhances retrieval performance and generalization capabilities, particularly in real-world environments. Xray-Visual establishes new benchmarks for scalable, multimodal vision models, while maintaining superior accuracy and computational efficiency.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16918v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16918v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Shlok Mishra, Tsung-Yu Lin, Linda Wang, Hongli Xu, Yimin Liu, Michael Hsu, Chaitanya Ahuja, Hao Yuan, Jianpeng Cheng, Hong-You Chen, Haoyuan Xu, Chao Li, Abhijeet Awasthi, Jihye Moon, Don Husa, Michael Ge, Sumedha Singla, Arkabandhu Chowdhury, Phong Dingh, Satya Narayan Shukla, Yonghuan Yang, David Jacobs, Qi Guo, Jun Xiao, Xiangjun Fan, Aashu Singh</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.9, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">StereoAdapter-2: Globally Structure-Consistent Underwater Stereo Depth Estimation</h2>
+            <p class="paper-summary">Stereo depth estimation is fundamental to underwater robotic perception, yet suffers from severe domain shifts caused by wavelength-dependent light attenuation, scattering, and refraction. Recent approaches leverage monocular foundation models with GRU-based iterative refinement for underwater adaptation; however, the sequential gating and local convolutional kernels in GRUs necessitate multiple iterations for long-range disparity propagation, limiting performance in large-disparity and textureless underwater regions. In this paper, we propose StereoAdapter-2, which replaces the conventional ConvGRU updater with a novel ConvSS2D operator based on selective state space models. The proposed operator employs a four-directional scanning strategy that naturally aligns with epipolar geometry while capturing vertical structural consistency, enabling efficient long-range spatial propagation within a single update step at linear computational complexity. Furthermore, we construct UW-StereoDepth-80K, a large-scale synthetic underwater stereo dataset featuring diverse baselines, attenuation coefficients, and scattering parameters through a two-stage generative pipeline combining semantic-aware style transfer and geometry-consistent novel view synthesis. Combined with dynamic LoRA adaptation inherited from StereoAdapter, our framework achieves state-of-the-art zero-shot performance on underwater benchmarks with 17% improvement on TartanAir-UW and 7.2% improvment on SQUID, with real-world validation on the BlueROV2 platform demonstrates the robustness of our approach. Code: https://github.com/AIGeeksGroup/StereoAdapter-2. Website: https://aigeeksgroup.github.io/StereoAdapter-2.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16915v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16915v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Zeyu Ren, Xiang Li, Yiran Wang, Zeyu Zhang, Hao Tang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.9500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">DODO: Discrete OCR Diffusion Models</h2>
+            <p class="paper-summary">Optical Character Recognition (OCR) is a fundamental task for digitizing information, serving as a critical bridge between visual data and textual understanding. While modern Vision-Language Models (VLM) have achieved high accuracy in this domain, they predominantly rely on autoregressive decoding, which becomes computationally expensive and slow for long documents as it requires a sequential forward pass for every generated token. We identify a key opportunity to overcome this bottleneck: unlike open-ended generation, OCR is a highly deterministic task where the visual input strictly dictates a unique output sequence, theoretically enabling efficient, parallel decoding via diffusion models. However, we show that existing masked diffusion models fail to harness this potential; those introduce structural instabilities that are benign in flexible tasks, like captioning, but catastrophic for the rigid, exact-match requirements of OCR. To bridge this gap, we introduce DODO, the first VLM to utilize block discrete diffusion and unlock its speedup potential for OCR. By decomposing generation into blocks, DODO mitigates the synchronization errors of global diffusion. Empirically, our method achieves near state-of-the-art accuracy while enabling up to 3x faster inference compared to autoregressive baselines.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16872v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16872v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Sean Man, Roy Ganz, Roi Ronen, Shahar Tsiper, Shai Mazor, Niv Nayman</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Learning Situated Awareness in the Real World</h2>
+            <p class="paper-summary">A core aspect of human perception is situated awareness, the ability to relate ourselves to the surrounding physical environment and reason over possible actions in context. However, most existing benchmarks for multimodal foundation models (MFMs) emphasize environment-centric spatial relations (relations among objects in a scene), while largely overlooking observer-centric relationships that require reasoning relative to agent's viewpoint, pose, and motion. To bridge this gap, we introduce SAW-Bench (Situated Awareness in the Real World), a novel benchmark for evaluating egocentric situated awareness using real-world videos. SAW-Bench comprises 786 self-recorded videos captured with Ray-Ban Meta (Gen 2) smart glasses spanning diverse indoor and outdoor environments, and over 2,071 human-annotated question-answer pairs. It probes a model's observer-centric understanding with six different awareness tasks. Our comprehensive evaluation reveals a human-model performance gap of 37.66%, even with the best-performing MFM, Gemini 3 Flash. Beyond this gap, our in-depth analysis uncovers several notable findings; for example, while models can exploit partial geometric cues in egocentric videos, they often fail to infer a coherent camera geometry, leading to systematic spatial reasoning errors. We position SAW-Bench as a benchmark for situated spatial intelligence, moving beyond passive observation to understanding physically grounded, observer-centric dynamics.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16682v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16682v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Chuhan Li, Ruilin Han, Joy Hsu, Yongyuan Liang, Rajiv Dhawan, Jiajun Wu, Ming-Hsuan Yang, Xin Eric Wang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.05, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Unpaired Image-to-Image Translation via a Self-Supervised Semantic Bridge</h2>
+            <p class="paper-summary">Adversarial diffusion and diffusion-inversion methods have advanced unpaired image-to-image translation, but each faces key limitations. Adversarial approaches require target-domain adversarial loss during training, which can limit generalization to unseen data, while diffusion-inversion methods often produce low-fidelity translations due to imperfect inversion into noise-latent representations. In this work, we propose the Self-Supervised Semantic Bridge (SSB), a versatile framework that integrates external semantic priors into diffusion bridge models to enable spatially faithful translation without cross-domain supervision. Our key idea is to leverage self-supervised visual encoders to learn representations that are invariant to appearance changes but capture geometric structure, forming a shared latent space that conditions the diffusion bridges. Extensive experiments show that SSB outperforms strong prior methods for challenging medical image synthesis in both in-domain and out-of-domain settings, and extends easily to high-quality text-guided editing.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16664v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16664v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Jiaming Liu, Felix Petersen, Yunhe Gao, Yabin Zhang, Hyojin Kim, Akshay S. Chaudhari, Yu Sun, Stefano Ermon, Sergios Gatidis</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Toward a Fully Autonomous, AI-Native Particle Accelerator</h2>
+            <p class="paper-summary">This position paper presents a vision for self-driving particle accelerators that operate autonomously with minimal human intervention. We propose that future facilities be designed through artificial intelligence (AI) co-design, where AI jointly optimizes the accelerator lattice, diagnostics, and science application from inception to maximize performance while enabling autonomous operation. Rather than retrofitting AI onto human-centric systems, we envision facilities designed from the ground up as AI-native platforms. We outline nine critical research thrusts spanning agentic control architectures, knowledge integration, adaptive learning, digital twins, health monitoring, safety frameworks, modular hardware design, multimodal data fusion, and cross-domain collaboration. This roadmap aims to guide the accelerator community toward a future where AI-driven design and operation deliver unprecedented science output and reliability.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: physics.acc-ph, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17536v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17536v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Chris Tennant</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.1500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Systematic Evaluation of Single-Cell Foundation Model Interpretability Reveals Attention Captures Co-Expression Rather Than Unique Regulatory Signal</h2>
+            <p class="paper-summary">We present a systematic evaluation framework - thirty-seven analyses, 153 statistical tests, four cell types, two perturbation modalities - for assessing mechanistic interpretability in single-cell foundation models. Applying this framework to scGPT and Geneformer, we find that attention patterns encode structured biological information with layer-specific organisation - protein-protein interactions in early layers, transcriptional regulation in late layers - but this structure provides no incremental value for perturbation prediction: trivial gene-level baselines outperform both attention and correlation edges (AUROC 0.81-0.88 versus 0.70), pairwise edge scores add zero predictive contribution, and causal ablation of regulatory heads produces no degradation. These findings generalise from K562 to RPE1 cells; the attention-correlation relationship is context-dependent, but gene-level dominance is universal. Cell-State Stratified Interpretability (CSSI) addresses an attention-specific scaling failure, improving GRN recovery up to 1.85x. The framework establishes reusable quality-control standards for the field.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: q-bio.GN, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17532v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17532v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ihor Kendiukhov</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.2000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Beyond Pipelines: A Fundamental Study on the Rise of Generative-Retrieval Architectures in Web Research</h2>
+            <p class="paper-summary">Web research and practices have evolved significantly over time, offering users diverse and accessible solutions across a wide range of tasks. While advanced concepts such as Web 4.0 have emerged from mature technologies, the introduction of large language models (LLMs) has profoundly influenced both the field and its applications. This wave of LLMs has permeated science and technology so deeply that no area remains untouched. Consequently, LLMs are reshaping web research and development, transforming traditional pipelines into generative solutions for tasks like information retrieval, question answering, recommendation systems, and web analytics. They have also enabled new applications such as web-based summarization and educational tools. This survey explores recent advances in the impact of LLMs-particularly through the use of retrieval-augmented generation (RAG)-on web research and industry. It discusses key developments, open challenges, and future directions for enhancing web solutions with LLMs.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.IR, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17450v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17450v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Amirereza Abbasi, Mohsen Hooshmand</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">WarpRec: Unifying Academic Rigor and Industrial Scale for Responsible, Reproducible, and Efficient Recommendation</h2>
+            <p class="paper-summary">Innovation in Recommender Systems is currently impeded by a fractured ecosystem, where researchers must choose between the ease of in-memory experimentation and the costly, complex rewriting required for distributed industrial engines. To bridge this gap, we present WarpRec, a high-performance framework that eliminates this trade-off through a novel, backend-agnostic architecture. It includes 50+ state-of-the-art algorithms, 40 metrics, and 19 filtering and splitting strategies that seamlessly transition from local execution to distributed training and optimization. The framework enforces ecological responsibility by integrating CodeCarbon for real-time energy tracking, showing that scalability need not come at the cost of scientific integrity or sustainability. Furthermore, WarpRec anticipates the shift toward Agentic AI, leading Recommender Systems to evolve from static ranking engines into interactive tools within the Generative AI ecosystem. In summary, WarpRec not only bridges the gap between academia and industry but also can serve as the architectural backbone for the next generation of sustainable, agent-ready Recommender Systems. Code is available at https://github.com/sisinflab/warprec/</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.AI, cs.IR
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17442v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17442v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Marco Avolio, Potito Aghilar, Sabino Roccotelli, Vito Walter Anelli, Chiara Mallamaci, Vincenzo Paparella, Marco Valentini, Alejandro Bellogín, Michelantonio Trizio, Joseph Trotta, Antonio Ferrara, Tommaso Di Noia</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.3, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">A Contrastive Variational AutoEncoder for NSCLC Survival Prediction with Missing Modalities</h2>
+            <p class="paper-summary">Predicting survival outcomes for non-small cell lung cancer (NSCLC) patients is challenging due to the different individual prognostic features. This task can benefit from the integration of whole-slide images, bulk transcriptomics, and DNA methylation, which offer complementary views of the patient's condition at diagnosis. However, real-world clinical datasets are often incomplete, with entire modalities missing for a significant fraction of patients. State-of-the-art models rely on available data to create patient-level representations or use generative models to infer missing modalities, but they lack robustness in cases of severe missingness. We propose a Multimodal Contrastive Variational AutoEncoder (MCVAE) to address this issue: modality-specific variational encoders capture the uncertainty in each data source, and a fusion bottleneck with learned gating mechanisms is introduced to normalize the contributions from present modalities. We propose a multi-task objective that combines survival loss and reconstruction loss to regularize patient representations, along with a cross-modal contrastive loss that enforces cross-modal alignment in the latent space. During training, we apply stochastic modality masking to improve the robustness to arbitrary missingness patterns. Extensive evaluations on the TCGA-LUAD (n=475) and TCGA-LUSC (n=446) datasets demonstrate the efficacy of our approach in predicting disease-specific survival (DSS) and its robustness to severe missingness scenarios compared to two state-of-the-art models. Finally, we bring some clarifications on multimodal integration by testing our model on all subsets of modalities, finding that integration is not always beneficial to the task.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17402v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17402v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Michele Zanitti, Vanja Miskovic, Francesco Trovò, Alessandra Laura Giulia Pedrocchi, Ming Shen, Yan Kyaw Tun, Arsela Prelaj, Sokol Kosta</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.35, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">SubQuad: Near-Quadratic-Free Structure Inference with Distribution-Balanced Objectives in Adaptive Receptor framework</h2>
+            <p class="paper-summary">Comparative analysis of adaptive immune repertoires at population scale is hampered by two practical bottlenecks: the near-quadratic cost of pairwise affinity evaluations and dataset imbalances that obscure clinically important minority clonotypes. We introduce SubQuad, an end-to-end pipeline that addresses these challenges by combining antigen-aware, near-subquadratic retrieval with GPU-accelerated affinity kernels, learned multimodal fusion, and fairness-constrained clustering. The system employs compact MinHash prefiltering to sharply reduce candidate comparisons, a differentiable gating module that adaptively weights complementary alignment and embedding channels on a per-pair basis, and an automated calibration routine that enforces proportional representation of rare antigen-specific subgroups. On large viral and tumor repertoires SubQuad achieves measured gains in throughput and peak memory usage while preserving or improving recall@k, cluster purity, and subgroup equity. By co-designing indexing, similarity fusion, and equity-aware objectives, SubQuad offers a scalable, bias-aware platform for repertoire mining and downstream translational tasks such as vaccine target prioritization and biomarker discovery.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17330v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17330v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Rong Fu, Zijian Zhang, Wenxin Zhang, Kun Liu, Jiekai Wu, Xianda Li, Simon Fong</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.4000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">TAPO-Structured Description Logic for Information Behavior: Procedural and Oracle-Based Extensions</h2>
+            <p class="paper-summary">We introduce \emph{TAPO-Structured Description Logic} (TAPO--DL), a formal extension of classical description logic designed to model \emph{information behavior} as a structured, dynamic process.
+  TAPO--DL extends the standard T--Box/A--Box architecture with two additional layers: a \emph{Procedural Box} (P--Box), which supports concept-driven, imperative-style programs such as conditional and iterative actions, and an \emph{Oracle Box} (O--Box), which formalizes controlled interaction with external information sources. While the terminological and assertional components capture static conceptual and factual knowledge, the procedural and oracle-based components enable the explicit representation of information-generating actions and external validation.
+  We provide a unified semantic framework for TAPO--DL based on a co-generative, sheaf-theoretic interpretation, in which local informational states are modeled as sections and informational stability corresponds to the existence of coherent global structures. Within this setting, informational truth is characterized as stability under repeated agentive interaction rather than correspondence to a fixed global state.
+  By integrating description logic with procedural dynamics, oracle-based reasoning, and sheaf-theoretic semantics, TAPO--DL offers a principled formal framework for analyzing information behavior in contexts involving interaction, uncertainty, and contextuality.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LO, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17242v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17242v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Takao Inoué</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.4500000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">From Labor to Collaboration: A Methodological Experiment Using AI Agents to Augment Research Perspectives in Taiwan's Humanities and Social Sciences</h2>
+            <p class="paper-summary">Generative AI is reshaping knowledge work, yet existing research focuses predominantly on software engineering and the natural sciences, with limited methodological exploration for the humanities and social sciences. Positioned as a "methodological experiment," this study proposes an AI Agent-based collaborative research workflow (Agentic Workflow) for humanities and social science research. Taiwan's Claude.ai usage data (N = 7,729 conversations, November 2025) from the Anthropic Economic Index (AEI) serves as the empirical vehicle for validating the feasibility of this methodology.
+  This study operates on two levels: the primary level is the design and validation of a methodological framework - a seven-stage modular workflow grounded in three principles: task modularization, human-AI division of labor, and verifiability, with each stage delineating clear roles for human researchers (research judgment and ethical decisions) and AI Agents (information retrieval and text generation); the secondary level is the empirical analysis of AEI Taiwan data - serving as an operational demonstration of the workflow's application to secondary data research, showcasing both the process and output quality (see Appendix A).
+  This study contributes by proposing a replicable AI collaboration framework for humanities and social science researchers, and identifying three operational modes of human-AI collaboration - direct execution, iterative refinement, and human-led - through reflexive documentation of the operational process. This taxonomy reveals the irreplaceability of human judgment in research question formulation, theoretical interpretation, contextualized reasoning, and ethical reflection. Limitations including single-platform data, cross-sectional design, and AI reliability risks are acknowledged.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.AI, cs.CL, cs.CY
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17221v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17221v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Yi-Chih Huang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Universal Fine-Grained Symmetry Inference and Enforcement for Rigorous Crystal Structure Prediction</h2>
+            <p class="paper-summary">Crystal structure prediction (CSP), which aims to predict the three-dimensional atomic arrangement of a crystal from its composition, is central to materials discovery and mechanistic understanding. Existing deep learning models often treat crystallographic symmetry only as a soft heuristic or rely on space group and Wyckoff templates retrieved from known structures, which limits both physical fidelity and the ability to discover genuinely new material structures. In contrast to retrieval-based methods, our approach leverages large language models to encode chemical semantics and directly generate fine-grained Wyckoff patterns from composition, effectively circumventing the limitations inherent to database lookups. Crucially, we incorporate domain knowledge into the generative process through an efficient constrained-optimization search that rigorously enforces algebraic consistency between site multiplicities and atomic stoichiometry. By integrating this symmetry-consistent template into a diffusion backbone, our approach constrains the stochastic generative trajectory to a physically valid geometric manifold. This framework achieves state-of-the-art performance across stability, uniqueness, and novelty (SUN) benchmarks, alongside superior matching performance, thereby establishing a new paradigm for the rigorous exploration of targeted crystallographic space. This framework enables efficient expansion into previously uncharted materials space, eliminating reliance on existing databases or a priori structural knowledge.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cond-mat.mtrl-sci, cs.AI, physics.comp-ph
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17176v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17176v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Shi Yin, Jinming Mu, Xudong Zhu, Lixin He</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.55, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">JEPA-DNA: Grounding Genomic Foundation Models through Joint-Embedding Predictive Architectures</h2>
+            <p class="paper-summary">Genomic Foundation Models (GFMs) have largely relied on Masked Language Modeling (MLM) or Next Token Prediction (NTP) to learn the language of life. While these paradigms excel at capturing local genomic syntax and fine-grained motif patterns, they often fail to capture the broader functional context, resulting in representations that lack a global biological perspective. We introduce JEPA-DNA, a novel pre-training framework that integrates the Joint-Embedding Predictive Architecture (JEPA) with traditional generative objectives. JEPA-DNA introduces latent grounding by coupling token-level recovery with a predictive objective in the latent space by supervising a CLS token. This forces the model to predict the high-level functional embeddings of masked genomic segments rather than focusing solely on individual nucleotides. JEPA-DNA extends both NTP and MLM paradigms and can be deployed either as a standalone from-scratch objective or as a continual pre-training enhancement for existing GFMs. Our evaluations across a diverse suite of genomic benchmarks demonstrate that JEPA-DNA consistently yields superior performance in supervised and zero-shot tasks compared to generative-only baselines. By providing a more robust and biologically grounded representation, JEPA-DNA offers a scalable path toward foundation models that understand not only the genomic alphabet, but also the underlying functional logic of the sequence.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.AI, q-bio.GN
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17162v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17162v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ariel Larey, Elay Dahan, Amit Bleiweiss, Raizy Kellerman, Guy Leib, Omri Nayshool, Dan Ofer, Tal Zinger, Dan Dominissini, Gideon Rechavi, Nicole Bussola, Simon Lee, Shane O'Connell, Dung Hoang, Marissa Wirth, Alexander W. Charney, Nati Daniel, Yoli Shavit</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.6, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">TimeOmni-VL: Unified Models for Time Series Understanding and Generation</h2>
+            <p class="paper-summary">Recent time series modeling faces a sharp divide between numerical generation and semantic understanding, with research showing that generation models often rely on superficial pattern matching, while understanding-oriented models struggle with high-fidelity numerical output. Although unified multimodal models (UMMs) have bridged this gap in vision, their potential for time series remains untapped. We propose TimeOmni-VL, the first vision-centric framework that unifies time series understanding and generation through two key innovations: (1) Fidelity-preserving bidirectional mapping between time series and images (Bi-TSI), which advances Time Series-to-Image (TS2I) and Image-to-Time Series (I2TS) conversions to ensure near-lossless transformations. (2) Understanding-guided generation. We introduce TSUMM-Suite, a novel dataset consists of six understanding tasks rooted in time series analytics that are coupled with two generation tasks. With a calibrated Chain-of-Thought, TimeOmni-VL is the first to leverage time series understanding as an explicit control signal for high-fidelity generation. Experiments confirm that this unified approach significantly improves both semantic understanding and numerical precision, establishing a new frontier for multimodal time series modeling.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17149v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17149v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Tong Guan, Sheng Pan, Johan Barthelemy, Zhao Li, Yujun Cai, Cesare Alippi, Ming Jin, Shirui Pan</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.6500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">VP-VAE: Rethinking Vector Quantization via Adaptive Vector Perturbation</h2>
+            <p class="paper-summary">Vector Quantized Variational Autoencoders (VQ-VAEs) are fundamental to modern generative modeling, yet they often suffer from training instability and "codebook collapse" due to the inherent coupling of representation learning and discrete codebook optimization. In this paper, we propose VP-VAE (Vector Perturbation VAE), a novel paradigm that decouples representation learning from discretization by eliminating the need for an explicit codebook during training. Our key insight is that, from the neural network's viewpoint, performing quantization primarily manifests as injecting a structured perturbation in latent space. Accordingly, VP-VAE replaces the non-differentiable quantizer with distribution-consistent and scale-adaptive latent perturbations generated via Metropolis--Hastings sampling. This design enables stable training without a codebook while making the model robust to inference-time quantization error. Moreover, under the assumption of approximately uniform latent variables, we derive FSP (Finite Scalar Perturbation), a lightweight variant of VP-VAE that provides a unified theoretical explanation and a practical improvement for FSQ-style fixed quantizers. Extensive experiments on image and audio benchmarks demonstrate that VP-VAE and FSP improve reconstruction fidelity and achieve substantially more balanced token usage, while avoiding the instability inherent to coupled codebook training.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17133v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17133v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Linwei Zhai, Han Ding, Mingzhi Lin, Cui Zhao, Fei Wang, Ge Wang, Wang Zhi, Wei Xi</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.7000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Epistemology of Generative AI: The Geometry of Knowing</h2>
+            <p class="paper-summary">Generative AI presents an unprecedented challenge to our understanding of knowledge and its production. Unlike previous technological transformations, where engineering understanding preceded or accompanied deployment, generative AI operates through mechanisms whose epistemic character remains obscure, and without such understanding, its responsible integration into science, education, and institutional life cannot proceed on a principled basis. This paper argues that the missing account must begin with a paradigmatic break that has not yet received adequate philosophical attention. In the Turing-Shannon-von Neumann tradition, information enters the machine as encoded binary vectors, and semantics remains external to the process. Neural network architectures rupture this regime: symbolic input is instantly projected into a high-dimensional space where coordinates correspond to semantic parameters, transforming binary code into a position in a geometric space of meanings. It is this space that constitutes the active epistemic condition shaping generative production. Drawing on four structural properties of high-dimensional geometry concentration of measure, near-orthogonality, exponential directional capacity, and manifold regularity the paper develops an Indexical Epistemology of High-Dimensional Spaces. Building on Peirce semiotics and Papert constructionism, it reconceptualizes generative models as navigators of learned manifolds and proposes navigational knowledge as a third mode of knowledge production, distinct from both symbolic reasoning and statistical recombination.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17116v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17116v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ilya Levin</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.75, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Agentic Wireless Communication for 6G: Intent-Aware and Continuously Evolving Physical-Layer Intelligence</h2>
+            <p class="paper-summary">As 6G wireless systems evolve, growing functional complexity and diverse service demands are driving a shift from rule-based control to intent-driven autonomous intelligence. User requirements are no longer captured by a single metric (e.g., throughput or reliability), but by multi-dimensional objectives such as latency sensitivity, energy preference, computational constraints, and service-level requirements. These objectives may also change over time due to environmental dynamics and user-network interactions. Therefore, accurate understanding of both the communication environment and user intent is critical for autonomous and sustainably evolving 6G communications.
+  Large language models (LLMs), with strong contextual understanding and cross-modal reasoning, provide a promising foundation for intent-aware network agents. Compared with rule-driven or centrally optimized designs, LLM-based agents can integrate heterogeneous information and translate natural-language intents into executable control and configuration decisions.
+  Focusing on a closed-loop pipeline of intent perception, autonomous decision making, and network execution, this paper investigates agentic AI for the 6G physical layer and its realization pathways. We review representative physical-layer tasks and their limitations in supporting intent awareness and autonomy, identify application scenarios where agentic AI is advantageous, and discuss key challenges and enabling technologies in multimodal perception, cross-layer decision making, and sustainable optimization. Finally, we present a case study of an intent-driven link decision agent, termed AgenCom, which adaptively constructs communication links under diverse user preferences and channel conditions.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17096v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17096v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Zhaoyang Li, Xingzhi Jin, Junyu Pan, Qianqian Yang, Zhiguo Shi</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.8, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">AdvSynGNN: Structure-Adaptive Graph Neural Nets via Adversarial Synthesis and Self-Corrective Propagation</h2>
+            <p class="paper-summary">Graph neural networks frequently encounter significant performance degradation when confronted with structural noise or non-homophilous topologies. To address these systemic vulnerabilities, we present AdvSynGNN, a comprehensive architecture designed for resilient node-level representation learning. The proposed framework orchestrates multi-resolution structural synthesis alongside contrastive objectives to establish geometry-sensitive initializations. We develop a transformer backbone that adaptively accommodates heterophily by modulating attention mechanisms through learned topological signals. Central to our contribution is an integrated adversarial propagation engine, where a generative component identifies potential connectivity alterations while a discriminator enforces global coherence. Furthermore, label refinement is achieved through a residual correction scheme guided by per-node confidence metrics, which facilitates precise control over iterative stability. Empirical evaluations demonstrate that this synergistic approach effectively optimizes predictive accuracy across diverse graph distributions while maintaining computational efficiency. The study concludes with practical implementation protocols to ensure the robust deployment of the AdvSynGNN system in large-scale environments.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17071v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17071v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Rong Fu, Muge Qi, Chunlei Meng, Shuo Yin, Kun Liu, Zhaolu Kang, Simon Fong</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.85, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Narrow fine-tuning erodes safety alignment in vision-language agents</h2>
+            <p class="paper-summary">Lifelong multimodal agents must continuously adapt to new tasks through post-training, but this creates fundamental tension between acquiring capabilities and preserving safety alignment. We demonstrate that fine-tuning aligned vision-language models on narrow-domain harmful datasets induces severe emergent misalignment that generalizes broadly across unrelated tasks and modalities. Through experiments on Gemma3-4B, we show that misalignment scales monotonically with LoRA rank, and that multimodal evaluation reveals substantially higher misalignment ($70.71 \pm 1.22$ at $r=128$) than text-only evaluation ($41.19 \pm 2.51$), suggesting that unimodal safety benchmarks may underestimate alignment degradation in vision-language models. Critically, even 10\% harmful data in the training mixture induces substantial alignment degradation. Geometric analysis reveals that harmful behaviors occupy a remarkably low-dimensional subspace, with the majority of misalignment information captured in 10 principal components. To mitigate misalignment, we evaluate two strategies: benign narrow fine-tuning and activation-based steering. While both approaches substantially reduce misalignment, neither completely removes the learned harmful behaviors. Our findings highlight the need for robust continual learning frameworks, as current post-training paradigms may not sufficiently preserve alignment in post-deployment settings.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16931v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16931v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Idhant Gulati, Shivam Raval</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.9000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Say It My Way: Exploring Control in Conversational Visual Question Answering with Blind Users</h2>
+            <p class="paper-summary">Prompting and steering techniques are well established in general-purpose generative AI, yet assistive visual question answering (VQA) tools for blind users still follow rigid interaction patterns with limited opportunities for customization. User control can be helpful when system responses are misaligned with their goals and contexts, a gap that becomes especially consequential for blind users that may rely on these systems for access. We invite 11 blind users to customize their interactions with a real-world conversational VQA system. Drawing on 418 interactions, reflections, and post-study interviews, we analyze prompting-based techniques participants adopted, including those introduced in the study and those developed independently in real-world settings. VQA interactions were often lengthy: participants averaged 3 turns, sometimes up to 21, with input text typically tenfold shorter than the responses they heard. Built on state-of-the-art LLMs, the system lacked verbosity controls, was limited in estimating distance in space and time, relied on inaccessible image framing, and offered little to no camera guidance. We discuss how customization techniques such as prompt engineering can help participants work around these limitations. Alongside a new publicly available dataset, we offer insights for interaction design at both query and system levels.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.HC, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16930v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16930v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Farnaz Zamiri Zeraati, Yang Trista Cao, Yuehan Qiao, Hal Daumé, Hernisa Kacorri</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.9500000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Node Learning: A Framework for Adaptive, Decentralised and Collaborative Network Edge AI</h2>
+            <p class="paper-summary">The expansion of AI toward the edge increasingly exposes the cost and fragility of cen- tralised intelligence. Data transmission, latency, energy consumption, and dependence on large data centres create bottlenecks that scale poorly across heterogeneous, mobile, and resource-constrained environments. In this paper, we introduce Node Learning, a decen- tralised learning paradigm in which intelligence resides at individual edge nodes and expands through selective peer interaction. Nodes learn continuously from local data, maintain their own model state, and exchange learned knowledge opportunistically when collaboration is beneficial. Learning propagates through overlap and diffusion rather than global synchro- nisation or central aggregation. It unifies autonomous and cooperative behaviour within a single abstraction and accommodates heterogeneity in data, hardware, objectives, and connectivity. This concept paper develops the conceptual foundations of this paradigm, contrasts it with existing decentralised approaches, and examines implications for communi- cation, hardware, trust, and governance. Node Learning does not discard existing paradigms, but places them within a broader decentralised perspective</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16814v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16814v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Eiman Kanjo, Mustafa Aslanov</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">One-step Language Modeling via Continuous Denoising</h2>
+            <p class="paper-summary">Language models based on discrete diffusion have attracted widespread interest for their potential to provide faster generation than autoregressive models. In practice, however, they exhibit a sharp degradation of sample quality in the few-step regime, failing to realize this promise. Here we show that language models leveraging flow-based continuous denoising can outperform discrete diffusion in both quality and speed. By revisiting the fundamentals of flows over discrete modalities, we build a flow-based language model (FLM) that performs Euclidean denoising over one-hot token encodings. We show that the model can be trained by predicting the clean data via a cross entropy objective, where we introduce a simple time reparameterization that greatly improves training stability and generation quality. By distilling FLM into its associated flow map, we obtain a distilled flow map language model (FMLM) capable of few-step generation. On the LM1B and OWT language datasets, FLM attains generation quality matching state-of-the-art discrete diffusion models. With FMLM, our approach outperforms recent few-step language models across the board, with one-step generation exceeding their 8-step quality. Our work calls into question the widely held hypothesis that discrete diffusion processes are necessary for generative modeling over discrete modalities, and paves the way toward accelerated flow-based language modeling at scale. Code is available at https://github.com/david3684/flm.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CL, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16813v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16813v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Chanhyuk Lee, Jaehoon Yoo, Manan Agarwal, Sheel Shah, Jerry Huang, Aditi Raghunathan, Seunghoon Hong, Nicholas M. Boffi, Jinwoo Kim</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.0500000000000003, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">SPARC: Scenario Planning and Reasoning for Automated C Unit Test Generation</h2>
+            <p class="paper-summary">Automated unit test generation for C remains a formidable challenge due to the semantic gap between high-level program intent and the rigid syntactic constraints of pointer arithmetic and manual memory management. While Large Language Models (LLMs) exhibit strong generative capabilities, direct intent-to-code synthesis frequently suffers from the leap-to-code failure mode, where models prematurely emit code without grounding in program structure, constraints, and semantics. This will result in non-compilable tests, hallucinated function signatures, low branch coverage, and semantically irrelevant assertions that cannot properly capture bugs. We introduce SPARC, a neuro-symbolic, scenario-based framework that bridges this gap through four stages: (1) Control Flow Graph (CFG) analysis, (2) an Operation Map that grounds LLM reasoning in validated utility helpers, (3) Path-targeted test synthesis, and (4) an iterative, self-correction validation loop using compiler and runtime feedback. We evaluate SPARC on 59 real-world and algorithmic subjects, where it outperforms the vanilla prompt generation baseline by 31.36% in line coverage, 26.01% in branch coverage, and 20.78% in mutation score, matching or exceeding the symbolic execution tool KLEE on complex subjects. SPARC retains 94.3% of tests through iterative repair and produces code with significantly higher developer-rated readability and maintainability. By aligning LLM reasoning with program structure, SPARC provides a scalable path for industrial-grade testing of legacy C codebases.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.SE, cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16671v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16671v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Jaid Monwar Chowdhury, Chi-An Fu, Reyhaneh Jabbarvand</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">A Theoretical Framework for Modular Learning of Robust Generative Models</h2>
+            <p class="paper-summary">Training large-scale generative models is resource-intensive and relies heavily on heuristic dataset weighting. We address two fundamental questions: Can we train Large Language Models (LLMs) modularly-combining small, domain-specific experts to match monolithic performance-and can we do so robustly for any data mixture, eliminating heuristic tuning? We present a theoretical framework for modular generative modeling where a set of pre-trained experts are combined via a gating mechanism. We define the space of normalized gating functions, $G_{1}$, and formulate the problem as a minimax game to find a single robust gate that minimizes divergence to the worst-case data mixture. We prove the existence of such a robust gate using Kakutani's fixed-point theorem and show that modularity acts as a strong regularizer, with generalization bounds scaling with the lightweight gate's complexity. Furthermore, we prove that this modular approach can theoretically outperform models retrained on aggregate data, with the gap characterized by the Jensen-Shannon Divergence. Finally, we introduce a scalable Stochastic Primal-Dual algorithm and a Structural Distillation method for efficient inference. Empirical results on synthetic and real-world datasets confirm that our modular architecture effectively mitigates gradient conflict and can robustly outperform monolithic baselines.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, stat.ML
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17554v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17554v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Corinna Cortes, Mehryar Mohri, Yutao Zhong</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.15, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Variational Grey-Box Dynamics Matching</h2>
+            <p class="paper-summary">Deep generative models such as flow matching and diffusion models have shown great potential in learning complex distributions and dynamical systems, but often act as black-boxes, neglecting underlying physics. In contrast, physics-based simulation models described by ODEs/PDEs remain interpretable, but may have missing or unknown terms, unable to fully describe real-world observations. We bridge this gap with a novel grey-box method that integrates incomplete physics models directly into generative models. Our approach learns dynamics from observational trajectories alone, without ground-truth physics parameters, in a simulation-free manner that avoids scalability and stability issues of Neural ODEs. The core of our method lies in modelling a structured variational distribution within the flow matching framework, by using two latent encodings: one to model the missing stochasticity and multi-modal velocity, and a second to encode physics parameters as a latent variable with a physics-informed prior. Furthermore, we present an adaptation of the framework to handle second-order dynamics. Our experiments on representative ODE/PDE problems show that our method performs on par with or superior to fully data-driven approaches and previous grey-box baselines, while preserving the interpretability of the physics model. Our code is available at https://github.com/DMML-Geneva/VGB-DM.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17477v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17477v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Gurjeet Sangra Singh, Frantzeska Lavda, Giangiacomo Mercatali, Alexandros Kalousis</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.2, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Shortcut learning in geometric knot classification</h2>
+            <p class="paper-summary">Classifying the topology of closed curves is a central problem in low dimensional topology with applications beyond mathematics spanning protein folding, polymer physics and even magnetohydrodynamics. The central problem is how to determine whether two embeddings of a closed arc are equivalent under ambient isotopy. Given the striking ability of neural networks to solve complex classification tasks, it is therefore natural to ask if the knot classification problem can be tackled using Machine Learning (ML). In this paper, we investigate generic shortcut methods employed by ML to solve the knot classification challenge and specifically discover hidden non-topological features in training data generated through Molecular Dynamics simulations of polygonal knots that are used by ML to arrive to positive classifications results. We then provide a rigorous foundation for future attempts to tackle the knot classification challenge using ML by developing a publicly-available (i) dataset, that aims to remove the potential of non-topological feature classification and (ii) code, that can generate knot embeddings that faithfully explore chosen geometric state space with fixed knot topology. We expect that our work will accelerate the development of ML models that can solve complex geometric knot classification challenges.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, cond-mat.soft, math.GT
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17350v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17350v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Djordje Mihajlovic, Davide Michieletto</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Quantum Scrambling Born Machine</h2>
+            <p class="paper-summary">Quantum generative modeling, where the Born rule naturally defines probability distributions through measurement of parameterized quantum states, is a promising near-term application of quantum computing. We propose a Quantum Scrambling Born Machine in which a fixed entangling unitary -- acting as a scrambling reservoir -- provides multi-qubit entanglement, while only single-qubit rotations are optimized. We consider three entangling unitaries -- a Haar random unitary and two physically realizable approximations, a finite-depth brickwork random circuit and analog time evolution under nearest-neighbor spin-chain Hamiltonians -- and show that, for the benchmark distributions and system sizes considered, once the entangler produces near-Haar-typical entanglement the model learns the target distribution with weak sensitivity to the scrambler's microscopic origin. Finally, promoting the Hamiltonian couplings to trainable parameters casts the generative task as a variational Hamiltonian problem, with performance competitive with representative classical generative models at matched parameter count.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: quant-ph, cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17281v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17281v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Marcin Płodzień</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.3000000000000003, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Learning a Latent Pulse Shape Interface for Photoinjector Laser Systems</h2>
+            <p class="paper-summary">Controlling the longitudinal laser pulse shape in photoinjectors of Free-Electron Lasers is a powerful lever for optimizing electron beam quality, but systematic exploration of the vast design space is limited by the cost of brute-force pulse propagation simulations. We present a generative modeling framework based on Wasserstein Autoencoders to learn a differentiable latent interface between pulse shaping and downstream beam dynamics. Our empirical findings show that the learned latent space is continuous and interpretable while maintaining high-fidelity reconstructions. Pulse families such as higher-order Gaussians trace coherent trajectories, while standardizing the temporal pulse lengths shows a latent organization correlated with pulse energy. Analysis via principal components and Gaussian Mixture Models reveals a well behaved latent geometry, enabling smooth transitions between distinct pulse types via linear interpolation. The model generalizes from simulated data to real experimental pulse measurements, accurately reconstructing pulses and embedding them consistently into the learned manifold. Overall, the approach reduces reliance on expensive pulse-propagation simulations and facilitates downstream beam dynamics simulation and analysis.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17263v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17263v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Alexander Klemps, Denis Ilia, Pradeep Kr. Banerjee, Ye Chen, Henrik Tünnermann, Nihat Ay</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.35, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">CounterFlowNet: From Minimal Changes to Meaningful Counterfactual Explanations</h2>
+            <p class="paper-summary">Counterfactual explanations (CFs) provide human-interpretable insights into model's predictions by identifying minimal changes to input features that would alter the model's output. However, existing methods struggle to generate multiple high-quality explanations that (1) affect only a small portion of the features, (2) can be applied to tabular data with heterogeneous features, and (3) are consistent with the user-defined constraints. We propose CounterFlowNet, a generative approach that formulates CF generation as sequential feature modification using conditional Generative Flow Networks (GFlowNet). CounterFlowNet is trained to sample CFs proportionally to a user-specified reward function that can encode key CF desiderata: validity, sparsity, proximity and plausibility, encouraging high-quality explanations. The sequential formulation yields highly sparse edits, while a unified action space seamlessly supports continuous and categorical features. Moreover, actionability constraints, such as immutability and monotonicity of features, can be enforced at inference time via action masking, without retraining. Experiments on eight datasets under two evaluation protocols demonstrate that CounterFlowNet achieves superior trade-offs between validity, sparsity, plausibility, and diversity with full satisfaction of the given constraints.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17244v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17244v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Oleksii Furman, Patryk Marszałek, Jan Masłowski, Piotr Gaiński, Maciej Zięba, Marek Śmieja</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.4000000000000004, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">MGD: Moment Guided Diffusion for Maximum Entropy Generation</h2>
+            <p class="paper-summary">Generating samples from limited information is a fundamental problem across scientific domains. Classical maximum entropy methods provide principled uncertainty quantification from moment constraints but require sampling via MCMC or Langevin dynamics, which typically exhibit exponential slowdown in high dimensions. In contrast, generative models based on diffusion and flow matching efficiently transport noise to data but offer limited theoretical guarantees and can overfit when data is scarce. We introduce Moment Guided Diffusion (MGD), which combines elements of both approaches. Building on the stochastic interpolant framework, MGD samples maximum entropy distributions by solving a stochastic differential equation that guides moments toward prescribed values in finite time, thereby avoiding slow mixing in equilibrium-based methods. We formally obtain, in the large-volatility limit, convergence of MGD to the maximum entropy distribution and derive a tractable estimator of the resulting entropy computed directly from the dynamics. Applications to financial time series, turbulent flows, and cosmological fields using wavelet scattering moments yield estimates of negentropy for high-dimensional multiscale processes.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: stat.ML, cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17211v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17211v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Etienne Lempereur, Nathanaël Cuvelle--Magar, Florentin Coeurdoux, Stéphane Mallat, Eric Vanden-Eijnden</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.45, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Synergizing Transport-Based Generative Models and Latent Geometry for Stochastic Closure Modeling</h2>
+            <p class="paper-summary">Diffusion models recently developed for generative AI tasks can produce high-quality samples while still maintaining diversity among samples to promote mode coverage, providing a promising path for learning stochastic closure models. Compared to other types of generative AI models, such as GANs and VAEs, the sampling speed is known as a key disadvantage of diffusion models. By systematically comparing transport-based generative models on a numerical example of 2D Kolmogorov flows, we show that flow matching in a lower-dimensional latent space is suited for fast sampling of stochastic closure models, enabling single-step sampling that is up to two orders of magnitude faster than iterative diffusion-based approaches. To control the latent space distortion and thus ensure the physical fidelity of the sampled closure term, we compare the implicit regularization offered by a joint training scheme against two explicit regularizers: metric-preserving (MP) and geometry-aware (GA) constraints. Besides offering a faster sampling speed, both explicitly and implicitly regularized latent spaces inherit the key topological information from the lower-dimensional manifold of the original complex dynamical system, which enables the learning of stochastic closure models without demanding a huge amount of training data.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, math.DS, physics.comp-ph
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17089v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17089v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Xinghao Dong, Huchen Yang, Jin-long Wu</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Spatio-temporal dual-stage hypergraph MARL for human-centric multimodal corridor traffic signal control</h2>
+            <p class="paper-summary">Human-centric traffic signal control in corridor networks must increasingly account for multimodal travelers, particularly high-occupancy public transportation, rather than focusing solely on vehicle-centric performance. This paper proposes STDSH-MARL (Spatio-Temporal Dual-Stage Hypergraph based Multi-Agent Reinforcement Learning), a scalable multi-agent deep reinforcement learning framework that follows a centralized training and decentralized execution paradigm. The proposed method captures spatio-temporal dependencies through a novel dual-stage hypergraph attention mechanism that models interactions across both spatial and temporal hyperedges. In addition, a hybrid discrete action space is introduced to jointly determine the next signal phase configuration and its corresponding green duration, enabling more adaptive signal timing decisions. Experiments conducted on a corridor network under five traffic scenarios demonstrate that STDSH-MARL consistently improves multimodal performance and provides clear benefits for public transportation priority. Compared with state-of-the-art baseline methods, the proposed approach achieves superior overall performance. Further ablation studies confirm the contribution of each component of STDSH-MARL, with temporal hyperedges identified as the most influential factor driving the observed performance gains.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, eess.SY
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17068v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17068v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Xiaocai Zhang, Neema Nassir, Milad Haghani</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.5500000000000003, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Neural Proposals, Symbolic Guarantees: Neuro-Symbolic Graph Generation with Hard Constraints</h2>
+            <p class="paper-summary">We challenge black-box purely deep neural approaches for molecules and graph generation, which are limited in controllability and lack formal guarantees. We introduce Neuro-Symbolic Graph Generative Modeling (NSGGM), a neurosymbolic framework that reapproaches molecule generation as a scaffold and interaction learning task with symbolic assembly. An autoregressive neural model proposes scaffolds and refines interaction signals, and a CPU-efficient SMT solver constructs full graphs while enforcing chemical validity, structural rules, and user-specific constraints, yielding molecules that are correct by construction and interpretable control that pure neural methods cannot provide. NSGGM delivers strong performance on both unconstrained generation and constrained generation tasks, demonstrating that neuro-symbolic modeling can match state-of-the-art generative performance while offering explicit controllability and guarantees. To evaluate more nuanced controllability, we also introduce a Logical-Constraint Molecular Benchmark, designed to test strict hard-rule satisfaction in workflows that require explicit, interpretable specifications together with verifiable compliance.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16954v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16954v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Chuqin Geng, Li Zhang, Mark Zhang, Haolin Ye, Ziyu Zhao, Xujie Si</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.6, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Multi-objective optimization and quantum hybridization of equivariant deep learning interatomic potentials on organic and inorganic compounds</h2>
+            <p class="paper-summary">Allegro is a machine learning interatomic potential (MLIP) model designed to predict atomic properties in molecules using E(3) equivariant neural networks. When training this model, there tends to be a trade-off between accuracy and inference time. For this reason we apply multi-objective hyperparameter optimization to the two objectives. Additionally, we experiment with modified architectures by making variants of Allegro some by adding strictly classical multi-layer perceptron (MLP) layers and some by adding quantum-classical hybrid layers. We compare the results from QM9, rMD17-aspirin, rMD17-benzene and our own proprietary dataset consisting of copper and lithium atoms. As results, we have a list of variants that surpass the Allegro in accuracy and also results which demonstrate the trade-off with inference times.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cond-mat.mtrl-sci, cs.LG, quant-ph
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16908v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16908v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: G. Laskaris, D. Morozov, D. Tarpanov, A. Seth, J. Procelewska, G. Sai Gautam, A. Sagingalieva, R. Brasher, A. Melnikov</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.6500000000000004, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">ML-driven detection and reduction of ballast information in multi-modal datasets</h2>
+            <p class="paper-summary">Modern datasets often contain ballast as redundant or low-utility information that increases dimensionality, storage requirements, and computational cost without contributing meaningful analytical value. This study introduces a generalized, multimodal framework for ballast detection and reduction across structured, semi-structured, unstructured, and sparse data types. Using diverse datasets, entropy, mutual information, Lasso, SHAP, PCA, topic modelling, and embedding analysis are applied to identify and eliminate ballast features. A novel Ballast Score is proposed to integrate these signals into a unified, cross-modal pruning strategy. Experimental results demonstrate that significant portions of the feature space as often exceeding 70% in sparse or semi-structured data, can be pruned with minimal or even improved classification performance, along with substantial reductions in training time and memory footprint. The framework reveals distinct ballast typologies (e.g. statistical, semantic, infrastructural), and offers practical guidance for leaner, more efficient machine learning pipelines.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, stat.ML
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16876v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16876v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Yaroslav Solovko</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.7, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Efficient Tail-Aware Generative Optimization via Flow Model Fine-Tuning</h2>
+            <p class="paper-summary">Fine-tuning pre-trained diffusion and flow models to optimize downstream utilities is central to real-world deployment. Existing entropy-regularized methods primarily maximize expected reward, providing no mechanism to shape tail behavior. However, tail control is often essential: the lower tail determines reliability by limiting low-reward failures, while the upper tail enables discovery by prioritizing rare, high-reward outcomes. In this work, we present Tail-aware Flow Fine-Tuning (TFFT), a principled and efficient distributional fine-tuning algorithm based on the Conditional Value-at-Risk (CVaR). We address two distinct tail-shaping goals: right-CVaR for seeking novel samples in the high-reward tail and left-CVaR for controlling worst-case samples in the low-reward tail. Unlike prior approaches that rely on non-linear optimization, we leverage the variational dual formulation of CVaR to decompose it into a decoupled two-stage procedure: a lightweight one-dimensional threshold optimization step, and a single entropy-regularized fine-tuning process via a specific pseudo-reward. This decomposition achieves CVaR fine-tuning efficiently with computational cost comparable to standard expected fine-tuning methods. We demonstrate the effectiveness of TFFT across illustrative experiments, high-dimensional text-to-image generation, and molecular design.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, math.OC
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16796v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16796v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Zifan Wang, Riccardo De Santi, Xiaoyu Mo, Michael M. Zavlanos, Andreas Krause, Karl H. Johansson</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.75, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Parameter-free representations outperform single-cell foundation models on downstream benchmarks</h2>
+            <p class="paper-summary">Single-cell RNA sequencing (scRNA-seq) data exhibit strong and reproducible statistical structure. This has motivated the development of large-scale foundation models, such as TranscriptFormer, that use transformer-based architectures to learn a generative model for gene expression by embedding genes into a latent vector space. These embeddings have been used to obtain state-of-the-art (SOTA) performance on downstream tasks such as cell-type classification, disease-state prediction, and cross-species learning. Here, we ask whether similar performance can be achieved without utilizing computationally intensive deep learning-based representations. Using simple, interpretable pipelines that rely on careful normalization and linear methods, we obtain SOTA or near SOTA performance across multiple benchmarks commonly used to evaluate single-cell foundation models, including outperforming foundation models on out-of-distribution tasks involving novel cell types and organisms absent from the training data. Our findings highlight the need for rigorous benchmarking and suggest that the biology of cell identity can be captured by simple linear representations of single cell gene expression data.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: q-bio.GN, cs.LG, q-bio.QM
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16696v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16696v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Huan Souza, Pankaj Mehta</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.8000000000000003, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Synthetic-Powered Multiple Testing with FDR Control</h2>
+            <p class="paper-summary">Multiple hypothesis testing with false discovery rate (FDR) control is a fundamental problem in statistical inference, with broad applications in genomics, drug screening, and outlier detection. In many such settings, researchers may have access not only to real experimental observations but also to auxiliary or synthetic data -- from past, related experiments or generated by generative models -- that can provide additional evidence about the hypotheses of interest. We introduce SynthBH, a synthetic-powered multiple testing procedure that safely leverages such synthetic data. We prove that SynthBH guarantees finite-sample, distribution-free FDR control under a mild PRDS-type positive dependence condition, without requiring the pooled-data p-values to be valid under the null. The proposed method adapts to the (unknown) quality of the synthetic data: it enhances the sample efficiency and may boost the power when synthetic data are of high quality, while controlling the FDR at a user-specified level regardless of their quality. We demonstrate the empirical performance of SynthBH on tabular outlier detection benchmarks and on genomic analyses of drug-cancer sensitivity associations, and further study its properties through controlled experiments on simulated data.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: stat.ME, cs.LG, stat.ML
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16690v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16690v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Yonghoon Lee, Meshi Bashari, Edgar Dobriban, Yaniv Romano</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.85, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Retrieval-Augmented Foundation Models for Matched Molecular Pair Transformations to Recapitulate Medicinal Chemistry Intuition</h2>
+            <p class="paper-summary">Matched molecular pairs (MMPs) capture the local chemical edits that medicinal chemists routinely use to design analogs, but existing ML approaches either operate at the whole-molecule level with limited edit controllability or learn MMP-style edits from restricted settings and small models. We propose a variable-to-variable formulation of analog generation and train a foundation model on large-scale MMP transformations (MMPTs) to generate diverse variables conditioned on an input variable. To enable practical control, we develop prompting mechanisms that let the users specify preferred transformation patterns during generation. We further introduce MMPT-RAG, a retrieval-augmented framework that uses external reference analogs as contextual guidance to steer generation and generalize from project-specific series. Experiments on general chemical corpora and patent-specific datasets demonstrate improved diversity, novelty, and controllability, and show that our method recovers realistic analog structures in practical discovery scenarios.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16684v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16684v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Bo Pan, Peter Zhiping Zhang, Hao-Wei Pang, Alex Zhu, Xiang Yu, Liying Zhang, Liang Zhao</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.9000000000000004, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">The Emergence of Lab-Driven Alignment Signatures: A Psychometric Framework for Auditing Latent Bias and Compounding Risk in Generative AI</h2>
+            <p class="paper-summary">As Large Language Models (LLMs) transition from standalone chat interfaces to foundational reasoning layers in multi-agent systems and recursive evaluation loops (LLM-as-a-judge), the detection of durable, provider-level behavioral signatures becomes a critical requirement for safety and governance. Traditional benchmarks measure transient task accuracy but fail to capture stable, latent response policies -- the ``prevailing mindsets'' embedded during training and alignment that outlive individual model versions.
+  This paper introduces a novel auditing framework that utilizes psychometric measurement theory -- specifically latent trait estimation under ordinal uncertainty -- to quantify these tendencies without relying on ground-truth labels. Utilizing forced-choice ordinal vignettes masked by semantically orthogonal decoys and governed by cryptographic permutation-invariance, the research audits nine leading models across dimensions including Optimization Bias, Sycophancy, and Status-Quo Legitimization.
+  Using Mixed Linear Models (MixedLM) and Intraclass Correlation Coefficient (ICC) analysis, the research identifies that while item-level framing drives high variance, a persistent ``lab signal'' accounts for significant behavioral clustering. These findings demonstrate that in ``locked-in'' provider ecosystems, latent biases are not merely static errors but compounding variables that risk creating recursive ideological echo chambers in multi-layered AI architectures.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CL
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17127v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17127v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Dusan Bosnjakovic</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 2.95, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Projective Psychological Assessment of Large Multimodal Models Using Thematic Apperception Tests</h2>
+            <p class="paper-summary">Thematic Apperception Test (TAT) is a psychometrically grounded, multidimensional assessment framework that systematically differentiates between cognitive-representational and affective-relational components of personality-like functioning. This test is a projective psychological framework designed to uncover unconscious aspects of personality. This study examines whether the personality traits of Large Multimodal Models (LMMs) can be assessed through non-language-based modalities, using the Social Cognition and Object Relations Scale - Global (SCORS-G). LMMs are employed in two distinct roles: as subject models (SMs), which generate stories in response to TAT images, and as evaluator models (EMs), who assess these narratives using the SCORS-G framework. Evaluators demonstrated an excellent ability to understand and analyze TAT responses. Their interpretations are highly consistent with those of human experts. Assessment results highlight that all models understand interpersonal dynamics very well and have a good grasp of the concept of self. However, they consistently fail to perceive and regulate aggression. Performance varied systematically across model families, with larger and more recent models consistently outperforming smaller and earlier ones across SCORS-G dimensions.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CL
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17108v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17108v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Anton Dzega, Aviad Elyashar, Ortal Slobodin, Odeya Cohen, Rami Puzis</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 3.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Vibrational infrared and Raman spectra of the methanol molecule with equivariant neural-network property surfaces</h2>
+            <p class="paper-summary">Electric dipole and polarizability surfaces are developed for the methanol molecule using {\it ab initio} electronic structure data, computed at the CCSD/aug-cc-pVTZ level of theory, and equivariant neural networks. These property surfaces are used to compute vibrational infrared and Raman intensities up to the OH stretching fundamental vibration. The intensity computations use the vibrational energies and wave functions obtained in continued variational vibrational computations from earlier work [J. Chem. Phys. 163, 064101 (2025)]. The vibrational representation accounts for the large-amplitude torsion and uses curvilinear normal coordinates for the small-amplitude modes, allowing truncation of the vibrational basis set and the integration grid.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: physics.chem-ph
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17219v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17219v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ayaki Sunaga, Albert P. Bartók, Edit Mátyus</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 3.0500000000000003, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Accelerating Instanton Theory with the Line Integral String Method, Gaussian Process Regression, and Selective Hessian Modeling</h2>
+            <p class="paper-summary">We develop a Gaussian process regression enhanced line integral string method to accelerate ring polymer instanton calculations of tunneling rates and tunneling splittings in molecular proton transfer reactions. By exploiting uncertainty estimates from the surrogate representation, we show that the number of force evaluations required to converge an instanton path becomes effectively independent of the number of beads used to discretize the pathway. To reduce the computational overhead associated with training, particularly when Hessian information is included, we implement graphics processing unit accelerated black box matrix matrix multiplication, achieving an order of magnitude speedups relative to standard implementations. For rate calculations, we introduce a selective Hessian training strategy that distinguishes flexible modes strongly coupled to the transferring proton from more rigid modes weakly coupled to the reaction coordinate. This enables the construction of accurate surrogate potential energy surfaces with substantially fewer Hessian evaluations. Applications to malonaldehyde and Z-3-aminopropenal demonstrate that tunneling rates can be predicted within 20% of exact values while reducing force and Hessian evaluations. The approach is further extended to tunneling splitting calculations for the formic acid dimer and malonaldehyde, yielding splittings in reasonable agreement with experiment and high level theoretical results.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: physics.chem-ph
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16962v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16962v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Chenghao Zhang, Amke Nimmrich, Axel Gomez, Munira Khalil, Niranjan Govind</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 3.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Ab Initio Auxiliary-Field Quantum Monte Carlo in the Thermodynamic Limit</h2>
+            <p class="paper-summary">Ab initio auxiliary-field quantum Monte Carlo (AFQMC) is a systematically improvable many-body method, but its application to extended solids has been severely limited by unfavorable computational scaling and memory requirements that obstruct direct access to the thermodynamic and complete-basis-set limits. By combining tensor hypercontraction via interpolative separable density fitting with $\mathbf{k}$-point symmetry, we reduce the computational and memory scaling of ab initio AFQMC for solids to $O(N^3)$ and $O(N^2)$ with arbitrary basis, respectively, comparable to diffusion Monte Carlo. This enables direct and simultaneous thermodynamic-limit and complete-basis-set AFQMC calculations across insulating, metallic, and strongly correlated solids, without embedding, local approximations, empirical finite-size corrections, or composite schemes. Our results establish AFQMC as a general-purpose, systematically improvable alternative to diffusion Monte Carlo and coupled-cluster methods for predictive ab initio simulations of solids, enabling accurate energies and magnetic observables within a unified framework.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cond-mat.str-el, cond-mat.mtrl-sci, physics.chem-ph
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.16679v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.16679v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Jinghong Zhang, Meng-Fu Chen, Adam Rettig, Tong Jiang, Paul J. Robinson, Hieu Q. Dinh, Anton Z. Ni, Joonho Lee</p>
+            
+        </motion.div>
+        
+    </div>
+
+    <footer class="footer">
+        Generated on 2026-02-20 04:40:09 UTC. Powered by <a href="https://github.com/onion-liu" target="_blank">onion-liu</a>.
+    </footer>
+
+</body>
+</html>
