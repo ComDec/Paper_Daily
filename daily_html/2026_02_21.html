@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Preprint Digest - 2026-02-21</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.dev.js"></script>
+    <!-- Example using Font Awesome (replace with your preferred icon library if needed) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            /* New Palette: Light, Clean, Futuristic with Teal/Aqua accents */
+            --bg-color: #f8fafc; /* Tailwind slate-50 (Very Light Gray) */
+            --card-bg-color: #ffffff; /* White */
+            --text-color: #1e293b; /* Tailwind slate-800 (Dark Gray-Blue) */
+            --text-muted-color: #64748b; /* Tailwind slate-500 (Medium Gray-Blue) */
+            --header-color: #0f172a; /* Tailwind slate-900 (Very Dark Blue) */
+            --highlight-primary: #14b8a6; /* Tailwind teal-500 */
+            --highlight-secondary: #67e8f9; /* Tailwind cyan-300 */
+            --border-color: #e2e8f0; /* Tailwind slate-200 (Light Gray) */
+            --shadow-color: rgba(15, 23, 42, 0.08); /* Subtle shadow based on slate-900 */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            line-height: 1.6;
+        }
+
+        .bento-grid {
+            display: grid;
+            gap: 1.5rem; /* Tailwind gap-6 */
+            grid-template-columns: 1fr; /* Force single column */
+            padding-bottom: 4rem; /* Add padding at the bottom */
+        }
+
+        .bento-item {
+            /* Apply semi-transparent white background and blur */
+            background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari prefix */
+            border-radius: 1rem; /* Slightly larger radius */
+            padding: 1.75rem; /* Slightly more padding */
+            border: 1px solid rgba(226, 232, 240, 0.5); /* Lighter border with transparency */
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease-out;
+            overflow: hidden; /* Ensure content doesn't overflow */
+            position: relative; /* For potential pseudo-elements */
+        }
+
+        /* Removed ::before pseudo-element for a cleaner look */
+
+
+        .bento-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px var(--shadow-color), 0 4px 8px rgba(15, 23, 42, 0.06); /* Adjusted hover shadow */
+        }
+
+        .paper-title {
+            font-size: 1.125rem; /* Tailwind text-lg */
+            font-weight: 600; /* Tailwind font-semibold */
+            color: var(--highlight-primary); /* Use new primary highlight */
+            margin-bottom: 0.75rem; /* Tailwind mb-3 */
+            line-height: 1.4;
+        }
+
+        .paper-summary {
+            font-size: 0.875rem; /* Tailwind text-sm */
+            color: var(--text-muted-color);
+            margin-bottom: 1.25rem; /* Tailwind mb-5 */
+            line-height: 1.6;
+        }
+
+        .paper-link {
+            display: inline-flex; /* Use flex for icon alignment */
+            align-items: center;
+            font-size: 0.875rem; /* Tailwind text-sm */
+            font-weight: 600;
+            color: var(--highlight-primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem; /* Add padding */
+            border-radius: 0.5rem; /* Slightly rounder */
+            background-color: rgba(20, 184, 166, 0.08); /* Subtle teal background */
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .paper-link i {
+            margin-right: 0.5rem; /* Tailwind mr-2 */
+            transition: transform 0.3s ease;
+        }
+
+        .paper-link:hover {
+            background-color: rgba(20, 184, 166, 0.15);
+            color: #0d9488; /* Darker teal on hover */
+            transform: translateY(-1px);
+        }
+        .paper-link:hover i {
+             transform: translateX(2px);
+        }
+
+        .paper-authors {
+            font-size: 0.75rem; /* Tailwind text-xs */
+            color: var(--text-muted-color);
+            margin-top: 1rem; /* Tailwind mt-4 */
+            font-style: italic;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem; /* Tailwind mb-12 */
+            padding-top: 3rem; /* Tailwind pt-12 */
+        }
+
+        .header h1 {
+            font-size: 2.5rem; /* Tailwind text-4xl or 5xl */
+            font-weight: 700; /* Tailwind font-bold */
+            color: var(--header-color);
+            letter-spacing: -0.025em; /* Tailwind tracking-tight */
+            margin-bottom: 0.5rem;
+            /* Optional: Add a subtle text gradient */
+            /* background: linear-gradient(90deg, var(--highlight-primary), var(--highlight-secondary)); */
+            /* -webkit-background-clip: text; */
+            /* -webkit-text-fill-color: transparent; */
+        }
+
+        .header p {
+            font-size: 1.125rem; /* Tailwind text-lg */
+            color: var(--text-muted-color);
+            margin-top: 0.5rem; /* Tailwind mt-2 */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-muted-color);
+            font-size: 0.875rem; /* Tailwind text-sm */
+            padding-top: 2rem;
+            padding-bottom: 2rem; /* Tailwind py-8 */
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* Simple line graphic element (optional) */
+        .line-graphic {
+            height: 1px; /* Thinner line */
+            background: linear-gradient(90deg, rgba(20, 184, 166, 0), var(--highlight-primary), rgba(20, 184, 166, 0));
+            opacity: 0.6;
+            margin: 1.5rem 0; /* Adjust margin */
+        }
+
+        /* Framer Motion requires the script, styles enhance appearance */
+        [data-motion-element] {
+             /* Base styles for elements animated by Framer Motion */
+        }
+
+        .paper-tldr {
+            font-size: 0.95rem; /* Slightly bigger than summary */
+            color: #475569; /* Changed to Tailwind slate-600 (slightly darker than summary) */
+            margin-top: 0.75rem; /* Tailwind mt-3 */
+            margin-bottom: 0.75rem; /* Tailwind mb-2 */
+            /* font-style: italic; */
+            font-weight: bold;
+        }
+
+        .paper-rating {
+            margin-top: 1rem; /* Tailwind mt-4 */
+            margin-bottom: 1rem; /* Tailwind mb-4 */
+            color: #f59e0b; /* Tailwind amber-500 */
+        }
+
+        .paper-rating i {
+            margin-right: 0.125rem; /* Tailwind mr-0.5 */
+        }
+
+        /* Apply consistent star color to sub-ratings */
+        .paper-sub-ratings .rating-item i {
+            color: #f59e0b; /* Match overall rating star color (amber-500) */
+            margin-right: 0.125rem; /* Consistent spacing */
+        }
+
+    </style>
+</head>
+<body class="container mx-auto px-4 antialiased">
+
+    <motion.div
+        initial="{ opacity: 0, y: -30 }"
+        animate="{ opacity: 1, y: 0 }"
+        transition="{ duration: 0.6, ease: 'easeOut' }"
+        class="header"
+        data-motion-element
+    >
+        <h1>Daily Preprint Digest</h1>
+        
+        <p>Generative AI and AI4Science papers from arXiv, bioRxiv, and ChemRxiv</p>
+        
+        <p>February 21, 2026</p>
+        <div class="line-graphic mt-4 mb-8 mx-auto w-1/4"></div> <!-- Added line graphic -->
+    </motion.div>
+
+    <div class="bento-grid" id="paper-grid">
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">OpenEarthAgent: A Unified Framework for Tool-Augmented Geospatial Agents</h2>
+            <p class="paper-summary">Recent progress in multimodal reasoning has enabled agents that can interpret imagery, connect it with language, and perform structured analytical tasks. Extending such capabilities to the remote sensing domain remains challenging, as models must reason over spatial scale, geographic structures, and multispectral indices while maintaining coherent multi-step logic. To bridge this gap, OpenEarthAgent introduces a unified framework for developing tool-augmented geospatial agents trained on satellite imagery, natural-language queries, and detailed reasoning traces. The training pipeline relies on supervised fine-tuning over structured reasoning trajectories, aligning the model with verified multistep tool interactions across diverse analytical contexts. The accompanying corpus comprises 14,538 training and 1,169 evaluation instances, with more than 100K reasoning steps in the training split and over 7K reasoning steps in the evaluation split. It spans urban, environmental, disaster, and infrastructure domains, and incorporates GIS-based operations alongside index analyses such as NDVI, NBR, and NDBI. Grounded in explicit reasoning traces, the learned agent demonstrates structured reasoning, stable spatial understanding, and interpretable behaviour through tool-driven geospatial interactions across diverse conditions. We report consistent improvements over a strong baseline and competitive performance relative to recent open and closed-source models.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17665v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17665v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Akashah Shabbir, Muhammad Umer Sheikh, Muhammad Akhtar Munir, Hiyam Debary, Mustansar Fiaz, Muhammad Zaigham Zaheer, Paolo Fraccaro, Fahad Shahbaz Khan, Muhammad Haris Khan, Xiao Xiang Zhu, Salman Khan</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.05, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Pushing the Frontier of Black-Box LVLM Attacks via Fine-Grained Detail Targeting</h2>
+            <p class="paper-summary">Black-box adversarial attacks on Large Vision-Language Models (LVLMs) are challenging due to missing gradients and complex multimodal boundaries. While prior state-of-the-art transfer-based approaches like M-Attack perform well using local crop-level matching between source and target images, we find this induces high-variance, nearly orthogonal gradients across iterations, violating coherent local alignment and destabilizing optimization. We attribute this to (i) ViT translation sensitivity that yields spike-like gradients and (ii) structural asymmetry between source and target crops. We reformulate local matching as an asymmetric expectation over source transformations and target semantics, and build a gradient-denoising upgrade to M-Attack. On the source side, Multi-Crop Alignment (MCA) averages gradients from multiple independently sampled local views per iteration to reduce variance. On the target side, Auxiliary Target Alignment (ATA) replaces aggressive target augmentation with a small auxiliary set from a semantically correlated distribution, producing a smoother, lower-variance target manifold. We further reinterpret momentum as Patch Momentum, replaying historical crop gradients; combined with a refined patch-size ensemble (PE+), this strengthens transferable directions. Together these modules form M-Attack-V2, a simple, modular enhancement over M-Attack that substantially improves transfer-based black-box attacks on frontier LVLMs: boosting success rates on Claude-4.0 from 8% to 30%, Gemini-2.5-Pro from 83% to 97%, and GPT-5 from 98% to 100%, outperforming prior black-box LVLM attacks. Code and data are publicly available at: https://github.com/vila-lab/M-Attack-V2.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, cs.AI, cs.CL, cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17645v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17645v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Xiaohan Zhao, Zhaoyi Li, Yaxin Luo, Jiacheng Cui, Zhiqiang Shen</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">CORAL: Correspondence Alignment for Improved Virtual Try-On</h2>
+            <p class="paper-summary">Existing methods for Virtual Try-On (VTON) often struggle to preserve fine garment details, especially in unpaired settings where accurate person-garment correspondence is required. These methods do not explicitly enforce person-garment alignment and fail to explain how correspondence emerges within Diffusion Transformers (DiTs). In this paper, we first analyze full 3D attention in DiT-based architecture and reveal that the person-garment correspondence critically depends on precise person-garment query-key matching within the full 3D attention. Building on this insight, we then introduce CORrespondence ALignment (CORAL), a DiT-based framework that explicitly aligns query-key matching with robust external correspondences. CORAL integrates two complementary components: a correspondence distillation loss that aligns reliable matches with person-garment attention, and an entropy minimization loss that sharpens the attention distribution. We further propose a VLM-based evaluation protocol to better reflect human preference. CORAL consistently improves over the baseline, enhancing both global shape transfer and local detail preservation. Extensive ablations validate our design choices.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17636v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17636v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Jiyoung Kim, Youngjin Shin, Siyoon Jin, Dahyun Chung, Jisu Nam, Tongmin Kim, Jongjae Park, Hyeonwoo Kang, Seungryong Kim</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.15000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Art2Mus: Artwork-to-Music Generation via Visual Conditioning and Large-Scale Cross-Modal Alignment</h2>
+            <p class="paper-summary">Music generation has advanced markedly through multimodal deep learning, enabling models to synthesize audio from text and, more recently, from images. However, existing image-conditioned systems suffer from two fundamental limitations: (i) they are typically trained on natural photographs, limiting their ability to capture the richer semantic, stylistic, and cultural content of artworks; and (ii) most rely on an image-to-text conversion stage, using language as a semantic shortcut that simplifies conditioning but prevents direct visual-to-audio learning. Motivated by these gaps, we introduce ArtSound, a large-scale multimodal dataset of 105,884 artwork-music pairs enriched with dual-modality captions, obtained by extending ArtGraph and the Free Music Archive. We further propose ArtToMus, the first framework explicitly designed for direct artwork-to-music generation, which maps digitized artworks to music without image-to-text translation or language-based semantic supervision. The framework projects visual embeddings into the conditioning space of a latent diffusion model, enabling music synthesis guided solely by visual information. Experimental results show that ArtToMus generates musically coherent and stylistically consistent outputs that reflect salient visual cues of the source artworks. While absolute alignment scores remain lower than those of text-conditioned systems-as expected given the substantially increased difficulty of removing linguistic supervision-ArtToMus achieves competitive perceptual quality and meaningful cross-modal correspondence. This work establishes direct visual-to-music generation as a distinct and challenging research direction, and provides resources that support applications in multimedia art, cultural heritage, and AI-assisted creative practice. Code and dataset will be publicly released upon acceptance.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CV, cs.MM, cs.SD
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17599v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17599v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ivan Rinaldi, Matteo Mendula, Nicola Fanelli, Florence Levé, Matteo Testi, Giovanna Castellano, Gennaro Vessio</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.2, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Sink-Aware Pruning for Diffusion Language Models</h2>
+            <p class="paper-summary">Diffusion Language Models (DLMs) incur high inference cost due to iterative denoising, motivating efficient pruning. Existing pruning heuristics largely inherited from autoregressive (AR) LLMs, typically preserve attention sink tokens because AR sinks serve as stable global anchors. We show that this assumption does not hold for DLMs: the attention-sink position exhibits substantially higher variance over the full generation trajectory (measured by how the dominant sink locations shift across timesteps), indicating that sinks are often transient and less structurally essential than in AR models. Based on this observation, we propose ${\bf \texttt{Sink-Aware Pruning}}$, which automatically identifies and prunes unstable sinks in DLMs (prior studies usually keep sinks for AR LLMs). Without retraining, our method achieves a better quality-efficiency trade-off and outperforms strong prior pruning baselines under matched compute. Our code is available at https://github.com/VILA-Lab/Sink-Aware-Pruning.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.CL, cs.AI, cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17664v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17664v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Aidar Myrzakhan, Tianyi Li, Bowei Guo, Shengkun Tang, Zhiqiang Shen</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">MolHIT: Advancing Molecular-Graph Generation with Hierarchical Discrete Diffusion Models</h2>
+            <p class="paper-summary">Molecular generation with diffusion models has emerged as a promising direction for AI-driven drug discovery and materials science. While graph diffusion models have been widely adopted due to the discrete nature of 2D molecular graphs, existing models suffer from low chemical validity and struggle to meet the desired properties compared to 1D modeling. In this work, we introduce MolHIT, a powerful molecular graph generation framework that overcomes long-standing performance limitations in existing methods. MolHIT is based on the Hierarchical Discrete Diffusion Model, which generalizes discrete diffusion to additional categories that encode chemical priors, and decoupled atom encoding that splits the atom types according to their chemical roles. Overall, MolHIT achieves new state-of-the-art performance on the MOSES dataset with near-perfect validity for the first time in graph diffusion, surpassing strong 1D baselines across multiple metrics. We further demonstrate strong performance in downstream tasks, including multi-property guided generation and scaffold extension.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.AI
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17602v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17602v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Hojung Jung, Rodrigo Hormazabal, Jaehyeong Jo, Youngrok Park, Kyunggeun Roh, Se-Young Yun, Sehui Han, Dae-Woong Jeong</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.30000000000000004, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Conditional Flow Matching for Continuous Anomaly Detection in Autonomous Driving on a Manifold-Aware Spectral Space</h2>
+            <p class="paper-summary">Safety validation for Level 4 autonomous vehicles (AVs) is currently bottlenecked by the inability to scale the detection of rare, high-risk long-tail scenarios using traditional rule-based heuristics. We present Deep-Flow, an unsupervised framework for safety-critical anomaly detection that utilizes Optimal Transport Conditional Flow Matching (OT-CFM) to characterize the continuous probability density of expert human driving behavior. Unlike standard generative approaches that operate in unstable, high-dimensional coordinate spaces, Deep-Flow constrains the generative process to a low-rank spectral manifold via a Principal Component Analysis (PCA) bottleneck. This ensures kinematic smoothness by design and enables the computation of the exact Jacobian trace for numerically stable, deterministic log-likelihood estimation. To resolve multi-modal ambiguity at complex junctions, we utilize an Early Fusion Transformer encoder with lane-aware goal conditioning, featuring a direct skip-connection to the flow head to maintain intent-integrity throughout the network. We introduce a kinematic complexity weighting scheme that prioritizes high-energy maneuvers (quantified via path tortuosity and jerk) during the simulation-free training process. Evaluated on the Waymo Open Motion Dataset (WOMD), our framework achieves an AUC-ROC of 0.766 against a heuristic golden set of safety-critical events. More significantly, our analysis reveals a fundamental distinction between kinematic danger and semantic non-compliance. Deep-Flow identifies a critical predictability gap by surfacing out-of-distribution behaviors, such as lane-boundary violations and non-normative junction maneuvers, that traditional safety filters overlook. This work provides a mathematically rigorous foundation for defining statistical safety gates, enabling objective, data-driven validation for the safe deployment of autonomous fleets.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.RO, cs.AI, cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17586v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17586v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Antonio Guillen-Perez</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.35000000000000003, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Catastrophic Forgetting Resilient One-Shot Incremental Federated Learning</h2>
+            <p class="paper-summary">Modern big-data systems generate massive, heterogeneous, and geographically dispersed streams that are large-scale and privacy-sensitive, making centralization challenging. While federated learning (FL) provides a privacy-enhancing training mechanism, it assumes a static data flow and learns a collaborative model over multiple rounds, making learning with \textit{incremental} data challenging in limited-communication scenarios. This paper presents One-Shot Incremental Federated Learning (OSI-FL), the first FL framework that addresses the dual challenges of communication overhead and catastrophic forgetting. OSI-FL communicates category-specific embeddings, devised by a frozen vision-language model (VLM) from each client in a single communication round, which a pre-trained diffusion model at the server uses to synthesize new data similar to the client's data distribution. The synthesized samples are used on the server for training. However, two challenges still persist: i) tasks arriving incrementally need to retrain the global model, and ii) as future tasks arrive, retraining the model introduces catastrophic forgetting. To this end, we augment training with Selective Sample Retention (SSR), which identifies and retains the top-p most informative samples per category and task pair based on sample loss. SSR bounds forgetting by ensuring that representative retained samples are incorporated into training in further iterations. The experimental results indicate that OSI-FL outperforms baselines, including traditional and one-shot FL approaches, in both class-incremental and domain-incremental scenarios across three benchmark datasets.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG, cs.DC
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17625v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17625v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Obaidullah Zaland, Zulfiqar Ahmad Khan, Monowar Bhuyan</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.4, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Canonicalizing Multimodal Contrastive Representation Learning</h2>
+            <p class="paper-summary">As models and data scale, independently trained networks often induce analogous notions of similarity. But, matching similarities is weaker than establishing an explicit correspondence between the representation spaces, especially for multimodal models, where consistency must hold not only within each modality, but also for the learned image-text coupling. We therefore ask: given two independently trained multimodal contrastive models (with encoders $(f, g)$ and $(\widetilde{f},\widetilde{g})$) -- trained on different distributions and with different architectures -- does a systematic geometric relationship exist between their embedding spaces? If so, what form does it take, and does it hold uniformly across modalities? In this work, we show that across model families such as CLIP, SigLIP, and FLAVA, this geometric relationship is well approximated by an orthogonal map (up to a global mean shift), i.e., there exists an orthogonal map $Q$ where $Q^\top Q = I$ such that $\widetilde{f}(x)\approx Q f(x)$ for paired images $x$. Strikingly, the same $Q$ simultaneously aligns the text encoders i.e., $\widetilde{g}(y)\approx Q g(y)$ for texts $y$. Theoretically, we prove that if the multimodal kernel agrees across models on a small anchor set i.e. $\langle f(x), g(y)\rangle \approx \langle \widetilde{f}(x), \widetilde{g}(y)\rangle$, then the two models must be related by a single orthogonal map $Q$ and the same $Q$ maps images and text across models. More broadly, this finding enables backward-compatible model upgrades, avoiding costly re-embedding, and has implications for the privacy of learned representations.
+  Our project page: https://canonical-multimodal.github.io/</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: cs.LG
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17584v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17584v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Sharut Gupta, Sanyam Kansal, Stefanie Jegelka, Phillip Isola, Vikas Garg</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.45, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">SOLVAR: Fast covariance-based heterogeneity analysis with pose refinement for cryo-EM</h2>
+            <p class="paper-summary">Cryo-electron microscopy (cryo-EM) has emerged as a powerful technique for resolving the three-dimensional structures of macromolecules. A key challenge in cryo-EM is characterizing continuous heterogeneity, where molecules adopt a continuum of conformational states. Covariance-based methods offer a principled approach to modeling structural variability. However, estimating the covariance matrix efficiently remains a challenging computational task. In this paper, we present SOLVAR (Stochastic Optimization for Low-rank Variability Analysis), which leverages a low-rank assumption on the covariance matrix to provide a tractable estimator for its principal components, despite the apparently prohibitive large size of the covariance matrix. Under this low-rank assumption, our estimator can be formulated as an optimization problem that can be solved quickly and accurately. Moreover, our framework enables refinement of the poses of the input particle images, a capability absent from most heterogeneity-analysis methods, and all covariance-based methods. Numerical experiments on both synthetic and experimental datasets demonstrate that the algorithm accurately captures dominant components of variability while maintaining computational efficiency. SOLVAR achieves state-of-the-art performance across multiple datasets in a recent heterogeneity benchmark. The code of the algorithm is freely available at https://github.com/RoeyYadgar/SOLVAR.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: arxiv
+              
+              &middot; Categories: stat.ML, stat.AP
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://arxiv.org/pdf/2602.17603v1" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="http://arxiv.org/abs/2602.17603v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Roey Yadgar, Roy R. Lederman, Yoel Shkolnisky</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Quantifying 3D Live-Cell Membrane Dynamics Using Dynamic Metal-Induced Energy Transfer Spectroscopy (dynaMIET)</h2>
+            <p class="paper-summary">The dynamic behavior of cellular membranes underpins essential biological processes, including signal transduction, intracellular trafficking, and mechanotransduction. However, simultaneously quantifying lateral molecular diffusion and vertical membrane fluctuations in live cells remains challenging. Here, we present dynamic metal-induced energy transfer spectroscopy (dynaMIET), which integrates metal-induced energy transfer with fluorescence correlation spectroscopy to resolve three-dimensional membrane dynamics with nanometer axial sensitivity and microsecond temporal resolution. dynaMIET enables concurrent measurement of lateral diffusion and vertical undulations within a single acquisition. We validate the method using simulations and model membranes and demonstrate its robustness in living cells, applying it to the plasma membrane, endoplasmic reticulum, and nuclear envelope. By capturing both molecular mobility and membrane fluctuations, dynaMIET provides a powerful, non-invasive tool for probing membrane mechanics and organization. This advance opens new avenues for studying membrane-associated phenomena in health and disease, including cancer cell mechanics, protein-membrane interactions, and organelle dynamics.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biophysics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.1101/2024.09.27.614973v3.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.1101/2024.09.27.614973v3" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Gallea, J. I., Karedla, N., Wang, D., Enderlein, J., Chen, T.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.55, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Hybrid MD-generative modeling expands RNA ensembles to include cryptic ligand-binding conformations: application to HIV-1 TAR</h2>
+            <p class="paper-summary">Cryptic ligand-binding sites--absent in apo structures but formed upon conformational rearrangement--offer high specificity for RNA-ligand recognition, yet remain rare among experimentally resolved RNA-ligand complex structures and difficult to predict in silico. We apply Molearn, a hybrid molecular dynamics-generative deep learning model, to expand apo RNA conformational ensembles to include cryptic states. Focusing on the paradigmatic HIV-1 TAR-MV2003 system, Molearn was trained exclusively on apo TAR conformations and used to generate a diverse ensemble of TAR structures. Candidate cryptic MV2003-binding conformations were subsequently identified using post-generation geometric analyses. Docking simulations of these conformations with MV2003 yielded binding poses with RNA-ligand interaction scores comparable to those of NMR-derived complexes. Notably, this work provides the first demonstration that a generative modeling framework can access cryptic RNA conformations that are ligand-binding competent and have not been observed in prior molecular-dynamics and deep-learning studies.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: bioinformatics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.1101/2025.01.07.631832v7.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.1101/2025.01.07.631832v7" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Kurisaki, I., Hamada, M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.6000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Uncovering the role of laminin(lama5) in maintenance of epithelial identity and polarity in bilayer zebrafish epidermis during development</h2>
+            <p class="paper-summary">Polarity is one of the fundamental properties of cells. It is characterised by the asymmetric distribution of lipids and proteins in the cell membrane and cortex, and organelles in the cell. Cell polarisation drives essential processes such as morphogenesis, cell migration, asymmetric cell division, directional transport of molecules across epithelium, nerve impulse transmission etc. Although, the importance of polarity proteins such as atypical protein kinase C (aPKC) and Lgl2 (lethal giant larvae 2) has been relatively well understood in the developing zebrafish epidermis, whether basal lamina components are important for polarity maintenance has remained unclear. I analysed the role of Laminin5 (basal lamina component) in the establishment and maintenance of apicobasal polarity, in developing bi layered zebrafish epidermis. I found that the loss of laminin 5 function results in reduced E cadherin localization and increased cell spreading along with dynamic cell boundaries and increased cell proliferation indicating acquisition of mesenchymal traits. A similar phenotype was observed in integrin 6b mutant, which did not exacerbate in the double mutant embryos indicating that laminin 5 and integrin 6b function in the same pathway.
+
+Interestingly, periderm, the cell layer above basal epidermis, maintains its apicobasal polarity and epithelial integrity presumably via reinforcing the localization of aPKC and Lgl. My work unravels the importance of Laminin 5 and Integrin 6b interaction in the maintenance of epithelial characteristics in the basal layer of the developing zebrafish epidermis.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cell biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.1101/2025.09.09.675236v10.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.1101/2025.09.09.675236v10" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Khan, T.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.65, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Enhanced tRNA array method version 2 for simultaneous in vitro synthesis of 21 tRNAs</h2>
+            <p class="paper-summary">Transfer RNAs (tRNAs) play an essential role in translation, and their simultaneous in vitro synthesis remains a key challenge in bottom-up synthetic biology. We previously developed the tRNA array method that enables the simultaneous in vitro synthesis of 21 tRNAs from a single DNA template; however, the translational activity was substantially lower than that achieved using individually prepared 21 tRNAs for some proteins. Here, we identify the tRNA groups (PIEN group) that limit translation in the tRNA array method and improve the translational activities through sequence modification and introducing a leader sequence into the array construct. The resulting tRNA array method version 2 produces a tRNA set that allows translation at levels similar to those achieved with individually prepared tRNAs for multiple reporter proteins under both translation-coupled and uncoupled conditions. This tRNA synthesis scheme provides an improved platform for constructing self-reproducible gene expression systems.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: synthetic biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.01.06.697847v2.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.01.06.697847v2" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Miyachi, R., Ichihashi, N.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.7000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Accelerated sampling of protein dynamics using BioEmu augmented molecular simulation</h2>
+            <p class="paper-summary">We introduce a workflow that integrates BioEmu-generated conformational ensemble with physics-based molecular simulations and Markov State Models to sample Boltzmann-weighted conformational populations across biomolecules. Molecular simulations initiated from BioEmu ensemble capture active-to-inactive transitions in CDK2 and BRAF, two members of the serine-threonine kinase family, and elucidate how the disease-causing V600E mutation in BRAF drives population shifts among distinct metastable states relative to the wild type. Furthermore, we combined BioEmu ensemble with experimental cryo-EM data to construct all-atom conformational ensembles of biomolecules. In comparison to the AlphaFold2 reduced multiple sequence alignment (rMSA-AF2) approach, BioEmu-generated ensembles sample a broader conformational space for serine-threonine kinases but fail to capture conformational heterogeneity in several cases, including Glycine transporter 1 (GlyT1), a membrane transporter, and plasmepsin-II (PlmII), an aspartic protease. Systems where side-chain conformational heterogeneity governs protein dynamics such as cryptic pocket opening in PlmII or transitions between multiple metastable states in GlyT1; molecular simulations initiated from BioEmu generated ensemble do not capture the full spectrum of conformational heterogeneity. Overall, this study presents a straightforward framework for integrating generative AI based protein emulators with statistical physics to recover Boltzmann-weighted conformational ensembles at scale, while also highlighting critical limitations that necessitate careful, system-specific analysis when interpreting protein conformational landscapes.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biophysics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.01.07.698041v2.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.01.07.698041v2" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Bhakat, S., Strauch, E.-M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.75, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Basal ppGpp signalling by SpoT integrates metabolism with acid resistance</h2>
+            <p class="paper-summary">Bacteria maintain low basal levels of the alarmone ppGpp during steady-state growth, yet how this basal state is established and why it matters physiologically remain poorly understood. Here, we show that basal ppGpp represents an actively maintained regulatory state that coordinates metabolic homeostasis with stress resistance. Using a targeted perturbation of SpoT regulation in Escherichia coli, we uncover a sharp requirement for a sub-basal yet non-zero ppGpp pool to sustain growth in minimal medium and survival under extreme acid stress. Disruption of this basal state leads to misallocation of metabolic flux into arginine biosynthesis, depletion of glutamate, and collapse of the glutamate-dependent Gad acid resistance system. Through intragenic suppressor analysis, enzymatic perturbations, and protein-level feedback measurements, we further demonstrate that SpoT intrinsically tunes basal ppGpp through a distributed intramolecular regulatory network coupled to negative feedback control of SpoT abundance. This regulatory logic stabilizes ppGpp within a narrow physiological window, below the threshold of canonical stringent response activation. The requirement for SpoT-dependent basal ppGpp regulation is conserved in pathogenic Salmonella and Shigella. Together, our findings establish basal ppGpp as a distinct and actively regulated signaling regime that integrates metabolism and stress preparedness beyond acute starvation responses.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: microbiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.01.26.700336v2.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.01.26.700336v2" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Liu, Y., Schicketanz, M. L., Zhai, X., Deng, L., Gerdes, K., ZHANG, Y.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Phage portal proteins counteract stringent-response-mediated restriction</h2>
+            <p class="paper-summary">Bacteria restrict viral replication not only through dedicated defense systems but also by entering global physiological states that limit cellular resources. How phages counter such host-imposed physiological barriers remains poorly understood. The stringent response (SR), mediated by the alarmones ppGpp and pppGpp, induces a growth-restrictive state that can act as a barrier to bacteriophage infection. Here we show that elevated alarmone levels delay T7-mediated host lysis, whereas (p)ppGpp-deficient cells are hypersensitive to infection, establishing alarmone signaling as a physiological constraint on phage replication. A systematic functional screen identifies the essential capsid portal protein Gp8 as a viral factor genetically linked to SR-dependent host physiology. Gp8 directly binds the alarmone synthetases RelA and SpoT, selectively inhibiting their synthetase activities in vitro and suppressing alarmone accumulation in vivo. Phages carrying interaction-defective portal mutations exhibit impaired replication, delayed lysis, and sustained (p)ppGpp elevation during infection, defects that are alleviated in SR-deficient hosts. Structural and mutational analyses reveal electrostatically mediated interfaces required for targeting RelA and SpoT. Portal proteins from diverse coliphages share similar structural features, interact with stringent-response enzymes, and display SR-linked phenotypes, indicating a broadly conserved viral strategy. Together, these findings identify phage portal proteins as a previously unrecognized class of viral counter-defense factors that target a central bacterial stress signaling pathway, revealing that essential structural virion components can moonlight as regulators of host stress physiology.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: microbiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.01.27.700999v2.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.01.27.700999v2" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Kronborg, K., Wang, L., Schicketanz, M., Gerdes, K., ZHANG, Y.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">RaDRI: A computational model for radiosensitisation by DNA double strand break repair inhibitors</h2>
+            <p class="paper-summary">Repair of radiation-induced DNA double strand breaks (DSB) is a major contributor to radioresistance and an important target for tumour radiosensitisation. DNA-dependent protein kinase (DNA-PK) plays key roles in non-homologous end-joining (NHEJ), the dominant DSB repair pathway in human cells, and DNA-PK inhibitors (DNA-PKi) are highly effective radiosensitisers. However, many questions remain concerning tumour selectivity, mechanisms of enhancement of cell killing, interaction with other repair pathways and cell cycle checkpoints and the required duration of DNA-PK inhibition. Here, we develop an agent-based computational model for Radiosensitisation by DSB Repair Inhibitors (RaDRI) with a level of complexity suitable for use in pharmacokinetic/pharmacodynamic models, and use it to investigate a potent and selective DNA-PKi, SN39536. RaDRI utilises analytical solutions for the spatial distribution of radiation-induced DSB, and their repair by NHEJ, from the Medras model (McMahon et al. Sci Rep 6:33290, 2016). Features include: (1) cell cycle progression and checkpoints are explicit; (2) probability of assignment of DSB to homologous recombination repair decreases with time post-replication, reflecting chromatin maturation, and is radiation dose-dependent; (3) Misjoining (ligation of ends from different DSBs), leading to chromosome aberrations, increases with time due to active DSB clustering. The model is parameterised using flow cytometry and clonogenic survival datasets for low-LET irradiation of HCT116 cells, with and without the DNA-PKi. Clonogenic survival is computed as a function of the number of remaining DSBs and misjoins at mitosis. RaDRI demonstrates known radiobiological features including a near linear-quadratic dose dependence for killing by radiation, almost exclusively due to DSB misjoining, but predicts a distinct mechanism of radiosensitisation by SN39536 in which failure to resolve DSBs before mitosis becomes a significant driver of radiosensitisation. The model predicts that exposure to the DNA-PKi is required for ~9 hours to achieve 90% of maximal radiosensitisation of DSB repair-proficient human cells in log-phase growth.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cancer biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.08.704735v2.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.08.704735v2" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Bogle, G., Hong, C. R., O'Brien-Gortner, S. F., Lipert, B., Hay, M. P., Wilson, W. R.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.9, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Defining the Active Conformation of Typical Protein Kinase Domains from Substrate-Bound PDB Structures Enables Active-State AlphaFold2 Models for All 437 Human Catalytic Protein Kinases</h2>
+            <p class="paper-summary">Humans have 437 catalytically competent protein kinase domains with the typical kinase fold, similar to the structure of Protein Kinase A (PKA). The active form of a kinase must satisfy requirements for binding ATP, magnesium, and substrate. From structural bioinformatics analysis of 248 crystal structures of 54 unique substrate-bound kinases, we derived structural criteria for the active form of typical protein kinases. We include well-known requirements on the DFG motif of the activation loop and the N-terminal domain salt bridge, but also on the positions of the N-terminal and C-erminal segments of the activation loop that must be placed appropriately to bind substrate. With these criteria, only 130 of the 437 human catalytic protein kinases (30%) are in the Protein Data Bank in their active form. Because the active forms of catalytic kinases are needed for understanding substrate specificity and the effects of mutations on catalytic activity in cancer and other diseases, we used AlphaFold2 to produce models of all 437 human protein kinases in the active form. This was accomplished with templates from the PDB that resemble substrate-bound structures, shallow multiple sequence alignments of orthologs and close paralogs of the query protein, and application of the active-kinase criteria to the output models. We selected models for each kinase based on intramolecular ipSAE scores of the activation loop residues of these models, demonstrating that the highest scoring models have the lowest or close to the lowest RMSD to 29 non-redundant substrate-bound structures in the PDB. A larger benchmark of 117 active kinase structures with solved activation loops in the PDB shows that 71% of the highest scoring AlphaFold2 models had backbone RMSD < 1.0 [A] to the benchmark structures and 92% were within 2.0 [A]. Models for all 437 catalytic kinases are available at https://dunbrack.fccc.edu/kincore/activemodels. We believe they may be useful for interpreting mutations leading to constitutive catalytic activity in cancer as well as for templates for modeling substrate and inhibitor binding for molecules which bind to the active state.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: bioinformatics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.19.706771v2.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.19.706771v2" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Gizzio, J., Faezov, B., Xu, Q., Dunbrack, R. L.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.9500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Assessing the impact of mono- and bi-allelic deletions in NRXN1 on synaptic function</h2>
+            <p class="paper-summary">Neurexin 1 (NRXN1) is an adhesion protein involved in synapse development and function. Mutations in NRXN1 are strongly linked with neurodevelopmental and psychiatric conditions. Mono-allelic NRXN1 mutations are associated with autistic traits, with increased likelihood of co-occurring intellectual disability. However, mono-allelic mutations have variable penetrance and occur in individuals without neurodevelopmental phenotypes. Conversely, bi-allelic mutations, though rarer, are associated with more stable penetrance and severe neurodevelopmental phenotypes. Human induced pluripotent stem cells (iPSC) have been used to study how mutations in NRXN1 impacts its function, with most studies focusing on monoallelic mutations. In this study, we systematically compared monoallelic and biallelic mutations in NRXN1, characterising their effects on molecular, synaptic, and functional phenotypes. Using CRISPR-Cas9, we introduced indels in NRXN1 exon 19, in an iPSC line containing inducible NGN2. These edits caused either mono-allelic or compound bi-allelic frameshift mutations. iPSCs containing either mutation robustly generated glutamatergic neurons, but these neurons displayed reduced expression of major NRXN1 isoforms. Transcriptomic profiling revealed modest gene expression changes in mono-allelic mutant neurons, whereas bi-allelic mutants exhibited extensive dysregulation of gene networks associated with neuronal maturation and synaptic function. Furthermore, synaptic phenotypes were mild in mono-allelic mutants but pronounced in bi-allelic mutant neurons. Both mono-allelic and bi-allelic mutant neurons displayed alterations in neuronal network activity and reduced peak depolarisation responses to KCl stimulation. Together, these data demonstrate that NRXN1 exhibits gene-dosage sensitivity, with bi-allelic disruption of exon 19 unmasking molecular, synaptic, and functional phenotypes that are only modest in mono-allelic mutant neurons.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: neuroscience
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707024v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707024v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Massrali, A., Paul, A., Gatford, N. J., Dutan-Polit, L., Kedia, S., Rahman, S., Srivastava, D. P., Kotter, M., Adhya, D., Baron-Cohen, S.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Single-cell transcriptomics reveals transcriptional diversity of sea cucumber perivisceral fluid coelomocytes</h2>
+            <p class="paper-summary">Echinoderms possess a complex immune system, primarily relying on coelomocytes -- immune cells circulating in coelomic fluids. Over the last few decades, various coelomocytes have been described based on morphological features, with holothuroids exhibiting the highest diversity of cell morphotypes among the different echinoderm classes. However, while the overall immune function of these cells is broadly accepted, their respective functions remain unclear, and molecular data specific to the different cell types are still limited in the literature. In this study, we address this gap in functional information and molecular data by using single-cell RNA sequencing (scRNA-seq) on coelomocytes from the perivisceral fluid of Holothuria forskali. We identified 10 distinct clusters, each assumed to correspond to a distinct transcriptional coelomocyte population. Among these, cluster 0 occupies a central position relative to the others, suggesting it may represent ''progenitor cells '', whereas cluster 6 is markedly divergent from all other clusters. Functional enrichment analyses revealed that some clusters ensure key immune functions, including pathogen recognition, phagocytosis, complement activation and redox balance regulation. In addition, examination of the processed samples under a microscope confirms the presence of a small proportion of recently discovered carotenocytes (7.0%) in the perivisceral fluid, a cell type rich in carotenoids. By using transcriptomics data previously obtained for this cell type by bulk RNA sequencing (bRNA-seq), it was possible to confidently identify cluster 6 as carotenocytes and provide further insights into their gene expression. While further analyses are needed to link other clusters to the different morphotypes previously described in the literature, this pioneer study presents preliminary data on the functional diversity of holothuroid coelomocytes, which could be of broad interest for a better understanding of holothuroid immunity as well as for the study of immune cell lineage evolution across deuterostomes.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: evolutionary biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.704403v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.704403v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Wambreuse, N., Lavergne, A., Fievez, L., Bureau, F., Zhang, L., Deng, B., Caulier, G., Eeckhaut, I., Delroisse, J.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.05, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Bottom-up and generative computations both uniquely explain social brain responses</h2>
+            <p class="paper-summary">Making social evaluations from visual input is a core human ability that engages brain regions involved in social perception, including portions of the superior temporal sulcus (STS), as well as higher-level mentalizing regions, such as the temporoparietal junction (TPJ). One common hypothesis proposes that these regions operate hierarchically: social perception regions like posterior STS (pSTS) implement bottom-up computations to generate fast, stimulus-derived representations of social interactions, while mentalizing regions like TPJ perform inverse-planning computations to infer the underlying goals and motivations driving agents' behavior. However, this computational-neural mapping has never been formally tested, in large part due to the lack of successful computational models of social processing. We developed computational models aligned with these two frameworks: a graph-neural-network (GNN) model that recognizes social interactions by relying on relational visual information, and a generative inverse-planning model that does so by inverting a model of agents' goals and the physical world. In this preregistered study, we collected fMRI responses while participants watched videos of agentive animated shapes depicting social interactions and compared neural responses to both computational models. Surprisingly, we found that both the GNN and inverse-planning model explained neural responses in pSTS and TPJ, even after controlling for variance explained by the other model. Exploratory analyses, however, revealed a shift from early perceptual processing towards later higher-order reasoning in both regions, suggesting a temporal rather than spatial hierarchy. Overall, this study provides the first evidence that both social perception and mentalizing regions carry out a combination of relational bottom-up and higher-level inferential computations, perhaps on distinct timescales. This work also provides the first comparison of an inverse-planning model to neural activity and demonstrates that theory-driven cognitive models can successfully predict fMRI responses to social scenes.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: animal behavior and cognition
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707082v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707082v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Malik, M., Kim, M., Shu, T., Liu, S., Isik, L.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">CLADES - Contrastive Learning Augmented DifferEntial Splicing with Orthologous Positive Pairs</h2>
+            <p class="paper-summary">Alternative splicing (AS) reshapes transcript and protein repertoires across biological, e.g. cellular, contexts. However, learning sequence[-&gt;]content-specific splicing mappings is challenging due to limited labels across tissues and cell types and variability introduced by experimental protocols. We propose a contrastive representation learning pre-training approach grounded in evolutionary conservation. Orthologous exon-intron junction sequences are treated as semantically consistent views of the same regulatory program: evolutionary orthologs are positive pairs, non-homologous junctions are negatives. This discriminative objective aligns embeddings of regulatory equivalents while separating functionally unrelated sequences, inducing invariances to unconstrained sequence and emphasizing conserved motif/RBP and positional signals. We show that this pre-training strategy provides representations that help predict {Delta}{Psi}, the change in exon inclusion between conditions, which encodes both direction and magnitude of splicing shifts. Specifically, we finetune a lightweight supervised head on available labels to predict {Delta}{Psi}. To make these predictions biologically meaningful, we further introduce an interpretable, splice-motif aware classification framework grounded in known regulatory signals. On benchmarks spanning tissue- and cell-type differential splicing, the learned representations yield strong {Delta}{Psi} classification performance (AUPRC/AUROC for increased/decreased inclusion) and competitive results for regression (RMSE, Spearman). These findings indicate that evolution-as-augmentation, instantiated via contrastive learning, is an effective and biologically principled route to context-resolved splicing prediction.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: genomics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707118v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707118v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Talukder, A., Keung, N., Pe'er, I., Knowles, D. A.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.1500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Collagen IV of basement membrane: V. Bromide-mediated sulfilimine bonds interlock the quaternary structure of NC1-hexamer of scaffolds enabling metazoan evolution.</h2>
+            <p class="paper-summary">Collagen-IV (Col-IV) scaffolds, a primordial basement membrane component, enabled animal multicellularity, evolution and adaptation. These scaffolds provide tensile strength and tether macromolecules, forming supramolecular complexes that interact with cell-surface receptors and influence cell-behavior. Triple-helical Col-IV protomers, composed of three chains, with a trimeric globular NC1-domain at the C-terminus, oligomerize forming a NC1-hexamer structure that connects adjoining protomers of Col-IV121, Col-IV556121, and Col-IV345 scaffolds. Hexamer formation and stability are driven by the extracellular chloride concentration "chloride pressure". Hexamer structure is reinforced by six sulfilimine bonds forming covalent crosslinks that weld together trimeric NC1-domains of adjoining protomers. We recently found evidence that sulfilimine bonds, independent of chloride, stabilize the quaternary structure of the Col-IV345 hexamer of the Col-IV345 scaffold. Here, we sought to determine whether this function also pertains to the Col-IV121 scaffold that occurs ubiquitously across the animal kingdom, and whether bromine, a cofactor of peroxidasin in bond formation, are evolutionary conserved. We found that sulfilimine bonds stabilized the quaternary structure of the Col-IV121 hexamer of bovine, mouse and a basal cnidarian, Nematostella vectensis, and that the mechanism of bond formation mediated by peroxidasin and bromide is evolutionary conserved. Analyses of the crystal structure of the NC1-hexamer revealed that sulfilimine bonds covalently fasten a clasp-motif across the trimer-trimer interface, interlocking the domain-swapping region of neighboring subunits, which reinforces the hexamer quaternary structure imposed by chloride conformational constraints. Collectively, our findings reveal that the sulfilimine-bond reinforcement is a critical event in Col-IV scaffold assembly enabling multicellularity, evolution and adaptation of metazoans, beginning with ancient cnidarians.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: molecular biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707065v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707065v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Clarke, B. P., Pedchenko, V., Pedchenko, T., Moran, M., Edwards, J., Vallone, K., Darris, C., Bhave, G., Page-McCaw, P., Hudson, J. K., Boudko, S. P., Hudson, B. G.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.2000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Adaptive evolution of Topoisomerase II triggers reproductive isolation in Drosophila</h2>
+            <p class="paper-summary">A fundamental driver of biological diversification is the evolution of reproductive barriers between species. Instability and mis-regulation of repetitive DNA underlie numerous post-zygotic reproductive barriers, yet the molecular mechanisms are unknown. A long-studied genetic incompatibility between Drosophila melanogaster and D. simulans arises from mis-segregation of the D. melanogaster-specific 359bp DNA satellite in hybrid embryos. Here we report that the D. simulans version of the essential enzyme Topoisomerase II/Top2 causes this lethal incompatibility. Combining interspecies gene swaps with cell biology and genetics revealed that D. simulans-specific adaptive divergence of Top2 DNA-interacting domains prevents the resolution of 359bp-induced topological stress. Our findings demonstrate that species-specific DNA satellite topology requires species-specific molecular machinery and that even vital housekeeping genes can underlie reproductive isolation between closely related species.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: evolutionary biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707007v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707007v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Brand, C. L., Brown, N. J., Dasgupta, A., Buszczak, M., Levine, M. T.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">(Epi-)Genomic Data in the German TwinLife Study: TwinSNPs and TECS Cohort Profiles</h2>
+            <p class="paper-summary">The German Twin Family Panel TwinLife is a nationwide longitudinal study of twins and their family members. Primarily focusing on the development of social inequalities over the life course, TwinLife has been collecting data since October 2014 starting with 4,096 twin families (Ntotal = 16,951 individuals). As Germany's largest twin study to date, TwinLife has been surveying four birth cohorts of monozygotic and dizygotic same-sex twin pairs (initially ~5, 11, 17, and 23 years old) and their families for 11 years. Survey data have been collected through five biennial face-to- face interviews with four computer-assisted telephone interviews in the years between. In addition, saliva samples were collected before the COVID-19 pandemic (2018-2020), during the pandemic (2021), and after (2022-2024). In this Cohort Profile, we describe the curation and initial analyses of molecular genetic and epigenetic data from the two TwinLife satellite projects TwinSNPs and TECS. Together, these projects currently comprise 12,108 processed DNA samples from 6,450 participants, extracted from the first two saliva collections before and during the COVID-19 pandemic. We compared the subsamples with the overall TwinLife sample and provide an overview of derived polygenic scores (PGS), epigenetic clocks and other methylation profile scores (MPS). We found that PGS predicted sample attrition in TwinLife, with small but significant associations between higher PGS for educational attainment and continued participation. Epigenetic clocks derived from saliva were highly correlated with chronological age (r = .71 to r = .94) and were generally more stable over time than other MPS. PGS for epigenetic clocks were associated with the respective clock only during but not before the start of the pandemic. We discuss opportunities of combining prospectively assessed molecular (epi)genetic data in within-family designs such as TwinLife and its implications and avenues for future research.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: genetics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.704007v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.704007v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Frach, L., Disselkamp, C. K. L., Schowe, A. M., Andreas, A., Deppe, M., Instinske, J., Maj, C., Rohm, T., Ruks, M., Wiesmann, L., Kandler, C., Moenkediek, B., Spinath, F. M., Binder, E. B., Noethen, M. M., Czamara, D., Forstner, A. J.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.3, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Regulation of sphingolipid synthesis by the C2H2 zinc finger transcription factor Com2 through ubiquitin-proteasome mediated degradation pathway</h2>
+            <p class="paper-summary">Membrane lipid synthesis is globally coordinated by a limited set of master transcription factors that regulate broad gene networks encoding lipid-metabolic enzymes and their regulators. Here, we identify the C2H2 zinc-finger transcription factor Com2 as a regulator of sphingolipid homeostasis in Saccharomyces cerevisiae that promotes transcription of downstream targets, including the protein kinase Ypk1, a key activator of sphingolipid synthesis. Com2 protein abundance increased upon treatment with myriocin, an inhibitor of sphingolipid synthesis, but rapidly decreased after addition of phytosphingosine (PHS), a precursor of complex sphingolipids; this decrease was blocked by proteasome inhibitors. These results suggest that Com2 is regulated in a sphingolipid-dependent manner through proteasome-mediated degradation. Moreover, a Com2 mutant in which lysine residues putatively involved in ubiquitination were replaced with arginine exhibited attenuated PHS-dependent degradation and elevated phosphorylation. Likewise, a mutant in which putative phosphorylation sites were replaced with alanine showed reduced PHS-dependent degradation. Together, these findings indicate that Com2 undergoes phosphorylation-dependent degradation via the ubiquitin-proteasome system in response to sphingolipid levels.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cell biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707110v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707110v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Matsumoto, K., Nagai, A., Komatsu, N., Ishino, Y., Shirai, R., Ueno, T., Masaki, M., Sakata, K.-T., Tani, M., Maeda, T., Tanaka, N., Tabuchi, M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.35, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Data-driven RNA phenotyping captures genetically regulated dimensions of the transcriptome</h2>
+            <p class="paper-summary">Transcriptomic diversity across individuals arises from multiple modes of RNA regulation--including pre-mRNA expression, splicing, degradation, and other processes--and has been widely leveraged to map quantitative trait loci (xQTLs) and interpret GWAS signals. We recently developed a multimodal framework called Pantry that can extend discovery beyond total expression by integrating multiple transcriptomic modalities. However, Pantry and similar tools remain limited by their reliance on complete gene annotations and the statistical complexity of jointly analyzing correlated modalities. Here, we present LaDDR (Latent Data-Driven RNA phenotyping), a mechanism-agnostic framework that generates orthogonal, latent coverage features per gene, enabling xQTL discovery and GWAS integration without requiring complete gene annotations. Applied to GTEx, LaDDR identified an average of 95% more independent xQTLs per tissue than the six transcriptional regulation modes implemented in Pantry ("knowledge-driven"). Residualizing known modalities prior to LaDDR and combining with knowledge-driven phenotypes increased discovery by an additional 41% per tissue on average, while retaining the interpretability of knowledge-driven signals. In a transcriptome-wide association study (TWAS) of 114 complex traits, using LaDDR-derived phenotypes uncovered an average of 11,790 unique gene-trait pairs per tissue, versus 8,579 from knowledge-driven phenotypes. The newly captured genetic signals exhibit functional and colocalization qualities consistent with known mechanisms, suggesting that LaDDR broadens the detectable landscape of trait-relevant transcriptomic regulation by efficiently recovering regulatory variation missed by current pipelines.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: genomics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707100v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707100v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Munro, D., Gusev, A., Palmer, A. A., Mohammadi, P.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.4000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">A Scalable Design for Proximity-Inducing Molecules</h2>
+            <p class="paper-summary">Chimeric molecules, which bring together an effector enzyme and a protein-of-interest (POI) to add/remove post-translational modifications (PTMs), are furnishing transformative modalities (e.g., PROTACs). However, these chimeras' scalability is limited as they employ rare, non-inhibitory binders of effectors. We report GRoup-transfer chimeras for Inducing Proximity (GRIPs) that employ abundantly available effectors' inhibitors to append POI binder on the effector using group-transfer handles. To demonstrate scalability, we develop 6 GRIPs classes for 3 PTMs utilizing diverse inhibitor (16 effector: POI pairs). Furthermore, we report a toolbox of 42 tunable group-transfer handles for Cys/Lys residues and ~5000 inhibitor-residue pairs from diverse effectors. Using global proteomics, we confirm the specificity for group transfer and PTM editing. GRIPs endowed new functionalities to POI drugs, including preventing rebound signaling upon drug withdrawal, a more potent/persistent inhibition, and inhibitor-induced pathway activation in 4 fully-endogenous systems. In diverse hemi-endogenous systems (tagged POI), GRIPs induced condensate formation with reduced off-targets, cleared pathogenic PTMs, and initiated PTM crosstalk. Overall, GRIPs provide a scalable and versatile platform for PTM editing.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: synthetic biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.706349v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.706349v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Karaj, E., Venkatarangan, V., Sindi, S. H., Siriwongsup, S., Lee, C., Pergu, R., Vedagopuram, S., Kailass, K., Tran, K., Singh, P., Singh, S., Kawai, J., Fung, J. E., Tefera, M., Dhaliwal, R., Chaudhary, S. K., Keyes, A., Sadagopan, A., Boatner, L., Shah, N. H., Fehl, C., Backus, K. M., Choudhary, A.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.4500000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">A global map of receptor-binding protein compatibility for the programmable design of Klebsiella and Acinetobacter phages</h2>
+            <p class="paper-summary">The narrow host range of bacteriophages limits their application against genetically diverse bacteria, motivating rational host-range modification. Progress in programmable engineering depends on establishing design principles that determine the compatibility of possible host-recognition modules with phage scaffolds. Here, we establish a genomics-guided framework that systematically identifies compatibility-determining adapter domains in receptor-binding proteins for the rational engineering of phages to target clinically relevant pathogen populations. Applying this approach to 1,270 phage genomes infecting Acinetobacter baumannii and Klebsiella pneumoniae, we show that viral diversity is highly structured: 60% of the 2,313 receptor-binding proteins group into only 19 major clusters sharing conserved N-terminal compatibility adapters. The structurally most conserved adapters in Autographivirales are associated with diverse capsule-degrading depolymerases. Known host-specificities within single-adapter clusters target capsule types that represent up to 29% of A. baumannii and 44% of K. pneumoniae carbapenem-resistant populations. Overall, we define a global repertoire of modular host-recognition components for programmable configuration of phage therapeutics.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: microbiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.706991v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.706991v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Asboth, A., Stirling, T., Mehi, O., Apjok, G., Klein De Sousa, V., Taylor, N. M., Hadj Mehdi, H., Papp, B., Kintses, B.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Role of staphylococcal EzrA as a molecular organizer of cell division</h2>
+            <p class="paper-summary">Envelope biogenesis in Staphylococcus aureus is concentrated at the septum and includes peptidoglycan synthesis, lipo- and wall-teichoic acid production, and the targeted secretion of YSIRK/GXXS signal peptide-bearing proteins. How S. aureus confines these processes to the dividing crosswall remains unclear. EzrA, a scaffolding protein structurally related to eukaryotic spectrins, has been implicated in linking cell division to envelope synthesis, yet its precise role is poorly understood. Here, we re-examine the function of EzrA for its contribution to envelope biogenesis and homeostasis. We observe that ezrA null mutants synthesize excess peptidoglycan that is incorporated in a dispersed pattern, no longer strictly confined to the septum. A similar loss of spatial restriction was observed for protein A, a surface protein whose YSIRK/GXXS signal peptide directs septal secretion and anchoring. In wild-type cells, newly synthesized peptidoglycan co-localized with nascent protein A anchoring sites at the septum, whereas this spatial coupling was disrupted in the absence of EzrA. In addition, loss of EzrA resulted in impaired nucleoid occlusion with septal guillotining of the chromosome. Together, these findings support a model in which EzrA acts as a molecular organizer of cell division, coordinating septal biosynthesis and envelope assembly while ensuring proper nucleoid occlusion.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: microbiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707072v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707072v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Azam, M. S., Pius, T., Missiakas, D. M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.55, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Relaxase Asymmetry Drives Initiation of Bacterial Conjugation</h2>
+            <p class="paper-summary">Bacterial conjugation is a major route of horizontal gene transfer and a key driver of the dissemination of antibiotic resistance, exacerbating the global health crisis. Central to this process is TraI, a bifunctional relaxase-helicase encoded by the iconic F-plasmid family. TraI initiates single-stranded DNA (ssDNA) transfer by covalently attaching to plasmid DNA through its trans-esterase (TE) activity and subsequently unwinds the plasmid via its helicase activity. Although genetic and biochemical studies have postulated that two TraI molecules are required for efficient conjugative transfer, how these molecules coordinate their activities in space and time - and how strand nicking is coupled to helicase loading - has remained unknown. Here, we capture the elusive, functionally asymmetric TraI homodimer and report its cryo-EM structure, revealing that the interaction between the two TraI molecules is mediated predominantly by ssDNA. We further show that TE-driven duplex melting at the origin of transfer (oriT) by one TraI molecule enables helicase loading by a second TraI molecule on the transfer strand of the unnicked plasmid DNA. Although the TE domain is intrinsically competent for strand nicking, its activity is inhibited by the host factor IHF, and this inhibition is relieved upon helicase loading. Together, these findings define a regulatory loop that coordinates helicase loading with strand nicking, providing mechanistic insight into the earliest stages of conjugative DNA processing.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: microbiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.706640v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.706640v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Gorenkin, D., Liang, R., Patkowski, J., Bodet-Lefevre, S., Costa, T. R. D., Ilangovan, A.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.6, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">The Tor pathway, ribosome concentration, and wobble decoding mediate inhibitory effects of the Leu-Pro CUC-CCG codon pair in Saccharomyces cerevisiae.</h2>
+            <p class="paper-summary">Translation elongation and efficiency are modulated by the genetic code. In the yeast Saccharomyces cerevisiae, 17 inhibitory codon pairs, distinguished by requirements for wobble decoding and distinct codon order, result in reduced translation efficiency and slow translation. Nine of these inhibitory pairs are functionally important as they are disproportionately strongly conserved within the orthologous genes in Saccharomyces sensu stricto. For three pairs, including CGA-CGA, inhibition is triggered by ribosome collisions and known quality control responses, but the mechanisms by which other pairs cause inhibition is unknown. Here, we examined of the molecular basis of inhibition by the slowly translated, highly conserved Leu Pro CUC-CCG codon pair yielding four findings. First, inhibition is mediated by tRNALeu(UAG), which decodes CUC by a U[bullet]C wobble interaction and effectively competes with the nonessential W[bullet]C base pairing tRNALeu(GAG). Second, despite nearly universal conservation of U33 in tRNAs, the C33 alteration in tRNALeu(GAG) does not significantly impair its function. Third, inhibition is likely due to ribosome collisions as many suppressors have mutations predicted to reduce ribosome concentration, including mutations in large ribosomal subunit proteins, RNA polymerase I, and ribosome assembly factors. Furthermore, local reduction in ribosome concentration suppresses inhibition. Fourth, we find a link between the metabolic state and CUC-CCG inhibition, as we find six suppressor mutations in SCH9, a downstream effector of TORC1 that mediates ribosome production. As Sch9 is inactive during starvation, causing reduced ribosome concentration, one biological function of inhibitory pairs may be to mediate a change in relative expression during starvation conditions.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: molecular biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707122v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707122v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Bruno, B. S., Platten, E. M., Houston, L., Brule, C. E., Grayhack, E. J.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.6500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">How the TREX-2 complex associates with the nuclear pore</h2>
+            <p class="paper-summary">Nuclear pore complexes (NPCs) control nucleocytoplasmic transport in eukaryotes, yet their architecture remains incompletely understood. Here we report a substantially extended structure of the human NPC, obtained by combining cryo-electron tomography, crosslinking mass spectrometry, and AI-assisted integrative modeling. We resolve the molecular arrangement of TPR, NUP153, NUP50 and ZC3HC1, and reveal that five additional proteins -- TMEM209, SMPD4, GANP, Centrin-2 and ENY2 -- are incorporated into the NPC. Unexpectedly, GANP, Centrin-2 and ENY2, core members of the TREX-2 mRNA export complex, are built into the nuclear ring. This finding establishes TREX-2 not as a transiently associated factor, but as an integral NPC module, positioning it opposite of the cytoplasmic NUP214 mRNA export platform. Together, our results redefine the molecular composition of the inner ring, nuclear ring and nuclear basket. They suggest a direct structural basis that couples TREX-2-mediated mRNP remodeling to NPC-facilitated transport.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cell biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707084v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707084v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Obarska-Kosinska, A., Zhu, Y., Geissler, K., Rosenkranz, R. R. E., Yokoyama, N., Kreysing, J. P., Xing, H., Glushkova, D., Kubanska, M. A., Böhm, S., Kräusslich, H.-G., Turonova, B., Liu, F., Beck, M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.7000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Regulation of mitochondrial DNA homeostasis by a mitochondrial microprotein</h2>
+            <p class="paper-summary">The actin cytoskeleton and non-muscle myosins coordinate a wide array of cellular functions, yet their contribution to mitochondrial genome maintenance remains poorly understood. Here, we identify AltSLC35A4, a conserved protein encoded by an alternative open reading frame (AltORF), as a novel regulator of mitochondrial DNA (mtDNA) homeostasis. Using co-immunoprecipitation and mass spectrometry, we show that AltSLC35A4 interacts with actomyosin cytoskeletal regulators including MYH9 and MYH10, which have been previously implicated in mtDNA regulation. Loss of AltSLC35A4 increases mtDNA copy number and causes a dispersed spatial distribution of mitochondrial nucleoids, leading to the accumulation of extramitochondrial DNA puncta. Theses alterations occur without detectable changes in TFAM expression and mitochondrial membrane potential, suggesting that the mtDNA dysregulation is independent of mtDNA replication and transcriptionand mitochondrial bioenergetic state. Our findings uncover a previously unrecognized role for AltSLC35A4 in mitochondrial nucleoids regulation and highlight the functional importance of altORF-encoded proteins in mitochondrial biology.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.706844v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.706844v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ajala, I., Lipuma, D., Bonnamour, G., Vanderperre, B.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.75, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Magnesium as a Conformational Gatekeeper of KRAS: Structural Dynamics and Therapeutic Implications</h2>
+            <p class="paper-summary">Magnesium serves as an essential cofactor for small GTPases, yet its structural role in regulating KRAS conformational dynamics and nucleotide exchange remains poorly understood. Here, we combine hydrogen deuterium exchange mass spectrometry (HDX-MS), native mass spectrometry, and functional assays to elucidate how Mg2+ stabilizes the KRAS conformational ensemble and constrains transitions between GDP- and GTP-bound states. Depletion of Mg2+ triggers widespread increases in structural dynamics throughout KRAS, spanning the p-loop, 1-helix, switch I, nucleotide-binding region, and distal helices, revealing a global loosening of the protein fold that favors an open, nucleotide exchange-competent state. Mg2+ titration experiments demonstrate that individual structural elements exhibit distinct Mg2+ dependencies: the p-loop and 1-helix recover native dynamics at micromolar concentrations, whereas switch I requires millimolar levels, underscoring its exceptionally high sensitivity to Mg2+ for structural stabilization. KRAS bound to the catalytic domain of exchange factor SOS1 displays an HDX signature closely resembling the Mg2+-free state, indicating that SOS1 promotes nucleotide exchange by transiently perturbing Mg2+ coordination while simultaneously stabilizing switch I. Consistently, phosphomimetic KRAS S17E variant, which disrupts a critical Mg2+-coordinating residue, exhibits pronounced global destabilization, reinforcing the central importance of Mg2+ in maintaining structural integrity. Taken together our findings show that Mg2+ acts as a master regulator of KRAS structural dynamics and reveal Mg2+-sensitive hotspots that might represent promising targets for next-generation KRAS therapeutics.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707046v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707046v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Srinivasu, B. Y., Damerla, T. S., Stec, A., Zhou, Z., Engen, J. R., Westover, K. d., Wales, T. E.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.8, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Discovery and dynamic pharmacology of μ-opioid receptor positive allosteric modulators</h2>
+            <p class="paper-summary">Opioid agonists such as morphine and fentanyl exert analgesic effects by binding and activating the -opioid receptor (OR), yet agonism of the OR causes a slate of serious side effects. OR-mediated addiction and respiratory depression are the major causes of the current opioid overdose crisis, largely driven by the explosion in illicit use of fentanyl, a potent opioid receptor full agonist. Given these serious side effects (and high resulting societal cost), molecules that act as analgesics with distinct mechanisms of action are of great interest. Positive allosteric modulators (PAMs) of the OR have the potential to avoid many off-target side effects of conventional opioid orthosteric agonists by enhancing the signaling properties of natural opioid peptide systems. We used a DNA-encoded chemical library screening approach to selectively discover active-state-specific OR PAMs. Two out of 3 selected prospective PAMs displayed the anticipated enhancement in agonist activity. The most effective of these compounds enhanced the activity of all orthosteric opioid agonists tested, including the native opioid peptide met-enkephalin. Little is known about the underlying dynamic basis of allosteric modulation of Family A GPCRs like the OR. To that end, we used single-molecule fluorescence resonance energy transfer experiments to detail the impact that our novel OR PAM has on the dynamic activation behavior of a key region on the intracellular face of the receptor. Our results here provide both a new chemical scaffold that acts as a OR PAM and detailed pharmacological and dynamic insights into its mechanism of action.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biophysics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707058v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707058v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: O'Brien, E. S., Wang, J., Tanguturi, P., Li, M., White, E., Shiimura, Y., Paul, B., Appourchaux, K., Krishna Kumar, K., Huang, W., Majumdar, S., Traynor, J. R., Streicher, J. M., Chen, C., Kobilka, B.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.85, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Fine-Tuning α-Synuclein Phase Separation through Sequence-Optimized Peptide Modulators</h2>
+            <p class="paper-summary">Liquid-liquid phase separation (LLPS) of intrinsically disordered proteins underlies the formation of biomolecular condensates that regulate diverse cellular processes, while its dysregulation contributes to protein aggregation and disease. Despite its importance, molecularly defined and target-specific strategies to control LLPS remain limited. Here, we present a systematic framework for designing de novo peptides that induce and modulate LLPS of -synuclein. By integrating deep mutational scanning with peptide screening, we identified sequence features that govern condensate formation and enabled the creation of optimized peptides with high efficiency and specificity. Biophysical analyses revealed that LLPS efficiency is dictated by the interplay of solubility, multivalency, and cooperative interactions, resulting in a distinctive bell-shaped phase diagram. Thermodynamic measurements and imaging-based analyses further demonstrated that condensate stability and material properties can be rationally tuned through peptide optimization. Together, these findings establish generalizable design principles for engineering LLPS modulators in biologically and pathologically relevant protein systems.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biophysics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.21.707152v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.21.707152v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ikenoue, T., Konuma, T., Ikegami, T., Suga, H.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.9000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Erythropoietin Mediates Glycerophospholipid Remodeling During Human Early Erythropoiesis</h2>
+            <p class="paper-summary">The unique biconcave morphology and deformability of mature red blood cells (RBCs) require a specific membrane lipid composition. Disruption of this special lipid profile is seen in multiple types of anemia and bone marrow (BM) failure diseases, yet molecular mechanisms regulating lipid metabolism during normal erythroid differentiation remain poorly defined. Here, we identify a previously undescribed role for erythropoietin (Epo) in contributing to the appropriate lipid composition of differentiating human erythroid cells. Using single-cell transcriptomic profiling of ex vivo cultures of human BM-derived hematopoietic stem and progenitor cells cultured with or without Epo, we delineated transcriptional dynamics across differentiation stages, identifying the Epo-dependent transition of burst-forming unit erythroid (BFU-E) to colony-forming unit erythroid (CFU-E) progenitors. Comparative analysis revealed the activation of canonical erythroid programs involving heme biosynthesis, globin expression, and iron regulation, and additionally, uncovered a transient upregulation of lipid metabolic pathways during the BFU-E to CFU-E transition. Complementary untargeted lipidomics demonstrated Epo-dependent alterations in specific glycerophospholipid (GPL) species, consistent with differential expression of GPL biosynthesis genes in the single cell dataset. Intracellular flow cytometry further confirmed the requirement of Epo for maintaining enzymes critical for phosphatidylcholine and phosphatidylethanolamine synthesis in erythroid cells. Together, these multiomic findings reveal a new role for Epo in modulating lipid metabolism during early erythropoiesis and provide mechanistic insight into how membrane lipid composition is dynamically regulated to support normal red cell development.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cell biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707106v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.20.707106v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Schippel, N., Wei, J., Ma, X., Chi, J., Gu, H., Qiu, S., Stoilov, P., Sharma, S.</p>
+            
+        </motion.div>
+        
+    </div>
+
+    <footer class="footer">
+        Generated on 2026-02-22 04:39:56 UTC. Powered by <a href="https://github.com/onion-liu" target="_blank">onion-liu</a>.
+    </footer>
+
+</body>
+</html>
