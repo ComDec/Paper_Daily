@@ -1,0 +1,150 @@
+[
+  {
+    "uid": "arxiv:2602.23363v1",
+    "source": "arxiv",
+    "title": "MediX-R1: Open Ended Medical Reinforcement Learning",
+    "abstract": "We introduce MediX-R1, an open-ended Reinforcement Learning (RL) framework for medical multimodal large language models (MLLMs) that enables clinically grounded, free-form answers beyond multiple-choice formats. MediX-R1 fine-tunes a baseline vision-language backbone with Group Based RL and a composite reward tailored for medical reasoning: an LLM-based accuracy reward that judges semantic correctness with a strict YES/NO decision, a medical embedding-based semantic reward to capture paraphrases and terminology variants, and lightweight format and modality rewards that enforce interpretable reasoning and modality recognition. This multi-signal design provides stable, informative feedback for open-ended outputs where traditional verifiable or MCQ-only rewards fall short. To measure progress, we propose a unified evaluation framework for both text-only and image+text tasks that uses a Reference-based LLM-as-judge in place of brittle string-overlap metrics, capturing semantic correctness, reasoning, and contextual alignment. Despite using only $\\sim51$K instruction examples, MediX-R1 achieves excellent results across standard medical LLM (text-only) and VLM (image + text) benchmarks, outperforming strong open-source baselines and delivering particularly large gains on open-ended clinical tasks. Our results demonstrate that open-ended RL with comprehensive reward signals and LLM-based evaluation is a practical path toward reliable medical reasoning in multimodal models. Our trained models, curated datasets and source code are available at https://medix.cvmbzuai.com",
+    "url": "http://arxiv.org/abs/2602.23363v1",
+    "pdf_url": "https://arxiv.org/pdf/2602.23363v1",
+    "authors": [
+      "Sahal Shaji Mullappilly",
+      "Mohammed Irfan Kurpath",
+      "Omair Mohamed",
+      "Mohamed Zidan",
+      "Fahad Khan",
+      "Salman Khan",
+      "Rao Anwer",
+      "Hisham Cholakkal"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-02-26T18:59:46+00:00",
+    "updated": "2026-02-26T18:59:46+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2602.23359v1",
+    "source": "arxiv",
+    "title": "SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation",
+    "abstract": "We identify occlusion reasoning as a fundamental yet overlooked aspect for 3D layout-conditioned generation. It is essential for synthesizing partially occluded objects with depth-consistent geometry and scale. While existing methods can generate realistic scenes that follow input layouts, they often fail to model precise inter-object occlusions. We propose SeeThrough3D, a model for 3D layout conditioned generation that explicitly models occlusions. We introduce an occlusion-aware 3D scene representation (OSCR), where objects are depicted as translucent 3D boxes placed within a virtual environment and rendered from desired camera viewpoint. The transparency encodes hidden object regions, enabling the model to reason about occlusions, while the rendered viewpoint provides explicit camera control during generation. We condition a pretrained flow based text-to-image image generation model by introducing a set of visual tokens derived from our rendered 3D representation. Furthermore, we apply masked self-attention to accurately bind each object bounding box to its corresponding textual description, enabling accurate generation of multiple objects without object attribute mixing. To train the model, we construct a synthetic dataset with diverse multi-object scenes with strong inter-object occlusions. SeeThrough3D generalizes effectively to unseen object categories and enables precise 3D layout control with realistic occlusions and consistent camera control.",
+    "url": "http://arxiv.org/abs/2602.23359v1",
+    "pdf_url": "https://arxiv.org/pdf/2602.23359v1",
+    "authors": [
+      "Vaibhav Agrawal",
+      "Rishubh Parihar",
+      "Pradhaan Bhat",
+      "Ravi Kiran Sarvadevabhatla",
+      "R. Venkatesh Babu"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-02-26T18:59:05+00:00",
+    "updated": "2026-02-26T18:59:05+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2602.23295v1",
+    "source": "arxiv",
+    "title": "ManifoldGD: Training-Free Hierarchical Manifold Guidance for Diffusion-Based Dataset Distillation",
+    "abstract": "In recent times, large datasets hinder efficient model training while also containing redundant concepts. Dataset distillation aims to synthesize compact datasets that preserve the knowledge of large-scale training sets while drastically reducing storage and computation. Recent advances in diffusion models have enabled training-free distillation by leveraging pre-trained generative priors; however, existing guidance strategies remain limited. Current score-based methods either perform unguided denoising or rely on simple mode-based guidance toward instance prototype centroids (IPC centroids), which often are rudimentary and suboptimal. We propose Manifold-Guided Distillation (ManifoldGD), a training-free diffusion-based framework that integrates manifold consistent guidance at every denoising timestep. Our method employs IPCs computed via a hierarchical, divisive clustering of VAE latent features, yielding a multi-scale coreset of IPCs that captures both coarse semantic modes and fine intra-class variability. Using a local neighborhood of the extracted IPC centroids, we create the latent manifold for each diffusion denoising timestep. At each denoising step, we project the mode-alignment vector onto the local tangent space of the estimated latent manifold, thus constraining the generation trajectory to remain manifold-faithful while preserving semantic consistency. This formulation improves representativeness, diversity, and image fidelity without requiring any model retraining. Empirical results demonstrate consistent gains over existing training-free and training-based baselines in terms of FID, l2 distance among real and synthetic dataset embeddings, and classification accuracy, establishing ManifoldGD as the first geometry-aware training-free data distillation framework.",
+    "url": "http://arxiv.org/abs/2602.23295v1",
+    "pdf_url": "https://arxiv.org/pdf/2602.23295v1",
+    "authors": [
+      "Ayush Roy",
+      "Wei-Yang Alex Lee",
+      "Rudrasis Chakraborty",
+      "Vishnu Suresh Lokhande"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-02-26T18:07:10+00:00",
+    "updated": "2026-02-26T18:07:10+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2602.23292v1",
+    "source": "arxiv",
+    "title": "PGVMS: A Prompt-Guided Unified Framework for Virtual Multiplex IHC Staining with Pathological Semantic Learning",
+    "abstract": "Immunohistochemical (IHC) staining enables precise molecular profiling of protein expression, with over 200 clinically available antibody-based tests in modern pathology. However, comprehensive IHC analysis is frequently limited by insufficient tissue quantities in small biopsies. Therefore, virtual multiplex staining emerges as an innovative solution to digitally transform H&E images into multiple IHC representations, yet current methods still face three critical challenges: (1) inadequate semantic guidance for multi-staining, (2) inconsistent distribution of immunochemistry staining, and (3) spatial misalignment across different stain modalities. To overcome these limitations, we present a prompt-guided framework for virtual multiplex IHC staining using only uniplex training data (PGVMS). Our framework introduces three key innovations corresponding to each challenge: First, an adaptive prompt guidance mechanism employing a pathological visual language model dynamically adjusts staining prompts to resolve semantic guidance limitations (Challenge 1). Second, our protein-aware learning strategy (PALS) maintains precise protein expression patterns by direct quantification and constraint of protein distributions (Challenge 2). Third, the prototype-consistent learning strategy (PCLS) establishes cross-image semantic interaction to correct spatial misalignments (Challenge 3).",
+    "url": "http://arxiv.org/abs/2602.23292v1",
+    "pdf_url": "https://arxiv.org/pdf/2602.23292v1",
+    "authors": [
+      "Fuqiang Chen",
+      "Ranran Zhang",
+      "Wanming Hu",
+      "Deboch Eyob Abera",
+      "Yue Peng",
+      "Boyun Zheng",
+      "Yiwen Sun",
+      "Jing Cai",
+      "Wenjian Qin"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-02-26T18:03:24+00:00",
+    "updated": "2026-02-26T18:03:24+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2602.23305v1",
+    "source": "arxiv",
+    "title": "A Proper Scoring Rule for Virtual Staining",
+    "abstract": "Generative virtual staining (VS) models for high-throughput screening (HTS) can provide an estimated posterior distribution of possible biological feature values for each input and cell. However, when evaluating a VS model, the true posterior is unavailable. Existing evaluation protocols only check the accuracy of the marginal distribution over the dataset rather than the predicted posteriors. We introduce information gain (IG) as a cell-wise evaluation framework that enables direct assessment of predicted posteriors. IG is a strictly proper scoring rule and comes with a sound theoretical motivation allowing for interpretability, and for comparing results across models and features. We evaluate diffusion- and GAN-based models on an extensive HTS dataset using IG and other metrics and show that IG can reveal substantial performance differences other metrics cannot.",
+    "url": "http://arxiv.org/abs/2602.23305v1",
+    "pdf_url": "https://arxiv.org/pdf/2602.23305v1",
+    "authors": [
+      "Samuel Tonks",
+      "Steve Hood",
+      "Ryan Musso",
+      "Ceridwen Hopely",
+      "Steve Titus",
+      "Minh Doan",
+      "Iain Styles",
+      "Alexander Krull"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-02-26T18:09:49+00:00",
+    "updated": "2026-02-26T18:09:49+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2602.23300v1",
+    "source": "arxiv",
+    "title": "A Mixture-of-Experts Model for Multimodal Emotion Recognition in Conversations",
+    "abstract": "Emotion Recognition in Conversations (ERC) presents unique challenges, requiring models to capture the temporal flow of multi-turn dialogues and to effectively integrate cues from multiple modalities. We propose Mixture of Speech-Text Experts for Recognition of Emotions (MiSTER-E), a modular Mixture-of-Experts (MoE) framework designed to decouple two core challenges in ERC: modality-specific context modeling and multimodal information fusion. MiSTER-E leverages large language models (LLMs) fine-tuned for both speech and text to provide rich utterance-level embeddings, which are then enhanced through a convolutional-recurrent context modeling layer. The system integrates predictions from three experts-speech-only, text-only, and cross-modal-using a learned gating mechanism that dynamically weighs their outputs. To further encourage consistency and alignment across modalities, we introduce a supervised contrastive loss between paired speech-text representations and a KL-divergence-based regulariza-tion across expert predictions. Importantly, MiSTER-E does not rely on speaker identity at any stage. Experiments on three benchmark datasets-IEMOCAP, MELD, and MOSI-show that our proposal achieves 70.9%, 69.5%, and 87.9% weighted F1-scores respectively, outperforming several baseline speech-text ERC systems. We also provide various ablations to highlight the contributions made in the proposed approach.",
+    "url": "http://arxiv.org/abs/2602.23300v1",
+    "pdf_url": "https://arxiv.org/pdf/2602.23300v1",
+    "authors": [
+      "Soumya Dutta",
+      "Smruthi Balaji",
+      "Sriram Ganapathy"
+    ],
+    "categories": [
+      "cs.CL",
+      "eess.AS"
+    ],
+    "published": "2026-02-26T18:08:40+00:00",
+    "updated": "2026-02-26T18:08:40+00:00",
+    "extra": {
+      "primary_category": "cs.CL"
+    }
+  }
+]
