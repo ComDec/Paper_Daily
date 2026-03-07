@@ -1,0 +1,206 @@
+[
+  {
+    "uid": "arxiv:2603.05506v1",
+    "source": "arxiv",
+    "title": "FaceCam: Portrait Video Camera Control via Scale-Aware Conditioning",
+    "abstract": "We introduce FaceCam, a system that generates video under customizable camera trajectories for monocular human portrait video input. Recent camera control approaches based on large video-generation models have shown promising progress but often exhibit geometric distortions and visual artifacts on portrait videos due to scale-ambiguous camera representations or 3D reconstruction errors. To overcome these limitations, we propose a face-tailored scale-aware representation for camera transformations that provides deterministic conditioning without relying on 3D priors. We train a video generation model on both multi-view studio captures and in-the-wild monocular videos, and introduce two camera-control data generation strategies: synthetic camera motion and multi-shot stitching, to exploit stationary training cameras while generalizing to dynamic, continuous camera trajectories at inference time. Experiments on Ava-256 dataset and diverse in-the-wild videos demonstrate that FaceCam achieves superior performance in camera controllability, visual quality, identity and motion preservation.",
+    "url": "http://arxiv.org/abs/2603.05506v1",
+    "pdf_url": "https://arxiv.org/pdf/2603.05506v1",
+    "authors": [
+      "Weijie Lyu",
+      "Ming-Hsuan Yang",
+      "Zhixin Shu"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-05T18:59:58+00:00",
+    "updated": "2026-03-05T18:59:58+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2603.05503v1",
+    "source": "arxiv",
+    "title": "Accelerating Text-to-Video Generation with Calibrated Sparse Attention",
+    "abstract": "Recent diffusion models enable high-quality video generation, but suffer from slow runtimes. The large transformer-based backbones used in these models are bottlenecked by spatiotemporal attention. In this paper, we identify that a significant fraction of token-to-token connections consistently yield negligible scores across various inputs, and their patterns often repeat across queries. Thus, the attention computation in these cases can be skipped with little to no effect on the result. This observation continues to hold for connections among local token blocks. Motivated by this, we introduce CalibAtt, a training-free method that accelerates video generation via calibrated sparse attention. CalibAtt performs an offline calibration pass that identifies block-level sparsity and repetition patterns that are stable across inputs, and compiles these patterns into optimized attention operations for each layer, head, and diffusion timestep. At inference time, we compute the selected input-dependent connections densely, and skip the unselected ones in a hardware-efficient manner. Extensive experiments on Wan 2.1 14B, Mochi 1, and few-step distilled models at various resolutions show that CalibAtt achieves up to 1.58x end-to-end speedup, outperforming existing training-free methods while maintaining video generation quality and text-video alignment.",
+    "url": "http://arxiv.org/abs/2603.05503v1",
+    "pdf_url": "https://arxiv.org/pdf/2603.05503v1",
+    "authors": [
+      "Shai Yehezkel",
+      "Shahar Yadin",
+      "Noam Elata",
+      "Yaron Ostrovsky-Berman",
+      "Bahjat Kawar"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-05T18:59:32+00:00",
+    "updated": "2026-03-05T18:59:32+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2603.05484v1",
+    "source": "arxiv",
+    "title": "Towards Multimodal Lifelong Understanding: A Dataset and Agentic Baseline",
+    "abstract": "While datasets for video understanding have scaled to hour-long durations, they typically consist of densely concatenated clips that differ from natural, unscripted daily life. To bridge this gap, we introduce MM-Lifelong, a dataset designed for Multimodal Lifelong Understanding. Comprising 181.1 hours of footage, it is structured across Day, Week, and Month scales to capture varying temporal densities. Extensive evaluations reveal two critical failure modes in current paradigms: end-to-end MLLMs suffer from a Working Memory Bottleneck due to context saturation, while representative agentic baselines experience Global Localization Collapse when navigating sparse, month-long timelines. To address this, we propose the Recursive Multimodal Agent (ReMA), which employs dynamic memory management to iteratively update a recursive belief state, significantly outperforming existing methods. Finally, we establish dataset splits designed to isolate temporal and domain biases, providing a rigorous foundation for future research in supervised learning and out-of-distribution generalization.",
+    "url": "http://arxiv.org/abs/2603.05484v1",
+    "pdf_url": "https://arxiv.org/pdf/2603.05484v1",
+    "authors": [
+      "Guo Chen",
+      "Lidong Lu",
+      "Yicheng Liu",
+      "Liangrui Dong",
+      "Lidong Zou",
+      "Jixin Lv",
+      "Zhenquan Li",
+      "Xinyi Mao",
+      "Baoqi Pei",
+      "Shihao Wang",
+      "Zhiqi Li",
+      "Karan Sapra",
+      "Fuxiao Liu",
+      "Yin-Dong Zheng",
+      "Yifei Huang",
+      "Limin Wang",
+      "Zhiding Yu",
+      "Andrew Tao",
+      "Guilin Liu",
+      "Tong Lu"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-05T18:52:12+00:00",
+    "updated": "2026-03-05T18:52:12+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2603.05465v1",
+    "source": "arxiv",
+    "title": "HALP: Detecting Hallucinations in Vision-Language Models without Generating a Single Token",
+    "abstract": "Hallucinations remain a persistent challenge for vision-language models (VLMs), which often describe nonexistent objects or fabricate facts. Existing detection methods typically operate after text generation, making intervention both costly and untimely. We investigate whether hallucination risk can instead be predicted before any token is generated by probing a model's internal representations in a single forward pass. Across a diverse set of vision-language tasks and eight modern VLMs, including Llama-3.2-Vision, Gemma-3, Phi-4-VL, and Qwen2.5-VL, we examine three families of internal representations: (i) visual-only features without multimodal fusion, (ii) vision-token representations within the text decoder, and (iii) query-token representations that integrate visual and textual information before generation. Probes trained on these representations achieve strong hallucination-detection performance without decoding, reaching up to 0.93 AUROC on Gemma-3-12B, Phi-4-VL 5.6B, and Molmo 7B. Late query-token states are the most predictive for most models, while visual or mid-layer features dominate in a few architectures (e.g., ~0.79 AUROC for Qwen2.5-VL-7B using visual-only features). These results demonstrate that (1) hallucination risk is detectable pre-generation, (2) the most informative layer and modality vary across architectures, and (3) lightweight probes have the potential to enable early abstention, selective routing, and adaptive decoding to improve both safety and efficiency.",
+    "url": "http://arxiv.org/abs/2603.05465v1",
+    "pdf_url": "https://arxiv.org/pdf/2603.05465v1",
+    "authors": [
+      "Sai Akhil Kogilathota",
+      "Sripadha Vallabha E G",
+      "Luzhe Sun",
+      "Jiawei Zhou"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-05T18:36:31+00:00",
+    "updated": "2026-03-05T18:36:31+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2603.05454v1",
+    "source": "arxiv",
+    "title": "Beyond Scattered Acceptance: Fast and Coherent Inference for DLMs via Longest Stable Prefixes",
+    "abstract": "Diffusion Language Models (DLMs) promise highly parallel text generation, yet their practical inference speed is often bottlenecked by suboptimal decoding schedulers. Standard approaches rely on 'scattered acceptance'-committing high confidence tokens at disjoint positions throughout the sequence. This approach inadvertently fractures the Key-Value (KV) cache, destroys memory locality, and forces the model into costly, repeated repairs across unstable token boundaries. To resolve this, we present the Longest Stable Prefix (LSP) scheduler, a training-free and model-agnostic inference paradigm based on monolithic prefix absorption. In each denoising step, LSP evaluates token stability via a single forward pass, dynamically identifies a contiguous left-aligned block of stable predictions, and snaps its boundary to natural linguistic or structural delimiters before an atomic commitment. This prefix-first topology yields dual benefits: systemically, it converts fragmented KV cache updates into efficient, contiguous appends; algorithmically, it preserves bidirectional lookahead over a geometrically shrinking active suffix, drastically reducing token flip rates and denoiser calls. Extensive evaluations on LLaDA-8B and Dream-7B demonstrate that LSP accelerates inference by up to 3.4x across rigorous benchmarks including mathematical reasoning, code generation, multilingual (CJK) tasks, and creative writing while matching or slightly improving output quality. By fundamentally restructuring the commitment topology, LSP bridges the gap between the theoretical parallelism of DLMs and practical hardware efficiency.",
+    "url": "http://arxiv.org/abs/2603.05454v1",
+    "pdf_url": "https://arxiv.org/pdf/2603.05454v1",
+    "authors": [
+      "Pengxiang Li",
+      "Joey Tsai",
+      "Hongwei Xue",
+      "Kunyu Shi",
+      "Shilin Yan"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-05T18:25:26+00:00",
+    "updated": "2026-03-05T18:25:26+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2603.05449v1",
+    "source": "arxiv",
+    "title": "RealWonder: Real-Time Physical Action-Conditioned Video Generation",
+    "abstract": "Current video generation models cannot simulate physical consequences of 3D actions like forces and robotic manipulations, as they lack structural understanding of how actions affect 3D scenes. We present RealWonder, the first real-time system for action-conditioned video generation from a single image. Our key insight is using physics simulation as an intermediate bridge: instead of directly encoding continuous actions, we translate them through physics simulation into visual representations (optical flow and RGB) that video models can process. RealWonder integrates three components: 3D reconstruction from single images, physics simulation, and a distilled video generator requiring only 4 diffusion steps. Our system achieves 13.2 FPS at 480x832 resolution, enabling interactive exploration of forces, robot actions, and camera controls on rigid objects, deformable bodies, fluids, and granular materials. We envision RealWonder opens new opportunities to apply video models in immersive experiences, AR/VR, and robot learning. Our code and model weights are publicly available in our project website: https://liuwei283.github.io/RealWonder/",
+    "url": "http://arxiv.org/abs/2603.05449v1",
+    "pdf_url": "https://arxiv.org/pdf/2603.05449v1",
+    "authors": [
+      "Wei Liu",
+      "Ziyu Chen",
+      "Zizhang Li",
+      "Yue Wang",
+      "Hong-Xing Yu",
+      "Jiajun Wu"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.GR"
+    ],
+    "published": "2026-03-05T18:22:54+00:00",
+    "updated": "2026-03-05T18:22:54+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2603.05446v1",
+    "source": "arxiv",
+    "title": "NaiLIA: Multimodal Nail Design Retrieval Based on Dense Intent Descriptions and Palette Queries",
+    "abstract": "We focus on the task of retrieving nail design images based on dense intent descriptions, which represent multi-layered user intent for nail designs. This is challenging because such descriptions specify unconstrained painted elements and pre-manufactured embellishments as well as visual characteristics, themes, and overall impressions. In addition to these descriptions, we assume that users provide palette queries by specifying zero or more colors via a color picker, enabling the expression of subtle and continuous color nuances. Existing vision-language foundation models often struggle to incorporate such descriptions and palettes. To address this, we propose NaiLIA, a multimodal retrieval method for nail design images, which comprehensively aligns with dense intent descriptions and palette queries during retrieval. Our approach introduces a relaxed loss based on confidence scores for unlabeled images that can align with the descriptions. To evaluate NaiLIA, we constructed a benchmark consisting of 10,625 images collected from people with diverse cultural backgrounds. The images were annotated with long and dense intent descriptions given by over 200 annotators. Experimental results demonstrate that NaiLIA outperforms standard methods.",
+    "url": "http://arxiv.org/abs/2603.05446v1",
+    "pdf_url": "https://arxiv.org/pdf/2603.05446v1",
+    "authors": [
+      "Kanon Amemiya",
+      "Daichi Yashima",
+      "Kei Katsumata",
+      "Takumi Komatsu",
+      "Ryosuke Korekata",
+      "Seitaro Otsuki",
+      "Komei Sugiura"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-05T18:12:29+00:00",
+    "updated": "2026-03-05T18:12:29+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2603.05450v1",
+    "source": "arxiv",
+    "title": "Distributed Partial Information Puzzles: Examining Common Ground Construction Under Epistemic Asymmetry",
+    "abstract": "Establishing common ground, a shared set of beliefs and mutually recognized facts, is fundamental to collaboration, yet remains a challenge for current AI systems, especially in multimodal, multiparty settings, where the collaborators bring different information to the table. We introduce the Distributed Partial Information Puzzle (DPIP), a collaborative construction task that elicits rich multimodal communication under epistemic asymmetry. We present a multimodal dataset of these interactions, annotated and temporally aligned across speech, gesture, and action modalities to support reasoning over propositional content and belief dynamics. We then evaluate two paradigms for modeling common ground (CG): (1) state-of-the-art large language models (LLMs), prompted to infer shared beliefs from multimodal updates, and (2) an axiomatic pipeline grounded in Dynamic Epistemic Logic (DEL) that incrementally performs the same task. Results on the annotated DPIP data indicate that it poses a challenge to modern LLMs' abilities to track both task progression and belief state.",
+    "url": "http://arxiv.org/abs/2603.05450v1",
+    "pdf_url": "https://arxiv.org/pdf/2603.05450v1",
+    "authors": [
+      "Yifan Zhu",
+      "Mariah Bradford",
+      "Kenneth Lai",
+      "Timothy Obiso",
+      "Videep Venkatesha",
+      "James Pustejovsky",
+      "Nikhil Krishnaswamy"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-03-05T18:22:55+00:00",
+    "updated": "2026-03-05T18:22:55+00:00",
+    "extra": {
+      "primary_category": "cs.AI"
+    }
+  }
+]
