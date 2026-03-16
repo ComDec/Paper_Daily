@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Preprint Digest - 2026-03-15</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.dev.js"></script>
+    <!-- Example using Font Awesome (replace with your preferred icon library if needed) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            /* New Palette: Light, Clean, Futuristic with Teal/Aqua accents */
+            --bg-color: #f8fafc; /* Tailwind slate-50 (Very Light Gray) */
+            --card-bg-color: #ffffff; /* White */
+            --text-color: #1e293b; /* Tailwind slate-800 (Dark Gray-Blue) */
+            --text-muted-color: #64748b; /* Tailwind slate-500 (Medium Gray-Blue) */
+            --header-color: #0f172a; /* Tailwind slate-900 (Very Dark Blue) */
+            --highlight-primary: #14b8a6; /* Tailwind teal-500 */
+            --highlight-secondary: #67e8f9; /* Tailwind cyan-300 */
+            --border-color: #e2e8f0; /* Tailwind slate-200 (Light Gray) */
+            --shadow-color: rgba(15, 23, 42, 0.08); /* Subtle shadow based on slate-900 */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            line-height: 1.6;
+        }
+
+        .bento-grid {
+            display: grid;
+            gap: 1.5rem; /* Tailwind gap-6 */
+            grid-template-columns: 1fr; /* Force single column */
+            padding-bottom: 4rem; /* Add padding at the bottom */
+        }
+
+        .bento-item {
+            /* Apply semi-transparent white background and blur */
+            background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari prefix */
+            border-radius: 1rem; /* Slightly larger radius */
+            padding: 1.75rem; /* Slightly more padding */
+            border: 1px solid rgba(226, 232, 240, 0.5); /* Lighter border with transparency */
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease-out;
+            overflow: hidden; /* Ensure content doesn't overflow */
+            position: relative; /* For potential pseudo-elements */
+        }
+
+        /* Removed ::before pseudo-element for a cleaner look */
+
+
+        .bento-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px var(--shadow-color), 0 4px 8px rgba(15, 23, 42, 0.06); /* Adjusted hover shadow */
+        }
+
+        .paper-title {
+            font-size: 1.125rem; /* Tailwind text-lg */
+            font-weight: 600; /* Tailwind font-semibold */
+            color: var(--highlight-primary); /* Use new primary highlight */
+            margin-bottom: 0.75rem; /* Tailwind mb-3 */
+            line-height: 1.4;
+        }
+
+        .paper-summary {
+            font-size: 0.875rem; /* Tailwind text-sm */
+            color: var(--text-muted-color);
+            margin-bottom: 1.25rem; /* Tailwind mb-5 */
+            line-height: 1.6;
+        }
+
+        .paper-link {
+            display: inline-flex; /* Use flex for icon alignment */
+            align-items: center;
+            font-size: 0.875rem; /* Tailwind text-sm */
+            font-weight: 600;
+            color: var(--highlight-primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem; /* Add padding */
+            border-radius: 0.5rem; /* Slightly rounder */
+            background-color: rgba(20, 184, 166, 0.08); /* Subtle teal background */
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .paper-link i {
+            margin-right: 0.5rem; /* Tailwind mr-2 */
+            transition: transform 0.3s ease;
+        }
+
+        .paper-link:hover {
+            background-color: rgba(20, 184, 166, 0.15);
+            color: #0d9488; /* Darker teal on hover */
+            transform: translateY(-1px);
+        }
+        .paper-link:hover i {
+             transform: translateX(2px);
+        }
+
+        .paper-authors {
+            font-size: 0.75rem; /* Tailwind text-xs */
+            color: var(--text-muted-color);
+            margin-top: 1rem; /* Tailwind mt-4 */
+            font-style: italic;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem; /* Tailwind mb-12 */
+            padding-top: 3rem; /* Tailwind pt-12 */
+        }
+
+        .header h1 {
+            font-size: 2.5rem; /* Tailwind text-4xl or 5xl */
+            font-weight: 700; /* Tailwind font-bold */
+            color: var(--header-color);
+            letter-spacing: -0.025em; /* Tailwind tracking-tight */
+            margin-bottom: 0.5rem;
+            /* Optional: Add a subtle text gradient */
+            /* background: linear-gradient(90deg, var(--highlight-primary), var(--highlight-secondary)); */
+            /* -webkit-background-clip: text; */
+            /* -webkit-text-fill-color: transparent; */
+        }
+
+        .header p {
+            font-size: 1.125rem; /* Tailwind text-lg */
+            color: var(--text-muted-color);
+            margin-top: 0.5rem; /* Tailwind mt-2 */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-muted-color);
+            font-size: 0.875rem; /* Tailwind text-sm */
+            padding-top: 2rem;
+            padding-bottom: 2rem; /* Tailwind py-8 */
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* Simple line graphic element (optional) */
+        .line-graphic {
+            height: 1px; /* Thinner line */
+            background: linear-gradient(90deg, rgba(20, 184, 166, 0), var(--highlight-primary), rgba(20, 184, 166, 0));
+            opacity: 0.6;
+            margin: 1.5rem 0; /* Adjust margin */
+        }
+
+        /* Framer Motion requires the script, styles enhance appearance */
+        [data-motion-element] {
+             /* Base styles for elements animated by Framer Motion */
+        }
+
+        .paper-tldr {
+            font-size: 0.95rem; /* Slightly bigger than summary */
+            color: #475569; /* Changed to Tailwind slate-600 (slightly darker than summary) */
+            margin-top: 0.75rem; /* Tailwind mt-3 */
+            margin-bottom: 0.75rem; /* Tailwind mb-2 */
+            /* font-style: italic; */
+            font-weight: bold;
+        }
+
+        .paper-rating {
+            margin-top: 1rem; /* Tailwind mt-4 */
+            margin-bottom: 1rem; /* Tailwind mb-4 */
+            color: #f59e0b; /* Tailwind amber-500 */
+        }
+
+        .paper-rating i {
+            margin-right: 0.125rem; /* Tailwind mr-0.5 */
+        }
+
+        /* Apply consistent star color to sub-ratings */
+        .paper-sub-ratings .rating-item i {
+            color: #f59e0b; /* Match overall rating star color (amber-500) */
+            margin-right: 0.125rem; /* Consistent spacing */
+        }
+
+    </style>
+</head>
+<body class="container mx-auto px-4 antialiased">
+
+    <motion.div
+        initial="{ opacity: 0, y: -30 }"
+        animate="{ opacity: 1, y: 0 }"
+        transition="{ duration: 0.6, ease: 'easeOut' }"
+        class="header"
+        data-motion-element
+    >
+        <h1>Daily Preprint Digest</h1>
+        
+        <p>Generative AI and AI4Science papers from arXiv, bioRxiv, and ChemRxiv</p>
+        
+        <p>March 15, 2026</p>
+        <div class="line-graphic mt-4 mb-8 mx-auto w-1/4"></div> <!-- Added line graphic -->
+    </motion.div>
+
+    <div class="bento-grid" id="paper-grid">
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Systems-level proteomic models of cotton fiber development: A high-resolution resource to analyze cell dynamics and trait engineering</h2>
+            <p class="paper-summary">The shapes and material properties of cotton seed coat trichoblasts are the basis of a multibillion-dollar natural fiber industry. As such, these highly specialized cells are low-hanging fruit for intentional trait engineering. However, broad successes will require more mechanistic knowledge about their systems-level cellular controls. This time-series study integrates daily measurements of purified fiber transcriptomes and proteomes with multiscale fiber phenotyping datasets that span the same developmental interval. Abundance profiles of the subcellular proteomes are the foundation of the analyses. This resource article provides direct information concerning which homoeologs operate and informative depictions of how compartmentalized cellular systems change during developmental transitions. Prediction accuracy was partially validated by analysis of the protein expression group 11, which contained multiple known secondary cell wall cellulose synthases and dozens of unknown proteins and an averaged profile that was strongly correlated with a sharp state transition in cellulose microfibril alignment and increased cellulose content. The dataset as a whole can serve as a hypothesis-generating machine to guide future experiments that relate to cell shape and growth rate control, reversible tissue formation, and cell wall remodeling. Integration of mRNA and protein abundance revealed widespread evidence for post-transcriptional control. In addition, there were hundreds of transcriptionally controlled genes with differing timepoints of transition. This latter gene set can be used to more reliably analyze transcriptional control networks and to generate collections of gene expression drivers for cotton fiber research. The protein and transcript data are organized into user-friendly tables and a web interface that can be searched using any plant ortholog of interest based on developmental time, abundance, annotations, or phenotypic association.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: plant biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.1101/2025.02.05.636703v4.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.1101/2025.02.05.636703v4" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Lee, Y., Yang, P., Rani, H., Miller, G., Grover, C. E., Swaminathan, S., Zabotina, O. A., Wendel, J. F., Xie, J., Szymanski, D. B.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.05, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">PHYTOCHROME INTERACTING FACTOR 7 moderates the activity of phytochrome A in canopy shade conditions</h2>
+            <p class="paper-summary">In nature, plants perceive and respond to complex vegetative environments through the phytochrome (phy) photoreceptor-signaling system. The canopy adaptation strategy, elicited by phyA, together with the shade avoidance syndrome, regulated by phyB, enables plants to adapt to diverse forms of vegetation shade. The phyA High Irradiance Response (HIR) mode, which involves photocycle-coupled nuclear shuttling, is essential for sensing sustained far-red rich conditions typical of canopy or occlusive shade. Our research identifies PHYTOCHROME INTERACTION FACTOR 7 (PIF7) as a key regulator of phyA function. We show that PIF7ox effectively suppresses phyA action. Under persistent shade, PIF7 and phyA both accumulate and interact within nuclear photobodies, with binding mediated by the C-terminal domain of PIF7 and the PAS-PAS domain of phyA. PIF7 also interacts with FHY1 and FHL transport facilitators, thereby interfering with phyA cytosolic-nuclear shuttling. This coordinated molecular targeting by PIF7 constitutes an effective strategy for modulating phyA function under shaded conditions.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: plant biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.1101/2025.10.07.680213v3.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.1101/2025.10.07.680213v3" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Zhou, M., Romanowski, A., Halliday, K.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Direct interactions of CEACAM1 and CD36 with LPS and each other</h2>
+            <p class="paper-summary">Lipopolysaccharide (LPS), a ubiquitous bacterial component of food, is neutralized by a variety of mechanisms that help to establish a threshold, which when exceeded results in an inflammatory TLR4 mediated response. Notably both CEACAM1 and CD36 affect downstream signaling of TLR4 to LPS. Furthermore, CEACAM1 associates with CD36 in hepatocytes, regulating lipid storage and bile acid (BA) secretion that includes reverse transport of LPS to the intestine. Direct binding of LPS-Ra micelles to soluble CEACAM1 or soluble CD36 was analyzed by surface plasmon resonance (SPR), size exclusion chromatography (SEC) and transmission electron microscopy (TEM). Direct binding of CEACAM1 to CD36 was analyzed by SPR and proximity ligation assays. Molecular models were generated by Alpha Fold and Molecular Dynamics. LPS Binding: SPR binding constants of KD= 1.04 x 10-10 M and KD= 3.38 x 10-10 M were obtained for LPS-Ra micelle binding to sCEACAM1 and sCD36, respectively. On SEC, the molecular sizes of LPS-Ra micelles bound to sCEACAM1 and sCD36 were approximately 500 and 800 kDa, respectively. In addition, LPS binding to both was reduced by sodium cholate and sodium deoxycholate. Alpha Fold predicted a binding site of LPS-Ra to CD36, while Molecular Dynamic studies of an N-domain mutant of CEACAM1, that breaks a conserved salt bridge, revealed the presence of an open form that is predicted to bind LPS. sCEACAM1 to sCD36 Binding: A KD of 5.28 x 10-8 M was obtained for sCEACAM1 binding to immobilized sCD36 by SPR. Antibody-based-proximity ligation demonstrated the association of the ectodomains of CEACAM1 and CD36 on hepatic cells and when co-expressed in HEK cells. In addition, biotin-based proximity ligation demonstrated association of the cytoplasmic domains of CEACAM1 and a CD36-BioID2 fusion protein when co-expressed in HEK cells. Alpha Fold predicted both head-to-head (trans) and side-to-side (cis) binding of the N-domain of CEACAM1 to CD36, from which a membrane model of their cis-interaction could account for the proximity ligation results. Both CEACAM1 and CD36 share a common LPS micelle binding function, as well as binding to each other, and together, may regulate uptake and excretion of micellar LPS.transmission electron microscopy (TEM). Direct binding of CEACAM1 to CD36 was analyzed by SPR and proximity ligation assays. Molecular models were generated by Alpha Fold and Molecular Dynamics. LPS Binding to sCEACAM1 and sCD36: SPR binding constants of KD= 1.04 x 10-10 M and KD= 3.38 x 10-10 M were obtained for LPS-Ra micelle binding to sCEACAM1 and sCD36, respectively. On SEC, the molecular sizes of LPS-Ra micelles bound to sCEACAM1 and sCD36 were approximately 500 and 800 kDa, respectively. In addition, LPS binding to both was reduced by BAs sodium cholate and sodium deoxycholate. Alpha Fold predicted a binding site of LPS-Ra to CD36, while Molecular Dynamic studies of an N-domain mutant of CEACAM1, that breaks a conserved salt bridge, revealed the presence of an open form that is predicted to bind LPS. sCEACAM1 to sCD36 Binding: A KD of 5.28 x 10-8 M was obtained for sCEACAM1 binding to immobilized sCD36 by SPR. Antibody-based-proximity ligation demonstrated the association of full length CEACAM1 and CD36 on the surface of hepatic cells and when co-expressed on HEK cells, while biotin-based proximity ligation demonstrated association of the cytoplasmic domain of CEACAM1 to the cytoplasmic domain of a CD36-BioID2 fusion protein co-expressed in HEK cells. Alpha Fold predicted both head-to-head (trans) and side-to-side (cis) binding of the N-domain of CEACAM1 to CD36, from which a membrane model of their cis-interaction could account for the proximity ligation results. Conclusion: Both CEACAM1 and CD36 share a common LPS micelle binding function, as well as binding to each other, and together, may regulate uptake and excretion of micellar LPS</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.01.703119v2.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.01.703119v2" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Hu, W., Wong, P., Batticharya, S., Li, Z., Li, L., Aniogo, E., Jitender, J., Hong, T., Zhang, Z., Yazaki, P., Kujawski, M., Shively, J. E.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.15000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Differential pairings of MAT1-1-1 and MAT1-2-1 protein variants with heteromorphic tertiary structures produced simultaneously by Ophiocordyceps sinensis strains</h2>
+            <p class="paper-summary">The MATalpha_HMGbox domain in the MAT1-1-1 protein and the HMG-box_ROX1-like domain in the MAT1-2-1 protein play essential roles in DNA binding and regulating the transcription of genes that control sexual reproduction in Ophiocordyceps sinensis. Previous studies have documented differential occurrences, differential transcription, and alternative splicing of the MAT1-1-1 and MAT1-2-1 and pheromone receptor genes in Hirsutella sinensis (Genotype #1 among 17 genome-independent O. sinensis genotypic fungi). This study further revealed that the DNA-binding domains of the paired MAT1-1-1 and MAT1-2-1 proteins derived from each of the 20 O. sinensis strains exhibit heteromorphic tertiary structures, as predicted by AlphaFold 3D structural modeling. The differentially paired mating proteins, characterized by different truncations, 1-4 amino acid substitutions at distinct sites, altered hydrophobicity and secondary structures, and heteromorphic tertiary structures, indicate divergency in the fungal origins of the mating proteins within the mycologically and genetically impure O. sinensis strains. These findings support the hypothesis of O. sinensis self-sterility and are likely ensure the fidelity and genetic diversity of heterothallic or hybrid reproduction throughout the lifecycle of the Cordyceps sinensis insect-fungal complex.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.16.706022v2.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.02.16.706022v2" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Li, X.-Z., Li, Y.-L., Liu, W., ZHU, J.-S.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.2, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Characterization of aliA and aliB deletion mutants reveals a dominant role of AliA in Haloferax volcanii lipoprotein lipidation</h2>
+            <p class="paper-summary">Protein lipidation is a widespread strategy for anchoring proteins to cellular membranes across all domains of life, yet the mechanisms underlying this process in archaea remain poorly understood. Recently, the first archaeal enzymes involved in lipobox-containing protein (lipoprotein) biogenesis, AliA and AliB, were identified and characterized in the model archaeon Haloferax volcanii. Although these paralogs share significant sequence similarity, distinct deletion phenotypes suggest differences in their substrate specificity and function. Here, we employed large-scale Triton X-114 fractionation followed by quantitative proteomics and lipid-specific mass spectrometry to systematically analyze AliA- and AliB-dependent lipoprotein lipidation. Deletion of aliA affected substantially more lipoproteins in Hfx. volcanii than deletion of aliB, markedly diminishing their TX-114 enrichment--indicating reduced hydrophobicity--and abolishing thioether-linked archaeol modification. This establishes AliA as the primary enzyme responsible for archaeal lipoprotein lipidation. In contrast, deletion of aliB affected only a small subset of lipoproteins and did not significantly reduce thioether-linked archaeol levels. In addition to defining distinct and non-redundant roles for AliA and AliB, this study provides the first large-scale experimental validation of predicted archaeal lipoproteins and identifies candidate components of the archaeal lipoprotein biogenesis pathway, substantially advancing mechanistic understanding and enabling improved lipoprotein prediction in this previously underexplored field.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: molecular biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.08.710431v2.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.08.710431v2" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Hong, Y., Garcia, A. A., Kopelev, S., Cote, J., Pfeiffer, F., Welander, P. V., Schulze, S., Pohlschroder, M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Proteomics reveals extensive phosphoregulation of outer kinetochore protein KNL1</h2>
+            <p class="paper-summary">Microtubules attach to kinetochores to facilitate chromosome movement to opposite spindle poles. Defective kinetochore-microtubule attachments lead to phosphoryation of the outer kinetochore protein KNL1 at conserved MELT motifs, which triggers spindle assembly checkpoint activation and recruitment of the fibrous corona. To identify additional phosphorylation sites that regulate kinetochores, we treated HEK 293T/17 cells with nocodazole, paclitaxel, or STLC to create defective kinetochore-microtubule attachment states. We then purified KNL1 and performed proteomics and identified 111 phosphorylation sites on KNL1, including several that may be attachment-state specific. These data demonstrate that KNL1 is extensively phosphoregulated in response to treatment with microtubule-disrupting compounds.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cell biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711714v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711714v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Jurasin, A. C., Frank, A. R., Biggins, S.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.30000000000000004, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Transcriptomic data and biomedical literature synergize in finding pharmacologic gene regulators</h2>
+            <p class="paper-summary">Most Mendelian disorders caused by a deficiency or excess of one gene product lack targeted therapies. Since these disorders can be modeled with a gene overexpression, knockout, or knockdown, drugs that oppose the transcriptomic effects of such perturbations may be promising therapeutic candidates. RNA-Sequencing (RNA-Seq) studies can fuel this drug-prioritization, but their labels, written in plain language, must be annotated manually. Hence, we introduce Signature-based Networks from Automatically Curated Knockout, Knockdown, and Small-molecule Studies (SNACKKSS), which automatically curates gene-disruption and drug studies from the Gene Expression Omnibus and, in partnership with uniformly computed read count datasets, feeds the labels and RNA-Seq data directly into regulatory relationship predictions. Through cross-validation, we show that SNACKKSS' predictions (specifically, from a variation called "SA4") make a unique contribution to finding protein-inhibiting compounds, even alongside existing predictors. We demonstrate the benefit of aggregating multiple predictive tools, and provide this powerful ensemble alongside SNACKKSS. Importantly, though, we advise researchers to test complex machine learning models on multiple devices. Even with code packages kept consistent, they can run deterministically within a machine, but inconsistently on different ones. Nonetheless, the downstream predictive ability was striking, and leveraging multiple sources of information, RNA-Seq data included, will vastly improve drug-repurposing screens.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: genomics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.708862v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.708862v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Deisseroth, C. A., Brazelton, B., Shaik, Z., Liu, Z., Zoghbi, H. Y.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.35000000000000003, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">FLIM-FRET as a Molecular Filter for Membrane-Induced Aggregation</h2>
+            <p class="paper-summary">Membrane binding is thought to trigger early aggregation of alpha-synuclein (aSyn) in neurons. However, live-cell measurements of membrane-proximal aggregation with high specificity remain challenging. We combine three-channel fluorescence lifetime imaging microscopy (FLIM) with Forster resonance energy transfer (FRET) in a model that uses FRET as a proximity filter. A membrane-tethered donor reports membrane-aSyn separation through lifetime changes, while an aSyn-labeled acceptor reports the aggregation state through its lifetime. We estimate per-cell lifetimes and mixture fractions for membrane-bound and membrane-unbound populations using a hierarchical expectation-maximization (EM) algorithm that pools information across pixels. We validate the estimator using Monte Carlo studies. Using experimental neuronal data, this method resolves changes in membrane-proximal aggregation and aggregate-associated lifetimes. This framework provides quantitative per-cell metrics linking membrane proximity and aggregation for comparative live-cell studies.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biophysics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.14.711702v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.14.711702v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Salem, A., Qi, W., Rochet, J.-C., Webb, K. J.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.4, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Accurate computation of ionic concentrations in the synaptic cleftrequires the full Poisson-Nernst-Planck (PNP) equations</h2>
+            <p class="paper-summary">The synaptic cleft between neighboring neurons is the site of neurotransmitter-mediated communication that underlies normal brain function, including learning and memory. When an action potential reaches the presynaptic terminal, released neurotransmitters cross the cleft under the combined influence of diffusion and electrical forces to activate postsynaptic receptors. Despite this, synaptic-cleft transport is commonly modeled using a pure diffusion model, neglecting electrical drift. Here, we quantify the relative contributions of diffusion and electrical terms in the Poisson-Nernst-Planck (PNP) framework and assess whether the pure diffusion approximation is adequate. We solve the full PNP system in a three-dimensional computational model of the synaptic cleft at nanometer-scale resolution, tracking five ionic species (Na+, K+, Ca2+, Cl-, Glu-) with full spatial and temporal detail. Solutions are compared directly with those of the pure diffusion (D) model. The D and PNP models produce markedly different ionic concentration fields. Analysis of ionic fluxes confirms that diffusive and electrical contributions are of comparable magnitude across all species. These discrepancies are robust across parameter variations, including the number of AMPA receptors, the amount of released glutamate, the cleft height, and the cleft diffusion coefficient, and are amplified as the number of AMPA receptors increases, the cleft becomes narrower or diffusion more restricted. The quantitative and qualitative differences between the pure D model and the full PNP model demonstrate that neglecting electrical forces in the synaptic cleft has consequences. These discrepancies are large enough to alter the predicted dynamics and biological interpretation of synaptic transmission, establishing that accurate computation of ionic concentrations in the synaptic cleft requires the full PNP equations.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biophysics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711245v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711245v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Jaeger, K. H., Tveito, A.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.45, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Molecular determinants underlying substrate receptor specificity of human CRL4B E3 ubiquitin ligase</h2>
+            <p class="paper-summary">The vertebrate CRL4 family of Cullin-RING E3 ubiquitin ligases is distinguished from other cullin-based ligases by the presence of two highly homologous paralogs, CUL4A and CUL4B. Both CRL4 complexes use the DDB1 subunit to recruit dedicated and interchangeable substrate receptors called DCAFs, but the underlying mechanisms guiding DCAF specificity for CUL4B or CUL4A remain poorly understood. Here, we performed structural and biochemical analyses of the CRL4BLIS1 complex and identified two molecular determinants for CUL4B-specific DCAFs. First, we discovered that the unique CUL4B N-terminal extension directly binds CUL4B-specific DCAFs, enhancing their complex formation. This direct interaction can be modulated by phosphorylation, adding the possibility for spatiotemporal regulation. Second, the cryo-EM model of the CRL4BLIS1 complex identified a novel interface on the DDB1 subunit which promotes LIS1 recruitment. Quantitative affinity measurements and mutational analysis confirmed that this DDB1 interface is generally important for recruiting CUL4B-specific DCAFs including WDR1 and BRWD1, but not for CUL4A-specifc DCAFs, such as DCAF8. Together, our study identifies molecular determinants and unexpected interfaces on CRL4 components that dictate preference for DCAF recruitment.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711546v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711546v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Mohamed, W. I., Rabl, J., Qureshi, B. M., Leitner, A., Uliana, F., Kazemzadeh, A., Radwan, N., Peter, M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Flipper: An advanced framework for identifyingdifferential RNA binding behavior with eCLIP data</h2>
+            <p class="paper-summary">Motivation: Crosslinking and immunoprecipitation (CLIP) methods remain the gold standard for characterizing RNA binding protein (RBP) behavior. As a result, many researchers rely on CLIP to assess how treatments targeting RBPs alter binding patterns and regulatory activity. However, current tools for differential RBP binding analysis lack core features required for rigorous statistical inference, including proper normalization and appropriate handling of replicate experiments. Furthermore, existing approaches cannot adequately separate expression driven effects from true changes in RBP binding, complicating interpretation of differential analyses. Addressing these limitations is essential for producing reproducible and informative analyses of differential RBP binding. Results: Here we present Flipper, an application purpose built for the analysis of differential RBP binding. Flipper introduces several innovations that adapt the DESeq2 framework for robust differential analysis of eCLIP count data. These include integration of input controls to account for expression driven binding shifts, hierarchical normalization strategies that adjust for technical variation without confounding signal to noise ratios, and improved post-differential analysis tools. We demonstrate that Flipper exhibits high specificity when applied to real differential eCLIP data while also providing deeper biological insights. In addition, analyses of both real and simulated data indicate that Flipper achieves superior sensitivity and precision compared with existing approaches. Together, these results highlight Flipper as a robust and generalizable framework for differential RBP binding analysis.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: bioinformatics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711628v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711628v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Flanagan, K., Xu, S., Yeo, G. W.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.55, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Uncovering cancer dependencies in peptide-interacting protein pockets</h2>
+            <p class="paper-summary">Cancer cells often become dependent on specific molecular functions. As many proteins perform multiple functions mediated by different pockets and interfaces, we hypothesized that we could identify distinct cancer dependencies and therapeutic vulnerabilities by disrupting peptide-binding pockets. To test this hypothesis, we screened a proteome-wide library of 7152 genetically encoded peptides across nine cancer cell lines. We identify common and selective dependencies on peptide-binding pockets and find that gene knockout and peptide-mediated inhibition of pockets often drive divergent phenotypes. For the common-essential gene HCF1, we identify a therapeutic window by using inhibitory peptides with varying affinity. Moreover, peptides targeting TLE1-4 reveal a dependency hidden in genetic screens by homolog redundancy. We also uncover that peptides inhibiting cyclin D drive specific suppression of leukemia cell proliferation and demonstrate that these peptides improve the potency of CDK4/6 inhibitors. Overall, our screening platform facilitates data-driven prioritization of molecular pockets for subsequent therapeutic translation.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cancer biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711608v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711608v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Örd, M., Kogan, L., Bradburn, D., Leiser, M., Koivomägi, M., Davey, N. E., Creixell, P.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.6000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Suppression of YAP/TAZ molecular targets by epigenetic editing interferes with GBM growth and invasiveness</h2>
+            <p class="paper-summary">Glioblastoma (GBM) is a highly aggressive brain tumor characterized by extensive heterogeneity, diffuse invasion, and recurrence despite multimodal therapy. Aberrant transcriptional programs driven by oncogenic signaling pathways sustain GBM growth, stemness, and therapy resistance, yet targeting individual molecular nodes has yielded limited clinical benefit. Here, we introduce a transcriptional rewiring strategy based on an engineered epigenetic silencer factor (ESF) targeting the YAP/TAZ-TEAD axis. We developed a TEAD1 Epigenetic Silencer (TES) by fusing the DNA-binding domain of TEAD1 to repressive epigenetic modules. TES selectively binds TEAD genomic targets and imposes stable transcriptional repression of YAP/TAZ-dependent gene programs through chromatin remodeling and DNA methylation. Genome-wide analyses revealed that TES preserves TEAD1 DNA-binding specificity while converting an oncogenic transcriptional platform into a repressive state. Functionally, TES impaired proliferation, induced cell death, and reduced migratory and invasive properties in glioma cell lines and patient-derived cancer stem-like cells. In vivo, TES significantly reduced tumor growth in orthotopic GBM xenograft models and enhanced the therapeutic efficacy of temozolomide. Importantly, TES was well tolerated by normal neural cells in vitro and in the adult mouse brain in vivo. These findings establish TES as a proof-of-concept epigenetic therapy to durably suppress oncogenic transcriptional networks in GBM.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cancer biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711340v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711340v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Baronchelli, E., Ferretti, S., Kubacki, M., Covino, A., Benedetti, V., Bellini, E., Giannelli, S. G., Luoni, M., Ventura, E., Banfi, F., Colasante, G., Ungaro, F., Broccoli, V., Sessa, A.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.65, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">LSD1 ablation promotes mammary tumor metastasis by attenuating NK cell-mediated anti-tumor immunity</h2>
+            <p class="paper-summary">Epigenetic deregulation can alter the expression of cancer-related genes in tumor cells and may promote metastasis by influencing interactions between tumor cells and their immune microenvironment. However, the underlying immune mechanisms remain poorly understood. LSD1 (KDM1A) is a histone demethylase that has been proposed to function as a tumor and metastasis suppressor in breast cancer. Here, using the MMTV-PyMT breast cancer mouse model, we show that natural killer (NK) cells play a critical role in suppressing tumor cell metastasis to the lung, and that ablation of LSD1 leads to increased lung metastasis. This phenotype is accompanied by pronounced upregulation of immune-related genes, including major histocompatibility complex class I (MHC-I) genes, in tumor cells and by extensive remodeling of the tumor immune microenvironment, characterized by reduced abundance and maturation of NK cells. Consistent with these observations, NK cells exhibit reduced cytotoxicity toward Lsd1-null PyMT tumor cells. Notably, NK cell-mediated killing can be restored by disrupting expression of the non-classical MHC-I molecule Qa-1, a ligand for the inhibitory NK receptor CD94/NKG2A, in tumor cells. In transplantation experiments, Lsd1-null PyMT tumor cells formed significantly larger lung metastatic lesions than Lsd1-wildtype tumor cells in SCID mice, which possess functional NK cells, but not in NSG mice that lack NK cells. Collectively, these findings suggest that epigenetic deregulation in LSD1-deficient mammary tumor cells reprograms the tumor immune microenvironment, resulting in impaired NK cell-mediated tumor surveillance and enhanced metastatic progression.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cancer biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711410v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711410v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Xiang, D., Han, S., He, A., Qin, G., Bronson, R. T., Li, Z.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.7000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">SCIA: A fast and widely applicable pipeline for measuring expanded repeat instability</h2>
+            <p class="paper-summary">The expansion of short tandem repeats is a feature of over 60 different human diseases. Ongoing somatic expansion throughout a patient's lifetime can influence disease progression and may be harnessed for therapeutic interventions. Understanding its mechanism is essential for the rational identification of potential drug targets and small molecules. A major obstacle towards that translational goal has been to measure changes in repeat size in a timely manner. To address this, here we present Single Clone-based Instability Assay (SCIA), a streamlined experimental design that saves weeks in assessing the effect of a gene knockout on repeat instability. The approach avoids bulk cultures and does not require a reporter cell line. Instead, it uses long-read sequencing as a read out for repeat instability. We have validated the approach using FAN1, PMS1, and MLH1 knockouts in HEK293-derived cells. We opted to visualise the data with delta plots and extracted the instability frequency, the direction of the changes and their average size. This approach can be made PCR-free and used in a variety of cell lines, making it widely applicable. To facilitate use of the pipeline, we provide a software bundle for data visualization and statistical analysis.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: neuroscience
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.707943v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.707943v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Smith, C., Peter Durairaj, R. R., Randall, E. L., Aston, A. N., Heraty, L., Elsayed, W., Murillo, A., Dion, V.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.75, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Muscle LIM Protein is a Non-Canonical RNA-Binding Protein that Engages in RNA-Dependent Cytoskeletal Assemblies</h2>
+            <p class="paper-summary">Muscle LIM Protein (MLP) is a key component of the cardiomyocyte Z disc that is essential for sarcomere integrity and cardiac homeostasis. Accordingly, loss of MLP function results in (cardio-)myopathy phenotypes in animal models and human patients. In this study, we present the first RNA-binding proteome (RBPome) of human cardiomyocytes using enhanced RNA interactome capture (eRIC). Data integration with existing RBPome datasets identified MLP as an evolutionary conserved and previously unrecognized non-canonical RNA-binding protein (RBP) in cardiomyocytes. Using complementary biochemical approaches, we confirmed direct RNA association of MLP. Moreover, RNA integrity was required for MLP interactions with cytoskeletal proteins and for the formation of higher-order MLP-containing assemblies, revealed by co-immunoprecipitation and RNA-dependent sedimentation profiling. Subcellular fractionation and imaging analyses indicated that MLP resides in both cytosolic and cytoskeleton-associated pools. Domain mapping identified two glycine-rich regions within MLP as RNA contact sites, and RNA-binding-deficient MLP mutants showed impaired association with cytoskeletal complexes. Together, our findings establish/suggest RNA binding as a regulated property of MLP and uncover an RNA-dependent layer of cytoskeletal organization in cardiomyocytes.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: molecular biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.10.710776v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.10.710776v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Sigrist, P., Destounis, D., Ravi, V., Sahadevan, S., Sekaran, T., Bohnlein, J., Kamuf-Schenk, V., Loewenthal, Z., Ferring-Appel, D., Stein, F., Rettel, M., Boileau, E., Seeger, T., Dieterich, C., Frey, N., Hentze, M. W., Volkers, M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Zasp52s differentially expressed intrinsically disordered region confers thin filament stability at the Z-disc</h2>
+            <p class="paper-summary">The Drosophila scaffolding protein Zasp52 is required to maintain structure at the muscle Z-disc which experiences strong forces during contraction. It is alternatively spliced into many isoforms, some of which contain a long intrinsically disordered region (IDR). We show that this region is primarily expressed in the indirect flight muscle (IFM) and is required for maintaining integrity of the Z-disc. Deleting the IDR-encoding exon15e results in flightlessness and structural IFM defects, including sarcomere bending at the Z-disc and an inability to de-contract. These defects are indicative of a lack of proper thin filament anchoring to the Z-disc. This is further supported by a genetic interaction between exon15e and actin. Fluorescence recovery after photobleaching of an isoform lacking exon15e shows that the IDR is required for maintaining Zasp52 at the Z-disc and thereby stabilizing Z-discs. Lastly, we can rescue these phenotypes by restricting IFM use. Together, these results suggest that Zasp52s IDR confers thin filament stability at the Z-disc of IFM.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cell biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.10.710607v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.10.710607v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Ho, N., Schöck, F.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Aphid stylin cuticular proteins contribute to turnip mosaic virus (Potyvirus) transmission</h2>
+            <p class="paper-summary">Hundreds of plant viruses are transmitted by aphid vectors, among which non-circulative ones are acquired and inoculated from one host to another within seconds. These viruses are retained on receptors located at the surface of the cuticle of aphid mouthparts. Members of the Potyviridae family are the most abundant RNA viruses infecting plants, and they cause significant economic losses. Among them, viruses of the Potyvirus genus are transmitted by aphids in a stylet-borne manner. Their receptors in aphid stylets remain poorly characterized. Using turnip mosaic virus (TuMV, Potyvirus rapae) as a model, we developed complementary approaches to investigate potyvirus-aphid interactions in three vector species. Immunofluorescence detection and transmission electron microscopy revealed the presence of TuMV in the distal part of aphid maxillary stylets, both in the food canal and on the acrostyle. This cuticular organ houses Stylin proteins, including Stylin-01, the receptor for the cauliflower mosaic virus (Caulimovirus tessolobrassicae). Using CRISPR-Cas9-edited Stylin-01 mutant lines in the pea aphid, we demonstrated that this protein plays an important role in TuMV transmission. Complementary RNA interference silencing experiments revealed that Stylin-04/04bis also mediate TuMV transmission. Furthermore, our findings reveal that targeting simultaneously Stylin-01 and Stylin-04/04bis more strongly impaired the aphids? ability to transmit TuMV, suggesting that virus transmission relies on a multi-component stylin interface rather than a single receptor. In conclusion, these results highlight that in complex interactions between potyviruses and their aphid vectors, Stylin proteins are key actors, underscoring their importance in the transmission of stylet-borne viruses.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: microbiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711641v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711641v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Fu, Y., Achard, E., Monsion, B., Hoh, F., Le Blaye, S., Cayrol, B., Sauvion, N., Thebaud, G., Le Trionnaire, G., Li, F., Colella, S., Uzest, M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.9, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">TMEM106B mediates ACE2-independent replication of the SARS-CoV-2 S-E484D variant in airway-derived cell models</h2>
+            <p class="paper-summary">Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) continues to cause significant respiratory disease, particularly in vulnerable populations. Although ACE2 is the primary receptor for viral entry, previous studies have identified a naturally occurring, ACE2-independent entry pathway in certain airway-derived cell lines. Utilization of this pathway depends on surface heparan sulfates and requires the E484D substitution within the receptor-binding domain of the viral Spike (S) protein. In this study, we expand the panel of airway-derived cell lines that support ACE2-independent, S-E484D-dependent replication and identify the host lysosomal transmembrane protein TMEM106B as a critical host factor for infection. Knockout of TMEM106B completely abolishes infection by SARS-CoV-2 SE484D in NCI-H522 and NCI-H661 cells. Moreover, ectopic expression of the luminal C-terminal domain (CTD) of TMEM106B-either alone or redirected to the plasma membrane - is sufficient to enable viral entry and infection in otherwise non-permissive cells. We further show that Fc-TMEM106B-CTD decoy protein blocks infection by SARS-CoV-2 SE484D, supporting a direct interaction between the S-E484D protein and TMEM106B-CTD. Finally, passaging experiments with a chimeric VSV-SARS-CoV-2 SE484D identify additional mutations within the heptad repeat 1 that enhance TMEM106B utilization and viral spread in the ACE2-independent cell models. Together, these findings demonstrate that TMEM106B is a key mediator of a naturally occurring ACE2-independent pathway in multiple airway-derived cells lines and suggest that variation in the Spike protein can expand receptor usage by SARS-CoV-2.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: microbiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.14.711762v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.14.711762v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Xia, M., Wang, Q., Puray-Chavez, M., LaPak, K., Palakurty, S., Liu, Z., Cornejo Pontelli, M., Hui, S., Fremont, D. H., Diamond, M. S., Whelan, S. P. J., Major, M. B., Goldfarb, D., Kutluay, S. B.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.9500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Structural Basis of Condensin Recruitment for X Chromosome Repression</h2>
+            <p class="paper-summary">In Caenorhabditis elegans, the condensin IDC complex represses transcription from both X chromosomes in hermaphrodites to achieve dosage compensation. How condensin IDC is specifically recruited to the X chromosomes in coordination with sex determination and dosage compensation (SDC) proteins and how it modulates gene expression have, however, remained unresolved. Here, we identify SDC-3 as the key adaptor that directly binds the 'elbow' coiled-coil domain of the condensin IDC-specific SMC subunit DPY-27. Using cryo-electron microscopy, we determine the structure of the SDC-3 adaptor domain bound to an auto-inhibited condensin IDC holoenzyme. Disrupting this interaction compromises dosage compensation and diminishes condensin IDC enrichment on the X chromosomes. Upon overcoming auto-inhibition, condensin IDC exhibits robust DNA loop-extrusion activity comparable to that of canonical condensin. We propose that SDC-3-anchored condensin IDC exploits loop-extrusion to reorganize X-chromosome chromatin and mediate chromosome-wide transcriptional repression.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711519v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711519v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Valdes, A., Amudhan, G., Bernasconi, D., Erkan, S., Hassler, M., Suter, I., Wilde, B., Bender, J., Warscheid, B., Meister, P., Haering, C. H.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Structural Basis of a Novel Heme Binding Bacterial One-Component Switch</h2>
+            <p class="paper-summary">One-component systems (OCSs) integrate sensory and effector functions within a single protein, enabling rapid gene expression changes in response to environmental cues. Here, we characterized a novel putative OCS protein, FG214, from Fimbriimonas ginsengisoli, which drew our attention as a potential redox or O2-regulated helix-turn-helix (HTH)-Per-ARNT-Sim (PAS) transcription factor. Data supporting this included our observation of the FG214 PAS domain binding a hexacoordinate heme b in oxidized conditions and undergoing a slate of redox and ligand-dependent conformational changes, transitioning from a monomer to a homodimer. Spectroscopic and structural data revealed that oxidation stabilizes the likely HTH-PAS intramolecular domain interface, while reduction of the heme iron dissociates the HTH, freeing previously-sequestered homodimerization surfaces. Similar effects were seen by addition of a small molecule ferric heme ligand, as directly visualized with a 1.47 [A] crystal structure of an imidazole-bound truncated construct. Using in vitro DNA-binding assays, we identified an artificial promoter sequence and demonstrated ligand-enhanced protein-DNA binding. Finally, we performed proof of concept experiments exploring the ability of FG214 to homodimerize in vivo, setting the stage for a redox or gas sensitive biosensor. Together, these findings define FG214 as a novel heme-binding PAS DNA binding protein and potential transcription factor, complementing known heme-PAS two-component signaling switches.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.15.711900v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.15.711900v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Siclari, J. J., Forson, M., Roeder, C., Isiorho, E. A., Favaro, D. C., Abzalimov, R. R., Gisselbrecht, S. S., Follmer, A. H., Bulyk, M. L., Gardner, K. H.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.05, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">In vivo-compatible spatial multi-omics via hydrogen peroxide-independent APEX2 labeling</h2>
+            <p class="paper-summary">Proximity labeling (PL) technologies like APEX2 have transformed spatial multi-omics in live cells, but their long-standing dependence on hydrogen peroxide (H2O2) disrupts redox signaling and prevents use in live animals. Here we introduce H2O2-independent APEX2 (Hi-APEX), which uses a clickable tetrazine-phenol probe, requiring no enzyme engineering. We show that APEX2 directly catalyzes TP radical formation without H2O2 via a mechanism requiring the probe's tetrazine group and a key histidine residue. We benchmarked Hi-APEX-based spatial multi-omics by mapping the mitochondrial matrix and dynamic secretomes. Hi-APEX significantly outperforms traditional APEX in capturing redox-sensitive processes such as stress response and ferroptosis, enabling discovering authentic stress granule components and protein interaction networks for mitochondria-localized GPx4. One mGPx4 interactor TRMT61B, known to regulate mitochondrial m1A modifications, promotes ferroptosis. Crucially, Hi-APEX achieves full in vivo compatibility, enabling direct PL in tumor xenografts and hippocampal neurons, thereby expanding PL-based spatial multi-omics from cellular systems to living organisms.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711744v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711744v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Chen, B., Guo, H., Yan, Z., Lu, W., Li, C., Xu, S., Zhang, Y., Guo, H., Sun, S., Sun, X., Zhao, S., Shangguan, Q., Chen, Y., Lu, L., Wu, Z., Chen, Y., Qin, W.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Resistance to Pyrethroids in Aedes aegypti: Insights into Transcriptomic Response to Different Insecticide Concentrations Transcriptomic responses of Aedes aegypti to insecticide concentrations</h2>
+            <p class="paper-summary">Insecticide spraying is a common strategy for controlling dengue outbreaks, but its effectiveness is compromised by the development of resistance in mosquito populations. In this study, we subjected a strain of Aedes aegypti known for its exceptional ability to develop resistance to controlled permethrin and lambda-cyhalothrin insecticides pressure using two different concentrations. We analyzed resistance mechanisms that are enhanced at each concentration and used RNA sequencing to identify transcripts specifically associated with these exposure levels. Our objective was to uncover the molecular mechanisms triggered by different insecticide concentrations and to distinguish responses between type I and type II pyrethroids, which differ in chemical structure. Our results showed that kdr mutations confer only moderate levels of resistance, as do detoxifying enzymes. For lambda-cyhalothrin, we identified genes involved in the electron transport chain, mitochondrial function, and overall responses to oxidative stress. tRNA transcripts were also upregulated, along with mitochondrial and stress-response transcripts, suggesting a metabolic shift, particularly toward maintaining homeostasis under oxidative stress. These changes point to mechanisms that sustain resistance to this type II insecticide beyond direct detoxification in this population. On the contrary, permethrin induced marked overexpression of cuticle genes, CYP450 genes (especially CYP4), and Odorant Binding Proteins. These expression patterns, together with metabolic enzymes, point to detoxification, reduced penetration, or even sequestration of insecticide, all of which intensify with increasing concentrations. This overregulation of genes suggests an integrated response complemented by classical metabolic detoxification and accompanied by overregulation of mitochondrial complexes. We showed that despite the shared mode of action of the insecticides permethrin and lambda-cyhalothrin, they elicit distinct responses in this Ae. aegypti population. We also showed that the transcriptomic response depends on insecticide concentration and may modulate insecticide tolerance. This article advances understanding of the complexity of pyrethroid resistance in Aedes aegypti and underscores the importance of considering both the insecticide type and the concentration used in vector control programs.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: bioinformatics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711295v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711295v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Munoz, A. M., Mejia-Jaramillo, A. M., Lowenberger, C., Rodriguez, K. S., Triana-Chavez, O.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.1500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Understanding Conformational Transition of Macrocyclic Peptides through Deep Learning</h2>
+            <p class="paper-summary">Molecular conformations play a critical role in determining molecular properties such as membrane permeability, binding affinity, and ultimately therapeutic efficacy. Both experimental and computational approaches can characterize conformations within local energy minimum, and calculations of conformational free energy provide insight into why certain conformations are thermodynamically preferred over others. However, focusing solely on sampled conformations provides only a static view of the conformational landscape which may not fully illustrate why molecules result in such a conformational ensemble. Conformational transition between different conformations further explains how and why of the conformations which further inform molecule design. Here, we introduce Internal Coordinate Net (ICoN) version 1 (v1), a deep learning model trained in MD simulation data to learn the underlying physics that governed cyclic peptide conformational dynamics. ICoN-v1 enables the identification of transient conformations and all torsion rotations between local energy minima. By following the minimum-energy pathway (MEP) in the model's latent space, ICoN-v1 efficiently generates fully atomistic transition pathways that capture detailed backbone and side-chain interactions governed by concerted torsional rotations. Notably, ICoN-v1 produces smooth transition pathways that are absent from the training data, demonstrating strong generalization beyond the sampled MD conformations. Analysis of the resulting concerted torsional motions and transient states highlights key residues involved at different stages of the transition, providing mechanistic insight that can inform cyclic peptide design and drug discovery.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biophysics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711417v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711417v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Hung, T. I., Venkatesan, R., Chang, C.-e.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.2000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">A chemical inducer of ribophagy limits the toxicity of ALS-related arginine-rich peptides</h2>
+            <p class="paper-summary">C9ORF72 intronic repeat expansions are the most frequent mutation found in Amyotrophic Lateral Sclerosis (ALS), producing toxic arginine-rich dipeptides (DPR) that disrupt RNA metabolism and trigger the accumulation of orphan ribosomal proteins (RP). Through a large phenotypic chemical screen, we identified SALSa, a novel compound that mitigates DPR toxicity. Mechanistically, SALSa acts as a chemical inducer of ribophagy, a specialized form of autophagy that promotes RP clearance. Interestingly, this effect is unrelated to mTOR inhibition, the main regulator of autophagy. In contrast, this is due to an effect of the drug in ribosome biogenesis, which triggers a protective response to clear defective ribosomes. Accordingly, SALSa accumulates in nucleoli and perturbs the final steps of rRNA maturation. SALSa reduces DPR toxicity in differentiated neurons and significantly extends lifespan in a Drosophila melanogaster model of C9ORF72 ALS. These findings suggest that stimulating ribophagy could be beneficial for pathologies associated to dysfunctional ribosome biogenesis, including C9ORF72 ALS.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: molecular biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.15.711847v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.15.711847v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Porebski, B., Lafarga, V., Hansel, C., Haraldsson, M., Saez-Mas, A., Sanchez-Mollaeda, A., Moragon, S., Haggblad, M., Lidemalm, L., Rodrigo, S., Carreras-Puigvert, J., Ventoso, I., Lafarga, M., Huhn, D., Fernandez-Capetillo, O.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">A dual sensor regulates P-glycoproteins structural plasticity</h2>
+            <p class="paper-summary">P-glycoprotein is an efflux pump with an exceptionally broad substrate profile, which drives its profound clinical impact. Despite its biological importance, it remains obscure how P-glycoprotein achieves its polyspecificity and how substrate binding and the lipid environment stimulate its activity. Structural data highlight the importance of transmembrane helices 4 and 10, which surround the binding pocket, and identify them as key players in substrate recognition. Here, we used cryo-EM to study P-glycoprotein in detergent and nanodiscs to strategically leverage environment- and substrate-dependent phenotypes. This approach allowed us to decipher unexpected and distinct roles of transmembrane helices 4 and 10, which structurally explain differences in ATPase activity. Our data highlights helix 4 as an environment sensor and helix 10 as the key player in substrate recognition, constituting a dual regulation mechanism for the functional plasticity of P-glycoprotein, and visualizes the intricate interplay between a membrane protein and its environment.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: molecular biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711505v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.13.711505v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Kamel, M., Schaefer, J.-H., Jaramillo-Martinez, V., Tran, N. N. B., Mangold, D. L., Shvarev, D., Schnelle, K., Parey, K., Januliene, D., Urbatsch, I., Moeller, A.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.3, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Spheroid culture remodels mitosis and the proteome in tumor cells</h2>
+            <p class="paper-summary">Mitosis depends on precise spindle assembly and positioning, processes influenced by cell shape, size, and microenvironment. Most mechanistic insights into mitosis come from two-dimensional (2D) monolayer cultures, which lack the spatial constraints and extracellular matrix found in tissues, leaving the influence of the tissue environment on mitosis poorly understood. Here, we combine high-resolution imaging and quantitative proteomics to compare mitosis in three-dimensional (3D) multicellular spheroids, generated by magnetic levitation, with that in 2D monolayers. Using a non-transformed cell line and three cancer cell lines from breast, bone, and ovary, we show that 3D culture reshapes mitotic cells and their spindles. Tumor spheroids exhibited a prometaphase delay together with minor chromosome alignment defects, yet chromosome segregation remained largely accurate. Cells in spheroids were rounder, and their spindles were smaller, with increased multipolarity and defects in orientation and position, which varied by cell line. Proteomic profiling revealed broad downregulation of mitotic regulators in spheroids, including kinesins (KIF11, KIF4A), spindle checkpoint proteins, and APC/C components, accompanied by enrichment of metabolic and mitochondrial pathways. Together, our results reveal both shared and cell line-specific modes of mitotic restructuring and establish a framework that connects proteome state to mitotic architecture in 3D environments.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cell biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711371v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711371v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Petelinec, A., Cavarischia-Rega, C., Perhat, A., Macek, B., Tolic, I. M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.35, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Hierarchical control of cardiomyocyte maturation and ischaemia sensitivity by metabolic culture conditions</h2>
+            <p class="paper-summary">Ischaemic heart disease remains the leading cause of mortality worldwide, yet no therapies prevent cardiomyocyte death during acute ischaemia-reperfusion injury (IRI). Human induced pluripotent stem cell-derived cardiomyocytes (hiPSC-CMs) provide a platform for modelling cardiac injury, but their immature phenotype limits the physiological fidelity of in vitro models. Here, we systematically evaluated how experimental variables used during preparation of hiPSC-CM endpoint assays influence cardiomyocyte maturation and susceptibility to IRI. Integrating literature mining, molecular profiling, statistical genetics, and functional assays, we examined the effects of replating conditions, backbone media, metabolic substrates, and signalling modulators. We define the relationship between culture conditions and metabolic supplements in determining contractile maturation and sensitivity to IRI. Notably, we show that metabolic composition of the backbone medium establishes the baseline maturation state and determines responsiveness to additional maturation cues. These findings identify metabolic environment as a dominant regulator of injury susceptibility and provide a framework for improving the physiological fidelity of hiPSC-CM models of cardiac ischaemia.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cell biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711459v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711459v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Cao, Y., Chow, C. S. Y., Negi, S., Shim, W. J., Shen, S., Fang, C., Palpant, N.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.4000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">ESPeR-seq: Extremely Sensitive and Pure, End-to-end, RNA-seq library preparation</h2>
+            <p class="paper-summary">The Smart-seq family of methods represents the gold standard for high-sensitivity, full-length single- cell RNA sequencing. Despite iterative improvements, fundamental challenges remain: the generation of non-specific PCR products that limit sensitivity, the inability to capture precise Transcription End Sites (TES), and the insidious generation of "phantom UMIs", artificial molecular barcodes created during PCR that systematically inflate molecular counts. Here, we present ESPeR-seq, a novel architecture that resolves these barriers. To enable precise, stranded TES capture, we developed an "Omega-dT" primer that bypasses synthetic poly-T tracts, restoring high-quality sequencing directly at transcript termini. To eliminate both PCR background and phantom UMIs, we implemented a biochemical "multi-lock" mechanism utilizing uracil-containing TSOs and a uracil-intolerant DNA polymerase. We validate this approach using the logQ-slope, a novel metric that sensitively diagnoses UMI fidelity. Benchmarking reveals that while state-of-the-art methods still exhibit signs of UMI inflation, ESPeR-seq strictly prevents it. Furthermore, the strandedness and precise end-delineation provided by TSO and dT reads support robust de novo gene model reconstruction, enabling the discovery of novel multi-exon genes, unannotated 3' UTR extensions, and candidate eRNAs across aggregated single-cell populations. Thus, ESPeR-seq establishes a robust framework for absolute quantitative accuracy and full-length isoform resolution.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: genomics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711386v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711386v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Chen, H.-M., Kao, J.-C., Yang, C.-P., Tan, C., Lee, T., Sugino, K.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.4500000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Identification of disease-specific alleles and gene duplications from 1,600 Haemophilus influenzae genomes using predicted protein analyses from an unsupervised language model and clinical metadata</h2>
+            <p class="paper-summary">Haemophilus influenzae, a Gram-negative bacterium that is an obligate commensal of the human nasopharynx, is associated with both acute and chronic infections of the ears, adenoids, sinuses, and lungs, as well as pelvic inflammatory disease, sepsis, and meningitis. This diverse array of clinical disease phenotypes is due to H. influenzae's natural competence providing for frequent distributed gene exchange among strains during polyclonal colonizations. We performed whole genome sequencing (WGS) on approximately 1000 H. influenzae strains and combined these data with approximately 600 publicly available genomes. Clinical metadata including isolation site and disease were available for all strains. Our goal was to identify variations in protein sequences inferred from the WGS that correlate with the clinical metadata. We employed the alpha-fold unsupervised machine-learning model to all protein sequences. For each unique AA sequence, a numerical vector was generated reflecting the protein's biochemical properties. Multidimensional clustering was used to group variants into clusters by distance. For gene groups with two or more clusters, clinical metadata from the strain of origin was overlayed and subsequently tested for correlation with the clustering. This allowed identification of multiple gene groups with clusters of variants that correlated significantly with the patients' disease. COG category analysis showed that many of the significant gene groups were associated with antibiotic targets. The TbpA gene group type was found to be significantly correlated with disease type with three of five variant clusters having a 95 percent prevalence among strains that were isolated from the lungs of COPD patients or other lower pulmonary tract infections.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: genomics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711436v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711436v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Palmer, P. R., Earl, J. P., Mell, J. C., Koser, K. L., Hammond, J., Ehrlich, R. L., Balashov, S. V., Ahmed, A., Lang, S., Raible, K., Wang, A. L., Wigdahl, B., Kaur, R., Pichichero, M. E., Dampier, W., Ehrlich, G. D.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Mapping the chaperonin TRiC/CCT interactome in mouse photoreceptors reveals functional significance for energy metabolism</h2>
+            <p class="paper-summary">The eukaryotic chaperonin TRiC/CCT is essential for folding a diverse set of proteins, yet its interactome and functional roles in specialized neurons remain incompletely understood. To investigate TRiC-mediated folding in rod photoreceptors, we generated a transgenic mouse line expressing an epitope-tagged Tcp-1 subunit, enabling purification of intact TRiC complexes from retinal tissue. Mass spectrometry identified 226 TRiC-interacting proteins, including known TRiC substrates and co-chaperones as well as numerous novel candidates enriched in RNA processing, cytoskeletal organization, and cell-cycle regulation. Using a TRiC loss-of-function model in which expression of a short splice isoform of phosducin-like protein (PhLPs) competitively inhibits TRiC activity, we observed marked reductions in canonical TRiC substrates, including tubulins, transducin {beta} subunits, and triosephosphate isomerase, as well as secondary alterations in proteins involved in cytoskeletal stability, membrane trafficking, energy metabolism, and phototransduction. Quantitative metabolomic profiling revealed that TRiC deficiency induces a metabolic "energy crisis" characterized by reduced glycolytic- and tricarboxylic acid cycle intermediates, acylcarnitines, ATP, NAD, and NADH, implicating widespread impairment of glucose utilization, mitochondrial bioenergetics, and fatty acid oxidation. Integrative proteomic-metabolomic analysis identified a small subset of proteins, including Rab10 and Anxa1, as potential drivers of these metabolic disruptions, with defective Rab10-dependent GLUT4 trafficking emerging as a plausible mechanism underlying impaired glucose uptake in TRiC-deficient rods. Finally, experiments using a perpetually unfolded G{beta}1 mutant and G{gamma}1-knockout mice demonstrated that substrate overload sequesters TRiC and competitively displaces other clients, exacerbating proteostasis imbalance. Together, our study provides a comprehensive in vivo mapping of the TRiC interactome in mammalian rods, reveals a connection between TRiC-dependent proteostasis and energy metabolism in rods, and indicates a mechanism by which misfolded TRiC substrates exacerbate a proteostasis imbalance that ultimately results in neurodegeneration.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711399v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711399v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Brooks, C., Salcedo Tacuma, D., Mascari, I., Eminhizer, M., Ngo, T., Kolson, D., Sechrest, E., Guan, T., Billington, N., Deng, W. T., Smith, D., Du, J., Skiba, N., Sokolov, M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.55, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Efficient protein structure prediction fromcompact computers to datacenters withOpenFold-TRT</h2>
+            <p class="paper-summary">We introduce accelerations for deep learning inference with OpenFold and TensorRT that, combined with MMseqs2-GPU on an x86 system with one NVIDIA RTX PRO 6000 Blackwell Server Edition GPU, reach up to 131x faster inference compared to AlphaFold2. ARM-optimizations enable homology search on power efficient DGX Spark, and allow search beyond available GPU RAM on NVIDIA Grace Hopper Superchip at comparable overall folding speed. These accelerations enable high-throughput protein structure inference at no accuracy cost using familiar tools.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: bioinformatics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.11.711233v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.11.711233v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Didi, K., Sohani, P., Berressem, F., Nesterovskiy, A., Fomitchev, B., Ohannessian, R., Elbalkini, M., Cogan, J., Costa, A. B., Vahdat, A., Kallenborn, F., Schmidt, B., Mirdita, M., Steinegger, M., Dallago, C., Chacon, A.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.6, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">SV40 exploits the Nesprin-2-SUN1-KPNA4 axis for stepwise targeting and entry into the host nucleus to promote infection</h2>
+            <p class="paper-summary">Many DNA viruses including polyomaviruses (PyVs) enter the host nucleus to cause infection, although how this is accomplished is unclear. To infect cells, the prototype PyV SV40 targets to the Nesprin-2 outer nuclear membrane protein and enters the nucleus via the nuclear pore complex (NPC). Host factors that function with Nesprin-2 to target SV40 to the nuclear membrane and drive NPC-dependent nuclear entry are unknown. Here we demonstrate that the SUN1 inner nuclear membrane protein acts coordinately with its binding-partner Nesprin-2 to target cytosol-localized SV40 to the nuclear membrane. Strikingly, despite localizing to the perinuclear space, the SUN domain of SUN1 plays a crucial role in Nesprin-2-dependent recruitment of cytosolic SV40. After targeting, SV40 binds to the NPC-associated importin receptor KPNA4, which translocates the virus into the nucleus. Our results reveal how a DNA virus exploits the Nesprin-2-SUN1-KPNA4 axis for stepwise targeting and entry into the nucleus to cause infection.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: microbiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.15.711898v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.15.711898v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Gohmann, L., Tsai, B.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.6500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Cytoplasmic circular dsDNA is a key constituent of stress granules</h2>
+            <p class="paper-summary">Stress granules are large cytoplasmic bodies formed in response to environmental insults by eukaryotic cells. Stress granule formation is key for post-stress recovery, and many diseases and infections are characterized by dysregulation of these membraneless organelles. How specific and non-specific macromolecular interactions drive formation of stress granules and other large assemblies is an area of active research. Stress granules are comprised of dense, ~200 nm cores, and these are known to contain numerous RNAs and proteins. Now, we have discovered that more than half of the nucleic acid content of stress granule cores is circular, double-stranded DNA. We demonstrate cytologically that these extrachromosomal circular DNAs (eccDNAs) colocalize cytoplasmically with canonical stress granule marker proteins, and through CRISPR targeting in yeast, that they are required for stress granule formation upon stress. This discovery thus reveals a key function for eccDNA in the eukaryotic stress response.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: molecular biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711345v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711345v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Demeshkina, N. A., Ferre-D'Amare, A. R.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.7000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Bioactive Natural Products Produced by Streptomyces from the Microbiome of Cadaveric Fly Larvae</h2>
+            <p class="paper-summary">Streptomyces are prolific producers of bioactive compounds and increasingly recognized as members of insect microbiomes, yet the microbiome of cadaveric fly larvae remain an overlooked system for discovering metabolically versatile Streptomyces species. Here, we conduct targeted bacterial isolations from the microbiome of fly larvae collected from pig cadavers, generating 42 Streptomyces isolates of interest, and systematically evaluated their metabolic potential through genomic analysis, antimicrobial screening, biosynthetic gene cluster assessment, untargeted LC-MS/MS metabolomics, and compound purification. The Streptomyces isolates spanned nine species, including underrepresented lineages for which we added genomic representatives. Streptomyces from carrion fly larvae exhibited broad-spectrum antimicrobial activity and substantial BGC diversity, supported by metabolomic detection of antimycins, surugamides, and macrotetrolides. From a deep phylogenetic lineage, we purified JBIR-68 and Simamycin and demonstrated their potent anthelmintic activity against Brugia malayi microfilariae. GNPS molecular networking revealed three additional JBIR-68 analogs, establishing the first taxonomically resolved Streptomyces lineage capable of producing these rare metabolites. Our findings position cadaveric fly larvae as a rich ecological reservoir for discovering Streptomyces with the potential to produce chemically diverse natural products with biomedical applications.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711486v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711486v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Currie, C. R., Akbar, S., Salamzade, R., Ryan, K. T., Carlson, C. M., Schaenzer, A. J., Zamanian, M., Kalan, L., Bugni, T. S.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.75, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Programming Biomolecular Interactions with All-Atom Generative Model</h2>
+            <p class="paper-summary">Biomolecular interactions lie at the core of cellular life, spanning diverse molecular modalities from small molecules to nucleic acids and proteins. Nevertheless, design strategies remain separated despite shared physicochemical principles of molecular recognition. Here we present AnewOmni, a unified generative framework trained on more than 5 million biomolecular complexes, that enables transferable molecular design across molecular scales by assembling chemically meaningful building blocks at atomic resolution. We further introduce programmable graph prompts to support user-defined chemical, topological, and geometric steering during generation, exploring hybrid and unconventional chemistries beyond canonical structures. We demonstrate that transferable learning of interaction patterns and physical constraints across molecular modalities is possible, via an atom-to-block latent space capturing both atomic details and structural priors. The framework successfully designed small molecules, peptides, and nanobodies targeting the challenging KRAS G12D switch II pocket, as well as orthosteric peptides and allosteric small-molecule inhibitors for PCSK9 in the absence of known binding site, achieving 23%-75% success with only low-throughput validation, bypassing modality-specific high-throughput screening. AnewOmni is the first to succeed in functional molecular design across all scales, from small chemical entities to large biologics, and represents a stepstone towards general molecular reasoning engines, advocating a generative foundation model for biomolecular interactions to enter regimes where data and human intuition remain limited.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: bioengineering
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711044v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711044v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Kong, X., Chen, J., Zhang, Z., Li, G., Zhu, Q., Wei, L., Li, M., Shi, Y., Dai, W., Zhang, Z., Tan, W., Jiao, R., Wang, X., Zheng, J., Yu, Z., Wu, Q., Guo, Z., Zhang, L., Li, W., Huang, Q., Zhu, T., Wang, X., Huang, W., She, Y., Zhang, J., Liu, Y., Liu, K., Ma, J.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.8, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Physical Confinement Modulates the Rate-Limiting Transition in the Release of Phosphate from Actin Filaments</h2>
+            <p class="paper-summary">The nucleotide state and rates of transitions between states regulate the dynamics of ATPases. Slow inorganic phosphate (Pi) release following ATP hydrolysis is often rate-limiting and associated with key conformational changes. Actin filaments offer a unique opportunity to understand the fundamentals of phosphate release, because identical subunits at filament ends and the interior release Pi at markedly different rates. The molecular origin of this difference is debated, so we employed extensive all-atom molecular dynamics simulations to characterize Pi release from different subunits within an actin filament. The dissociation rates of Pi from ADP-Mg2+ in the active site correlate with biochemically measured Pi release rates and scale inversely with the numbers of water molecules in the cavity surrounding the {gamma}-phosphate. Simulations show that egress of Pi through protein channels, including through the N111-R177 backdoor, is not rate-limiting and, importantly, that subunits at the filament ends use alternative egress pathways.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biophysics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711388v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.12.711388v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Herman, K. M., Sridharan Iyer, S., Wang, Y., Pollard, T. D., Voth, G. A.</p>
+            
+        </motion.div>
+        
+    </div>
+
+    <footer class="footer">
+        Generated on 2026-03-16 04:59:06 UTC. Powered by <a href="https://github.com/onion-liu" target="_blank">onion-liu</a>.
+    </footer>
+
+</body>
+</html>
