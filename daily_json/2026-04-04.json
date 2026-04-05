@@ -1,0 +1,1162 @@
+[
+  {
+    "uid": "doi:10.1101/2025.05.21.655143",
+    "source": "biorxiv",
+    "title": "Xist Repeat A coordinates an assembly of SR proteins to recruit SPEN and induce gene silencing",
+    "abstract": "The lncRNA Xist represents a paradigm to understand the mechanisms of RNA-mediated gene silencing in mammals, which remain largely unresolved. To induce silencing, Xist recruits the RNA-binding protein SPEN through its 5'-proximal Repeat A domain. Yet, how Repeat A recruits SPEN and how SPEN coordinates silencing remain unclear. We report that sequences in Repeat A critical for SPEN recruitment directly bind SR-rich splicing factors. SRSF1, one such factor, is required for optimal SPEN recruitment and its RS-domain recruits SPEN when tethered to Xist. SPEN and SR-protein-binding motifs promote Repeat A-association with many proteins, including the m6A machinery and elongating RNA polymerase II. SPEN also represses autosomal genes where its recruitment coincides with SR-protein binding. Our results reveal an unexpectedly essential role for splicing factors in coordinating silencing by Xist and suggest that the sensing of SR-protein-rich assemblies is a general mechanism through which SPEN targets genes for repression.",
+    "url": "https://www.biorxiv.org/content/10.1101/2025.05.21.655143v2",
+    "pdf_url": "https://www.biorxiv.org/content/10.1101/2025.05.21.655143v2.full.pdf",
+    "authors": [
+      "Trotman, J. B.",
+      "Porrello, A.",
+      "Schactler, S. A.",
+      "DeLeon, L. E.",
+      "Eberhard, Q. E.",
+      "Boyson, S. P.",
+      "Zhang, Z.",
+      "Lee, D. M.",
+      "Kirik, S. E.",
+      "Nguyen, S. N.",
+      "Beltejar, M.-C. G.",
+      "Shinn, M. K.",
+      "Ong, S.-E.",
+      "Gonzalez-Perez, M. P.",
+      "Shaffer, S. A.",
+      "Dominguez, D.",
+      "Shechner, D. M.",
+      "Calabrese, M."
+    ],
+    "categories": [
+      "genetics"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.1101/2025.05.21.655143",
+      "version": "2",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.1101/2025.07.16.665154",
+    "source": "biorxiv",
+    "title": "Correlated protein-RNA associations and a requirement for HNRNPU in long-range Polycomb recruitment by the lncRNAs Airn and Kcnq1ot1",
+    "abstract": "The lncRNAs Airn and Kcnq1ot1 recruit Polycomb Repressive Complexes (PRCs) and repress genes over multi-megabase genomic intervals, but how they interact with proteins to direct repression remains poorly understood. We conducted formaldehyde-linked RNA- immunoprecipitations of 27 proteins from trophoblast stem cells, using a protocol exhibiting similar signal-to-noise and post-lysis reassociation ratios as CLIP and CLAP. Patterns of protein associations across Airn and Kcnq1ot1 were more similar to each other than to nearly all other transcripts and partitioned to extents that mirrored degree of repression each lncRNA induced, implying connections to mechanism. Indeed, HNRNPU, an essential protein that helps Xist localize to chromatin, was enriched within and required to direct PRC-catalyzed modifications by Airn and Kcnq1ot1, without being required for their localization. Our study provides insights into the role of HNRNPU in lncRNA-mediated gene regulation and reports architectures of protein association across Airn and Kcnq1ot1 relative to the transcriptome at large.",
+    "url": "https://www.biorxiv.org/content/10.1101/2025.07.16.665154v2",
+    "pdf_url": "https://www.biorxiv.org/content/10.1101/2025.07.16.665154v2.full.pdf",
+    "authors": [
+      "Murvin, M. M.",
+      "Li, S.",
+      "Abrash, E. W.",
+      "Peck, B. A.",
+      "Boyson, S.",
+      "Zhang, Z.",
+      "Cherney, R. E.",
+      "Calabrese, M."
+    ],
+    "categories": [
+      "molecular biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.1101/2025.07.16.665154",
+      "version": "2",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.1101/2025.08.14.670427",
+    "source": "biorxiv",
+    "title": "Efficient Double Helix Detection with Steerable Filters",
+    "abstract": "We present an efficient detection scheme for localization of Double Helix point-spread functions for 3D single-molecule localization microscopy or tracking. Using steerable filters, we extract both 2D position and lobe orientation (axial position) estimates using just 7 convolutions, orders of magnitude less than used in deep-learning-based approaches. We pair this detection with a fitter and implement both as a plug-in for the open source PYthon Microscopy Environment (PYME), which features percentile-based background subtraction, signal-to-noise-based detection thresholding, and performant parallel analysis. Our complete localization analysis pipeline achieves state-of-the-art performance with minimal user input.",
+    "url": "https://www.biorxiv.org/content/10.1101/2025.08.14.670427v2",
+    "pdf_url": "https://www.biorxiv.org/content/10.1101/2025.08.14.670427v2.full.pdf",
+    "authors": [
+      "Barentine, A. E. S.",
+      "Balaji, A.",
+      "Moerner, W. E."
+    ],
+    "categories": [
+      "biophysics"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.1101/2025.08.14.670427",
+      "version": "2",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.03.12.711228",
+    "source": "biorxiv",
+    "title": "CAPZ, but not canonical autophagy, regulates the endosomal-exosomal trafficking of plasma membrane PD-L1",
+    "abstract": "Programmed death-ligand 1 (PD-L1) undergoes continuous endocytosis and intracellular trafficking that regulate its degradation, recycling, and exosomal release. Although PD-L1 internalization is known to depend on RAB5-mediated endocytosis, whether canonical autophagy contributes to its subsequent endosomal trafficking remains unclear. Here we show that the endosomal and exosomal trafficking of cell surface PD-L1 occurs independently of the canonical autophagy machinery. Genetic disruption of core autophagy components, including LC3B, ATG4B, ATG5, and ATG7, did not impair trafficking of internalized PD-L1 to early endosomes, multivesicular bodies, late endosomes, or extracellular vesicles. Pharmacologic inhibition of autophagosome-lysosome fusion enhanced accumulation of PD-L1 within RAB5- and CD63-positive compartments, but this effect persisted in cells lacking LC3B, ATG5, or ATG7, indicating that PD-L1 trafficking through the endosomal-exosomal pathway does not require canonical autophagy. Instead, we identify the actin-capping protein CAPZ as a key regulator of an endosomal maturation checkpoint that controls PD-L1 sorting. Loss of CAPZ impaired progression of PD-L1 from early to late endosomal compartments, reduced PD-L1 incorporation into multivesicular bodies and extracellular vesicles, and redirected PD-L1 toward RAB11-dependent recycling, resulting in increased plasma membrane PD-L1 abundance. These findings establish that PD-L1 membrane fate is determined by CAPZ-dependent endosomal maturation rather than canonical autophagy and identify endosomal trafficking machinery as a critical regulator of immune checkpoint distribution.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.03.12.711228v2",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.03.12.711228v2.full.pdf",
+    "authors": [
+      "Xu, P.",
+      "Ye, Z.",
+      "Zhu, Y.",
+      "Lin, N.",
+      "Chan, C.-F.",
+      "Zhu, C.",
+      "Zhang, X.",
+      "Wang, Y.",
+      "Sun, W.",
+      "Peng, M.",
+      "Lu, Y.",
+      "Yue, J."
+    ],
+    "categories": [
+      "cell biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.03.12.711228",
+      "version": "2",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.02.716068",
+    "source": "biorxiv",
+    "title": "Synaptotagmin isoforms differentially regulate glutamate and GABA release in the lateral habenula",
+    "abstract": "Dual neurotransmitter release contributes to diverse physiological processes throughout the mammalian brain, including sensory integration, motivational circuits, and social behaviors. Projections from the globus pallidus internus (GPi; the entopeduncular nucleus, EPN, in rodents) to the lateral habenula (LHb) are well-characterized examples capable of releasing both GABA and glutamate. These dual-release inputs modulate behavioral states in chronically learned helpless (cLH) rats, influencing both the onset and recovery of pathological phenotypes. Here, we employed confocal 3D reconstructions to confirm the presence of both vesicular transporters VGAT and VGLUT in EPN axon terminals within the LHb. Further investigation revealed that GABA and glutamate are packaged in distinct vesicle populations within individual presynaptic terminals. Notably, the calcium (Ca&sup2+) sensors Synaptotagmin-2 (Syt2) and Synaptotagmin-3 (Syt3) are transcriptionally upregulated in the EPN whereas the canonical Ca&sup2+ sensor, Synaptotagmin 1 (Syt1), is transcriptionally downregulated. Additionally, using confocal microscopy, we observed a strong spatial correlation between Syt2 and VGLUT and between Syt3 and VGAT in the LHb. These observations strongly suggested that Syt2 serves as the predominant Ca&sup2+ sensor for glutamatergic vesicle fusion, and Syt3 serves as the predominant Ca&sup2+ sensor for GABAergic vesicle fusion. To test this hypothesis, we employed spatially targeted antisense oligonucleotide (ASO) knockdown of Syt2 and Syt3 in EPN neurons followed by simultaneously recording miniature excitatory postsynaptic currents (mEPSCs) and inhibitory postsynaptic currents (mIPSCs) in ventrolateral LHb neurons. Syt2 knockdown resulted in an increase in mEPSC frequency, amplitude, half-width and decay, suggesting increased glutamate vesicle release probability and increased glutamate vesicle packing. However, Syt2 had no influence on mIPSCs. On the other hand, Syt3 knockdown had no apparent effect on glutamate release but caused an increase in mIPSC frequency suggesting increased quantal release probability of GABA. Together, these findings identify a molecular mechanism by which synaptotagmin isoforms govern differential glutamate and GABA release at GPi/EPN dual-transmitter terminals in the LHb. These results provide evidence for presynaptic mechanisms regulating excitatory-inhibitory balance within this brain structure and importantly provide molecular targets for pharmacological intervention.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716068v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716068v1.full.pdf",
+    "authors": [
+      "White, D. N.",
+      "Kushner, J. K.",
+      "Winther, K. E.",
+      "McGovern, D. J.",
+      "Basta, T.",
+      "Hoeffer, C. A.",
+      "Donaldson, Z. R.",
+      "David H. Root, D.",
+      "Stowell, M. H. B."
+    ],
+    "categories": [
+      "neuroscience"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.02.716068",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.715591",
+    "source": "biorxiv",
+    "title": "Single-Nuclei Transcriptomic Characterization of APOE4-Associated Alzheimer's Disease",
+    "abstract": "Apolipoprotein E (APOE) genotype contributes significantly to Alzheimer's disease (AD) risk and pathogenesis. Cell-type specific effects of APOE alleles have been studied. However, due to the variable prevalence of APOE genotypes within human populations, characterization of cell-type specific transcriptomes across APOE genotypes has been challenging. Here, we integrated previous and newly generated single-nuclei sequencing (snRNA-seq) data in the prefrontal cortex (PFC) from individuals across APOE genotypes (2/2, 2/3, 3/3, 3/4, 4/4). Clustering analysis revealed distinct excitatory and microglial subpopulations that were uniquely enriched or depleted for APOE4/4 AD. Notably, an excitatory neuronal cluster exhibited neurofibrillary tangle (NFT) signatures and was selectively depleted in APOE4/4 AD cases. In addition, several microglial subpopulations were influenced by both APOE4 dosage and disease status. Among these, the putative AD risk gene FRMD4A emerged as APOE4 dose and AD-dependent. These findings were validated by RNAscope in an extended cohort. Together, our findings provide insights into how APOE4 reshapes cellular states and contributes to cell-type-specific vulnerability in AD.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.715591v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.715591v1.full.pdf",
+    "authors": [
+      "Murtha, K.",
+      "Chongtham, A.",
+      "Song, W.-M.",
+      "Ilkov, M.",
+      "Wang, M.",
+      "Chen, C. Q.",
+      "De Sanctis, C.",
+      "Datta, R.",
+      "Purohit, D.",
+      "Lee, E. B.",
+      "Zhang, B.",
+      "Pereira, A. C."
+    ],
+    "categories": [
+      "neuroscience"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.715591",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.02.716059",
+    "source": "biorxiv",
+    "title": "White-matter-microstructure-informed whole-brain models reveal localized excitation-inhibition imbalance in schizophrenia",
+    "abstract": "Providing early diagnosis and personalized treatment for psychiatric disorders like schizophrenia remains challenging, due to important interpersonal differences and still elusive neuronal mechanisms. Whole-brain network models show promising results with clinical relevance for individualized treatment recommendations in neurological disorders. However, their applicability to psychiatry is still limited as models fail to account for inter-individual differences in the correlation structure of brain dynamics. What physiological mechanisms should models incorporate to better account for individual profiles of brain dynamics in schizophrenia patients and healthy controls? Our study compares various metrics of white matter structure and microstructure to inform connection weights between regions. To do so, we inferred regional parameters of whole-brain mean-field models with The Virtual Brain simulator to account for empirical functional connectivity from resting-state functional magnetic resonance imaging of schizophrenia patients and healthy controls. We found that using global fractional anisotropy or apparent diffusion coefficient of white matter fibers to inform the weights in neural mass models can drastically improve model performance. The data-model correlations of simulated and empirical data were significantly improved (from 0.2 to 0.7) over using the number or density of fibers as in many state-of-the-art methods. This approach allows us to uncover personalized maps of excitation-inhibition imbalance, hypothesized to underlie symptoms in schizophrenia. These maps prove meaningful in that they can predict diagnosis better than model-independent neuroimaging benchmarks. Our findings highlight the importance of white matter microstructure in whole-brain modeling. The novel white-matter-informed models reveal mechanisms that can cause altered brain dynamics in schizophrenia and could inform treatment in personalized psychiatry.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716059v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716059v1.full.pdf",
+    "authors": [
+      "Zhu, K.",
+      "Reich, G.",
+      "Zhou, X.",
+      "Nghiem, T.-A. E."
+    ],
+    "categories": [
+      "neuroscience"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.02.716059",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.715930",
+    "source": "biorxiv",
+    "title": "Brain anatomy and molecular signaling predict neurophysiological dynamics across the lifespan",
+    "abstract": "Neural activity emerges from interactions between local cellular architecture, neuromodulatory systems, and large-scale cortical networks. Yet it remains unclear how this multiscale biological context constrains electrophysiological dynamics in humans and how this changes across the lifespan. We combined resting-state magnetoencephalography (MEG) from 350 adults (18-88 years) with cortical maps reflecting cytoarchitecture, myelination, metabolism, gene expression, and neurotransmitter receptors in a multivariate prediction framework. Specific markers explained most regional variance in MEG power spectra and temporal autocorrelation, similarly for both measures, revealing frequency- and timescale-specific signatures that followed canonical spectral boundaries. Age-related MEG patterns spatially aligned with markers of neuroinflammation, monoaminergic-cholinergic signaling, cortical development and myelination, and cerebrovascular organization. This work identifies key components of an anatomical and molecular scaffold and their relative importance for neural activity across the lifespan, informing future experimental perturbations and generative models.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.715930v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.715930v1.full.pdf",
+    "authors": [
+      "Stier, C.",
+      "Dannlowski, U.",
+      "Gross, J."
+    ],
+    "categories": [
+      "neuroscience"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.715930",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716270",
+    "source": "biorxiv",
+    "title": "nELAVL phosphorylation by CDKL5 regulates inter-condensates composition and communication to promote experience-dependent maturation of the visual cortex",
+    "abstract": "Mutations in Cyclin-Dependent Kinase-Like 5 (CDKL5) cause CDKL5 deficiency disorder (CDD), an X-linked neurodevelopmental condition. Through a phosphoproteomic screen, we identified the neuron-specific nELAVL family of RNA-binding proteins as direct activity-dependent substrates of CDKL5. In support of this regulatory axis, single-nuclei transcriptomics of Cdkl5 knockout (KO) cortices revealed an enriched reduction in activity-dependent mRNAs. Mechanistically, we show that nELAVL proteins undergo phase separation to form biomolecular condensates, the size of which is gated by CDKL5 phosphorylation. Loss of CDKL5 leads to enlarged nELAVL condensates, which exhibit reduced binding affinity for the target mRNA Fos, resulting in its accelerated degradation. This disruption extends to inter-condensate communication: phosphodeficient nELAVL show diminished interaction with P-bodies, which themselves become enlarged in CDD mutant iNeurons. Functionally, the absence of nELAVL phosphorylation recapitulates the deficits in experience-dependent visual function observed in Cdkl5 KO mice. Our findings establish a critical molecular mechanism by which CDKL5-mediated phosphorylation governs mRNA metabolism by tuning the properties of nELAVL condensates and their communication with other biomolecular condensates, ultimately promoting experience-dependent maturation of the visual cortex.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716270v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716270v1.full.pdf",
+    "authors": [
+      "Yuan, S.",
+      "Zhu, Y.",
+      "Zheng, Z.",
+      "Yip, H. M.",
+      "Chan, M. S. W.",
+      "Zhang, Z.",
+      "Chai, Y.",
+      "Jenks, K. R.",
+      "Tsimring, K.",
+      "Heller, G. R.",
+      "Zepeda, J. C.",
+      "Celotto, M.",
+      "Hung, H. K.",
+      "Duan, Y.",
+      "Lau, S.-F.",
+      "Ho, C. W. Y.",
+      "Tsang, H. W. S.",
+      "Fu, A. K. Y.",
+      "Lai, H. M.",
+      "Kwok, A. J.",
+      "Ko, H.",
+      "Gu, C.",
+      "Ng, B. W.-L.",
+      "Liao, J.",
+      "Fung, S. H.",
+      "Cao, Q.",
+      "Tsui, S. K.-W.",
+      "Ku, T.",
+      "Tan, L.",
+      "Colarusso, A.",
+      "Lasker, K.",
+      "Wan, Y.",
+      "Zhu, J.",
+      "Ip, J. P. K."
+    ],
+    "categories": [
+      "neuroscience"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716270",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.02.716227",
+    "source": "biorxiv",
+    "title": "GLIS3 is a key regulator of astrocyte differentiation in human neural stem cells",
+    "abstract": "Astrocytes play a key role in neuronal homeostasis and in various neural disorders. The generation of astrocytes from neural progenitor cells (NPCs) and its functions are under a complex control of several signaling networks and transcription factors. In this study, we demonstrate that the transcription factor, GLIS similar 3 (GLIS3), which has been implicated in several neurodegenerative diseases, is highly expressed in astrocytes, and is required for the efficient differentiation of human NPCs into astrocytes. Loss of GLIS3 function greatly impairs astrocytes differentiation, resulting in reduced expression of astrocyte markers, whereas expression of exogenous GLIS3 restores the induction of astrocyte specific genes indicating a critical role for GLIS3 in astrocyte differentiation. Integrated transcriptomic and cistromic analyses revealed that GLIS3 directly regulates the transcription of several astrocyte-associated genes, including GFAP, SLC1A2, NFIA, and ATF3, in coordination with lineage-determining factors, such as STAT3, NFIA, and SOX9. We hypothesize that GLIS3 dysfunction disrupts this transcriptional network thereby contributing to astrocyte-associated neurological disorders. Identification of GLIS3 as a key regulator of astrocyte differentiation and gene expression will advance our understanding of its role in neurodegenerative diseases and may provide a new therapeutic target.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716227v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716227v1.full.pdf",
+    "authors": [
+      "Pradhan, T.",
+      "Kang, H. S.",
+      "Jeon, K.",
+      "Grimm, S. A.",
+      "Park, K.-y.",
+      "Jetten, A. M."
+    ],
+    "categories": [
+      "developmental biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.02.716227",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.02.716181",
+    "source": "biorxiv",
+    "title": "Type IV pilus length determines virulence by regulating a hidden subpopulation of non-contributing filaments",
+    "abstract": "Many clinically important bacterial pathogens, including Pseudomonas, Vibrio, Neisseria, and Acinetobacter species, employ dynamic extracellular appendages called type IV pili (T4P) to facilitate virulence through cyclical extension and retraction of pilus filaments. To dissect how T4P dynamics govern pathogenesis, we engineered a genetic system to precisely tune pilus length across a continuum. We demonstrate that pilus length critically determines four major T4P-dependent virulence traits in Pseudomonas aeruginosa (motility, surface sensing, biofilm formation, and phage infection) and reveal a hidden subpopulation of pili that are unable to interact with environmental substrates or host cells, rendering them non-contributing to any T4P-mediated function. Integrating molecular dynamics simulations, we show that low inner-membrane abundance of the major pilin forces the extension mechanism into transient idle states, restricting both velocity and final length. Molecularly, this finding reveals how two key biophysical parameters, pilin abundance and diffusion, impose a fundamental physical constraint on T4P assembly, and that regulating pilin abundance presents a strong lever over regulating pilus count for controlling the amount of functionally contributing filaments. Contrary to the prevailing view that retraction force generation primarily dictates T4P-mediated behaviors, our results establish extension dynamics as the overlooked bottleneck constraining all retraction-enabled virulence traits, with population heterogeneity in length enabling adaptive bet-hedging.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716181v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716181v1.full.pdf",
+    "authors": [
+      "Modi, Z. K.",
+      "Reed, J.",
+      "Yusuf, A. O.",
+      "Payne, T.",
+      "Chalemeda, N.",
+      "Denison, S.",
+      "Koch, M. D."
+    ],
+    "categories": [
+      "microbiology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.02.716181",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.01.715883",
+    "source": "biorxiv",
+    "title": "Spatiotemporal patterns of breeding challenge the successive broods model in a migratory butterfly",
+    "abstract": "Migration is widely recognized as a strategy for animals to track seasonally shifting resources. Yet, seasonal and spatial dynamics of migration are challenging to study, particularly for difficult-to-track insects. Among insects, monarch butterflies (Danaus plexippus) have a well-documented fall migration, but spring breeding recolonization remains poorly understood, particularly for the western population. We conducted multi-year surveys across six regions in the western United States to characterize monarch breeding phenology and evaluate three related hypotheses: (i) the successive broods model, with discrete generations shifting activity across the breeding range, (ii) a diffusion-like expansion model with overlapping breeding periods, and (iii) a mid-summer lull model with temporary summer declines in breeding for areas near the overwintering habitat. Monarch immature presence served as an indicator of local breeding activity. Our results do not support the successive broods or mid-summer lull hypotheses. Breeding onset occurred earlier near overwintering areas and gradually expanded north- and eastward, with sustained activity in many regions throughout the season. Termination of breeding also occurred earlier at more distant sites, resulting in longer breeding activity nearer to overwintering habitat. Immature monarch density declined with distance from overwintering areas at onset and termination, suggesting delayed colonization of peripheral regions. Together, these results support a diffusion-like expansion of breeding rather than sequential generational replacement. Western monarchs also do not initiate or terminate breeding in close synchrony with host plant availability, contrary to predictions from resource-tracking theory. These findings highlight fundamental differences between western monarch breeding dynamics and paradigms for eastern monarchs, demonstrating that a single species can employ fundamentally different spatial strategies for recolonizing its breeding range in different regions. More generally, these results distinguish insect migration from systems with direct movements between wintering and breeding habitats, and underscore the value of long-term, landscape-scale monitoring for resolving habitat use across heterogeneous environments.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715883v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715883v1.full.pdf",
+    "authors": [
+      "Diethelm, A. C.",
+      "Schultz, C. B.",
+      "McKnight, S. R.",
+      "Deen, E. A.",
+      "Lehner, A. M.",
+      "Pelton, E. M.",
+      "Crone, E. E."
+    ],
+    "categories": [
+      "ecology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.01.715883",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.02.716071",
+    "source": "biorxiv",
+    "title": "Comparative Genomic Insights into the Evolution of Aquatic and Terrestrial Adaptations in Plants",
+    "abstract": "Terrestrial plants emerged from the water about 500 million years ago. Thereafter, they have diversified and now inhabit most of the Earth's surface. More recently, some species have re-adapted to an aquatic lifestyle, both in fresh and salt water, and fully or partially submerged. The mechanisms enabling these adaptations between terrestrial and aquatic life are extremely numerous, making it difficult to have a comprehensive overview of the phenomenon. Here, we performed a series of intraspecific measurements of the selection pressure affecting orthologous genes in eight aquatic and four terrestrial plants. Our analyses showed that aquatic plants have a relaxed selection pressure on nutrient assimilation mechanisms, probably linked to a greater bioavailability, as well as stronger adaptations to oxidative stress, while terrestrial plants evolution is linked to environment perception. Inter-species analyses have also highlighted a different evolution of chloroplast proteins between these two types of plants, suggesting adaptations to gas availability.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716071v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716071v1.full.pdf",
+    "authors": [
+      "Cabanac, S.",
+      "Dunand, C.",
+      "Mathe, C."
+    ],
+    "categories": [
+      "evolutionary biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.02.716071",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716286",
+    "source": "biorxiv",
+    "title": "First paleoproteomics evidence of Panicum miliaceum consumption in human dental calculus",
+    "abstract": "Ancient proteins provide a direct window into past diets by enabling the identification of consumed foods through the analysis of dental calculus. While previous studies have reliably detected animal-derived proteins such as milk, plant-derived proteins remain markedly underrepresented, leaving a significant gap in our understanding of the role of plants in past human diets. Here, we show how the reanalysis of open-access paleoproteomics datasets can reveal previously overlooked plant proteins by revisiting two archaeological dental calculus datasets spanning the Eneolithic to Iron Age from the Pontic-Caspian region and the Levantine coast (n = 63 individuals). We identify 60 unique peptides derived from 60 distinct proteins of broomcorn millet (Panicum miliaceum) in 39 individuals. All peptides are unique to Panicum miliaceum and their taxonomic assignment was confirmed using a stringent multi-tier validation strategy, providing the first paleoproteomics evidence of its consumption preserved in dental calculus and extending beyond current protein database annotations. Combined with existing radiocarbon chronologies, these findings represent the earliest paleoproteomics evidence of broomcorn millet consumption, substantially revising its chronology and geographic pathways of dispersal across Eurasia. More broadly, this study demonstrates the untapped potential of dental calculus proteomics and open-access data to directly trace plant consumption, opening new avenues for investigating crops that remain underrepresented in archaeological and proteomics research.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716286v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716286v1.full.pdf",
+    "authors": [
+      "Morvan, M.",
+      "Motuzaite Matuzeviciute, G."
+    ],
+    "categories": [
+      "evolutionary biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716286",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.02.713482",
+    "source": "biorxiv",
+    "title": "DenMark: A Bayesian Hierarchical Model for Identifying Cell-Density Correlated Genes from Spatial Transcriptomics",
+    "abstract": "Recent advances in single-cell-resolution spatial transcriptomics enable the profiling of gene expression while preserving the precise locations of individual cells, enabling quantitative investigation of how cellular organization relates to molecular state. A fundamental yet under-modeled aspect of organization is local cell density, which varies across microenvironments and can be linked to transcriptional programs. However, rigorous computational frameworks to quantify density-expression correlations remain lacking. Here, we present DenMark (Density-dependent Marked point process framework), a unified statistical framework that jointly models local cell locations and gene expression in single-cell-resolution ST data, enabling identification of density-correlated genes while naturally providing uncertainty quantification. To scale inference, DenMark leverages a Hilbert space Gaussian process approximation. In simulations, DenMark provides an accurate and well-calibrated estimate of density-expression association. Across single-cell ST platforms, including MERFISH and 10x Xenium, and across brain and cancer tissues, DenMark identifies genes whose expression is associated with cellular clustering and reveals density-related biological programs.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.02.713482v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.02.713482v1.full.pdf",
+    "authors": [
+      "Xu, M.",
+      "Schmidt, A.",
+      "Zhang, Q."
+    ],
+    "categories": [
+      "genomics"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.02.713482",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716385",
+    "source": "biorxiv",
+    "title": "Structure-Guided Design and Dynamic Evaluation of VP4-Targeting siRNAs Against Rotavirus A",
+    "abstract": "Rotavirus is a major cause of severe diarrheal disease in children under the age of five, with reduced vaccine effectiveness in low-resource settings causing substantial morbidity and mortality. In the absence of approved antiviral therapeutics, treatment is largely supportive, urging the need for targeted and precision-based interventions. VP4 protein plays an essential role in viral attachment, entry, and infectivity, making it a suitable target for targeted therapy. In this context, RNA interference is a specific method for inhibiting viral gene expression with its efficacy depending on sequence conservation, target accessibility, and compatibility with the RISC-loading machinery. In the present study, an integrative in silico approach was employed to design and evaluate siRNAs targeting conserved regions of the VP4 gene across six geographically diverse countries. Candidate siRNAs were screened using established design rules and regression-based scoring with off-target filtering. Three optimized siRNAs were further assessed through structural modeling, molecular docking, and molecular dynamics simulations to examine interactions with human Dicer, TRBP, and Argonaute-2. Comparative dynamic analyses identified one siRNA with enhanced structural compatibility, reduced conformational fluctuations, and stable interactions with RISC-loading proteins. These findings provide a rational computational basis for VP4-targeted siRNA development, facilitating experimental validation.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716385v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716385v1.full.pdf",
+    "authors": [
+      "Ahmed, A. N.",
+      "Satu, K. J.",
+      "Rahman, A. B. Z. N.",
+      "Hasan, S. S.",
+      "Sakib, M. N.",
+      "Hossan, M. E.",
+      "Bhattacharjee, A.",
+      "Chowdhury, Z. M.",
+      "Joy, Z. F.",
+      "Islam, M. J.",
+      "Hossain, M. U."
+    ],
+    "categories": [
+      "bioinformatics"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716385",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.710620",
+    "source": "biorxiv",
+    "title": "Integrating Epstein-Barr virus (EBV) status into diffuse large B cell lymphoma (DLBCL) genetics",
+    "abstract": "Diffuse large B-cell lymphoma (DLBCL), the most common aggressive lymphoma, encompasses histologically similar but genetically distinct cancers. Recent genetic studies have defined at least six molecular subtypes, yet none account for Epstein-Barr virus (EBV), despite 5-15% of DLBCLs being EBV-associated. By reanalyzing published whole-exome and RNA-sequencing data from 481 tumors, we identified 19 EBV-positive cases. These were significantly enriched in the BN2 subtype (6/19), while most (11/19) remained unclassified. In BN2 tumors, several subtype-defining mutations were reduced in frequency among EBV-positive cases, supporting the hypothesis that EBV oncogenes substitute for specific cellular alterations and may confound DLBCL classification algorithms. Extending our analysis to cell lines, we found that the widely used Val cell line harbors the B95-8 laboratory EBV strain; other EBV-positive lines appeared authentic but modeled only non-BN2 subtypes and expressed an atypical viral latency III program, whereas some DLBCL tumors expressed the atypical latency III program and others latency I or II. Together, these findings demonstrate that EBV-positive DLBCL, like DLBCL itself, is not a single disease, and that current in vitro models only partially capture its biological heterogeneity.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.710620v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.710620v1.full.pdf",
+    "authors": [
+      "Rosemarie, Q.",
+      "Hayes, M.",
+      "Johannsen, E. C."
+    ],
+    "categories": [
+      "cancer biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.710620",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.01.715918",
+    "source": "biorxiv",
+    "title": "Neural cell state modulation by PARK2 and dopaminergic neuroprotection by small molecule Parkin agonism",
+    "abstract": "Parkin, an E3 ubiquitin ligase encoded by PARK2, plays a key role in both hereditary and sporadic Parkinson's disease (PD), yet there are no therapies currently available that can target this important pathway. Here, we show that Parkin is critical for successful neuronal differentiation and survival, and we develop small-molecule Parkin agonists that can protect dopaminergic neurons. Upon differentiation of neural progenitor cells, loss of Parkin results in a reduced capacity to maintain neuronal cell state, dopaminergic neuronal phenotypes, and stress resistance. Moreover, Parkin loss disrupted cell morphology and the stability of neurites. Transcriptional and single-cell analyses reveal that Parkin controls critical pathways regulating stem-like cell transitions and is needed for stable neuronal maturation. We also examined the effects of FB231, a small molecule enhancer of Parkin E3 ligase activity, in models of PD. FB231 reduced pathological -synuclein and enhanced cell survival in human iPSC-derived dopaminergic neurons treated with -synuclein preformed fibrils. Furthermore, FB231 attenuated -synuclein pathology and dopaminergic neurodegeneration in a gut -synuclein murine model of PD. Our findings support that Parkin plays a crucial role in maintaining neuronal homeostasis and that pharmacologic activation of Parkin may be a promising strategy to attenuate neurodegeneration in PD.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715918v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715918v1.full.pdf",
+    "authors": [
+      "Gong, Y.",
+      "Bayati, A.",
+      "Alban, T. J.",
+      "Parthasarathy, P.",
+      "Zhou, F.",
+      "Makarov, V.",
+      "Zhao, Y.",
+      "Su, C.",
+      "Schumacher, J. G.",
+      "Singh, V.",
+      "Volpicelli-Daley, L. A.",
+      "Luo, W.",
+      "Durcan, T. M.",
+      "Dutta, S.",
+      "Schwarzschild, M. A.",
+      "Johnston, J. A.",
+      "Chan, T. A.",
+      "Chen, X."
+    ],
+    "categories": [
+      "neuroscience"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.01.715918",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.02.716051",
+    "source": "biorxiv",
+    "title": "Systematic Validation of AlphaFold-Predicted Interactomes with LUCIA",
+    "abstract": "Mapping protein-protein interactions (PPIs) at structural resolution is essential for understanding cellular machinery. While tools like AlphaFold enable proteome-wide structural predictions, the field lacks high-throughput experimental methods to verify these predictions at scale and establish empirical thresholds for confidence metrics, such as the widely used interface predicted Template Modeling (ipTM) score. We developed LUCIA (LUminescent Cell-free Interaction Assay), a rapid biochemical screening platform bypassing traditional cloning and protein expression to validate direct binary interactions within days. Applying this to herpesviruses, clinically relevant human pathogens with large proteomes, we generated an exhaustive computational interactome of 23,215 AlphaFold-predicted dimer models across three species (HSV-1, HCMV, and KSHV), accessible via our HerpesPPIs database. Using the HSV-1 interactome as a benchmark, testing 83 high-confidence predicted dimers with LUCIA yielded 23 novel, experimentally validated interactions. By calibrating AlphaFold metrics against this direct binding data, we demonstrated that an ipTM score [&ge;] 0.80 identifies bona fide interactions with a positive predictive value of 77%. To demonstrate the functional power of this pipeline, we characterized a previously unknown interaction between HSV-1 UL42 and UL8, linking the viral DNA polymerase and helicase-primase complexes. Structure-guided mutations at the predicted and LUCIA-verified UL42-UL8 interface strongly reduced binding in vitro and completely abolished viral replication in cell culture. Combining the scalable LUCIA platform with computational predictions enables researchers to rapidly translate atomic-level models into validated biological mechanisms without the need to solve experimental structures.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716051v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716051v1.full.pdf",
+    "authors": [
+      "Zhang, T.",
+      "Kraft, J.",
+      "Soh, T. K.",
+      "Jonsson, I.",
+      "Kansy, M.",
+      "Bosse, J. B."
+    ],
+    "categories": [
+      "microbiology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.02.716051",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716176",
+    "source": "biorxiv",
+    "title": "Control of cell division by an Acinetobacter baumannii protein with a novel nucleotidyl-cyclase-like fold",
+    "abstract": "The multidrug-resistant sepsis pathogen Acinetobacter baumannii has diverged from model {gamma}-proteobacteria in fundamental ways, hindering efforts to develop new lines of attack against the microbe. A major area of divergence is cell division. The pathogen lacks several widely conserved division enzymes, such as FtsEX, and instead possesses a suite of atypical gene products showing no sequence similarity to any well-characterized proteins. Key among these unusual proteins is AdvA. In previous Tn-seq studies, we identified AdvA as essential for A. baumannii division and fluoroquinolone resistance. The protein comprises an N-terminal transmembrane/periplasmic region connected to a C-terminal unannotated cytoplasmic domain. Interestingly, most advA transposon insertions were lethal unless they occurred within the linker between these two regions. The roles of AdvA in cell division and the basis for positional transposon effects were unclear. Here, we combine mutagenesis with fluorescence localization, two-hybrid, and structural analyses to investigate how AdvA domains function in assembling and activating the A. baumannii divisome. We show that AdvA depletion profoundly disrupts divisome construction at Z-rings. This dependence is based on numerous interactions by AdvA with divisome proteins, with its N-terminal region binding multiple components and the cytoplasmic domain binding one (the early protein ZipA). In addition, we identified substitutions in FtsB and FtsW that suppress AdvA essentiality, consistent with a role in divisome protein activation as well as recruitment. Finally, we determined the structure of the AdvA cytoplasmic domain, which revealed a novel 3D-fold resembling adenylyl/guanylyl cyclases with striking deviations. Most notably, AdvA lacks canonical catalytic and dimerization sites and contains unusual features, including a positively charged tip promoting fluoroquinolone resistance and an extra C-terminal helix essential to divisome interactions and cell division. The critical nature of the most C-terminal structure in AdvA helps explain the positional effects of transposon insertions and facilitated identification of a distant structural homolog in the pathogen Pseudomonas aeruginosa. These results illuminate a new type of control protein governing bacterial division that could be exploited for improved antimicrobial strategies targeting nosocomial infections.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716176v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716176v1.full.pdf",
+    "authors": [
+      "Farinha, A.",
+      "Soo, M. W.",
+      "Minasov, G.",
+      "Inniss, N. L.",
+      "Shuvalova, L.",
+      "Dharamdasani, V.",
+      "Finkler, J.",
+      "Stearns, O.",
+      "Shenoy, T.",
+      "Kim, C.",
+      "Satchell, K. J.",
+      "Geisinger, E."
+    ],
+    "categories": [
+      "microbiology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716176",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716414",
+    "source": "biorxiv",
+    "title": "Repurposing anti-phage defenses to differentially arrest the viral lifecycle reveals the regulatory logic of a parasitic satellite",
+    "abstract": "Mobile genetic elements frequently encode defense mechanisms to protect their bacterial hosts from viral attack. In Vibrio cholerae, these defensive elements include phage-inducible chromosomal island-like elements (PLEs), which are phage satellites that act as highly specialized parasites of the lytic phage ICP1. While PLE transcriptional activation upon ICP1 infection is known to be temporally regulated, the underlying regulatory logic and dependencies on the progression of the phages developmental program required for activation remain unclear. In this study, we took a novel approach to define these dependencies by introducing independent anti-phage defense systems, BREX and DarTG, as molecular roadblocks to impede the ICP1 lifecycle. We discovered that, for both ICP1 and PLE, late-stage gene expression is fundamentally uncoupled from genome replication, representing a striking departure from the standard paradigm for double-stranded DNA phages. While BREX restricts ICP1 to an immediate-early transcriptional state that stalls PLE activation, DarTG allows the phage to execute its full transcriptional cascade despite the total block in DNA replication. This permissive environment provides the necessary cues for complete PLE induction, revealing that the extent of ICP1 transcriptional progression is a key determinant of PLE transcriptional activation. Unlike other phage satellites that rely on a single cue for activation, our results demonstrate that PLE uses a progressive licensing strategy that relies on multiple cues tied to milestones in the phages developmental program. This regulatory architecture ensures robust PLE activation resilient to phage escape.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716414v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716414v1.full.pdf",
+    "authors": [
+      "Bagdatli, S. T.",
+      "Seed, K."
+    ],
+    "categories": [
+      "microbiology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716414",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.715131",
+    "source": "biorxiv",
+    "title": "Exon-Skipping Antisense Oligonucleotides for H3.3K27M-Altered Diffuse Midline Glioma Therapy",
+    "abstract": "Diffuse midline gliomas (DMGs) are a deadly class of pediatric high-grade brain cancers. Approximately 80% of pontine DMGs feature a dominant, somatic, heterozygous point mutation in the non-canonical histone H3.3-coding gene H3-3A. This dominant-negative mutation replaces lysine 27 with methionine (K27M) and prevents global K27 di- and tri-methylation of all wild-type histone H3 proteins. We aimed to target the H3.3K27M onco-histone pre-mRNA with splice-switching antisense oligonucleotides (ASOs) designed to promote skipping of H3-3A exon 2, as this constitutive exon comprises both the K27M mutation and the natural in-frame start codon of the gene. The lead ASO identified in a systematic screen specifically induced H3-3A exon 2 skipping, did not affect expression or splicing of the paralog gene H3-3B--which also encodes histone H3.3--and restored global H3K27me3 marks in patient-derived DMG cells grown as neurospheres. In a patient-derived orthotopic xenograft tumor mouse model, the lead ASO reduced proliferation and extended survival. Our results show the potential of exon-skipping ASOs targeting H3-3A exon 2 as a therapeutic option for H3.3K27M-altered DMG. More generally, they exemplify the strategy of using ASOs to induce skipping of a constitutive exon to effectively achieve gene downregulation.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.715131v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.715131v1.full.pdf",
+    "authors": [
+      "Yang, L.",
+      "Zhang, Q.",
+      "Wilkinson, J. E.",
+      "Krainer, A. R."
+    ],
+    "categories": [
+      "molecular biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.715131",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.01.715911",
+    "source": "biorxiv",
+    "title": "cis- and trans-regulatory factors contributing to divergent activity of the TDH3 promoter in Saccharomyces yeast",
+    "abstract": "Changes in regulatory sequences controlling the timing and activity of gene products underlie much of natural phenotypic variation. Yet, what these changes are and how they impact gene expression remain largely unknown. To address this question, we investigated how transcriptional activity and homeostatic responsiveness of orthologous promoters of the metabolic gene TDH3 evolved among Saccharomyces yeast. We found that promoter expression level increased specifically in the S. cerevisiae lineage and that a substantial part of this increase was caused by genetic variants located between the well-characterized, conserved binding sites for two direct transcriptional regulators. These nucleotide changes altered the promoters' expression levels while leaving the expression dynamics conserved. Further, the effects of these nucleotide changes were only seen in the presence of a third transcription factor, TYE7p, which is recruited by the other transcription factors through protein-protein interactions. These results suggest that the cis-regulatory changes act through their influence on the collective assembly/activation of the transcription factors, and that changes acting through such a mechanism can allow distinct parts of gene expression, such as expression level and dynamics, to be tuned separately.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715911v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715911v1.full.pdf",
+    "authors": [
+      "Siddiq, M. A.",
+      "Kania, H. P.",
+      "Brown, N. J.",
+      "Wittkopp, P."
+    ],
+    "categories": [
+      "genetics"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.01.715911",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.01.715939",
+    "source": "biorxiv",
+    "title": "A stable genomic variant for photoperiodic flowering plasticity to enhance grain mold escape and yield stability in sorghum",
+    "abstract": "Grain mold severely constrains sorghum [Sorghum bicolor (L.) Moench] productivity and grain quality in subhumid environments. Photoperiod-sensitive flowering plays a key role in mold avoidance and yield stability along north-south rainfall gradients. In response to the high susceptibility of elite cultivars in subhumid zones of Senegal, we developed and characterized a recombinant inbred line (RIL) population derived from Nganda (grain mold-susceptible) and Grinkan (photoperiod-sensitive) varieties. The population was evaluated across three distinct agro-ecological zones over two years. Environmental indices derived from genotype-environmental interactions, together with defined growth windows, strongly influenced flag leaf appearance (FLA), a photoperiodic flowering trait. Plasticity parameters (intercept and slope) for environmental indices, FLA, grain mold severity, and yield enabled identification of loci contributing to flowering response, mold resistance, and yield stability. The maturity gene Ma1 and two QTLs for FLA, qFLA6.2 and qFLA6.3, were identified, stable across environments, and colocalized with grain mold and yield QTLs. The wild-type Ma1 allele from Grinkan delayed FLA and reduced grain mold damage but was not associated with increased yield. The Ma1 effect was confirmed using the developed breeder-friendly KASP marker, Sbv3.1_06_40312464K, in 174 F3 three-way cross families. Photoperiod-sensitive lines with intermediate-to-late FLA alleles showed strong negative associations with mold damage. Overall, the identified stable loci and candidate lines provide foundations for effective molecular breeding of climate-resilient varieties.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715939v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715939v1.full.pdf",
+    "authors": [
+      "Hodehou, D. A. T.",
+      "Diatta, C.",
+      "Bodian, S.",
+      "Ndour, M.",
+      "Sambakhe, D.",
+      "Sine, B.",
+      "Felderhoff, T.",
+      "Diouf, D.",
+      "Morris, G. P.",
+      "Kane, N. A.",
+      "Faye, J. M."
+    ],
+    "categories": [
+      "genetics"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.01.715939",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716381",
+    "source": "biorxiv",
+    "title": "ATGL-catalyzed lipid catabolism promotes DNA repair",
+    "abstract": "An imbalance of DNA damage over DNA repair contributes to the genomic instability that drives aging and numerous age-related diseases. While numerous DNA repair mechanisms have been elucidated over decades of study, little is known about the contribution of metabolism to genomic stability. We report that adipose triglyceride lipase (ATGL), a primary lipolytic enzyme, promotes DNA repair. We show that lipid droplets (LDs) accumulate in response to DNA damage and that inhibition of LD biogenesis before genotoxic stress increases the persistence of DNA damage. Overexpression of ATGL (increasing lipolysis) enhances DNA repair in response to etoposide and ionizing radiation, thus reducing DNA damage burden. Mechanistically, ATGL promotes bulk acetylation of chromatin-bound proteins and blockade of the histone acetyltransferase p300 negates these effects. Further, ATGL-induced DNA repair attenuates the long-term consequences of DNA damage, and reducing senescence and enhancing viability. Overall, these studies reveal a novel role for LDs and LD proteins in DNA damage and repair, thus unveiling a mechanism through which lipid metabolism contributes to genomic stability.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716381v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716381v1.full.pdf",
+    "authors": [
+      "Devarajan, M.",
+      "Meyer, R. K.",
+      "Fredrickson, G.",
+      "Hofstadter, W. A.",
+      "Mashek, M. T.",
+      "Reid, M. V.",
+      "Kerr, E. W.",
+      "Bartelt, A.",
+      "Gutenberger, P.",
+      "Intriago, S.",
+      "Laux, L.",
+      "Petta, E.",
+      "Hai Dang Nguyen, H. D.",
+      "Mashek, D. G."
+    ],
+    "categories": [
+      "biochemistry"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716381",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.712544",
+    "source": "biorxiv",
+    "title": "Total synthesis and structural characterization of a novel protein scaffold from the snail Biomphalaria glabrata.",
+    "abstract": "Disulfide-rich miniproteins constitute compact and highly stable scaffolds of growing interest for molecular and structural engineering. Schistosomins are ~80-residue proteins conserved across gastropods that form a long-standing orphan family whose structure and biological roles have remained unknown. Here, we report the total chemical synthesis and structural characterization of a schistosomin isoform from Biomphalaria glabrata, a medically relevant intermediate host of the parasite Schistosoma mansoni. Using state-of-the-art solid-phase peptide synthesis, chemoselective peptide ligation, and controlled oxidative folding, we obtained homogeneous well folded schistosomin suitable for biophysical and structural studies. High-resolution X-ray crystallography reveals a previously undescribed disulfide-rich fold defining a new class of miniprotein scaffold. Nano differential scanning fluorimetry and circular dichroism experiments demonstrate the remarkable thermal stability of this scaffold, while molecular dynamics simulations confirm the intrinsic rigidity of its disulfide-stabilized core and show that the two naturally occurring isoforms differing by a single residue exhibit nearly indistinguishable structural and dynamic properties. Finally, transcript and protein analyses across snail tissues provide the first spatial expression map of schistosomin in a medically relevant mollusk. Together, this work establishes schistosomin as a novel and robust miniprotein scaffold and provides a structural and biological framework for exploring its function and potential applications.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.712544v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.712544v1.full.pdf",
+    "authors": [
+      "Melnyk, O.",
+      "Caby, S.",
+      "Vigouroux, A.",
+      "Demanche, C.",
+      "Desmet, R.",
+      "Senechal, M.",
+      "Snella, B.",
+      "Mougel, A.",
+      "Boidin-Wichlacz, C.",
+      "Parmentier, A.",
+      "Pasco, U.",
+      "Cantel, S.",
+      "Morera, S.",
+      "Vicogne, J."
+    ],
+    "categories": [
+      "biochemistry"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.712544",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.02.716167",
+    "source": "biorxiv",
+    "title": "snoFlake: A network model for snoRNA-RBP complexes reveals SNORD22 as a U5 snRNP-associated splicing regulator",
+    "abstract": "Small nucleolar RNAs (snoRNAs) are canonically viewed as stable components of ribonucleoprotein complexes dedicated to RNA modification. Here, we developed snoFlake, a snoRNA-centric interaction network integrating physical and functional associations between box C/D snoRNAs and RNA-binding proteins (RBPs), challenging this narrow view. Using snoFlake, we systematically identified snoRNAs predicted to form noncanonical complexes with diverse RBPs, extending their roles into post-transcriptional regulation. We found 23 high-confidence network motifs enriched for RNA-processing functions, including a top-ranked module linking SNORD22 to U5 snRNP components PRPF8 and EFTUD2. SNORD22 co-binds with these spliceosomal RBPs at splice sites showing reduced U5 snRNP occupancy, suggesting a role in reinforcing spliceosomal engagement at suboptimal exons. Consistently, SNORD22 depletion promotes exclusion of weak cassette exons, altering transcript isoform composition and predicted coding output. Beyond SNORD22, snoFlake reveals snoRNAs with similar network profiles, providing a resource for uncovering previously uncharacterized snoRNA-RBP complexes and expanding the functional snoRNome.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716167v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716167v1.full.pdf",
+    "authors": [
+      "Song, K. S.",
+      "Cyr, M.",
+      "Faucher-Giguere, L.",
+      "Yeo, B.",
+      "Seow, V. K.",
+      "Deschamps-Francoeur, G.",
+      "Abou Elela, S.",
+      "Scott, M. S."
+    ],
+    "categories": [
+      "bioinformatics"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.02.716167",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716269",
+    "source": "biorxiv",
+    "title": "Nucleolar Condensation Orchestrates rRNA-dependent Mobility and Spatiotemporally Enriches rDNA-binding of Human Chromatin Remodeler BRG1",
+    "abstract": "As key regulators of genome access via nucleosome translocation/ejection, SWI/SNF chromatin remodeling complexes share a core ATPase/translocase subunit, BRG1, central to their activity. Despite recent discovery of spatially clustered intranuclear \"hotspots\" where various SWI/SNF remodelers preferentially bind, the mechanistic driving force underlying such heterogeneous organization remains unclear. Herein, we show that human BRG1 undergoes condensation in vitro and in live cell nucleus, mediated by its IDR-rich C-terminus (BRG1C). Intranuclear condensates of BRG1C form across a wide range of (including endogenous) expression levels, are highly dynamic, and selectively partition into the fibrillar center of nucleolus, with their formation, localization and liquid-like properties governed primarily by patterned charge blocks in its sequence. Importantly, correlative single-molecule tracking and condensates mapping reveal rRNA-modulated constrained mobility and spatiotemporally enriched chromatin-binding to rDNA for BRG1C specifically within nucleolar condensates. These findings unveil a condensation-mediated coupling between remodeler dynamics and nucleolar architecture, pointing to a potentially generic mechanism for organizing remodeling activity in both space and time.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716269v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716269v1.full.pdf",
+    "authors": [
+      "Ng, W. S.",
+      "Engl, W.",
+      "Zhao, Z. W."
+    ],
+    "categories": [
+      "biophysics"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716269",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.01.715665",
+    "source": "biorxiv",
+    "title": "Inborn cardiorespiratory fitness and exercise training modulate brown adipose tissue function and plasticity in early life",
+    "abstract": "This study aimed to determine the impact of inborn metabolic fitness and early life exercise training on whole body and brown adipose tissue (BAT) energetics. We carried out comprehensive metabolic phenotyping on 4-week old rats bred for high (high-capacity runner, HCR) and low (low-capacity runner, LCR) running capacity following randomization to voluntary wheel running (VWR) or control (CRTL) for 6-weeks. High-resolution respirometry and untargeted proteomics were then employed to determine the impact of inborn fitness and early life exercise on BAT function. When accounting for differences in body mass, early life exercise (VWR) resulted in greater basal and total energy expenditure, irrespective of strain (P < 0.0001 for both). Both leak and uncoupling protein 1 (UCP1) dependent respiratory capacities in isolated BAT mitochondria were greater in rats randomized to VWR compared to CTRL in both HCR (P < 0.01) and LCR (P < 0.05) strains. Similarly, mitochondrial sensitivity to the UCP1 inhibitor GDP was greater in both HCR (P < 0.01) and LCR (P < 0.05) rats randomized to VWR versus control. The BAT proteome differed in CTRL HCR and LCR rats, were there was enrichment in proteins related to branched chain oxidation and mitochondrial fatty acid oxidation in HCR rats. VWR remodeled the BAT proteome, where 151 proteins were differentially expressed in LCR BAT and 209 differentially expressed in LCR BAT following VWR. In both stains, there was an enrichment in proteins related to metabolism mitochondrial function in response to VWR. However, when comparing strains, 39 proteins were differentially expressed in BAT in HCR rats compared to LCR rats in response to VWR. These proteins were related to carboxylic acid and amino acid metabolism. Collectively, inborn fitness impacts body mass and composition, exercise behaviors, and the BAT proteome in early life. Early life exercise alters whole body and BAT energetics irrespective of inborn fitness, augmenting basal and total energy expenditure and BAT thermogenic capacity and function.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715665v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715665v1.full.pdf",
+    "authors": [
+      "Kingren, M. S.",
+      "Sadler, D. G.",
+      "Barre, M. C.",
+      "Treas, L. D.",
+      "Sikes, J. D.",
+      "Britton, S. L.",
+      "Koch, L.",
+      "Borsheim, E.",
+      "Porter, C."
+    ],
+    "categories": [
+      "physiology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.01.715665",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.02.716003",
+    "source": "biorxiv",
+    "title": "Humanization of the rpb9 locus in fission yeast reveals conserved and divergent roles of rpb9 and human POLR2I",
+    "abstract": "Background/Objectives: RNA polymerase II is a multifunctional complex that is critical for gene regulation and environmental responses. Its POLR2I subunit in human is associated with various pathologies, including cancer chemoresistance. However, much of our understanding of how POLR2I could function indirectly derives from studies of its homologs in yeasts called Rpb9. Here, we endogenously humanized the rpb9 gene of the fission yeast Schizosaccharomyces pombe to examine the functional capabilities of POLR2I. Methods: We edited the genomic rpb9 locus in S. pombe so that it encodes the human POLR2I protein, and investigated functional and structural conservation. Results: With our humanized yeast system, we find widespread functional complementation by human POLR2I of S. pombe rpb9 roles in yeast growth, chronological aging, and stress responses. We also find that POLR2I complements novel roles for yeast rpb9 in facultative heterochromatin assembly, resistance against the chemotherapy 5-fluorouracil, and resistance against the fungicide thiabendazole. In contrast, we find that POLR2I cannot complement the role of rpb9 in resistance against the transcription elongation inhibitor 6-azauracil (6-AU) in our system. Interestingly, POLR2I could complement 6-AU resistance if ectopically expressed. Lastly, we observe extensive structural homology between Rpb9 and POLR2I proteins. Conclusions: Our study establishes an endogenous cross-species gene complementation strategy that uncovers both conserved and rewired functions of fission yeast rpb9 and its human homolog, POLR2I. In addition to validating conserved roles, we also identified conservation of previously unrecognized roles of rpb9 in heterochromatin formation and chemoresistance.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716003v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.02.716003v1.full.pdf",
+    "authors": [
+      "Finkel, J. M.",
+      "Williams, M. G.",
+      "Nirmal, M. B.",
+      "Pandey, S.",
+      "Howe, E. D.",
+      "Liu, C. T.",
+      "Lohman, J. R.",
+      "Sharma, N.",
+      "Vo, T. V."
+    ],
+    "categories": [
+      "synthetic biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.02.716003",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.01.715935",
+    "source": "biorxiv",
+    "title": "Targeting the DNA damage repair protein RAD51 alters fibroblast metabolism and enhances apoptosis in pulmonary fibrosis",
+    "abstract": "Background Idiopathic pulmonary fibrosis (IPF) is a progressive and fatal lung disease characterized by aberrantly activated, apoptosis-resistant profibrotic lung (myo)fibroblasts. Prior research has demonstrated that lung fibroblasts from patients with IPF exhibit resistance to DNA damage, suggesting that this behavior contributes to their persistent survival and continuous proliferation. We propose that elevated levels of the DNA damage repair protein RAD51 regulate myofibroblast activation and apoptosis and provide a potential therapeutic target to impede fibrosis progression. Methods Human lung fibroblasts were transfected with siRNA against RAD51 or treated with RAD51-specific inhibitor B02 and markers of fibrosis, DNA damage, apoptosis, metabolic reprogramming, and mitochondrial dynamics were assessed. The preclinical efficacy of B02 was evaluated in human precision cut lung slices (PCLS) and in a mouse model of pulmonary fibrosis. Findings RAD51 expression was significantly upregulated in the lungs and lung fibroblasts of IPF patients. Knockdown or inhibition of RAD51 in fibroblasts reduced profibrotic marker expression, suppressed mTORC1 signaling and mitochondrial function, and increased apoptosis susceptibility. Pharmacological inhibition of RAD51 shifted the profibrotic phenotype towards a fibrosis-resolving state in human and mouse PCLS, and in a bleomycin-induced mouse model of lung fibrosis. Interpretation The inhibition of RAD51 exerts therapeutic benefits in lung fibrosis by promoting apoptosis. Our findings identify that inhibiting RAD51 with B02 in fibroblasts impairs DNA repair and induces metabolic reprogramming, making it a potential therapeutic target.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715935v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715935v1.full.pdf",
+    "authors": [
+      "Maurya, R. K.",
+      "Sharma, A. K.",
+      "Schaefbauer, K. J.",
+      "Ma, L.",
+      "Koenitzer, J. R.",
+      "Limper, A.",
+      "Choudhury, M."
+    ],
+    "categories": [
+      "cell biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.01.715935",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716308",
+    "source": "biorxiv",
+    "title": "SpoT-mediated reduction of (p)ppGpp levels promotes Ralstonia pseudosolanacearum adaptation to both plant xylem and legume nodules",
+    "abstract": "During evolution, bacteria have developed the ability to interact intimately with eukaryotic hosts. These interactions span a dynamic continuum ranging from pathogenicity to mutualism, along which bacteria can rapidly evolve and shift their lifestyles. However, the molecular mechanisms that enable bacteria to adapt to new hosts and to transition between distinct interaction modes remain poorly understood. Here, using a unique combination of two independent evolution experiments, we identified and characterized parallel adaptive mutations in spoT, which encodes the bifunctional (p)ppGpp synthetase-hydrolase. These mutations promote the adaptation of the plant pathogen Ralstonia pseudosolanacearum to two distinct plant-associated environments and two distinct lifestyles, the xylem of both susceptible and tolerant host plants as a pathogen and the root nodules of a legume as a symbiont, without compromising virulence on susceptible hosts. These mutations enhance the utilization of multiple carbon and nitrogen sources, including substrates known to be abundant in xylem sap, and increase bacterial exponential growth rate in minimal medium, suggesting reduced basal (p)ppGpp levels. Assessment of a strain deficient in SpoT synthetase activity confirmed that lowering basal (p)ppGpp levels is adaptive in both plant environments. Together, our findings reveal that fine-tuning intracellular (p)ppGpp concentrations represents an efficient strategy for optimizing bacterial adaptation to complex host-associated environments.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716308v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716308v1.full.pdf",
+    "authors": [
+      "Burkhardt, N.",
+      "Tang, M.",
+      "Legrand, L.",
+      "Letisse, F.",
+      "Vogeleer, P.",
+      "Perrier, A.",
+      "GUIDOT, A.",
+      "Capela, D."
+    ],
+    "categories": [
+      "microbiology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716308",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716433",
+    "source": "biorxiv",
+    "title": "RNA polymerase loss by nuclear rupture drives LMNA cardiomyopathy",
+    "abstract": "Localized rupture of the nuclear envelope has recently been reported in various pathologies, including cancer, neurodegenerative disease, myocardial infarction, as well as dilated cardiomyopathy caused by Lamin A/C gene mutations (LMNA-DCM). Whether and how nuclear rupture contributes to disease remains unknown. Here, we report that nuclear rupture causes global transcriptional deficiency in a mouse model of LMNA-DCM. We observed that ruptured nuclei lost RNA polymerase II, leading to downregulation of numerous genes essential for cardiomyocyte structure and function. We identified endogenous resealing of nuclear rupture as a cardioprotective mechanism in LMNA-DCM mouse hearts. Resealing involved the ESCRT-III membrane remodeling complex recruited to nuclear rupture sites. Resealed nuclei restored transcription while inhibiting ESCRT-III activity accelerated cardiomyopathy. However, resealed nuclei were short-lived: they re-ruptured at twice the rate of resealing. A kinetic model predicted progressive accumulation of ruptured nuclei despite ongoing resealing. Consistently, a human LMNA-DCM heart contained numerous ruptured nuclei at disease presentation. These findings linked nuclear rupture to organ deterioration through global transcriptional deficiency and suggested rupture resealing as a critical modifier of nuclear rupture-associated conditions.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716433v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716433v1.full.pdf",
+    "authors": [
+      "En, A.",
+      "Gucwa, M.",
+      "Rapushi, E.",
+      "Barnett, C.",
+      "Katano, W.",
+      "Nduka, N.",
+      "Shiraki, T.",
+      "Grogan, A.",
+      "Finn, A. V.",
+      "Weaver, K. N.",
+      "Ikegami, K."
+    ],
+    "categories": [
+      "molecular biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716433",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.711742",
+    "source": "biorxiv",
+    "title": "Stress-Induced PTBP1 Reprograms Neuronal Function and Activates Cellular Senescence",
+    "abstract": "Chronic oxidative stress is a major contributor to neuronal aging. Due to the lack of homologous recombination (HR) DNA damage repair, high oxygen consumption in neurons causes DNA damage accumulation with age, resulting in a decline in neuronal function, senescence-like phenotypes and onset of neurodegenerative diseases. Here, we identify increased PTBP1 as a stress-inducible negative regulator of neuronal gene expression and senescence-protectant genes. Oxidative stress robustly increases PTBP1 expression in ShSY-5Y differentiated neurons and primary mouse cortical neurons, coinciding with the loss of neuronal genes, including neuronal PTBP2, and activation of stress-responsive genes. Knockdown of PTBP1 in fibroblasts reduces the expression of key senescence genes. Transcriptomic analyses revealed that PTBP1 overexpression results in coordinated shift in gene expression characterized by repression of neuronal commitment genes and activation of stress and senescence genes. Mechanistically, PTBP1 induction is regulated by stress induced CTCF binding at the PTBP1 promoter. Together, our findings suggest that alteration in levels of PTBP1 acts as a molecular switch between neuronal function and survival, providing insight into transcriptional adaptations associated with aging.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.711742v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.711742v1.full.pdf",
+    "authors": [
+      "Priyanka, P.",
+      "Gamliel, A.",
+      "Taylor, H.",
+      "Ohgi, K. A.",
+      "Rosenfeld, M. G."
+    ],
+    "categories": [
+      "molecular biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.711742",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716432",
+    "source": "biorxiv",
+    "title": "A cyanobacterial adenine prenyltransferase enables longer-chain N6 prenylation",
+    "abstract": "Adenine is a ubiquitous nucleobase found in nucleic acids, cofactors, and signaling molecules and mediates diverse molecular interactions. Here, we identify TvAPT, an adenine prenyltransferase from the cyanobacterium Trichormus variabilis NIES-23. Unlike canonical enzymes limited to C5 dimethylallylation, TvAPT efficiently catalyzes the unprecedented N6-prenylation of adenine-containing substrates using extended prenyl donors (C10 and C15), markedly increasing the hydrophobicity of the adenine moiety. X-ray structural analysis and protein engineering revealed that an enlarged prenyl-binding pocket enables this donor promiscuity, allowing rational tuning of prenyl-donor preference. These findings establish TvAPT as a versatile biocatalytic platform that expands the chemical space of adenine-containing molecules for biomolecular engineering, as demonstrated by the synthesis of membrane-permeable nucleotides and analogues of plant signaling molecules.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716432v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716432v1.full.pdf",
+    "authors": [
+      "Ichikawa, K.",
+      "Tamura, K.",
+      "Fujitani, K.",
+      "Chisuga, T.",
+      "Takeda, R.",
+      "Sato, T.",
+      "Hayashi, S.",
+      "Kato, K.",
+      "Miura, S.",
+      "Nakano, S.",
+      "Ito, S.",
+      "Fujinami, D."
+    ],
+    "categories": [
+      "biochemistry"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716432",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.01.715903",
+    "source": "biorxiv",
+    "title": "miRNova: A Next-Generation Platform for Ultra-Precise and Highly Specific MicroRNA Quantification Integrating a Tailored Stem Loop RT-qPCR and a Robust Analytical Framework",
+    "abstract": "MicroRNAs (miRNAs) are ultra-short RNA molecules characterized by high sequence homology, frequent post-transcriptional modifications, and typically low abundance, particularly in circulating biofluids. These inherent biological features present substantial technical challenges for RT-qPCR based quantification. Consequently, the development of miRNA RT-qPCR assays has required architectural adaptations at the reverse transcription (RT) stage to generate extended cDNA templates, thereby enabling effective downstream quantitative PCR amplification. One widely adopted approach involves the enzymatic addition of a poly(A) tail to the 3' end of miRNAs, followed by poly(T)-primed universal reverse transcription, which has gained broad acceptance due to its perceived sensitivity and simplified workflow. However, independent experimental evidence indicates that this architecture does not consistently provide the level of specificity required for reliable single-nucleotide (SN) discrimination, particularly when quantifying low-abundance circulating miRNA targets, as demonstrated in our previous study. An alternative strategy relies on miRNA-specific reverse transcription using stem-loop priming has been equally well accepted. When generically generated, this approach offers certain improved specificity, but its performance in resolving single-nucleotide differences remains limited. In this article, we employed precision engineering to maximize specificity for both reverse transcription and qPCR steps. By tailoring both primer design and reaction architecture to the specific sequence features of each miRNA, we enable robust single nucleotide discrimination among these ultra-short targets. Prototype of ten different miRNova assays quantifying miRNAs whose sequences are differed in various configurations were tested on synthetic miRNA targets and small RNAs extracted from different celllines. For miRNova assay validation, saliva samples were elite rugby players submitted to small RNA extraction, then RT-qPCR. Spike-in of synthetic targets was applied for each quantification point to characterized the sensitivity, specificity and accuracy of the assays. Comparative analysis was performed between miRNova and two commercially available kits on the same sample set. The obtained results show a superior performance of miRNova assays allowing for sensitive and accurate quantification of miRNAs in saliva samples. Altogether, this results in modular, reproducible assays optimized for low-abundance miRNA detection in challenging biofluids, including saliva, positioning the platform beyond existing sensitivity-focused solutions toward true diagnostic-grade specificity.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715903v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715903v1.full.pdf",
+    "authors": [
+      "VAN, T. N. N.",
+      "Van Der Hofstadt, M.",
+      "Houot-Cernettig, J.",
+      "Thibal, C.",
+      "Nguyen, H. S.",
+      "Marcelin, C.",
+      "Ouedraogo, A.",
+      "Champigneux, P.",
+      "Molina, L.",
+      "Kahli, M.",
+      "Molina, F."
+    ],
+    "categories": [
+      "bioengineering"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.01.715903",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_no"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.03.716437",
+    "source": "biorxiv",
+    "title": "Surface Display For Phage Assisted Continuous Evolution: A Platform For Evolving / Screening Nanobodies In Prokaryote Systems",
+    "abstract": "Despite >50 years of methods development, specific antibodies are still generated at low throughput and remain in high demand across biotechnology. Most biologics and immunoprobes are monoclonal antibodies, developed using a combination of inoculating animals with a target antigen, engineered candidate libraries, and multiple rounds of selection using phage or yeast display. Here we introduce a synthetic biology scheme to eliminate the need for nearly all of these steps, by combining Surface display on E. coli and Phage display with the microvirus {Phi}X174, Assisting Continuous Evolution (SurPhACE). Instead of building libraries for screening, SurPhACE runs a closed evolutionary program. A typical experiment can have 1011 mutant candidates under active selection, with complete turnover of the mutant population every 30min, or >5x1012 unique mutants per day, using less than 100mL of bacterial culture media. We demonstrate SurPhACE for optimizing a nanobody to a related epitope, and develop novel nanobodies for an arbitrary target using a minimal starting library to establish a proof of concept and identify best practices for this scalable method for generating protein binders.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716437v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.03.716437v1.full.pdf",
+    "authors": [
+      "Flores-Mora, F. E.",
+      "Brodsky, J.",
+      "Cerna, G. M.",
+      "Tse, A.",
+      "Hoover, R. L.",
+      "Bartelle, B. B."
+    ],
+    "categories": [
+      "synthetic biology"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.03.716437",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc_nd"
+    }
+  },
+  {
+    "uid": "doi:10.64898/2026.04.01.715611",
+    "source": "biorxiv",
+    "title": "Spin-labeling studies implicate a highly dynamic active state for transducin-bound phosphodiesterase-6 in vertebrate phototransduction",
+    "abstract": "In vertebrate phototransduction, the G protein-coupled receptor rhodopsin activates the -subunit of transducin (GT), which, upon binding the {gamma} subunits of phosphodiesterase-6 (PDE6), stimulates the hydrolysis of cGMP. We reported a cryoEM structure for a complex containing two constitutively active GT (GT*) subunits coupled by a bivalent antibody bound to PDE6 that demonstrated a striking displacement of both PDE{gamma} subunits from the PDE/PDE{beta} catalytic sites and suggested an alternating-site mechanism for PDE6 activation. Here, we use site-directed spin labeling (SDSL) and double electron-electron resonance spectroscopy (DEER) to probe PDE6 conformational changes upon GT* binding. Both spin-labelled Cys68 on wild-type PDE{gamma} and a spin-labelled cysteine residue substituted for Ile64 on PDE{gamma} demonstrate that PDE{gamma} has highly flexible C-termini that transiently bind to the PDE/PDE{beta} heterodimer. Binding of GT* to PDE6 with the competitive inhibitor udenafil occupying its catalytic sites alters the positions of the PDE{gamma} subunits in agreement with the striking changes shown in the cryoEM structure for this complex, whereas coupling the GT* subunits to the bivalent antibody does not affect the DEER distributions observed for PDE6 bound to GT*. However, binding of the slow hydrolyzing 8-Br-cGMP substrate in the presence of GT* causes a dramatic increase in the separation and spread of the spin-labelled PDE{gamma} subunits, thereby revealing a previously unobserved conformation of PDE6 associated with catalysis. These studies indicate that whereas inhibitors trap GT*-PDE6 complexes in an inactive state as represented by the cryoEM structure, the binding of both substrate and GT* produces a dynamic active state consistent with an alternating site mechanism.",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715611v1",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.01.715611v1.full.pdf",
+    "authors": [
+      "Holechek, J. N.",
+      "Shang, J. Y.",
+      "Assafa, T. E.",
+      "Crane, B. R.",
+      "Cerione, R. A."
+    ],
+    "categories": [
+      "biochemistry"
+    ],
+    "published": "2026-04-04T00:00:00",
+    "updated": null,
+    "extra": {
+      "doi": "10.64898/2026.04.01.715611",
+      "version": "1",
+      "server": "biorxiv",
+      "type": "new results",
+      "license": "cc_by_nc"
+    }
+  }
+]
