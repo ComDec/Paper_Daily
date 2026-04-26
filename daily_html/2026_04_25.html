@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Preprint Digest - 2026-04-25</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.dev.js"></script>
+    <!-- Example using Font Awesome (replace with your preferred icon library if needed) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            /* New Palette: Light, Clean, Futuristic with Teal/Aqua accents */
+            --bg-color: #f8fafc; /* Tailwind slate-50 (Very Light Gray) */
+            --card-bg-color: #ffffff; /* White */
+            --text-color: #1e293b; /* Tailwind slate-800 (Dark Gray-Blue) */
+            --text-muted-color: #64748b; /* Tailwind slate-500 (Medium Gray-Blue) */
+            --header-color: #0f172a; /* Tailwind slate-900 (Very Dark Blue) */
+            --highlight-primary: #14b8a6; /* Tailwind teal-500 */
+            --highlight-secondary: #67e8f9; /* Tailwind cyan-300 */
+            --border-color: #e2e8f0; /* Tailwind slate-200 (Light Gray) */
+            --shadow-color: rgba(15, 23, 42, 0.08); /* Subtle shadow based on slate-900 */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            line-height: 1.6;
+        }
+
+        .bento-grid {
+            display: grid;
+            gap: 1.5rem; /* Tailwind gap-6 */
+            grid-template-columns: 1fr; /* Force single column */
+            padding-bottom: 4rem; /* Add padding at the bottom */
+        }
+
+        .bento-item {
+            /* Apply semi-transparent white background and blur */
+            background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari prefix */
+            border-radius: 1rem; /* Slightly larger radius */
+            padding: 1.75rem; /* Slightly more padding */
+            border: 1px solid rgba(226, 232, 240, 0.5); /* Lighter border with transparency */
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease-out;
+            overflow: hidden; /* Ensure content doesn't overflow */
+            position: relative; /* For potential pseudo-elements */
+        }
+
+        /* Removed ::before pseudo-element for a cleaner look */
+
+
+        .bento-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px var(--shadow-color), 0 4px 8px rgba(15, 23, 42, 0.06); /* Adjusted hover shadow */
+        }
+
+        .paper-title {
+            font-size: 1.125rem; /* Tailwind text-lg */
+            font-weight: 600; /* Tailwind font-semibold */
+            color: var(--highlight-primary); /* Use new primary highlight */
+            margin-bottom: 0.75rem; /* Tailwind mb-3 */
+            line-height: 1.4;
+        }
+
+        .paper-summary {
+            font-size: 0.875rem; /* Tailwind text-sm */
+            color: var(--text-muted-color);
+            margin-bottom: 1.25rem; /* Tailwind mb-5 */
+            line-height: 1.6;
+        }
+
+        .paper-link {
+            display: inline-flex; /* Use flex for icon alignment */
+            align-items: center;
+            font-size: 0.875rem; /* Tailwind text-sm */
+            font-weight: 600;
+            color: var(--highlight-primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem; /* Add padding */
+            border-radius: 0.5rem; /* Slightly rounder */
+            background-color: rgba(20, 184, 166, 0.08); /* Subtle teal background */
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .paper-link i {
+            margin-right: 0.5rem; /* Tailwind mr-2 */
+            transition: transform 0.3s ease;
+        }
+
+        .paper-link:hover {
+            background-color: rgba(20, 184, 166, 0.15);
+            color: #0d9488; /* Darker teal on hover */
+            transform: translateY(-1px);
+        }
+        .paper-link:hover i {
+             transform: translateX(2px);
+        }
+
+        .paper-authors {
+            font-size: 0.75rem; /* Tailwind text-xs */
+            color: var(--text-muted-color);
+            margin-top: 1rem; /* Tailwind mt-4 */
+            font-style: italic;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem; /* Tailwind mb-12 */
+            padding-top: 3rem; /* Tailwind pt-12 */
+        }
+
+        .header h1 {
+            font-size: 2.5rem; /* Tailwind text-4xl or 5xl */
+            font-weight: 700; /* Tailwind font-bold */
+            color: var(--header-color);
+            letter-spacing: -0.025em; /* Tailwind tracking-tight */
+            margin-bottom: 0.5rem;
+            /* Optional: Add a subtle text gradient */
+            /* background: linear-gradient(90deg, var(--highlight-primary), var(--highlight-secondary)); */
+            /* -webkit-background-clip: text; */
+            /* -webkit-text-fill-color: transparent; */
+        }
+
+        .header p {
+            font-size: 1.125rem; /* Tailwind text-lg */
+            color: var(--text-muted-color);
+            margin-top: 0.5rem; /* Tailwind mt-2 */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-muted-color);
+            font-size: 0.875rem; /* Tailwind text-sm */
+            padding-top: 2rem;
+            padding-bottom: 2rem; /* Tailwind py-8 */
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* Simple line graphic element (optional) */
+        .line-graphic {
+            height: 1px; /* Thinner line */
+            background: linear-gradient(90deg, rgba(20, 184, 166, 0), var(--highlight-primary), rgba(20, 184, 166, 0));
+            opacity: 0.6;
+            margin: 1.5rem 0; /* Adjust margin */
+        }
+
+        /* Framer Motion requires the script, styles enhance appearance */
+        [data-motion-element] {
+             /* Base styles for elements animated by Framer Motion */
+        }
+
+        .paper-tldr {
+            font-size: 0.95rem; /* Slightly bigger than summary */
+            color: #475569; /* Changed to Tailwind slate-600 (slightly darker than summary) */
+            margin-top: 0.75rem; /* Tailwind mt-3 */
+            margin-bottom: 0.75rem; /* Tailwind mb-2 */
+            /* font-style: italic; */
+            font-weight: bold;
+        }
+
+        .paper-rating {
+            margin-top: 1rem; /* Tailwind mt-4 */
+            margin-bottom: 1rem; /* Tailwind mb-4 */
+            color: #f59e0b; /* Tailwind amber-500 */
+        }
+
+        .paper-rating i {
+            margin-right: 0.125rem; /* Tailwind mr-0.5 */
+        }
+
+        /* Apply consistent star color to sub-ratings */
+        .paper-sub-ratings .rating-item i {
+            color: #f59e0b; /* Match overall rating star color (amber-500) */
+            margin-right: 0.125rem; /* Consistent spacing */
+        }
+
+    </style>
+</head>
+<body class="container mx-auto px-4 antialiased">
+
+    <motion.div
+        initial="{ opacity: 0, y: -30 }"
+        animate="{ opacity: 1, y: 0 }"
+        transition="{ duration: 0.6, ease: 'easeOut' }"
+        class="header"
+        data-motion-element
+    >
+        <h1>Daily Preprint Digest</h1>
+        
+        <p>Generative AI and AI4Science papers from arXiv, bioRxiv, and ChemRxiv</p>
+        
+        <p>April 25, 2026</p>
+        <div class="line-graphic mt-4 mb-8 mx-auto w-1/4"></div> <!-- Added line graphic -->
+    </motion.div>
+
+    <div class="bento-grid" id="paper-grid">
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">PIEZOs regulate oligodendrocyte sheath formation, expansion, and myelination potential</h2>
+            <p class="paper-summary">Myelination requires precise integration of physical cues by oligodendrocyte lineage cells (OLCs), but the molecular sensors that detect these cues remain incompletely understood. Here, we demonstrate that oligodendrocyte progenitor cells (OPCs) are sensitive to sub-micron changes in membrane displacement. Based on channel properties, RNA expression, and protein abundance, we find that the mechanosensitive ion channel PIEZO1 contributes to OPC mechanosensitivity. In vivo, zebrafish with oligodendrocyte (OL)-specific disruption of piezo1 have fewer sheaths per OL. Zebrafish with OL-specific piezo2 disruption also have fewer sheaths as well as decreased total myelin capacity over time. OL-specific disruption of both piezo1 and piezo2 caused more severe phenotypes, with reduced OPC volume, and in myelinating OLs, reduced sheath number, sheath length, and total myelin output. Furthermore, piezo1/piezo2 disruption leads to sporadic sheath formation outside the normal developmental window. Our findings indicate that OLs use Piezo channels in vivo to influence sheath formation, expansion, and retractions.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: neuroscience
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.23.720488v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.23.720488v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Coombs, A. M., Heo, D., Orlin, D. J., Call, C. L., Bechler, M. E., Murthy, S. E., Emery, B., Monk, K. R.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.05, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">It's Not Rewarding for Mitochondria: Dopamine-Induced Mitochondrial Dysfunction Activates cGAS-STING to Drive IL-6 Secretion in Macrophages</h2>
+            <p class="paper-summary">Despite increasing data demonstrating dopamine as an inflammatory mediator of the innate immune system, the molecular mechanisms underlying its effects in human cells remain incompletely defined. Here, we define an unrecognized pathway in which dopamine induces robust IL-6 secretion in primary human monocyte-derived macrophages (hMDMs) through mitochondrial stress. Dopamine initiates a transient mitochondrial membrane depolarization that leads to sustained alterations in mitochondrial dynamics, including morphology and metabolism, in a time-dependent manner. These events promote the mtDNA release into the cytoplasm, triggering cGAS-STING pathway and downstream NF-{kappa}B signaling. Pharmacological inhibition at multiple nodes of this pathway attenuates IL-6 secretion, establishing mitochondrial dysfunction and cGAS-STING signaling as central mediators of dopamine-driven IL6 secretion. Variability in dopamine receptor expression across donors correlates with the magnitude of IL-6 responses. Together, these findings redefine the interface between dopamine signaling and systemic inflammation and highlight an unrecognized source of inter-individual variation in immune responses.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: immunology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.23.719926v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.23.719926v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Daniali, M., Channer, B., Curley, E. O., Amirfallah, A., Kist, T., Montilla, J., Kosashvili, S., Sheldon, L., Stauch, K., Jackson, J. G., Faustino, A. M., Beer, T., Tang, H.-Y., Matt, S. M., Dampier, W., Fox, H., Gaskill, P. J.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Targeting WNK1 Releases Differentiation Block in Acute Myeloid Leukemia</h2>
+            <p class="paper-summary">Impaired differentiation is a hallmark of Acute Myeloid Leukemia (AML). Current differentiation therapies benefit only a small subset of AML patients, leaving a substantial gap in care for other subtypes. Identifying novel molecular drivers of maturation arrest is critical to expand differentiation induction to a broader range of AML patients. This study addresses this unmet clinical need, by identifying With-no-Lysine(K) kinase 1 (WNK1) as a novel regulator of AML differentiation arrest. We show that WNK1 expression and activity are elevated in AML patients. WNK1 inhibition induced differentiation accompanied by decreased growth and survival of AML cell lines and AML patient cells. It also inhibited self-renewal of AML patient cells in vitro and elicited significant anti-tumor activity in vivo in mouse models. Mechanistically, WNK1 inhibition derepressed the MEK-ERK-C/EBP{beta} signaling axis and increased the expression of myeloid differentiation genes. Our findings reveal a novel role of WNK1 in promoting AML through differentiation arrest, posing WNK1 inhibition as a potential approach for AML differentiation therapy.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: cancer biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720037v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720037v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Cress, J., Katoni, E., Ramakrishnan, P.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.15000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Phage Display-Derived Cyclic Peptides Target TREM2 and Modulate Microglial Responses under Amyloid Stress</h2>
+            <p class="paper-summary">Triggering receptor expressed on myeloid cells 2 (TREM2) is a key regulator of microglial function and a promising therapeutic target in Alzheimers disease. While current strategies have largely focused on antibody-based agonists, alternative modalities capable of modulating TREM2 signaling remain underexplored. Here, we report the discovery of TREM2-binding cyclic peptides using a disulfide-constrained phage display library. Screening and biophysical validation identified multiple binders, with TREM2-6 and TREM2-12 exhibiting micromolar affinity. Both peptides modulated microglial responses in human iPSC-derived model of amyloid stress and in neuron-microglia co-cultures. Molecular dynamics simulations supported stable peptide-TREM2 interactions, with TREM2-12 displaying a more constrained binding mode. In vitro pharmacokinetic profiling revealed favorable plasma and intestinal stability but limited permeability, consistent with cyclic peptide scaffolds. Together, these findings establish cyclic peptides as a viable modality for targeting TREM2 and provide a foundation for the development of tunable neuroimmune therapeutics.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: pharmacology and toxicology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720287v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720287v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Fuchs, N., Yuan, S., Kuncewicz, K., Elhamouly, M., El gaamouch, F., Gabr, M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.2, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">GPR180 deficiency impairs mitochondrial function and insulin secretion in pancreatic β-cells</h2>
+            <p class="paper-summary">Objective: G protein-coupled receptor 180 (GPR180) has been implicated in systemic energy metabolism, primarily in adipose tissue and the liver. Given impaired whole-body glucose tolerance following GPR180 dysfunction, we aimed to determine whether GPR180 regulates pancreatic {beta}-cell function. We investigated whether GPR180 contributes to {beta}-cell insulin secretion by modulating metabolic processes that couple glucose sensing to mitochondrial energy production. Methods: Phenotyping of whole-body (Gpr180 -/-) and {beta} cell-specific Gpr180 (bGpr180-KO) knockout mice was combined with gain- and loss-of-function studies in MIN6 cells. Glucose-stimulated insulin secretion, pancreatic endocrine architecture and identity, transcriptomic and metabolic profiles, as well as mitochondrial function were assessed using in vivo and in vitro approaches, including metabolic challenge tests, histology, RNA sequencing, targeted metabolomics, respirometry, and transmission electron microscopy. Results: Loss of GPR180 impaired first-phase insulin secretion and glucose tolerance without affecting insulin sensitivity. These defects were {beta}-cell-autonomous, as confirmed in the bGpr180-KO mice and in MIN6 cells. Functional studies revealed that GPR180 regulates mitochondrial substrate utilization, anaplerotic support of the TCA cycle, and ATP generation without affecting glucose uptake or mitochondrial biogenesis. In particular, Gpr180-deficient {beta} cells showed mitochondrial membrane depolarization, reduced oxygen consumption, and endoplasmic reticulum remodeling, altering the local mitochondrial microenvironment. In vivo, Gpr180 deletion in {beta} cells led to downregulation of mitochondrial gene programs in islets, along with altered endocrine cell identity. Conclusions: GPR180 is a previously unrecognized regulator of pancreatic {beta}-cell metabolic competence and identity, linking defects in insulin secretion with alterations in mitochondrial function and endocrine cell identity.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: physiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.23.720098v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.23.720098v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Antal, M., Dahlby, T., Makovicky, P., Novak, A., Horvath, C., Stanikova, D., Gazova, S., Brumarova, R., Ivanovova, E., Horejsova, M., Friedecky, D., Krizanova, O., Novotova, M., Gasperikova, D., Wolfrum, C., Balaz, M., Balazova, L.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">A branching cell-fate decision in biofilm dispersal enables long-term surface persistence</h2>
+            <p class="paper-summary">Biofilms are the most ancient multicellular communities on Earth, representing a primitive developmental system that protects microbes from threats. Biofilm dispersal, whereby bacteria exit biofilms, is critical for the spread of pathogens to new infection sites. Here, using Vibrio cholerae, we show that dispersal events are accompanied by a branching cell-fate decision. While ~90% of cells disperse, a viable subpopulation remains within a residual matrix. This post-dispersal biofilm community (PDBC) is established by the matrix protein RbmA and adopts a specialized anabolic program that enhances tolerance to antibiotics and bacteriophages. Our findings reveal that PDBCs act as a resilient "seed-bank" capable of rapidly re-populating the niche without requiring de novo matrix biosynthesis, providing a mechanistic basis for the recurrence and spread of chronic infections.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: microbiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.720661v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.720661v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Kasivisweswaran, S., Prentice, J. A., Bridges, A. A.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.30000000000000004, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">ProPER: Programmable, multiplexed detection of molecular proximities and RNA life-cycle stages in situ</h2>
+            <p class="paper-summary">Proximity detection methods facilitate contextual analysis of biomolecules by reporting their microenvironment, spatial organization and molecular interactions. To expand these detection capabilities towards highly sensitive, quantitative, and multiplexed interaction mapping, we introduce Proximity Primer Exchange Reaction (ProPER). ProPER is a novel ligation-free proximity extension and controlled DNA amplification strategy that enables spatially resolved in situ detection of molecular proximities. In ProPER, extension of DNA barcodes into linear concatemers is made conditional on the spatial proximity of primer and hairpin pairs split across two targets, thereby enabling efficient coincidence or proximity detection with isothermal signal amplification for high-sensitivity imaging. The method is readily integrated with mainstream in situ assays such as immunofluorescence, FISH and metabolic labeling, and supports high-resolution visualization of diverse molecular modalities, including RNA-RNA or protein-protein interactions, even at dense labeling sites. Leveraging pre-validated orthogonal sequence pairs, ProPER allows simultaneous multiplexed detection of molecular proximities within the same cell and on the same target molecule. We applied multiplexed ProPER to resolve the life-cycle stages of individual RNA molecules. Quantitative tracking of transcriptional, splicing and translational states enabled construction of a kinetic model that identifies key regulatory steps driving differential expression kinetics of two inflammatory response genes. Overall, we establish ProPER as a versatile and efficient framework for in situ multiplexed proximity detection, overcoming key limitations of existing approaches. The programmable DNA encoding scheme enables advanced capabilities, such as proximity cascades and multivalent interaction detection, and provides a basis for integrating molecular proximity measurements into future combinatorial barcoding or spatial omics workflows.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: molecular biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.718482v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.718482v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Trojanowski, J., Zilke, J., Pak, V., Geissen, E.-M., Chalupska, R., Reinhardt, R., AlMehallawi, S., Kishi, J. Y., Heck, J., Haase, K., Saka, S. K.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.35000000000000003, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Engineering modular cargo loading strategies for carboxysome-derived protein particles</h2>
+            <p class="paper-summary">Bacterial microcompartments (BMCs) are a diverse and widespread class of protein-based organelle consisting of a semi-permeable protein shell encapsulating an enzymatic core. Along with their native assembly pathway, isolated BMC shell proteins have been shown to assemble into alternative superstructures such as flat sheets and nanotubes. The self-assembly and modularity of BMC shell proteins make them of great interest as modular platforms for applications involving scaffolding, immobilization and compartmentalization. While the assembly of BMC shell proteins into higher-order structures has been well-studied, the design of controllable and modular cargo loading is underdeveloped in comparison. Recently, we reported the pH-controlled assembly of CcmK2 - the major hexameric shell protein of the {beta}-carboxysome BMC - into monodisperse mesh-like microscale particles. Here, we develop a suite of encapsulation strategies for stochastic or targeted loading of various cargos, as well as the direct conjugation of cargo to CcmK2 particles. Our systematic analysis demonstrates that cargo loading and particle assembly can be modulated by the choice of recruitment strategy and the order of cargo introduction. Our findings also reveal a cooperative cargo loading mechanism during assembly that influences particle sizing and apparent morphology. Our study serves as a blueprint for the rational design of tunable cargo loading into engineered BMC-derived microcompartment systems for diverse biotechnological applications.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.720684v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.720684v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Mak, C. A., Baumann, R. M., Vecchiarelli, A. G.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.4, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Comparative Mapping of Functional and Structural Homologies in the Pig and Human Brain</h2>
+            <p class="paper-summary">Comparative mapping of functional and structural homologies across humans, small animals, and nonhuman primates has been extensively pursued due to its strong translational relevance. However, these experimental models possess inherent limitations in fully recapitulating the complexity of human cortical organization. The porcine model has recently emerged as a promising alternative, given its neuroanatomical and physiological similarities to the human brain. Despite these advantages, systematic cross-species characterization of functional and structural homologies between humans and pigs remains largely understudied. In the present study, we acquired resting-state functional MRI and diffusion MRI data from pigs and analyzed them alongside corresponding human datasets to investigate cross-species correspondence in large-scale brain organization. First, to enhance functional network alignment across species, group independent component analysis was performed separately within each species to identify intrinsic large-scale functional networks. Our results demonstrated that multiple canonical human resting-state networks are represented in the porcine brain, including sensorimotor, default mode, cerebellar, frontal, and central executive networks. Moreover, we observed significant cross-species concordance in intrinsic functional architecture across multiple distributed networks, both in spatial distribution and temporal patterns, indicating homologous large-scale brain organization between pigs and humans. Second, we conducted comparative structural analyses using tractography derived from diffusion MRI and color-encoded fractional anisotropy maps to examine white matter geometry in pigs and humans. Cross-species comparison revealed substantial similarities in major white matter pathways and their spatial organization, supporting structural correspondence at the level of tract geometry. Together, these findings underscore the translational value of the porcine model as a robust and neurobiologically relevant platform for investigating human brain function, structural organization, and related neurological disorders.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: neuroscience
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720235v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720235v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Li, Q., Ahmed, I., Taber, M. F., Laballe, M. H., Sneed, S. E., Kaiser, E. E., West, F. D., Zhao, Q., Calhoun, V.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.45, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Immunization With Herpes Simplex Virus Nanoparticles Targeting Both Attachment and Fusion Protect Against Infection</h2>
+            <p class="paper-summary">Herpes simplex virus 2 (HSV-2) is associated with genital ulcers, neonatal encephalitis, increased risk of HIV infection, and dementia. There is no licensed HSV-2 vaccine. We developed nanoparticles displaying the HSV-2 attachment protein gD and fusion mediation protein gH/gL. Immunization of mice and non-human primates elicited high levels of neutralizing antibodies. Vaccination conferred robust protection in mice, preventing disease and nearly eliminating infection and shedding following HSV-2 challenge. While gD induced high neutralizing antibody titers, gH/gL contributed substantially to protection despite lower neutralization titers. Instead, gH/gL immunization generated strong fusion-blocking responses which were an important correlate of protection, showing that standard neutralization assays incompletely capture the importance of fusion-blocking activity. These findings demonstrate that targeting both HSV-2 attachment and fusion elicit complementary mechanisms for protection from infection and that neutralizing antibody alone may be insufficient for protection. Overall, these results present an innovative strategy for an HSV-2 vaccine.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: immunology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.720674v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.720674v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Maciorowski, D., Vostal, A. C., Bu, W., Pytel, I. S., Antonioli-Schmit, S., Zhu, J., Hoyt, F. H., Lei, H., Liu, G., Kaiser, K., Herbert, R., Dowdell, K. C., Schiller, J. T., Wang, K., Howarth, M. R., Cohen, J. I.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">MOLECULAR INSIGHTS INTO PESTICIDE TOLERANCE: PROTEIN INDUCTION AND DNA DAMAGE IN ORGANOPHOSPHATE-DEGRADING BACTERIA</h2>
+            <p class="paper-summary">One of the effects of the intensified agricultural activities involves environmental pollution by pesticides, which are bound to get into the soil and ultimately into the water sources through leaching. The recurrent exposure of soil microbiota to these poisonous substances facilitates the process of adaptive resistance and catabolic functions. In the current research, bacterial cultures taken in Karuppur and Salem pesticide-contaminated agricultural soils were filtered on their capability to decompose organophosphate pesticides. Two strong isolates, which were referred to as Bacillus sp. and Micrococcus sp. had a great level of tolerance and degradation capacity. Significant biomolecular changes in these isolates were observed after long-term exposure (three months) to organophosphate pesticides. A protein estimation showed a strong rise in the overall total protein content indicating the activation of stress-related and degradative enzymes. Genomic DNA damage was identified by DNA ladder assay, which is a genotoxic stress caused by pesticides. Thus, plasmid profiling also revealed a rise of copy number and change of the size of plasmids, implying potential adaption through plasmids and greater degradation potential. This evidence indicates that long-term exposure to pesticides leads to microbial adaptation in terms of physiological and genetic changes to allow survival in adverse environments. The isolates identified have great potential to be used in bioremediation strategies that will be used in detoxifying the soils that have been contaminated with organophosphate.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: microbiology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.25.720663v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.25.720663v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Asokan, N.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.55, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">BAG6 and RNF126 promote the degradation of cytosolic misfolded proteins that contain buried degron motifs</h2>
+            <p class="paper-summary">Missense mutations account for the majority of catalogued human disease-associated variants, and many are predicted to destabilize proteins and promote their degradation. To characterize the pathways responsible for recognizing and clearing such variants, we employed a two-pronged approach to identify both quality control components mediating turnover of misfolded proteins and the sequence elements within their substrates that drive this process. Using a panel of unstable cytosolic missense variants in proximity-labeling and RNAi-based experiments, we identified the BAG6-RNF126 pathway as contributing to the clearance of a subset of these substrates. Applying a tile-based approach to a model cytosolic protein, we uncovered strong potential degrons, including a C-terminal degron degraded in part in a BAG6- and RNF126-dependent manner. Modeling supports that this degron can be accommodated by BAG6. Together, our findings add to the growing body of evidence implicating the BAG6-RNF126 pathway as a key mediator of cytosolic protein quality control.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: molecular biology
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.720685v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.720685v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Chandhok, S., Baker, H. A., Dalal, A., Hong, O., Tierney, A., Kola-Ilesanmi, D., Mo, V., Talarico, C., Hui, E., Bernardini, J. P., Kamat, S., Yip, C., Mayor, T.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.6000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Extreme phase compression preserves buildable basins in macromolecular crystallography</h2>
+            <p class="paper-summary">Macromolecular crystallography is limited by the phase problem: diffraction experiments measure amplitudes but not the phases required to reconstruct electron density. Existing phasing routes usually seek enough continuous phase information for density modification and model building to converge. Here, we ask how much phase information can be discarded while preserving convergence. We analyzed 14,148 diffraction datasets from chiral crystals to characterize centric reflections in reciprocal-space asymmetric units. After conditioning by centric trace and, where required, index parity, the two theoretical symmetry-allowed phase values were populated near equally, close to 50:50, independent of space group, defining a compact symmetry scaffold. We then retained this exact scaffold while compressing reference acentric phases to a one-bit alphabet {0, {pi} }; as expected from their diffuse parent distribution, the assignments were also near-balanced. Although this binary representation, with fixed attenuation 2/{pi}, introduces large angular errors (mean of 52{degrees}), it frequently supported automated structure solution: in paired Phenix AutoBuild tests, 705 of 894 binary initializers met a conservative joint criterion of final Free R [&le;]30% and relative chain recovery [&ge;]70%, within a 20.0-2.5 [A] resolution window. To rank candidate seeds without rebuilding, we developed a branch-balanced Basin Score from inexpensive density-modification and map-connectivity observables computed at 20.0-3.5 [A]. The empirical score quickly separates productive from unproductive initializers before AutoBuild. Controlled phase inversion shows that basin compatibility decays gradually and can reappear in an anti-phase-related branch, indicating that buildability is not confined to a single neighborhood around the reference phase set but extends to a much broader field. These results recast phase initialization as basin entry and support future symmetry-aware, binary phase-search strategies.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.720598v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.720598v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: AMBROSIO, A. L. B.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.65, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Time-resolved functional rotation crystallography reveals protein dynamics and catalysis</h2>
+            <p class="paper-summary">Time-resolved crystallography offers a window into the transient, atomic-scale structural changes that underlie biological function. Here we introduce Time-Resolved Functional Rotation Crystallography (TR-FRX), a method that enables molecular-level studies of ligand binding and enzymatic catalysis using single protein crystals at room temperature. Unlike many state-of-the-art time-resolved methodologies, TR-FRX relies on standard rotation-based X-ray data collection and does not require serial sample delivery strategies. By dispensing nanoliter-scale droplets of ligand or substrate directly onto crystals mounted in conventional holders, TR-FRX captures real-time structural snapshots while maintaining experimental accessibility. As a proof-of-concept, we first monitor the binding of N-acetylglucosamine to hen egg-white lysozyme, demonstrating that TR-FRX can reveal ligand recognition in crystallo on sub-second timescales. We then resolve the bidirectional catalytic mechanism of a prototypical enzyme from the tricarboxylic-acid-cycle, revealing sequential cofactor and substrate binding, catalytic loop dynamics, and substrate stabilization across time points spanning from 137 milliseconds to minutes. Requiring only micrograms of protein and standard beamline infrastructure, TR-FRX provides an accessible methodology for capturing transient enzymatic states and enables 100-ms timescale studies at room temperature on single protein crystals.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biochemistry
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.718481v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.24.718481v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Martel, J. M. J., Caramello, N., Coquille, S., Mathieu, E., Petit, L., Jacquet, P., Appolaire, A., Leonarski, F., Olieric, V., Wang, M., Madern, D., Royant, A., Engilberge, S.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.7000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Cellfoundry: a GPU-accelerated, multi-physics ABM framework for cellular microenvironment and organoid-scale studies</h2>
+            <p class="paper-summary">Advanced in vitro systems such as organoids and microfluidic organ-on-a-chip platforms enable physiologically richer experimentation, but their complexity creates large parameter spaces and makes it difficult to disentangle the mechanistic roles of transport, mechanics, and extracellular microstructure. Agent-based modelling provides a natural computational counterpart to these systems by representing heterogeneous cells as discrete entities coupled through local rules and environmental fields. However, realistic microenvironment models often remain limited by scalability, simplified extracellular matrix representations, and the practical difficulty of calibrating large numbers of parameters. Here we present Cellfoundry, a computational framework built on a FLAMEGPU2-based modelling template for simulating complex cellular microenvironments. The framework integrates multiple interacting agent populations, including cells, fibrous networks, and focal adhesions mediating attachment dynamics and traction-force transmission. It combines mechanically resolved cell--cell and cell--matrix interactions with multi-species diffusion fields that propagate biochemical signals through the extracellular environment and regulate processes such as metabolism, migration, and cell-cycle progression. Cellfoundry also supports customizable behaviours across multiple cell types, enabling the study of heterogeneous multicellular systems within a unified computational setting. To support reproducible model development and calibration, the framework includes a fibre-network generation module, automated performance benchmarking workflows, post-processing and reporting utilities, and an Optuna-based Bayesian optimization pipeline with configurable single- and multi-objective targets. Two showcase examples illustrate these capabilities: a migration assay calibrated against fibroblast motility descriptors and a multi-objective organoid growth scenario reproducing target population composition and expansion dynamics and over time. Together, these examples demonstrate how Cellfoundry can be used to build, calibrate, and extend mechanistically interpretable models of coupled biochemical and mechanical dynamics in advanced in vitro systems</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: bioengineering
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720218v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720218v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Borau, C., Chisholm, R., Richmond, P.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.75, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">PP-MAPS: dynamic pharmacophore signatures of protein-peptide interfaces from molecular dynamics trajectories</h2>
+            <p class="paper-summary">Protein-peptide interactions underlie many cellular signaling and regulatory processes and are increasingly exploited in drug discovery. Characterizing such interfaces often requires the analysis of ensembles of conformations obtained by molecular modeling or molecular dynamics (MD) simulations, where transient contacts and alternative binding modes can be critical. Pharmacophore models provide an intuitive, transferable representation of molecular interactions. Dynophore i.e. dynamic pharmacophore approaches have been developed for small-molecule ligands with MD information. We present PP-MAPS (Protein-Peptide Molecular dynamics Assisted Pharmacophore Signatures), an open-source workflow that extracts and aggregates pharmacophore interactions along MD trajectories of protein-peptide complexes. PP-MAPS produces per-residue interaction frequencies and pharmacophore heatmaps that facilitate comparison of peptides, binding sites and receptor variants. PP-MAPS is implemented in Python and is available under an open-source license at https://github.com/camilledepenveiller/PP-MAPS. The workflow relies on GROMACS for trajectory processing and can use either LigandScout or the Chemical Data Processing Toolkit (CDPKit) for pharmacophore feature detection.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: bioinformatics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720140v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720140v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Depenveiller, C., Guerda, A., Rabia, E., Caidi, A., Ashhab, Y., Mami-Chouaib, F., Montes, M.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">The human GABAA receptor α4 subunit variant Ile114Asn linked to epilepsy impairs membrane expression with β3 and δ subunits</h2>
+            <p class="paper-summary">GABAA receptors mediate fast inhibitory neurotransmission in the brain, and variants in their subunits are linked to neurological disorders like epilepsy. For many identified variants, it remains to be determined whether the variant is pathogenic. Here, we functionally characterized the 4 subunit variant p.I114N (p.I79N in the mature protein), found in an individual with epilepsy, using patch-clamp electrophysiology in combination with {beta}3 and {delta} subunits in HEK293T cells. Whereas the variant has little to no impact on basal activity or GABA-sensitivity, lower maximal GABA-elicited currents as compared to wild-type channels suggest that it impairs assembly or trafficking to reduce expression of channels in the plasma membrane.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biophysics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720185v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720185v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Watson, D., Borghese, C. M., Jülich, K., Brumback, A. C., Goldschen-Ohm, M. P.</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Mechanical organization yields degenerate dissipation beyond linear response</h2>
+            <p class="paper-summary">In non-equilibrium (active) systems, increased driving is commonly assumed to amplify energy dissipation. This frames the efficiency of protein-based machines as a fixed or monotonically decreasing function with driving. Using picowatt-sensitive calorimetry and advanced entropy production metrics in reconstituted actomyosin networks, we show that energy dissipation depends non-monotonically on myosin-generated stress (driving). At low driving, dissipation increases proportionally with stress, consistent with near-equilibrium linear response. At high driving, however, dissipation decreases, revealing a far-from-equilibrium regime in which excessive load suppresses motor ATPase activity. This non-monotonicity reflects a transition from spatially localized stress at low driving to delocalized stress at high driving, where force per motor, and thus ATPase suppression, is maximized. Crosslinker mechanics tune this transition as fascin (slip bonds) amplifies stress localization and shifts the dissipation peak to higher driving, whereas -actinin (catch bonds) stabilizes under load, delocalizes stress, and shifts the peak to lower driving. Thus, enhanced mechanochemical coupling causes additional driving to restructure rather than amplify dissipation, revealing how material system organization (bonding), and not driving alone, governs energy flow far from equilibrium.</p>
+            
+
+            
+            <p class="paper-authors" style="font-style: normal;">
+              Source: biorxiv
+              
+              &middot; Categories: biophysics
+              
+            </p>
+            
+
+            
+            
+            
+
+            
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720181v1.full.pdf" target="_blank" class="paper-link">
+                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                </a>
+                
+                <a href="https://www.biorxiv.org/content/10.64898/2026.04.22.720181v1" target="_blank" class="paper-link">
+                    <i class="fas fa-link mr-1"></i> Link
+                </a>
+            </div>
+            
+            <p class="paper-authors">Authors: Sun, Z. G., Murrell, M., Vlassak, J., Zheng, J., Tabatabai, A. P.</p>
+            
+        </motion.div>
+        
+    </div>
+
+    <footer class="footer">
+        Generated on 2026-04-26 05:07:59 UTC. Powered by <a href="https://github.com/onion-liu" target="_blank">onion-liu</a>.
+    </footer>
+
+</body>
+</html>
