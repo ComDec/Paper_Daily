@@ -1,0 +1,2063 @@
+[
+  {
+    "uid": "arxiv:2604.25884v1",
+    "source": "arxiv",
+    "title": "QCalEval: Benchmarking Vision-Language Models for Quantum Calibration Plot Understanding",
+    "abstract": "Quantum computing calibration depends on interpreting experimental data, and calibration plots provide the most universal human-readable representation for this task, yet no systematic evaluation exists of how well vision-language models (VLMs) interpret them. We introduce QCalEval, the first VLM benchmark for quantum calibration plots: 243 samples across 87 scenario types from 22 experiment families, spanning superconducting qubits and neutral atoms, evaluated on six question types in both zero-shot and in-context learning settings. The best general-purpose zero-shot model reaches a mean score of 72.3, and many open-weight models degrade under multi-image in-context learning, whereas frontier closed models improve substantially. A supervised fine-tuning ablation at the 9-billion-parameter scale shows that SFT improves zero-shot performance but cannot close the multimodal in-context learning gap. As a reference case study, we release NVIDIA Ising Calibration 1, an open-weight model based on Qwen3.5-35B-A3B that reaches 74.7 zero-shot average score.",
+    "url": "http://arxiv.org/abs/2604.25884v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25884v1",
+    "authors": [
+      "Shuxiang Cao",
+      "Zijian Zhang",
+      "Abhishek Agarwal",
+      "Grace Bratrud",
+      "Niyaz R. Beysengulov",
+      "Daniel C. Cole",
+      "Alejandro G\u00f3mez Frieiro",
+      "Elena O. Glen",
+      "Hao Hsu",
+      "Gang Huang",
+      "Raymond Jow",
+      "Greshma Shaji",
+      "Tom Lubowe",
+      "Ligeng Zhu",
+      "Luis Mantilla Calder\u00f3n",
+      "Nicola Pancotti",
+      "Joel Pendleton",
+      "Brandon Severin",
+      "Charles Etienne Staub",
+      "Sara Sussman",
+      "Antti Veps\u00e4l\u00e4inen",
+      "Neel Rajeshbhai Vora",
+      "Yilun Xu",
+      "Varinia Bernales",
+      "Daniel Bowring",
+      "Elica Kyoseva",
+      "Ivan Rungger",
+      "Giulia Semeghini",
+      "Sam Stanwyck",
+      "Timothy Costa",
+      "Al\u00e1n Aspuru-Guzik",
+      "Krysta Svore"
+    ],
+    "categories": [
+      "quant-ph",
+      "cs.CV"
+    ],
+    "published": "2026-04-28T17:28:33+00:00",
+    "updated": "2026-04-28T17:28:33+00:00",
+    "extra": {
+      "primary_category": "quant-ph"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25855v1",
+    "source": "arxiv",
+    "title": "SIEVES: Selective Prediction Generalizes through Visual Evidence Scoring",
+    "abstract": "Multimodal large language models (MLLMs) achieve ever-stronger performance on visual-language tasks. Even as traditional visual question answering benchmarks approach saturation, reliable deployment requires satisfying low error tolerances in real-world out-of-distribution (OOD) scenarios. Precisely, selective prediction aims to improve coverage, i.e. the share of inputs the system answers, while adhering to a user-defined risk level. This is typically achieved by assigning a confidence score to each answer and abstaining on those that fall below a certain threshold. To enable reliable generalization, we require reasoner models to produce localized visual evidence while answering, and design a selector that explicitly learns to estimate the quality of the localization provided by the reasoner. We show that SIEVES (Selective Prediction through Visual Evidence Scoring) improves coverage by up to three times on challenging OOD benchmarks (V* Bench, HR-Bench-8k, MME-RealWorld-Lite, VizWiz, and AdVQA), compared to non-grounding baselines. Beyond better generalization to OOD tasks, the design of the SIEVES selector enables transfer to proprietary reasoners without access to their weights or logits, such as o3 and Gemini-3-Pro, providing coverage boosts beyond those attributable to accuracy alone. We highlight that SIEVES generalizes across all five tested OOD datasets and reasoner models (Pixel-Reasoner, o3, and Gemini-3-Pro), without benchmark- or reasoner-specific training or adaptation.",
+    "url": "http://arxiv.org/abs/2604.25855v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25855v1",
+    "authors": [
+      "Hector G. Rodriguez",
+      "Marcus Rohrbach"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-04-28T16:57:29+00:00",
+    "updated": "2026-04-28T16:57:29+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25819v1",
+    "source": "arxiv",
+    "title": "Mutual Forcing: Dual-Mode Self-Evolution for Fast Autoregressive Audio-Video Character Generation",
+    "abstract": "In this work, we propose Mutual Forcing, a framework for fast autoregressive audio-video generation with long-horizon audio-video synchronization. Our approach addresses two key challenges: joint audio-video modeling and fast autoregressive generation. To ease joint audio-video optimization, we adopt a two-stage training strategy: we first train uni-modal generators and then couple them into a unified audio-video model for joint training on paired data. For streaming generation, we ask whether a native fast causal audio-video model can be trained directly, instead of following existing streaming distillation pipelines that typically train a bidirectional model first and then convert it into a causal generator through multiple distillation stages. Our answer is Mutual Forcing, which builds directly on native autoregressive model and integrates few-step and multi-step generation within a single weight-shared model, enabling self-distillation and improved training-inference consistency. The multi-step mode improves the few-step mode via self-distillation, while the few-step mode generates historical context during training to improve training-inference consistency; because the two modes share parameters, these two effects reinforce each other within a single model. Compared with prior approaches such as Self-Forcing, Mutual Forcing removes the need for an additional bidirectional teacher model, supports more flexible training sequence lengths, reduces training overhead, and allows the model to improve directly from real paired data rather than a fixed teacher. Experiments show that Mutual Forcing matches or surpasses strong baselines that require around 50 sampling steps while using only 4 to 8 steps, demonstrating substantial advantages in both efficiency and quality. The project page is available at https://mutualforcing.github.io.",
+    "url": "http://arxiv.org/abs/2604.25819v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25819v1",
+    "authors": [
+      "Yupeng Zhou",
+      "Lianghua Huang",
+      "Zhifan Wu",
+      "Jiabao Wang",
+      "Yupeng Shi",
+      "Biao Jiang",
+      "Daquan Zhou",
+      "Yu Liu",
+      "Ming-Ming Cheng",
+      "Qibin Hou"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.SD"
+    ],
+    "published": "2026-04-28T16:28:05+00:00",
+    "updated": "2026-04-28T16:28:05+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25809v1",
+    "source": "arxiv",
+    "title": "Instruction-Evidence Contrastive Dual-Stream Decoding for Grounded Vision-Language Reasoning",
+    "abstract": "Vision-Language Models (VLMs) exhibit strong performance in instruction following and open-ended vision-language reasoning, yet they frequently generate fluent outputs that are weakly grounded in visual evidence. Prior works have shown that instruction prompting further worsens this issue by amplifying language priors, especially when the visual signal is uncertain or ambiguous. To address this challenge, we propose a decoding framework that explicitly balances linguistic informativeness and visual faithfulness during generation. Our method, Instruction-Evidence Contrastive Dual-Stream Decoding (IECD2), maintains two parallel probability distributions of tokens at each decoding step: an instruction-driven stream that promotes expressive and informative responses, and an evidence-driven stream that enforces strict grounding in the image. These two streams are adaptively fused using a symmetric KL-based contrast-based gate, which suppresses tokens favored by language priors but unsupported by visual evidence, while preserving them when both distributions agree. We evaluate IECD2 on multiple datasets spanning various generative vision-language reasoning tasks such as captioning and visual question answering, including POPE, MME, VQAv2, AMBER, MS-COCO, and LLaVA-Bench. IECD2 demonstrates consistent improvements in task accuracy and reasoning performance, alongside a substantial reduction in hallucination across all evaluation metrics compared to state-of-the-art decoding approaches.",
+    "url": "http://arxiv.org/abs/2604.25809v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25809v1",
+    "authors": [
+      "Yashwant Pravinrao Bangde",
+      "Debaditya Roy"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T16:18:31+00:00",
+    "updated": "2026-04-28T16:18:31+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25795v1",
+    "source": "arxiv",
+    "title": "Improving Diversity in Black-box Few-shot Knowledge Distillation",
+    "abstract": "Knowledge distillation (KD) is a well-known technique to effectively compress a large network (teacher) to a smaller network (student) with little sacrifice in performance. However, most KD methods require a large training set and internal access to the teacher, which are rarely available due to various restrictions. These challenges have originated a more practical setting known as black-box few-shot KD, where the student is trained with few images and a black-box teacher. Recent approaches typically generate additional synthetic images but lack an active strategy to promote their diversity, a crucial factor for student learning. To address these problems, we propose a novel training scheme for generative adversarial networks, where we adaptively select high-confidence images under the teacher's supervision and introduce them to the adversarial learning on-the-fly. Our approach helps expand and improve the diversity of the distillation set, significantly boosting student accuracy. Through extensive experiments, we achieve state-of-the-art results among other few-shot KD methods on seven image datasets. The code is available at https://github.com/votrinhan88/divbfkd.",
+    "url": "http://arxiv.org/abs/2604.25795v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25795v1",
+    "authors": [
+      "Tri-Nhan Vo",
+      "Dang Nguyen",
+      "Kien Do",
+      "Sunil Gupta"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-04-28T16:03:07+00:00",
+    "updated": "2026-04-28T16:03:07+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25720v1",
+    "source": "arxiv",
+    "title": "Toward Multimodal Conversational AI for Age-Related Macular Degeneration",
+    "abstract": "Despite strong performance of deep learning models in retinal disease detection, most systems produce static predictions without clinical reasoning or interactive explanation. Recent advances in multimodal large language models (MLLMs) integrate diagnostic predictions with clinically meaningful dialogue to support clinical decision-making and patient counseling. In this study, OcularChat, an MLLM, was fine-tuned from Qwen2.5-VL using simulated patient-physician dialogues to diagnose age-related macular degeneration (AMD) through visual question answering on color fundus photographs (CFPs). A total of 705,850 simulated dialogues paired with 46,167 CFPs were generated to train OcularChat to identify key AMD features and produce reasoned predictions. OcularChat demonstrated strong classification performance in AREDS, achieving accuracies of 0.954, 0.849, and 0.678 for the three diagnostic tasks: advanced AMD, pigmentary abnormalities, and drusen size, significantly outperforming existing MLLMs. On AREDS2, OcularChat remained the top-performing method on all tasks. Across three independent ophthalmologist graders, OcularChat achieved higher mean scores than a strong baseline model for advanced AMD (3.503 vs. 2.833), pigmentary abnormalities (3.272 vs. 2.828), drusen size (3.064 vs. 2.433), and overall impression (2.978 vs. 2.464) on a 5-point clinical grading rubric. Beyond strong objective performance in AMD severity classification, OcularChat demonstrated the ability to provide diagnostic reasoning, clinically relevant explanations, and interactive dialogue, with high performance in subjective ophthalmologist evaluation. These findings suggest that MLLMs may enable accurate, interpretable, and clinically useful image-based diagnosis and classification of AMD.",
+    "url": "http://arxiv.org/abs/2604.25720v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25720v1",
+    "authors": [
+      "Ran Gu",
+      "Benjamin Hou",
+      "M\u00e9lanie H\u00e9bert",
+      "Asmita Indurkar",
+      "Yifan Yang",
+      "Emily Y. Chew",
+      "Tiarn\u00e1n D. L. Keenan",
+      "Zhiyong Lu"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.CL"
+    ],
+    "published": "2026-04-28T14:46:29+00:00",
+    "updated": "2026-04-28T14:46:29+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25636v1",
+    "source": "arxiv",
+    "title": "Refinement via Regeneration: Enlarging Modification Space Boosts Image Refinement in Unified Multimodal Models",
+    "abstract": "Unified multimodal models (UMMs) integrate visual understanding and generation within a single framework. For text-to-image (T2I) tasks, this unified capability allows UMMs to refine outputs after their initial generation, potentially extending the performance upper bound. Current UMM-based refinement methods primarily follow a refinement-via-editing (RvE) paradigm, where UMMs produce editing instructions to modify misaligned regions while preserving aligned content. However, editing instructions often describe prompt-image misalignment only coarsely, leading to incomplete refinement. Moreover, pixel-level preservation, though necessary for editing, unnecessarily restricts the effective modification space for refinement. To address these limitations, we propose Refinement via Regeneration (RvR), a novel framework that reformulates refinement as conditional image regeneration rather than editing. Instead of relying on editing instructions and enforcing strict content preservation, RvR regenerates images conditioned on the target prompt and the semantic tokens of the initial image, enabling more complete semantic alignment with a larger modification space. Extensive experiments demonstrate the effectiveness of RvR, improving Geneval from 0.78 to 0.91, DPGBench from 84.02 to 87.21, and UniGenBench++ from 61.53 to 77.41.",
+    "url": "http://arxiv.org/abs/2604.25636v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25636v1",
+    "authors": [
+      "Jiayi Guo",
+      "Linqing Wang",
+      "Jiangshan Wang",
+      "Yang Yue",
+      "Zeyu Liu",
+      "Zhiyuan Zhao",
+      "Qinglin Lu",
+      "Gao Huang",
+      "Chunyu Wang"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T13:36:03+00:00",
+    "updated": "2026-04-28T13:36:03+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25533v1",
+    "source": "arxiv",
+    "title": "DualGeo: A Dual-View Framework for Worldwide Image Geo-localization",
+    "abstract": "Worldwide image geo-localization aims to infer the geographic location of an image captured anywhere on Earth, spanning street, city, regional, national, and continental scales. Existing methods rely on visual features that are sensitive to environmental variations (e.g., lighting, season, and weather) and lack effective post-processing to filter outlier candidates, limiting localization accuracy. To address these limitations, we propose DualGeo, a two-stage framework for worldwide image geo-localization. First, it establishes a geo-representational foundation by fusing image and semantic segmentation features via bidirectional cross-attention. The fused features are then aligned with GPS coordinates through dual-view contrastive learning to build a global retrieval database. Second, it performs geo-cognitive refinement by re-ranking retrieved candidates using geographic clustering. It then feeds them into large multimodal models (LMMs) for final coordinate prediction. Experiments on IM2GPS, IM2GPS3k, and YFCC4k show that DualGeo outperforms state-of-the-art methods, improving street-level (<1 km) and city-level (<25 km) localization accuracy by 3.6%-16.58% and 1.29%-8.77%, respectively. Our code and datasets are available : https://github.com/CJ310177/DualGeo.",
+    "url": "http://arxiv.org/abs/2604.25533v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25533v1",
+    "authors": [
+      "Junchao Cui",
+      "Wenqi Shi",
+      "Shaoyong Du",
+      "Hang He",
+      "Xuanzi Ma",
+      "Hao Tang",
+      "Xiangyang Luo"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T12:00:04+00:00",
+    "updated": "2026-04-28T12:00:04+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25477v1",
+    "source": "arxiv",
+    "title": "DDA-Thinker: Decoupled Dual-Atomic Reinforcement Learning for Reasoning-Driven Image Editing",
+    "abstract": "Recent image editing models have achieved strong visual fidelity but often struggle with tasks requiring complex reasoning. To investigate and enhance the reasoning-grounded planning for image editing, we propose DDA-Thinker, a Thinker-centric framework designed for the independent optimization of a planning module (Thinker) over a fixed generative model (Editor). This decoupled Thinker-centric paradigm facilitates a controlled analysis of the planning module and makes its contribution under a fixed Editor easier to assess. To effectively guide this Thinker, we introduce a dual-atomic reinforcement learning framework. This framework decomposes feedback into two distinct atomic rewards implemented through verifiable checklists: a cognitive-atomic reward to directly assess the quality of the Thinker's executable plan, which serves as the actionable outcome of the Thinker's reasoning, and a visual-atomic reward to assess the final image quality. To improve checklist quality, our checklist synthesis is grounded not only in the source image and user instruction but also in a rational reference description of the ideal post-edit scene. To support this training, we further develop a two-stage data curation pipeline that first synthesizes a diverse and reasoning-focused dataset, then applies difficulty-aware refinement to curate an effective training curriculum for reinforcement learning. Extensive experiments on reasoning-driven image editing benchmarks, including RISE-Bench and KRIS-Bench, demonstrate that our approach substantially improves overall performance. Our method enables a community model to achieve results competitive with strong proprietary models, highlighting the practical potential of Thinker-centric optimization under a fixed-editor setting.",
+    "url": "http://arxiv.org/abs/2604.25477v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25477v1",
+    "authors": [
+      "Hanqing Yang",
+      "Qiang Zhou",
+      "Yongchao Du",
+      "Sashuai Zhou",
+      "Zhibin Wang",
+      "Jun Song",
+      "Tiezheng Ge",
+      "Cheng Yu",
+      "Bo Zheng"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-04-28T10:30:01+00:00",
+    "updated": "2026-04-28T10:30:01+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25457v1",
+    "source": "arxiv",
+    "title": "GramSR: Visual Feature Conditioning for Diffusion-Based Super-Resolution",
+    "abstract": "Despite recent advances, single-image super-resolution (SR) remains challenging, especially in real-world scenarios with complex degradations. Diffusion-based SR methods, particularly those built on Stable Diffusion, leverage strong generative priors but commonly rely on text conditioning derived from semantic captioning. Such textual descriptions provide only high-level semantics and lack the spatially aligned visual information required for faithful restoration, leading to a representation gap between abstract semantics and spatially aligned visual details. To address this limitation, we propose GramSR, a one-step diffusion-based SR framework that replaces text conditioning with dense visual features extracted from the low-resolution input using a pre-trained DINOv3 encoder. GramSR adopts a three-stage LoRA architecture, where pixel-level, semantic-level, and texture-level LoRA modules are trained sequentially. The pixel-level module focuses on degradation removal using $\\ell_2$ loss, the semantic-level module enhances perceptual details via LPIPS and CSD losses, and the texture-level module enforces feature correlation consistency through a Gram matrix loss computed from DINOv3 features. At inference, independent guidance scales enable flexible control over degradation removal, semantic enhancement, and texture preservation. Extensive experiments on standard SR benchmarks demonstrate that GramSR consistently outperforms existing one-step diffusion-based methods, achieving superior structural fidelity and texture realism. The code for this work is available at: https://github.com/aimagelab/GramSR.",
+    "url": "http://arxiv.org/abs/2604.25457v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25457v1",
+    "authors": [
+      "Fabio D'Oronzio",
+      "Federico Putamorsi",
+      "Leonardo Zini",
+      "Marcella Cornia",
+      "Lorenzo Baraldi"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T10:05:27+00:00",
+    "updated": "2026-04-28T10:05:27+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25427v1",
+    "source": "arxiv",
+    "title": "A Systematic Post-Train Framework for Video Generation",
+    "abstract": "While large-scale video diffusion models have demonstrated impressive capabilities in generating high-resolution and semantically rich content, a significant gap remains between their pretraining performance and real-world deployment requirements due to critical issues such as prompt sensitivity, temporal inconsistency, and prohibitive inference costs. To bridge this gap, we propose a comprehensive post-training framework that systematically aligns pretrained models with user intentions through four synergistic stages: we first employ Supervised Fine-Tuning (SFT) to transform the base model into a stable instruction-following policy, followed by a Reinforcement Learning from Human Feedback (RLHF) stage that utilizes a novel Group Relative Policy Optimization (GRPO) method tailored for video diffusion to enhance perceptual quality and temporal coherence; subsequently, we integrate Prompt Enhancement via a specialized language model to refine user inputs, and finally address system efficiency through Inference Optimization. Together, these components provide a systematic approach to improving visual quality, temporal coherence, and instruction following, while preserving the controllability learned during pretraining. The result is a practical blueprint for building scalable post-training pipelines that are stable, adaptable, and effective in real-world deployment. Extensive experiments demonstrate that this unified pipeline effectively mitigates common artifacts and significantly improves controllability and visual aesthetics while adhering to strict sampling cost constraints.",
+    "url": "http://arxiv.org/abs/2604.25427v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25427v1",
+    "authors": [
+      "Zeyue Xue",
+      "Siming Fu",
+      "Jie Huang",
+      "Shuai Lu",
+      "Haoran Li",
+      "Yijun Liu",
+      "Yuming Li",
+      "Xiaoxuan He",
+      "Mengzhao Chen",
+      "Haoyang Huang",
+      "Nan Duan",
+      "Ping Luo"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T09:34:51+00:00",
+    "updated": "2026-04-28T09:34:51+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25408v1",
+    "source": "arxiv",
+    "title": "Beyond Fidelity: Semantic Similarity Assessment in Low-Level Image Processing",
+    "abstract": "Low-level image processing has long been evaluated mainly from the perspective of visual fidelity. However, with the rise of deep learning and generative models, processed images may preserve perceptual quality while altering semantic content, making conventional Image Quality Assessment (IQA) insufficient for semantic-level assessment. In this paper, we formalize \\textit{Semantic Similarity} as a new evaluation task for low-level image processing, aimed at measuring whether semantic content is preserved after processing. We further present a structured formulation of image semantics based on semantic entities and their relations, and discuss the desired properties and constraints of a valid semantic similarity index. Based on this formulation, we propose Triplet-based Semantic Similarity Score (T3S), which models image semantics through foreground entities, background entities, and relations. T3S combines semantic entity extraction, foreground-background disentanglement, and open-world class/relation modeling. Experiments on COCO and SPA-Data show that T3S consistently outperforms existing fidelity-oriented metrics and representative semantic-level baselines, while better reflecting progressive semantic changes under diverse degradations. These results highlight the importance of semantic assessment in modern low-level vision.",
+    "url": "http://arxiv.org/abs/2604.25408v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25408v1",
+    "authors": [
+      "Runjie Wang",
+      "Weiling Chen",
+      "Tiesong Zhao",
+      "Chang Wen Chen"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T09:21:05+00:00",
+    "updated": "2026-04-28T09:21:05+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25390v1",
+    "source": "arxiv",
+    "title": "GeoSearch: Augmenting Worldwide Geolocalization with Web-Scale Reverse Image Search and Image Matching",
+    "abstract": "Worldwide image geolocalization, which aims to predict the GPS coordinates of any image on Earth, remains challenging due to global visual diversity. Recent generative approaches based on Retrieval-Augmented Generation (RAG) and Large Multimodal Models (LMMs) leverage candidates retrieved from fixed databases for reasoning, but often struggle with scenes that are absent from the reference set. In this work, we propose GeoSearch, an open-world geolocation framework that integrates web-scale reverse image search into the RAG pipeline. GeoSearch augments LMM prompts with database-retrieved coordinates and textual evidence extracted from web pages. To mitigate noise from irrelevant content, we introduce a two-layer filtering mechanism consisting of image matching, followed by confidence-based gating. Experiments on standard benchmarks Im2GPS3k and YFCC4k demonstrate the superiority of GeoSearch under leakage-aware evaluation. Our code and data are publicly available to support reproducibility.",
+    "url": "http://arxiv.org/abs/2604.25390v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25390v1",
+    "authors": [
+      "Tung-Duong Le-Duc",
+      "Hoang-Quoc Nguyen-Son",
+      "Minh-Son Dao"
+    ],
+    "categories": [
+      "cs.IR",
+      "cs.CV"
+    ],
+    "published": "2026-04-28T09:00:59+00:00",
+    "updated": "2026-04-28T09:00:59+00:00",
+    "extra": {
+      "primary_category": "cs.IR"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25376v1",
+    "source": "arxiv",
+    "title": "CoRE: Concept-Reasoning Expansion for Continual Brain Lesion Segmentation",
+    "abstract": "Accurate brain lesion segmentation in MRI is vital for effective clinical diagnosis and treatment planning. Due to high annotation costs and strict data privacy regulations, universal models require employing Continual Learning (CL) to adapt to evolving clinical tasks without losing previously acquired knowledge. However, existing CL paradigms often suffer from capacity limits or redundant parameter growth, and even advanced dynamic methods rely mostly on image-perception strategies that struggle to handle the substantial pathological and multimodal heterogeneity inherent in brain imaging. To address this issue, we propose Concept-Reasoning Expansion (CoRE) framework, which establishes a joint decision-making mechanism by integrating visual features with structured concepts. Through the alignment of image tokens with a hierarchical concept library, CoRE simulates clinical reasoning to guide both interpretable expert routing and demand-based model growth. This collaborative process ensures model evolution is grounded in clinical priors, preventing redundant parameter expansion while maximizing knowledge reuse. Extensive evaluations across 12 sequential brain lesion MRI tasks demonstrate that CoRE achieves state-of-the-art performance and provides a high knowledge starting point for efficient future adaptation. Its superior few-shot transferability and clinical interpretability further validate its effectiveness in managing non-stationary clinical data streams. Our code will be released soon.",
+    "url": "http://arxiv.org/abs/2604.25376v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25376v1",
+    "authors": [
+      "Qianqian Chen",
+      "Anglin Liu",
+      "Jingyang Zhang",
+      "Yudong Zhang"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-04-28T08:39:43+00:00",
+    "updated": "2026-04-28T08:39:43+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25371v1",
+    "source": "arxiv",
+    "title": "PhyloSDF: Phylogenetically-Conditioned Neural Generation of 3D Skull Morphology via Residual Flow Matching",
+    "abstract": "Generating novel, biologically plausible three-dimensional morphological structures is a fundamental challenge in computational evolutionary biology, hampered by extreme data scarcity and the requirement that generated shapes respect phylogenetic relationships among species. In this work, we present PhyloSDF, a phylogenetically-conditioned neural generative model for 3D biological morphology that integrates two innovations: (1) a DeepSDF auto-decoder regularized by a novel Phylogenetic Consistency Loss that structures the latent space to correlate with evolutionary distances (Pearson $r=0.993$); (2) a Residual Conditional Flow Matching (Residual CFM) architecture that factorizes generation into analytic species-centroid lookup and learned residual prediction, enabling generation from as few as ~4 specimens per species. We evaluate PhyloSDF on 100 micro-CT-scanned skulls of Darwin's Finches and their relatives across 24 species. The model generates novel meshes achieving 88-129% of real intra-species variation at the code level, with all 180 generated meshes verified as non-memorized. Residual CFM surpasses denoising diffusion (which fails entirely at this scale), standard flow matching (which mode-collapses to 3-6% variation), and a Gaussian mixture baseline in both fidelity (Chamfer Distance 0.00181 vs. 0.00190) and morphometric Fr\u00e9chet distance (10,641 vs. 13,322). Leave-one-species-out experiments across 18 species demonstrate phylogenetic extrapolation capability, and smooth latent interpolations produce biologically plausible ancestral skull reconstructions.",
+    "url": "http://arxiv.org/abs/2604.25371v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25371v1",
+    "authors": [
+      "Kaikwan Lau",
+      "Gary P. T. Choi"
+    ],
+    "categories": [
+      "q-bio.QM",
+      "cs.CV"
+    ],
+    "published": "2026-04-28T08:38:00+00:00",
+    "updated": "2026-04-28T08:38:00+00:00",
+    "extra": {
+      "primary_category": "q-bio.QM"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25361v1",
+    "source": "arxiv",
+    "title": "HuM-Eval: A Coarse-to-Fine Framework for Human-Centric Video Evaluation",
+    "abstract": "Video generation models have developed rapidly in recent years, where generating natural human motion plays a pivotal role. However, accurately evaluating the quality of generated human motion video remains a significant challenge. Existing evaluation metrics primarily focus on global scene statistics, often overlooking fine-grained human details and consequently failing to align with human subjective preference. To bridge this gap, we propose HuM-Eval, a novel human-centric evaluation framework that adopts a coarse-to-fine strategy. Specifically, our framework first utilizes a Vision Language Model to perform a coarse assessment of global video quality. It then proceeds to a fine-grained analysis, using 2D pose to verify anatomical correctness and 3D human motion to evaluate motion stability. Extensive experiments demonstrate that HuM-Eval achieves an average human correlation of 58.2%, outperforming state-of-the-art baselines. Furthermore, we introduce HuM-Bench, a comprehensive benchmark comprising 1,000 diverse prompts, and conduct a detailed evaluation of existing text-to-video models, paving the way for next-generation human motion generation.",
+    "url": "http://arxiv.org/abs/2604.25361v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25361v1",
+    "authors": [
+      "Bingzi Zhang",
+      "Kaisi Guan",
+      "Ruihua Song"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T08:27:35+00:00",
+    "updated": "2026-04-28T08:27:35+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25358v1",
+    "source": "arxiv",
+    "title": "Benchmarking Layout-Guided Diffusion Models through Unified Semantic-Spatial Evaluation in Closed and Open Settings",
+    "abstract": "Evaluating layout-guided text-to-image generative models requires assessing both semantic alignment with textual prompts and spatial fidelity to prescribed layouts. Assessing layout alignment requires collecting fine-grained annotations, which is costly and labor-intensive. Consequently, current benchmarks rarely provide comprehensive layout evaluation and often remain limited in scale or coverage, making model comparison, ranking, and interpretation difficult. In this work, we introduce a closed-set benchmark (C-Bench) designed to isolate key generative capabilities while providing varying levels of complexity in both prompt structure and layout. To complement this controlled setting, we propose an open-set benchmark (O-Bench) that evaluates models using real-world prompts and layouts, offering a measure of semantic and spatial alignment in the wild. We further develop a unified evaluation protocol that combines semantic and spatial accuracy into a single score, ensuring consistent model ranking. Using our benchmarks, we conduct a large-scale evaluation of six state-of-the-art layout-guided diffusion models, totaling 319,086 generated and evaluated images. We establish a model ranking based on their overall performance and provide detailed breakdowns for text and layout alignment to enhance interpretability. Fine-grained analyses across scenarios and prompt complexities highlight the strengths and limitations of current models. Code is available at https://github.com/lparolari/cobench.",
+    "url": "http://arxiv.org/abs/2604.25358v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25358v1",
+    "authors": [
+      "Luca Parolari",
+      "Nicla Faccioli",
+      "Lamberto Ballan"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T08:25:32+00:00",
+    "updated": "2026-04-28T08:25:32+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25322v1",
+    "source": "arxiv",
+    "title": "Assessment of the quantitative impact of occlusal positioning splints on temporomandibular joint conditions",
+    "abstract": "A computational method for quantitative analysis of temporomandibular joint (TMJ) configuration using occlusal positioning splints is proposed and demonstrated. The method models a positioning splint as a physical realization of a predefined rigid transformation of the mandible, derived from multimodal data, including CBCT, facial motion acquisition, and dental scans integrated within a common coordinate system. Splints corresponding to selected mandibular positions are designed and fabricated, and their positioning accuracy is evaluated using repeated scans of plaster models. Discrepancies are represented as error transformations and analyzed statistically in the space of rigid motions. The estimated transformations are propagated to segmented TMJ structures, enabling simulation-based evaluation of joint space changes. Transformation-based error analysis and surface distance metrics are used to quantify differences between planned and achieved configurations. The method enables indirect assessment of TMJ configuration using a single anatomical model and transformation data, reducing the need for repeated imaging across multiple mandibular positions. This study is intended as a methodological demonstration, supported by a clear step-by-step graphical presentation, and does not aim to provide clinical validation.",
+    "url": "http://arxiv.org/abs/2604.25322v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25322v1",
+    "authors": [
+      "Agnieszka Anna Tomaka",
+      "Krzysztof Domino",
+      "Dariusz Pojda",
+      "Micha\u0142 Tarnawski"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T07:37:16+00:00",
+    "updated": "2026-04-28T07:37:16+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25319v1",
+    "source": "arxiv",
+    "title": "Edge-Cloud Collaborative Reconstruction via Structure-Aware Latent Diffusion for Downstream Remote Sensing Perception",
+    "abstract": "The exponential surge in high-resolution remote sensing data faces a severe bottleneck in satellite-to-ground transmission. Limited downlink bandwidth forces the use of extreme high-ratio compression, which irreversibly destroys high-frequency structural details essential for downstream machine perception tasks like object detection. While current super-resolution techniques attempt to recover these details, regression-based methods often yield over-smoothed textures, and generative diffusion models frequently introduce structural hallucinations that mislead detection systems. To address this trade-off, we propose the Structure-Aware Latent Diffusion (SALD) framework, an asymmetric edge-cloud collaborative SR system. At the resource-constrained edge, the system decouples imagery into a highly compressed low-frequency payload and a lightweight soft structural prior. Transmitting this decoupled representation minimizes bandwidth consumption. On the powerful cloud side, we introduce a Structure-Gated Large Kernel (SGLK) module and a Semantic-Guidance Engine (SGE) within the diffusion backbone. These modules leverage the transmitted structural priors to gate large-kernel convolutions, effectively capturing long-range dependencies inherent in aerial scenes while actively suppressing generative hallucinations. Extensive experiments on both the MSCM and UCMerced datasets demonstrate that, even under extreme bandwidth constraints, SALD achieves superior perceptual quality (LPIPS) and significantly enhances downstream performance in both scene classification and small-target detection.",
+    "url": "http://arxiv.org/abs/2604.25319v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25319v1",
+    "authors": [
+      "Yun Li",
+      "Xianju Li"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T07:28:39+00:00",
+    "updated": "2026-04-28T07:28:39+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25314v1",
+    "source": "arxiv",
+    "title": "Golden RPG: Confidence-Adaptive Region-Aware Noise for Compositional Text-to-Image Generation",
+    "abstract": "Compositional text-to-image (T2I) generation requires a model to honour multiple sub-prompts that describe distinct image regions. Recent work shows that the \\emph{starting noise} of a diffusion model carries significant semantic information: ``golden'' noise predicted from text can substantially raise prompt fidelity. We observe that this noise prediction is, however, fundamentally global: the same network is asked to summarise a long, multi-region prompt with a single text embedding, which becomes the bottleneck whenever the prompt describes scenes with spatially-separated entities. We introduce \\textbf{Golden RPG}, a region-aware noise predictor that extends a frozen NPNet with two trainable additions: (i) a per-region \\textbf{FiLM adapter} that reshapes the predicted noise according to each sub-prompt; and (ii) a \\textbf{Region Cross-Attention} layer injected between two stages of the Swin backbone, allowing different spatial locations to attend to different sub-prompt tokens. To prevent the regional conditioning from degrading samples whose prompts are already easy, we further propose a \\textbf{Confidence-Adaptive Blending} head that dynamically predicts, per sample, how strongly the regional signal should override the global signal. We evaluate on the original RPG benchmark (20 prompts, 100 samples) and on four multi-region categories of T2I-CompBench (1{,}200 images, six competing methods). Golden RPG achieves the highest Cross-Region-Coherence score on every category, while matching the strongest baselines on absolute CLIP-Score and CLIP-IQA. A paired user study further shows a $\\boldsymbol{\\sim}$67\\% preference over the strongest baseline. The adapter contains $\\sim$2M trainable parameters and adds only $0.6$\\,s of inference overhead on top of SDXL.",
+    "url": "http://arxiv.org/abs/2604.25314v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25314v1",
+    "authors": [
+      "Hao Li"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T07:23:44+00:00",
+    "updated": "2026-04-28T07:23:44+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25299v1",
+    "source": "arxiv",
+    "title": "The Thinking Pixel: Recursive Sparse Reasoning in Multimodal Diffusion Latents",
+    "abstract": "Diffusion models have achieved success in high-fidelity data synthesis, yet their capacity for more complex, structured reasoning like text following tasks remains constrained. While advances in language models have leveraged strategies such as latent reasoning and recursion to enhance text understanding capabilities, extending these to multimodal text-to-image generation tasks is challenging due to the continuous and non-discrete nature of visual tokens. To tackle this problem, we draw inspiration from modular human cognition and propose a recursive, sparse mixture-of-experts framework integrated into conventional diffusion models. Our approach introduces a recursive component within joint attention layers that iteratively refines visual tokens over multiple latent steps while efficiently sharing parameters via sparse selection of neural modules. At each step, a gating network is devised to dynamically select specialized neural modules, conditioned on the current visual tokens, the diffusion timestep, and the conditioning information. Comprehensive evaluation on class-conditioned ImageNet image generation tasks and additional studies on the GenEval and DPG benchmark demonstrate the superiority of the proposed method in enhancing model image generation performance.",
+    "url": "http://arxiv.org/abs/2604.25299v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25299v1",
+    "authors": [
+      "Yuwei Sun",
+      "Yuxuan Yao",
+      "Hui Li",
+      "Siyu Zhu"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-04-28T07:09:18+00:00",
+    "updated": "2026-04-28T07:09:18+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25289v1",
+    "source": "arxiv",
+    "title": "Exploring Time Conditioning in Diffusion Generative Models from Disjoint Noisy Data Manifolds",
+    "abstract": "Practically, training diffusion models typically requires explicit time conditioning to guide the network through the denoising sampling process. Especially in deterministic methods like DDIM, the absence of time conditioning leads to significant performance degradation. However, other deterministic sampling approaches, such as flow matching, can generate high-quality content without this conditioning, raising the question of its necessity. In this work, we revisit the role of time conditioning from a geometric perspective. We analyze the evolution of noisy data distributions under the forward diffusion process and demonstrate that, in high-dimensional spaces, these distributions concentrate on low-dimensional hyper-cylinder-like manifolds embedded within the input space. Successful generation, we argue, stems from the disentanglement of these manifolds in high-dimensional space. Based on this insight, we modify the forward process of DDIM to align the noisy data manifold with the flow-matching approach, proving that DDIM can generate high-quality content without time conditioning, provided the noisy manifold evolves according to the flow-matching method. Additionally, we extend our framework to class-conditioned generation by decoupling classes into distinct time spaces, enabling class-conditioned synthesis with a class-unconditional denoising model. Extensive experiments validate our theoretical analysis and show that high-quality generation is achievable without explicit conditional embeddings.",
+    "url": "http://arxiv.org/abs/2604.25289v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25289v1",
+    "authors": [
+      "Liuzhuozheng Li",
+      "Zhiyuan Zhan",
+      "Shuhong Liu",
+      "Dengyang Jiang",
+      "Zanyi Wang",
+      "Guang Dai",
+      "Jingdong Wang",
+      "Mengmeng Wang"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "published": "2026-04-28T06:53:57+00:00",
+    "updated": "2026-04-28T06:53:57+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25276v1",
+    "source": "arxiv",
+    "title": "OmniVTG: A Large-Scale Dataset and Training Paradigm for Open-World Video Temporal Grounding",
+    "abstract": "Video Temporal Grounding (VTG), the task of localizing video segments from text queries, struggles in open-world settings due to limited dataset scale and semantic diversity, causing performance gaps between common and rare concepts. To overcome these limitations, we introduce OmniVTG, a new large-scale dataset for open-world VTG, coupled with a Self-Correction Chain-of-Thought (CoT) training paradigm designed to enhance the grounding capabilities of Multimodal Large Language Models (MLLMs). Our OmniVTG is constructed via a novel Semantic Coverage Iterative Expansion pipeline, which first identifies gaps in the vocabulary of existing datasets and collects videos that are highly likely to contain these target concepts. For high-quality annotation, we leverage the insight that modern MLLMs excel at dense captioning more than direct grounding and design a caption-centric data engine to prompt MLLMs to generate dense, timestamped descriptions. Beyond the dataset, we observe that simple supervised finetuning (SFT) is insufficient, as a performance gap between rare and common concepts still persists. We find that MLLMs' video understanding ability significantly surpasses their direct grounding ability. Based on this, we propose a Self-Correction Chain-of-Thought (CoT) training paradigm. We train the MLLM to first predict, then use its understanding capabilities to reflect on and refine its own predictions. This capability is instilled via a three-stage pipeline of SFT, CoT finetuning, and reinforcement learning. Extensive experiments show our approach not only excels at open-world grounding in our OmniVTG dataset but also achieves state-of-the-art zero-shot performance on four existing VTG benchmarks. Code is available at https://github.com/oceanflowlab/OmniVTG.",
+    "url": "http://arxiv.org/abs/2604.25276v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25276v1",
+    "authors": [
+      "Minghang Zheng",
+      "Zihao Yin",
+      "Yi Yang",
+      "Yuxin Peng",
+      "Yang Liu"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T06:34:19+00:00",
+    "updated": "2026-04-28T06:34:19+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25273v1",
+    "source": "arxiv",
+    "title": "Combating Visual Neglect and Semantic Drift in Large Multimodal Models for Enhanced Cross-Modal Retrieval",
+    "abstract": "Despite significant progress in Unified Multimodal Retrieval (UMR) powered by Large Multimodal Models (LMMs), existing embedding methods primarily focus on sample-level objectives via contrastive learning while overlooking the crucial subject-level semantics. This limitation hinders the model's ability to group semantically coherent subjects in complex multimodal queries, manifesting as semantic alignment deviation--where models fail to accurately localize salient text-referred regions in visual content. Moreover, without explicit guidance to model salient visual subjects, LMMs tend to over-rely on textual cues, resulting in visual modality neglect and suboptimal utilization of visual knowledge. To this end, we propose Salient Subject-Aware Multimodal Embedding (SSA-ME), a novel framework designed to enhance fine-grained representation learning through saliency-aware modeling. SSA-ME leverages LMMs and visual experts to identify and emphasize salient visual concepts in image-text pairs, and introduces a saliency-guided objective to better align cross-modal attention with semantically meaningful regions. Additionally, a feature regeneration module recalibrates visual features based on the derived saliency maps, ensuring a balanced and semantically coherent integration across modalities. Extensive experiments show that our method achieves state-of-the-art performance on the MMEB benchmark, demonstrating that incorporating subject-level modeling substantially improves multimodal retrieval. Comprehensive qualitative analyses further illustrate the interpretability and effectiveness of our approach.",
+    "url": "http://arxiv.org/abs/2604.25273v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25273v1",
+    "authors": [
+      "Guosheng Zhang",
+      "Linkai Liu",
+      "Keyao Wang",
+      "Haixiao Yue",
+      "Zhiwen Tan",
+      "Xiao Tan"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T06:29:27+00:00",
+    "updated": "2026-04-28T06:29:27+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25235v1",
+    "source": "arxiv",
+    "title": "VLM Judges Can Rank but Cannot Score: Task-Dependent Uncertainty in Multimodal Evaluation",
+    "abstract": "Vision-language models (VLMs) are increasingly used as automated judges for multimodal systems, yet their scores provide no indication of reliability. We study this problem through conformal prediction, a distribution-free framework that converts a judge's point score into a calibrated prediction interval using only score-token log-probabilities, with no retraining. We present the first systematic analysis of conformal prediction for VLM-as-a-Judge across 3 judges and 14 visual task categories. Our results show that evaluation uncertainty is strongly task-dependent: intervals cover ~40% of the score range for aesthetics and natural images but expand to ~70% for chart and mathematical reasoning, yielding a quantitative reliability map for multimodal evaluation. We further identify a failure mode not captured by standard evaluation metrics, ranking-scoring decoupling, where judges achieve high ranking correlation while producing wide, uninformative intervals, correctly ordering responses but failing to assign reliable absolute scores. Finally, we show that interval width is driven primarily by task difficulty and annotation quality, i.e., the same judge and method yield 4.5x narrower intervals on a clean, multi-annotator captioning benchmark. Code: https://github.com/divake/VLM-Judge-Uncertainty",
+    "url": "http://arxiv.org/abs/2604.25235v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25235v1",
+    "authors": [
+      "Divake Kumar",
+      "Sina Tayebati",
+      "Devashri Naik",
+      "Ranganath Krishnan",
+      "Amit Ranjan Trivedi"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "cs.CV",
+      "stat.ML"
+    ],
+    "published": "2026-04-28T05:30:18+00:00",
+    "updated": "2026-04-28T05:30:18+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25208v1",
+    "source": "arxiv",
+    "title": "Towards Seamless Lunar Mosaics: Deep Radiometric Normalization for Cross-Sensor Orbital Imagery Using Chandrayaan-2 TMC Data",
+    "abstract": "Radiometric inconsistencies remain a major challenge in generating seamless lunar mosaics from multi-mission orbital imagery due to variability in illumination geometry, sensor characteristics, and acquisition conditions. This paper presents a deep learning-based radiometric normalization framework for multi-mission lunar mosaics constructed primarily from ISRO's Chandrayaan-2 Terrain Mapping Camera (TMC) data, supplemented with auxiliary imagery from the SELENE (Kaguya) mission.\n  The proposed approach employs a conditional generative adversarial network (cGAN) comprising a U-Net-based generator and a PatchGAN discriminator to learn a nonlinear radiometric mapping from conventionally mosaicked lunar imagery to a photometrically consistent reference derived from LROC Wide Angle Camera (WAC) data. A patch-based training strategy with overlap-aware inference is adopted to enable scalable processing of large-area mosaics while preserving structural continuity across tile boundaries.\n  Quantitative evaluation using Structural Similarity Index (SSIM), Peak Signal-to-Noise Ratio (PSNR), and Root Mean Square Error (RMSE) demonstrates consistent improvements over traditional histogram-based normalization techniques. The proposed framework achieves enhanced tonal uniformity, reduced seam artifacts, and improved structural coherence across multi-source lunar datasets.\n  These results highlight the effectiveness of learning-based radiometric normalization for large-scale planetary mosaicking and demonstrate its potential for generating high-fidelity lunar surface maps from heterogeneous orbital imagery.",
+    "url": "http://arxiv.org/abs/2604.25208v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25208v1",
+    "authors": [
+      "Pratincha Singh",
+      "Jai Gopal Singla",
+      "Prashant Hemrajani",
+      "Nitant Dube",
+      "Amithabh",
+      "Hinal Patel"
+    ],
+    "categories": [
+      "cs.CV",
+      "astro-ph.IM"
+    ],
+    "published": "2026-04-28T04:26:03+00:00",
+    "updated": "2026-04-28T04:26:03+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25164v1",
+    "source": "arxiv",
+    "title": "IAM: Identity-Aware Human Motion and Shape Joint Generation",
+    "abstract": "Recent advances in text-driven human motion generation enable models to synthesize realistic motion sequences from natural language descriptions. However, most existing approaches assume identity-neutral motion and generate movements using a canonical body representation, ignoring the strong influence of body morphology on motion dynamics. In practice, attributes such as body proportions, mass distribution, and age significantly affect how actions are performed, and neglecting this coupling often leads to physically inconsistent motions. We propose an identity-aware motion generation framework that explicitly models the relationship between body morphology and motion dynamics. Instead of relying on explicit geometric measurements, identity is represented using multimodal signals, including natural language descriptions and visual cues. We further introduce a joint motion-shape generation paradigm that simultaneously synthesizes motion sequences and body shape parameters, allowing identity cues to directly modulate motion dynamics. Extensive experiments on motion capture datasets and large-scale in-the-wild videos demonstrate improved motion realism and motion-identity consistency while maintaining high motion quality. Project page: https://vjwq.github.io/IAM",
+    "url": "http://arxiv.org/abs/2604.25164v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25164v1",
+    "authors": [
+      "Wenqi Jia",
+      "Zekun Li",
+      "Abhay Mittal",
+      "Chengcheng Tang",
+      "Chuan Guo",
+      "Lezi Wang",
+      "James Matthew Rehg",
+      "Lingling Tao",
+      "Size An"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T03:15:12+00:00",
+    "updated": "2026-04-28T03:15:12+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25128v1",
+    "source": "arxiv",
+    "title": "ResetEdit: Precise Text-guided Editing of Generated Image via Resettable Starting Latent",
+    "abstract": "Recent advances in diffusion models have enabled high-quality image generation, leading to increasing demand for post-generation editing that modifies local regions while preserving global structure. Achieving such flexible and precise editing requires a high-quality starting point, a latent representation that provides both the freedom needed for diverse modifications and the precision required for fine-grained, region-specific control. However, existing inversion-based approaches such as DDIM inversion often yield unsatisfactory starting latents, resulting in degraded edit fidelity and structural inconsistency. Ideally, the most suitable editing anchor should be the original latent used during the generation process, as it inherently captures the scene's structure and semantics. Yet, storing this latent for every generated image is impractical due to massive storage and retrieval costs. To address this challenge, we propose ResetEdit, a proactive diffusion editing framework that embeds recoverable latent information directly into the generation process. By injecting the discrepancy between the clean and diffused latents into the diffusion trajectory and extracting it during inversion, ResetEdit reconstructs a resettable latent that closely approximates the true starting state. Additionally, a lightweight latent optimization module compensates for reconstruction bias caused by VAE asymmetry. Built upon Stable Diffusion, ResetEdit integrates seamlessly with existing tuning-free editing methods and consistently outperforms state-of-the-art baselines in both controllability and visual fidelity.",
+    "url": "http://arxiv.org/abs/2604.25128v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25128v1",
+    "authors": [
+      "Hanyi Wang",
+      "Han Fang",
+      "Zheng Wang",
+      "Shilin Wang",
+      "Ee-Chien Chang"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T02:05:08+00:00",
+    "updated": "2026-04-28T02:05:08+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25122v1",
+    "source": "arxiv",
+    "title": "M$^3$-VQA: A Benchmark for Multimodal, Multi-Entity, Multi-Hop Visual Question Answering",
+    "abstract": "We present M$^3$-VQA, a novel knowledge-based Visual Question Answering (VQA) benchmark, to enhance the evaluation of multimodal large language models (MLLMs) in fine-grained multimodal entity understanding and complex multi-hop reasoning. Unlike existing VQA datasets that focus on coarse-grained categories and simple reasoning over single entities, M$^3$-VQA introduces diverse multi-entity questions involving multiple distinct entities from both visual and textual sources. It requires models to perform both sequential and parallel multi-hop reasoning across multiple documents, supported by traceable, detailed evidence and a curated multimodal knowledge base. We evaluate 16 leading MLLMs under three settings: without external knowledge, with gold evidence, and with retrieval-augmented input. The poor results reveal significant challenges for MLLMs in knowledge acquisition and reasoning. Models perform poorly without external information but improve markedly when provided with precise evidence. Furthermore, reasoning-aware agentic retrieval surpasses heuristic methods, highlighting the importance of structured reasoning for complex multimodal understanding. M$^3$-VQA presents a more challenging evaluation for advancing the multimodal reasoning capabilities of MLLMs. Our code and dataset are available at https://github.com/CASIA-IVA-Lab/M3VQA.",
+    "url": "http://arxiv.org/abs/2604.25122v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25122v1",
+    "authors": [
+      "Jiatong Ma",
+      "Longteng Guo",
+      "Yuchen Liu",
+      "Zijia Zhao",
+      "Dongze Hao",
+      "Xuanxu Lin",
+      "Jing Liu"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-04-28T01:57:22+00:00",
+    "updated": "2026-04-28T01:57:22+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25102v1",
+    "source": "arxiv",
+    "title": "One Perturbation, Two Failure Modes: Probing VLM Safety via Embedding-Guided Typographic Perturbations",
+    "abstract": "Typographic prompt injection exploits vision language models' (VLMs) ability to read text rendered in images, posing a growing threat as VLMs power autonomous agents. Prior work typically focus on maximizing attack success rate (ASR) but does not explain \\emph{why} certain renderings bypass safety alignment. We make two contributions. First, an empirical study across four VLMs including GPT-4o and Claude, twelve font sizes, and ten transformations reveals that multimodal embedding distance strongly predicts ASR ($r{=}{-}0.71$ to ${-}0.93$, $p{<}0.01$), providing an interpretable, model agnostic proxy. Since embedding distance predicts ASR, reducing it should improve attack success, but the relationship is mediated by two factors: perceptual readability (whether the VLM can parse the text) and safety alignment (whether it refuses to comply). Second, we use this as a red teaming tool: we directly maximize image text embedding similarity under bounded $\\ell_\\infty$ perturbations via CWA-SSA across four surrogate embedding models, stress testing both factors without access to the target model. Experiments across five degradation settings on GPT-4o, Claude Sonnet 4.5, Mistral-Large-3, and Qwen3-VL confirm that optimization recovers readability and reduces safety aligned refusals as two co-occurring effects, with the dominant mechanism depending on the model's safety filter strength and the degree of visual degradation.",
+    "url": "http://arxiv.org/abs/2604.25102v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25102v1",
+    "authors": [
+      "Ravikumar Balakrishnan",
+      "Sanket Mendapara"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T01:21:47+00:00",
+    "updated": "2026-04-28T01:21:47+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25072v1",
+    "source": "arxiv",
+    "title": "Beyond Accuracy: Benchmarking Cross-Task Consistency in Unified Multimodal Models",
+    "abstract": "Unified Multimodal Models (uMMs) aim to support both visual understanding and visual generation within a shared representation. However, existing evaluation protocols assess these two capabilities independently and do not examine whether they are semantically aligned. As a result, it remains unclear whether current uMMs learn coherent unified representations that remain consistent across tasks given a visual concept. We introduce XTC-Bench, a scene-graph-grounded evaluation framework that measures cross-task visual semantic consistency. By deriving both generation prompts and understanding queries from a structured scene graph, our framework enables fact-level alignment analysis across objects, attributes, and relations. We propose Continuous Cross-Task Agreement (CCTA), a fine-grained metric that quantifies semantic agreement between generation and understanding over matched atomic facts, isolating internal consistency from standalone task accuracy. Extensive experiments on eight open-source and one commercial unified models reveal that high generation or understanding performance does not imply strong cross-task alignment, and architectural analysis shows consistency is governed by how tightly learning objectives are coupled across modalities, not by architectural unification alone. XTC-Bench provides a reproducible and model-agnostic framework for diagnosing representation-level misalignment, offering a concrete direction for advancing unified multimodal modeling beyond isolated task performance.",
+    "url": "http://arxiv.org/abs/2604.25072v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25072v1",
+    "authors": [
+      "Weixing Wang",
+      "Liudvikas Zekas",
+      "Anton Hackl",
+      "Constantin Alexander Auga",
+      "Parisa Shahabinejad",
+      "Jona Otholt",
+      "Antonio Rueda-Toicen",
+      "Gerard de Melo"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-27T23:57:29+00:00",
+    "updated": "2026-04-27T23:57:29+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24990v1",
+    "source": "arxiv",
+    "title": "A New Kind of Network? Review and Reference Implementation of Neural Cellular Automata",
+    "abstract": "Stephen Wolfram proclaimed in his 2003 seminal work \"A New Kind Of Science\" that simple recursive programs in the form of Cellular Automata (CA) are a promising approach to replace currently used mathematical formalizations, e.g. differential equations, to improve the modeling of complex systems. Over two decades later, while Cellular Automata have still been waiting for a substantial breakthrough in scientific applications, recent research showed new and promising approaches which combine Wolfram's ideas with learnable Artificial Neural Networks: So-called Neural Cellular Automata (NCA) are able to learn the complex update rules of CA from data samples, allowing them to model complex, self-organizing generative systems. The aim of this paper is to review the existing work on NCA and provide a unified modular framework and notation, as well as a reference implementation in the open-source library NCAtorch.",
+    "url": "http://arxiv.org/abs/2604.24990v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24990v1",
+    "authors": [
+      "Martin Spitznagel",
+      "Janis Keuper"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-27T20:49:16+00:00",
+    "updated": "2026-04-27T20:49:16+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24954v1",
+    "source": "arxiv",
+    "title": "Nemotron 3 Nano Omni: Efficient and Open Multimodal Intelligence",
+    "abstract": "We introduce Nemotron 3 Nano Omni, the latest model in the Nemotron multimodal series and the first to natively support audio inputs alongside text, images, and video. Nemotron 3 Nano Omni delivers consistent accuracy improvements over its predecessor, Nemotron Nano V2 VL, across all modalities, enabled by advances in architecture, training data and recipes. In particular, Nemotron 3 delivers leading results in real-world document understanding, long audio-video comprehension, and agentic computer use. Built on the highly efficient Nemotron 3 Nano 30B-A3B backbone, Nemotron 3 Nano Omni further incorporates innovative multimodal token-reduction techniques to deliver substantially lower inference latency and higher throughput than other models of similar size. We are releasing model checkpoints in BF16, FP8, and FP4 formats, along with portions of the training data and codebase to facilitate further research and development.",
+    "url": "http://arxiv.org/abs/2604.24954v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24954v1",
+    "authors": [
+      "NVIDIA",
+      ":",
+      "Amala Sanjay Deshmukh",
+      "Kateryna Chumachenko",
+      "Tuomas Rintamaki",
+      "Matthieu Le",
+      "Tyler Poon",
+      "Danial Mohseni Taheri",
+      "Ilia Karmanov",
+      "Guilin Liu",
+      "Jarno Seppanen",
+      "Arushi Goel",
+      "Mike Ranzinger",
+      "Greg Heinrich",
+      "Guo Chen",
+      "Lukas Voegtle",
+      "Philipp Fischer",
+      "Timo Roman",
+      "Karan Sapra",
+      "Collin McCarthy",
+      "Shaokun Zhang",
+      "Fuxiao Liu",
+      "Hanrong Ye",
+      "Yi Dong",
+      "Mingjie Liu",
+      "Yifan Peng",
+      "Piotr Zelasko",
+      "Zhehuai Chen",
+      "Nithin Rao Koluguri",
+      "Nune Tadevosyan",
+      "Lilit Grigoryan",
+      "Ehsan Hosseini Asl",
+      "Pritam Biswas",
+      "Leili Tavabi",
+      "Yuanhang Su",
+      "Zhiding Yu",
+      "Peter Jin",
+      "Alexandre Milesi",
+      "Netanel Haber",
+      "Yao Xu",
+      "Sarah Amiraslani",
+      "Nabin Mulepati",
+      "Eric Tramel",
+      "Jaehun Jung",
+      "Ximing Lu",
+      "Brandon Cui",
+      "Jin Xu",
+      "Zhiqi Li",
+      "Shihao Wang",
+      "Yuanguo Kuang",
+      "Shaokun Zhang",
+      "Huck Yang",
+      "Boyi Li",
+      "Hongxu Yin",
+      "Song Han",
+      "Pavlo Molchanov",
+      "Adi Renduchintala",
+      "Charles Wang",
+      "David Mosallanezhad",
+      "Soumye Singhal",
+      "Luis Vega",
+      "Katherine Cheung",
+      "Sreyan Ghosh",
+      "Yian Zhang",
+      "Alexander Bukharin",
+      "Venkat Srinivasan",
+      "Johnny Greco",
+      "Andre Manoel",
+      "Maarten Van Segbroeck",
+      "Suseella Panguliri",
+      "Rohit Watve",
+      "Divyanshu Kakwani",
+      "Shubham Pachori",
+      "Jeffrey Glick",
+      "Radha Sri-Tharan",
+      "Aileen Zaman",
+      "Khanh Nguyen",
+      "Shi Chen",
+      "Jiaheng Fang",
+      "Qing Miao",
+      "Wenfei Zhou",
+      "Yu Wang",
+      "Zaid Pervaiz Bhat",
+      "Varun Praveen",
+      "Arihant Jain",
+      "Ramanathan Arunachalam",
+      "Tomasz Kornuta",
+      "Ashton Sharabiani",
+      "Amy Shen",
+      "Wei Huang",
+      "Yi-Fu Wu",
+      "Ali Roshan Ghias",
+      "Huiying Li",
+      "Brian Yu",
+      "Nima Tajbakhsh",
+      "Chen Cui",
+      "Wenwen Gao",
+      "Li Ding",
+      "Terry Kong",
+      "Manoj Kilaru",
+      "Anahita Bhiwandiwalla",
+      "Marek Wawrzos",
+      "Daniel Korzekwa",
+      "Pablo Ribalta",
+      "Grzegorz Chlebus",
+      "Besmira Nushi",
+      "Ewa Dobrowolska",
+      "Maciej Jakub Mikulski",
+      "Kunal Dhawan",
+      "Steve Huang",
+      "Jagadeesh Balam",
+      "Yongqiang Wang",
+      "Nikolay Karpov",
+      "Valentin Mendelev",
+      "George Zelenfroynd",
+      "Meline Mkrtchyan",
+      "Qing Miao",
+      "Omri Almog",
+      "Bhavesh Pawar",
+      "Rameshwar Shivbhakta",
+      "Sudeep Sabnis",
+      "Ashrton Sharabiani",
+      "Negar Habibi",
+      "Geethapriya Venkataramani",
+      "Pamela Peng",
+      "Prerit Rodney",
+      "Serge Panev",
+      "Richard Mazzarese",
+      "Nicky Liu",
+      "Michael Fukuyama",
+      "Andrii Skliar",
+      "Roger Waleffe",
+      "Duncan Riach",
+      "Yunheng Zou",
+      "Jian Hu",
+      "Hao Zhang",
+      "Binfeng Xu",
+      "Yuhao Yang",
+      "Zuhair Ahmed",
+      "Alexandre Milesi",
+      "Carlo del Mundo",
+      "Chad Voegele",
+      "Zhiyu Cheng",
+      "Nave Assaf",
+      "Andrii Skliar",
+      "Daniel Afrimi",
+      "Natan Bagrov",
+      "Ran Zilberstein",
+      "Ofri Masad",
+      "Eugene Khvedchenia",
+      "Natan Bagrov",
+      "Borys Tymchenko",
+      "Tomer Asida",
+      "Daniel Afrimi",
+      "Parth Mannan",
+      "Victor Cui",
+      "Michael Evans",
+      "Katherine Luna",
+      "Jie Lou",
+      "Pinky Xu",
+      "Guyue Huang",
+      "Negar Habibi",
+      "Michael Boone",
+      "Pradeep Thalasta",
+      "Adeola Adesoba",
+      "Dina Yared",
+      "Christopher Parisien",
+      "Leon Derczynski",
+      "Shaona Ghosh",
+      "Wes Feely",
+      "Micah Schaffer",
+      "Radha Sri-Tharan",
+      "Jeffrey Glick",
+      "Barnaby Simkin",
+      "George Zelenfroynd",
+      "Tomasz Grzegorzek",
+      "Rishabh Garg",
+      "Aastha Jhunjhunwala",
+      "Sergei Kolchenko",
+      "Farzan Memarian",
+      "Haran Kumar",
+      "Shiv Kumar",
+      "Isabel Hulseman",
+      "Anjali Shah",
+      "Kari Briski",
+      "Padmavathy Subramanian",
+      "Joey Conway",
+      "Udi Karpas",
+      "Jane Polak Scowcroft",
+      "Annie Surla",
+      "Shilpa Ammireddy",
+      "Ellie Evans",
+      "Jesse Oliver",
+      "Tom Balough",
+      "Chia-Chih Chen",
+      "Sandip Bhaskar",
+      "Alejandra Rico",
+      "Bardiya Sadeghi",
+      "Seph Mard",
+      "Katherine Cheung",
+      "Meredith Price",
+      "Laya Sleiman",
+      "Saori Kaji",
+      "Wesley Helmholz",
+      "Wendy Quan",
+      "Michael Lightstone",
+      "Jonathan Cohen",
+      "Jian Zhang",
+      "Oleksii Kuchaiev",
+      "Boris Ginsburg",
+      "Jan Kautz",
+      "Eileen Long",
+      "Mohammad Shoeybi",
+      "Mostofa Patwary",
+      "Oluwatobi Olabiyi",
+      "Andrew Tao",
+      "Bryan Catanzaro",
+      "Udi Karpas"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-04-27T19:49:21+00:00",
+    "updated": "2026-04-27T19:49:21+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24953v1",
+    "source": "arxiv",
+    "title": "ViPO: Visual Preference Optimization at Scale",
+    "abstract": "While preference optimization is crucial for improving visual generative models, how to effectively scale this paradigm remains largely unexplored. Current open-source preference datasets contain conflicting preference patterns, where winners excel in some dimensions but underperform in others. Naively optimizing on such noisy datasets fails to learn preferences, hindering effective scaling. To enhance robustness against noise, we propose Poly-DPO, which extends the DPO objective with an additional polynomial term that dynamically adjusts model confidence based on dataset characteristics, enabling effective learning across diverse data distributions. Beyond biased patterns, existing datasets suffer from low resolution, limited prompt diversity, and imbalanced distributions. To facilitate large-scale visual preference optimization by tackling data bottlenecks, we construct ViPO, a massive-scale preference dataset with 1M image pairs at 1024px across five categories and 300K video pairs at 720p+ across three categories. State-of-the-art generative models and diverse prompts ensure reliable preference signals with balanced distributions. Remarkably, when applying Poly-DPO to our high-quality dataset, the optimal configuration converges to standard DPO. This convergence validates dataset quality and Poly-DPO's adaptive nature: sophisticated optimization becomes unnecessary with sufficient data quality, yet remains valuable for imperfect datasets. We validate our approach across visual generation models. On noisy datasets like Pick-a-Pic V2, Poly-DPO achieves 6.87 and 2.32 gains over Diffusion-DPO on GenEval for SD1.5 and SDXL, respectively. For ViPO, models achieve performance far exceeding those trained on existing open-source preference datasets. These results confirm that addressing both algorithmic adaptability and data quality is essential for scaling visual preference optimization.",
+    "url": "http://arxiv.org/abs/2604.24953v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24953v1",
+    "authors": [
+      "Ming Li",
+      "Jie Wu",
+      "Justin Cui",
+      "Xiaojie Li",
+      "Rui Wang",
+      "Chen Chen"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-04-27T19:49:06+00:00",
+    "updated": "2026-04-27T19:49:06+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24952v1",
+    "source": "arxiv",
+    "title": "Learning from Noisy Preferences: A Semi-Supervised Learning Approach to Direct Preference Optimization",
+    "abstract": "Human visual preferences are inherently multi-dimensional, encompassing aesthetics, detail fidelity, and semantic alignment. However, existing datasets provide only single, holistic annotations, resulting in severe label noise: images that excel in some dimensions but are deficient in others are simply marked as winner or loser. We theoretically demonstrate that compressing multi-dimensional preferences into binary labels generates conflicting gradient signals that misguide Diffusion Direct Preference Optimization (DPO). To address this, we propose Semi-DPO, a semi-supervised approach that treats consistent pairs as clean labeled data and conflicting ones as noisy unlabeled data. Our method starts by training on a consensus-filtered clean subset, then uses this model as an implicit classifier to generate pseudo-labels for the noisy set for iterative refinement. Experimental results demonstrate that Semi-DPO achieves state-of-the-art performance and significantly improves alignment with complex human preferences, without requiring additional human annotation or explicit reward models during training. We will release our code and models at: https://github.com/L-CodingSpace/semi-dpo",
+    "url": "http://arxiv.org/abs/2604.24952v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24952v1",
+    "authors": [
+      "Xinxin Liu",
+      "Ming Li",
+      "Zonglin Lyu",
+      "Yuzhang Shang",
+      "Chen Chen"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-04-27T19:49:04+00:00",
+    "updated": "2026-04-27T19:49:04+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24885v1",
+    "source": "arxiv",
+    "title": "VibeToken: Scaling 1D Image Tokenizers and Autoregressive Models for Dynamic Resolution Generations",
+    "abstract": "We introduce an efficient, resolution-agnostic autoregressive (AR) image synthesis approach that generalizes to arbitrary resolutions and aspect ratios, narrowing the gap to diffusion models at scale. At its core is VibeToken, a novel resolution-agnostic 1D Transformer-based image tokenizer that encodes images into a dynamic, user-controllable sequence of 32-256 tokens, achieving a state-of-the-art efficiency and performance trade-off. Building on VibeToken, we present VibeToken-Gen, a class-conditioned AR generator with out-of-the-box support for arbitrary resolutions while requiring significantly fewer compute resources. Notably, VibeToken-Gen synthesizes 1024x1024 images using only 64 tokens and achieves 3.94 gFID; by comparison, a diffusion-based state-of-the-art alternative requires 1,024 tokens and attains 5.87 gFID. In contrast to fixed-resolution AR models such as LlamaGen -- whose inference FLOPs grow quadratically with resolution (11T FLOPs at 1024x1024) -- VibeToken-Gen maintains a constant 179G FLOPs (63.4x efficient) independent of resolution. We hope VibeToken can help unlock the wide adoption of AR visual generative models in production use cases.",
+    "url": "http://arxiv.org/abs/2604.24885v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24885v1",
+    "authors": [
+      "Maitreya Patel",
+      "Jingtao Li",
+      "Weiming Zhuang",
+      "Yezhou Yang",
+      "Lingjuan Lv"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-04-27T18:08:05+00:00",
+    "updated": "2026-04-27T18:08:05+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24877v1",
+    "source": "arxiv",
+    "title": "Learning Illumination Control in Diffusion Models",
+    "abstract": "Controlling illumination in images is essential for photography and visual content creation. While closed-source models have demonstrated impressive illumination control, open-source alternatives either require heavy control inputs like depth maps or do not release their data and code. We present a fully open-source and reproducible pipeline for learning illumination control in diffusion models. Our approach builds a data engine that transforms well-lit images into supervised training triplets consisting of a poorly-illuminated input image, a natural language lighting instruction, and a well-illuminated output image. We finetune a diffusion model on this data and demonstrate significant improvements over baseline SD 1.5, SDXL, and FLUX.1-dev models in perceptual similarity, structural similarity, and identity preservation. Our work provides a reproducible solution built entirely with open-source tools and publicly available data. We release all our code, data, and model weights publicly.",
+    "url": "http://arxiv.org/abs/2604.24877v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24877v1",
+    "authors": [
+      "Nishit Anand",
+      "Manan Suri",
+      "Christopher Metzler",
+      "Dinesh Manocha",
+      "Ramani Duraiswami"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG",
+      "eess.IV"
+    ],
+    "published": "2026-04-27T18:03:42+00:00",
+    "updated": "2026-04-27T18:03:42+00:00",
+    "extra": {
+      "primary_category": "cs.CV"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25834v1",
+    "source": "arxiv",
+    "title": "Action-Aware Generative Sequence Modeling for Short Video Recommendation",
+    "abstract": "With the rapid development of the Internet, users have increasingly higher expectations for the recommendation accuracy of online content consumption platforms. However, short videos often contain diverse segments, and users may not hold the same attitude toward all of them. Traditional binary-classification recommendation models, which treat a video as a single holistic entity, face limitations in accurately capturing such nuanced preferences. Considering that user consumption is a temporal process, this paper demonstrates that the timing of user actions can represent diverse intentions through statistical analysis and examination of action patterns. Based on this insight, we propose a novel modeling paradigm: Action-Aware Generative Sequence Network (A2Gen), which refines user actions along the temporal dimension and chains them into sequences for unified processing and prediction. First, we introduce the Context-aware Attention Module (CAM) to model action sequences enriched with item-specific contextual features. Building upon this, we develop the Hierarchical Sequence Encoder (HSE) to learn temporal action patterns from users' historical actions. Finally, through leveraging CAM, we design a module for action sequence generation: the Action-seq Autoregressive Generator (AAG). Extensive offline experiments on the Kuaishou's dataset and the Tmall public dataset demonstrate the superiority of our proposed model. Furthermore, through large-scale online A/B testing deployed on Kuaishou's platform, our model achieves significant improvements over baseline methods in multi-task prediction by leveraging sequential information. Specifically, it yields increases of 0.34% in user watch time, 8.1% in interaction rate, and 0.162% in overall user retention (LifeTime-7), leading to successful deployment across all traffic, serving over 400 million users every day.",
+    "url": "http://arxiv.org/abs/2604.25834v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25834v1",
+    "authors": [
+      "Wenhao Li",
+      "Zihan Lin",
+      "Zhengxiao Guo",
+      "Jie Zhou",
+      "Shukai Liu",
+      "Yongqi Liu",
+      "Chuan Luo",
+      "Chaoyi Ma",
+      "Ruiming Tang",
+      "Han Li"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-04-28T16:41:04+00:00",
+    "updated": "2026-04-28T16:41:04+00:00",
+    "extra": {
+      "primary_category": "cs.AI"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25806v1",
+    "source": "arxiv",
+    "title": "MAIC-UI: Making Interactive Courseware with Generative UI",
+    "abstract": "Creating interactive STEM courseware traditionally requires HTML/CSS/JavaScript expertise, leaving barriers for educators. While generative AI can produce HTML codes, existing tools generate static presentations rather than interactive simulations, struggle with long documents, and lack pedagogical accuracy mechanisms. Furthermore, full regeneration for modifications requires 200--600 seconds, disrupting creative flow. We present MAIC-UI, a zero-code authoring system that enables educators to create and rapidly edit interactive courseware from textbooks, PPTs, and PDFs. MAIC-UI employs: (1) structured knowledge analysis with multi-modal understanding to ensure pedagogical rigor; (2) a two-stage generate-verify-optimize pipeline separating content alignment from visual refinement; and (3) Click-to-Locate editing with Unified Diff-based incremental generation achieving sub-10-second iteration cycles. A controlled lab study with 40 participants shows MAIC-UI reduces editing iterations (4.9 vs. 7.0) and significantly improves learnability and controllability compared to direct Text-to-HTML generation. A three-month classroom deployment with 53 high school students demonstrates that MAIC-UI fosters learning agency and reduces outcome disparities -- the pilot class achieved 9.21-point gains in STEM subjects compared to -2.32 points in control classes. Our code is available at https://github.com/THU-MAIC/MAIC-UI.",
+    "url": "http://arxiv.org/abs/2604.25806v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25806v1",
+    "authors": [
+      "Shangqing Tu",
+      "Yanjia Li",
+      "Keyu Chen",
+      "Sichen Zhang",
+      "Jifan Yu",
+      "Daniel Zhang-Li",
+      "Lei Hou",
+      "Juanzi Li",
+      "Yu Zhang",
+      "Huiqin Liu"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.HC"
+    ],
+    "published": "2026-04-28T16:15:04+00:00",
+    "updated": "2026-04-28T16:15:04+00:00",
+    "extra": {
+      "primary_category": "cs.CL"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25774v1",
+    "source": "arxiv",
+    "title": "CGU-ILALab at FoodBench-QA 2026: Comparing Traditional and LLM-based Approaches for Recipe Nutrient Estimation",
+    "abstract": "Accurate nutrient estimation from unstructured recipe text is an important yet challenging problem in dietary monitoring, due to ambiguous ingredient terminology and highly variable quantity expressions. We systematically evaluate models spanning a wide range of representational capacity, from lexical matching methods (TF-IDF with Ridge Regression), to deep semantic encoders (DeBERTa-v3), to generative reasoning with large language models (LLMs). Under the strict tolerance criteria defined by EU Regulation 1169/2011, our empirical results reveal a clear trade-off between predictive accuracy and computational efficiency. The TF-IDF baseline achieves moderate nutrient estimation performance with near-instantaneous inference, whereas the DeBERTa-v3 encoder performs poorly under task-specific data scarcity. In contrast, few-shot LLM inference (e.g., Gemini 2.5 Flash) and a hybrid LLM refinement pipeline (TF-IDF combined with Gemini 2.5 Flash) deliver the highest validation accuracy across all nutrient categories. These improvements likely arise from the ability of LLMs to leverage pre-trained world knowledge to resolve ambiguous terminology and normalize non-standard units, which remain difficult for purely lexical approaches. However, these gains come at the cost of substantially higher inference latency, highlighting a practical deployment trade-off between real-time efficiency and nutritional precision in dietary monitoring systems.",
+    "url": "http://arxiv.org/abs/2604.25774v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25774v1",
+    "authors": [
+      "Wei-Chun Chen",
+      "Yu-Xuan Chen",
+      "I-Fang Chung",
+      "Ying-Jia Lin"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-04-28T15:41:01+00:00",
+    "updated": "2026-04-28T15:41:01+00:00",
+    "extra": {
+      "primary_category": "cs.CL"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25711v1",
+    "source": "arxiv",
+    "title": "Learning Generalizable Multimodal Representations for Software Vulnerability Detection",
+    "abstract": "Source code and its accompanying comments are complementary yet naturally aligned modalities-code encodes structural logic while comments capture developer intent. However, existing vulnerability detection methods mostly rely on single-modality code representations, overlooking the complementary semantic information embedded in comments and thus limiting their generalization across complex code structures and logical relationships. To address this, we propose MultiVul, a multimodal contrastive framework that aligns code and comment representations through dual similarity learning and consistency regularization, augmented with diverse code-text pairs to improve robustness. Experiments on widely adopted DiverseVul and Devign datasets across four large language models (LLMs) (i.e., DeepSeek-Coder-6.7B, Qwen2.5-Coder-7B, StarCoder2-7B, and CodeLlama-7B) show that MultiVul achieves up to 27.07% F1 improvement over prompting-based methods and 13.37% over code-only Fine-Tuning, while maintaining comparable inference efficiency.",
+    "url": "http://arxiv.org/abs/2604.25711v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25711v1",
+    "authors": [
+      "Zeming Dong",
+      "Yuejun Guo",
+      "Qiang Hu",
+      "Yao Zhang",
+      "Maxime Cordy",
+      "Hao Liu",
+      "Mike Papadakis",
+      "Yongqiang Lyu"
+    ],
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "published": "2026-04-28T14:38:47+00:00",
+    "updated": "2026-04-28T14:38:47+00:00",
+    "extra": {
+      "primary_category": "cs.SE"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25693v1",
+    "source": "arxiv",
+    "title": "RADD: Retrieval-Augmented Discrete Diffusion for Multi-Modal Knowledge Graph Completion",
+    "abstract": "Most multi-modal knowledge graph completion (MMKGC) models use one embedding scorer to do both retrieval over the full entity set and final decision making. We argue that this coupling is a core bottleneck: global high-recall search and local fine-grained disambiguation require different inductive biases. Therefore, we propose a Retrieval-Augmented Discrete Diffusion (RADD) framework to decouple retrieve and reranking for MMKGC. A relation-aware multimodal KGE retriever serves as both global retriever and distillation teacher, while a conditional discrete denoiser performs shortlist-level entity-identity generation for reranking. Training combines KGE supervision, denoising cross-entropy, and temperature-scaled distillation from the retriever to the denoiser. At inference, the designed Diff-Rerank first forms a top-$K$ shortlist with the retriever and then reranks it with the denoiser, ensuring that recall is a strict prerequisite for precision. Experiments on three MMKGC benchmarks show that RADD achieves the best performance and consistent gains over strong unimodal, multimodal, and LLM-based baselines, while ablations further verify the contribution of each component.",
+    "url": "http://arxiv.org/abs/2604.25693v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25693v1",
+    "authors": [
+      "Guanglin Niu",
+      "Bo Li"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-04-28T14:21:03+00:00",
+    "updated": "2026-04-28T14:21:03+00:00",
+    "extra": {
+      "primary_category": "cs.AI"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25614v1",
+    "source": "arxiv",
+    "title": "HotComment: A Benchmark for Evaluating Popularity of Online Comments",
+    "abstract": "Online comments play a crucial role in shaping public sentiment and opinion dynamics on social media. However, evaluating their popularity remains challenging, not only because it depends on linguistic quality, originality, and emotional resonance, but also because stylistic preferences vary widely across platforms and user groups, causing the same comment to resonate differently in different communities. In this work, we present HotComment, a multimodal benchmark integrating video and text modalities that comprehensively quantifies popularity from three enhanced aspects: (1) Content Quality, which evaluates semantic similarity with ground-truth human comments and extends quality assessment through four interpretable dimensions; (2) Popularity Prediction, based on trends from models trained on real-world interaction data; and (3) User Behavior Simulation, which models the distribution of platform users and approximates \\textbf{engagement scores} through an agent-based framework. Furthermore, we propose StyleCmt, inspired by social ripple effects, where multiple stylistic dimensions align to amplify socially resonant expressions and suppress incongruent ones.",
+    "url": "http://arxiv.org/abs/2604.25614v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25614v1",
+    "authors": [
+      "Yafeng Wu",
+      "Yunyao Zhang",
+      "Liliang Ye",
+      "Guiyi Zeng",
+      "Junqing Yu",
+      "Chen Xu",
+      "Zikai Song"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-04-28T13:23:29+00:00",
+    "updated": "2026-04-28T13:23:29+00:00",
+    "extra": {
+      "primary_category": "cs.AI"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25612v1",
+    "source": "arxiv",
+    "title": "The Nonverbal Syntax Framework: An Evidence-Based Tiered System for Inferring Learner States from Observable Behavioral Cues",
+    "abstract": "Understanding learners' cognitive and affective states underpins adaptive educational systems and effective teaching. Although research links nonverbal cues to internal states, no framework calibrates them to evidence. We present the Nonverbal Syntax Framework, drawn from a systematic review of 908 studies and 17,043 cue-state mappings (Turaev et al., 2026). The framework addresses three challenges: terminological fragmentation (behaviors described inconsistently), evidence heterogeneity (single observations to replicated findings), and state ambiguity (similar patterns indicating multiple states). Normalization consolidated 5,537 state labels into 2,010 canonical states (63.7%) and 11,521 cues into 6,434 normalized cues (44.2%) across nine behavioral channels. Dual-evidence assessment separately evaluates Component Evidence (coverage of cues and states) and Relationship Evidence (independent studies per cue-state link). 52% of \"Very High\" relationships rest on one paper, so separation enables calibrated rather than overconfident inference from preliminary findings. The framework's four levels comprise a Cue Vocabulary of 6,434 indicators classified as observable/instrumental; State Clusters linking 2,010 states to indicative cues; State Profiles with multimodal behavioral signatures and actionable specifications; and Discriminative Analysis distinguishing 1,215 confusable state pairs. We identify 480 actionable R1-R4 relationships (three or more independent papers), the replicated core of six decades of research, covering 35.5% of mappings across 47 key learning states and 111 distinct indicators. The remaining 91.5% (9,653 single-paper findings) form exploratory hypotheses for replication. The framework gives researchers an empirical foundation for identifying gaps, practitioners evidence-based tools for state inference, and technologists validated features for multimodal detection.",
+    "url": "http://arxiv.org/abs/2604.25612v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25612v1",
+    "authors": [
+      "Sherzod Turaev",
+      "Mary John",
+      "Jaloliddin Rustamov",
+      "Zahiriddin Rustamov",
+      "Saja Aldabet",
+      "Nazar Zaki",
+      "Khaled Shuaib"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-04-28T13:20:44+00:00",
+    "updated": "2026-04-28T13:20:44+00:00",
+    "extra": {
+      "primary_category": "cs.AI"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25584v1",
+    "source": "arxiv",
+    "title": "DualFact+: A Multimodal Fact Verification Framework for Procedural Video Understanding",
+    "abstract": "We introduce DualFact, a dual-layer, multimodal factuality evaluation framework for procedural video captioning. DualFact separates factual correctness into conceptual facts, capturing abstract semantic roles (e.g., Action, Ingredient, Tool, Location), and contextual facts, capturing their grounded predicate-argument realizations in video. To support complete and role-consistent evaluation, DualFact incorporates implicit argument augmentation (VIA) and contrastive fact sets. We instantiate DualFact in two modes: DualFact-T, which verifies facts against textual evidence, and DualFact-V, which verifies facts against video-grounded visual evidence. Experiments on YouCook3-Fact and CraftBench-Fact show that state-of-the-art multimodal language models produce fluent but often factually incomplete captions, with systematic omissions and role-level inconsistencies. DualFact correlates more strongly with human factuality judgments than standard metrics, particularly for contextual facts, and reveals that caption-only evaluation overestimates hallucinations compared to video-grounded verification. Overall, DualFact offers an interpretable and human-aligned evaluation protocol that highlights persistent challenges in multimodal factual grounding, extending beyond surface-level fluency.",
+    "url": "http://arxiv.org/abs/2604.25584v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25584v1",
+    "authors": [
+      "Cennet Oguz",
+      "Yasser Hamidullah",
+      "Josef van Genabith",
+      "Simon Ostermann"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-04-28T12:50:18+00:00",
+    "updated": "2026-04-28T12:50:18+00:00",
+    "extra": {
+      "primary_category": "cs.AI"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25562v1",
+    "source": "arxiv",
+    "title": "SnapGuard: Lightweight Prompt Injection Detection for Screenshot-Based Web Agents",
+    "abstract": "Web agents have emerged as an effective paradigm for automating interactions with complex web environments, yet remain vulnerable to prompt injection attacks that embed malicious instructions into webpage content to induce unintended actions. This threat is further amplified for screenshot-based web agents, which operate on rendered visual webpages rather than structured textual representations, making predominant text-centric defenses ineffective. Although multimodal detection methods have been explored, they often rely on large vision-language models (VLMs), incurring significant computational overhead. The bottleneck lies in the complexity of modern webpages: VLMs must comprehend the global semantics of an entire page, resulting in substantial inference time and GPU memory usage. This raises a critical question: can we detect prompt injection attacks from screenshots in a lightweight manner? In this paper, we observe that injected webpages exhibit distinct characteristics compared to benign ones from both visual and textual perspectives. Building on this insight, we propose SnapGuard, a lightweight yet accurate method that reformulates prompt injection detection as multimodal representation analysis over webpage screenshots. SnapGuard leverages two complementary signals: a visual stability indicator that identifies abnormally smooth gradient distributions induced by malicious content, and action-oriented textual signals recovered via contrast-polarity reversal. Extensive evaluations across eight attacks and two benign settings demonstrate that SnapGuard achieves an F1 score of 0.75, outperforming GPT-4o-prompt while being 8x faster (1.81s vs. 14.50s) and introducing no additional memory overhead.",
+    "url": "http://arxiv.org/abs/2604.25562v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25562v1",
+    "authors": [
+      "Mengyao Du",
+      "Han Fang",
+      "Haokai Ma",
+      "Jiahao Chen",
+      "Kai Xu",
+      "Quanjun Yin",
+      "Ee-Chien Chang"
+    ],
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "published": "2026-04-28T12:32:21+00:00",
+    "updated": "2026-04-28T12:32:21+00:00",
+    "extra": {
+      "primary_category": "cs.CR"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25472v1",
+    "source": "arxiv",
+    "title": "SciEval: A Benchmark for Automatic Evaluation of K-12 Science Instructional Materials",
+    "abstract": "The need to evaluate instructional materials for K-12 science education has become increasingly important, as more educators use generative AI to create instructional materials. However, the review of instructional materials is time-consuming, expertise-intensive, and difficult to scale, motivating interest in automated evaluation approaches. While large language models (LLMs) have shown strong performance on general evaluation tasks, their performance and reliability on instructional materials remain unclear. To address this gap, we formulate Automatic Instructional Materials Evaluation (AIME) as a generative AI task that predicts scores and evidence using the rubric designed by the educator. We create a benchmark dataset and develop baseline models for AIME. First, we curate the first AIME dataset, SciEval, consisting of instructional materials annotated with pedagogy-aligned evaluation scores and evidence-based rationales. Expert annotations achieve high inter-rater reliability, resulting in a dataset of 273 lesson-level instructional materials evaluated across 13 criteria (N=3549) using the EQuIP rubric. Second, we test mainstream LLMs (GPT, Gemini, Llama, and Qwen) on SciEval and find that none achieve strong performance. Then we fine-tune Qwen3 on SciEval. Results on a held-out test set show that domain-aligned fine-tuning can achieve up to 11 percent performance gains, highlighting the importance of domain-specific fine-tuning for AIME and facilitating the use of LLMs in other educational tasks.",
+    "url": "http://arxiv.org/abs/2604.25472v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25472v1",
+    "authors": [
+      "Zhaohui Li",
+      "Peng He",
+      "Zhiyuan Chen",
+      "Honglu Liu",
+      "Zeyuan Wang",
+      "Tingting Li",
+      "Jinjun Xiong"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-04-28T10:23:32+00:00",
+    "updated": "2026-04-28T10:23:32+00:00",
+    "extra": {
+      "primary_category": "cs.AI"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25455v1",
+    "source": "arxiv",
+    "title": "Generative UI as an Accessibility Bridge: Lessons from C2C E-Commerce",
+    "abstract": "Web accessibility rests on static standards and developer compliance. That model frays in platforms where content is user-generated: photos arrive blurry or off-frame, descriptions skip size and condition, and page structure shifts from listing to listing. Drawing on six studies conducted between 2022 and 2025 with blind, low-vision, and older adult users of customer-to-customer (C2C) marketplaces, I argue that generative UI can produce adapted interfaces at the point of use, addressing barriers that static design cannot anticipate. Three interventions from this program -- HTML regeneration for screen readers, conversational guidance for older sellers, and audio-guided photo framing for blind sellers -- demonstrate how runtime generation can bridge gaps that standards leave open. I outline what these findings imply for HCI practice: generative UI extends beyond the screen, complements rather than replaces ability-based design, and shifts the designer's role from specifying layouts to specifying policies. This is an expanded arXiv version of a position paper accepted at the CHI 2026 workshop \"What does Generative UI mean for HCI Practice?\"",
+    "url": "http://arxiv.org/abs/2604.25455v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25455v1",
+    "authors": [
+      "Bektur Ryskeldiev"
+    ],
+    "categories": [
+      "cs.HC",
+      "cs.AI",
+      "cs.CY"
+    ],
+    "published": "2026-04-28T10:03:14+00:00",
+    "updated": "2026-04-28T10:03:14+00:00",
+    "extra": {
+      "primary_category": "cs.HC"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25383v1",
+    "source": "arxiv",
+    "title": "ML-SAN: Multi-Level Speaker-Adaptive Network for Emotion Recognition in Conversations",
+    "abstract": "To establish empathy with machines, it is essential to fully understand human emotional changes. However, research in multimodal emotion recognition often overlooks one problem: individual expressive traits vary significantly, which means that different people may express emotions differently. In our daily lives, we can see this. When communicating with different people, some express \"happiness\" through their facial expressions and words, while others may hide their happiness or express it through their actions. Both are expressions of 'happiness,' but such differences in emotional expression are still too difficult for machines to distinguish. Current emotion recognition remains at a 'static' level, using a single recognition model to identify all emotional styles. This \"simplification\" often affects the recognition results, especially in multi-turn dialogues. To address this problem, this paper introduces a novel Multi-Level Speaker Adaptive Network (ML-SAN), which, specifically, effectively addresses the challenge of speaker identity information confusion. ML-SAN does not simply assign a speaker's ID after recognition; instead, it employs a three-stage adaptive process: First, Input-level Calibration uses Feature-Level Linear Modulation (FiLM) to adjust the raw audio and visual features into a neutral space unrelated to the speaker. Then, Interaction-level Gating re-adjusts the trust level for each modality (e.g., voice or facial features) based on the speaker's identity information. Finally, Output-level Regularization maintains the consistency of speaker features in the latent space. Tests on the MELD and IEMOCAP datasets show that our model (ML-SAN) achieves better results, performs exceptionally well in handling challenging tail sentiment categories, and better addresses the diversity of speakers in real-world scenarios.",
+    "url": "http://arxiv.org/abs/2604.25383v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25383v1",
+    "authors": [
+      "Kexue Wang",
+      "Yinfeng Yu",
+      "Liejun Wang"
+    ],
+    "categories": [
+      "cs.SD",
+      "cs.AI",
+      "eess.AS"
+    ],
+    "published": "2026-04-28T08:51:29+00:00",
+    "updated": "2026-04-28T08:51:29+00:00",
+    "extra": {
+      "primary_category": "cs.SD"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25334v1",
+    "source": "arxiv",
+    "title": "VAE-Inf: A statistically interpretable generative paradigm for imbalanced classification",
+    "abstract": "Imbalanced classification remains a pervasive challenge in machine learning, particularly when minority samples are too scarce to provide a robust discriminative boundary. In such extreme scenarios, conventional models often suffer from unstable decision boundaries and a lack of reliable error control. To bridge the gap between generative modeling and discriminative classification, we propose a two-stage framework \\textbf{VAE-Inf} that integrates deep representation learning with statistically interpretable hypothesis testing. In the first stage, we adopt a one-class modeling perspective by training a variational autoencoder (VAE) exclusively on majority-class data to capture the underlying reference distribution. The resulting latent posteriors are aggregated via a Wasserstein barycenter to construct a global Gaussian reference model, providing a geometrically principled baseline for the majority class. In the second stage, we transform this generative foundation into a discriminative classifier by fine-tuning the encoder with limited minority samples. This is achieved through a novel distribution-aware loss that enforces probabilistic separation between classes based on variance-normalized projection statistics. For inference, we introduce a projection-based score that admits a natural hypothesis testing interpretation, allowing for a distribution-free calibration procedure. This approach yields exact finite-sample control of the Type-I error (false positive rate) without relying on restrictive parametric assumptions. Extensive experiments on diverse real-world benchmarks demonstrate that our framework achieves competitive performance against other approaches. The codes are available upon request.",
+    "url": "http://arxiv.org/abs/2604.25334v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25334v1",
+    "authors": [
+      "Hongfei Wu",
+      "Ruijian Han",
+      "Yancheng Yuan"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-04-28T07:50:56+00:00",
+    "updated": "2026-04-28T07:50:56+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25008v1",
+    "source": "arxiv",
+    "title": "EVT-Based Generative AI for Tail-Aware Channel Estimation",
+    "abstract": "Ultra-reliable and low-latency communication (URLLC) will play a key role in fifth-generation (5G) and beyond networks, enabling mission-critical applications. Meeting the stringent URLLC requirements, characterized by extremely low packet error rates and minimal latency, calls for advanced statistical modeling to accurately capture rare events in wireless channels. Traditional methods, such as those that rely on large datasets and computationally intensive estimation techniques, often fail in real-time scenarios. In this paper, a novel framework is proposed to meet URLLC requirements through a synergistic integration of extreme value theory (EVT) with generative artificial intelligence (AI). EVT is used to model channel tail distributions, providing an accurate characterization of rare events. Concurrently, generative AI enables data augmentation and channel parameter estimation from limited samples. The integration of EVT with generative AI can thus help overcome the limitations of generative models in capturing extreme events during channel characterization. Using an experimental dataset collected from an automotive environment, it is demonstrated that this integration enhances data augmentation for extreme quantiles, while requiring fewer samples than traditional analytical EVT methods and generative baselines in online estimation of channel distribution.",
+    "url": "http://arxiv.org/abs/2604.25008v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25008v1",
+    "authors": [
+      "Parmida Valiahdi",
+      "Niloofar Mehrnia",
+      "Walid Saad",
+      "Sinem Coleri"
+    ],
+    "categories": [
+      "eess.SP",
+      "cs.AI",
+      "eess.SY"
+    ],
+    "published": "2026-04-27T21:13:50+00:00",
+    "updated": "2026-04-27T21:13:50+00:00",
+    "extra": {
+      "primary_category": "eess.SP"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24987v1",
+    "source": "arxiv",
+    "title": "Assessing Y-Axis Influence: Bias in Multimodal Language Models on Chart-to-Table Translation",
+    "abstract": "Chart-to-table translation converts chart images into structured tabular data. Accurate translation is crucial for Multimodal Language Model (MLM) to answer complex queries. We observe imbalances in the number of images across different aspects of the y-axis information in public chart datasets. Such imbalances can introduce unintended biases, causing uneven MLM performance. Previous works have not systematically examined these biases. To address this gap, we propose a new framework, FairChart2Table, for analyzing y-axis-related bias on five state-of-the-art models. Key Findings: (1) There are significant y-axis biases related to the digit length of the major tick values, the number of major ticks, the range of values, and the tick value format (e.g., abbreviation or scientific format). (2) The number of legends/entities in chart images impacts MLM performance. (3) Prompting MLM with y-axis information can significantly enhance the performance for some MLMs.",
+    "url": "http://arxiv.org/abs/2604.24987v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24987v1",
+    "authors": [
+      "Seok Hwan Song",
+      "Azher Ahmed Efat",
+      "Wallapak Tavanapong"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-04-27T20:47:31+00:00",
+    "updated": "2026-04-27T20:47:31+00:00",
+    "extra": {
+      "primary_category": "cs.AI"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24842v1",
+    "source": "arxiv",
+    "title": "Co-Director: Agentic Generative Video Storytelling",
+    "abstract": "While diffusion models generate high-fidelity video clips, transforming them into coherent storytelling engines remains challenging. Current agentic pipelines automate this via chained modules but suffer from semantic drift and cascading failures due to independent, handcrafted prompting. We present Co-Director, a hierarchical multi-agent framework formalizing video storytelling as a global optimization problem. To ensure semantic coherence, we introduce hierarchical parameterization: a multi-armed bandit globally identifies promising creative directions, while a local multimodal self-refinement loop mitigates identity drift and ensures sequence-level consistency. This balances the exploration of novel narrative strategies with the exploitation of effective creative configurations. For evaluation, we introduce GenAD-Bench, a 400-scenario dataset of fictional products for personalized advertising. Experiments demonstrate that Co-Director significantly outperforms state-of-the-art baselines, offering a principled approach that seamlessly generalizes to broader cinematic narratives. Project Page: https://co-director-agent.github.io/",
+    "url": "http://arxiv.org/abs/2604.24842v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24842v1",
+    "authors": [
+      "Yale Song",
+      "Yiwen Song",
+      "Nick Losier",
+      "Nathan Hodson",
+      "Ye Jin",
+      "Rhyard Zhu",
+      "Yan Xu",
+      "Daniel Vlasic",
+      "Carina Claassen",
+      "Jasmine Leon",
+      "Khanh G. LeViet",
+      "Zack Chomyn",
+      "Joe Timmons",
+      "Brett Slatkin",
+      "Scott Penberthy",
+      "Tomas Pfister"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.MA",
+      "cs.MM"
+    ],
+    "published": "2026-04-27T18:00:00+00:00",
+    "updated": "2026-04-27T18:00:00+00:00",
+    "extra": {
+      "primary_category": "cs.AI"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25897v1",
+    "source": "arxiv",
+    "title": "Variational Neural Belief Parameterizations for Robust Dexterous Grasping under Multimodal Uncertainty",
+    "abstract": "Contact variability, sensing uncertainty, and external disturbances make grasp execution stochastic. Expected-quality objectives ignore tail outcomes and often select grasps that fail under adverse contact realizations. Risk-sensitive POMDPs address this failure mode, but many use particle-filter beliefs that scale poorly, obstruct gradient-based optimization, and estimate Conditional Value-at-Risk (CVaR) with high-variance approximations. We instead formulate grasp acquisition as variational inference over latent contact parameters and object pose, representing the belief with a differentiable Gaussian mixture. We use Gumbel-Softmax component selection and location-scale reparameterization to express samples as smooth functions of the belief parameters, enabling pathwise gradients through a differentiable CVaR surrogate for direct optimization of tail robustness. In simulation, our variational neural belief improves robust grasp success under contact-parameter uncertainty and exogenous force perturbations while reducing planning time by roughly an order of magnitude relative to particle-filter model-predictive control. On a serial-chain robot arm with a multifingered hand, we validate grasp-and-lift success under object-pose uncertainty against a Gaussian baseline. Both methods succeed on the tested perturbations, but our controller terminates in fewer steps and less wall-clock time while achieving a higher tactile grasp-quality proxy. Our learned belief also calibrates risk more accurately, keeping mean absolute calibration error below 0.14 across tested simulation regimes, compared with 0.58 for a Cross-Entropy Method planner.",
+    "url": "http://arxiv.org/abs/2604.25897v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25897v1",
+    "authors": [
+      "Clinton Enwerem",
+      "Shreya Kalyanaraman",
+      "John S. Baras",
+      "Calin Belta"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.LG",
+      "eess.SY"
+    ],
+    "published": "2026-04-28T17:40:49+00:00",
+    "updated": "2026-04-28T17:40:49+00:00",
+    "extra": {
+      "primary_category": "cs.RO"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25489v1",
+    "source": "arxiv",
+    "title": "Adaptable phase retrieval for coherent transition radiation spectroscopy based on differentiable physics information",
+    "abstract": "Coherent transition radiation (CTR) spectroscopy is a critical diagnostic for characterizing the longitudinal structure of relativistic electron bunches in laser-plasma and conventional accelerators. In practice, recovering the bunch profile from a measured CTR spectrum is an ill-posed phase-retrieval problem. Traditionally, this is addressed using Gerchberg-Saxton (GS)-type iterative algorithms. However, these implementations often rely on explicit inverse propagators, making them difficult to adapt to sophisticated experimental forward models. In this work, we introduce a flexible gradient-based framework for CTR phase retrieval. By leveraging a differentiable forward model, we propose a phase-only gradient descent (GD-Phase) approach that enforces the measured spectral amplitude as a hard constraint while optimizing the Fourier phase under physical real-space priors. Using synthetic CTR spectra spanning multi-peaked and strongly modulated profiles, we benchmark GD-Phase against traditional GS and a real-space amplitude-parametrized gradient descent (GD-Amp) algorithm. Unlike traditional methods, this formulation allows for the seamless inclusion of arbitrary differentiable experimental effects into the reconstruction loop. We demonstrate that this physics-informed approach not only reproduces the fidelity of GS methods but also establishes a robust baseline for incorporating multi-diagnostic constraints and uncertainty quantification. This enables the systematic extension to higher-dimensional, multimodal, and uncertainty-aware diagnostics, facilitating fast and scalable phase retrieval in realistic experimental settings.",
+    "url": "http://arxiv.org/abs/2604.25489v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25489v1",
+    "authors": [
+      "Ritz Ann Aguilar",
+      "Maxwell LaBerge",
+      "Andreas Doepp",
+      "Alexander Debus",
+      "Zewu Bi",
+      "Michael Bussmann",
+      "Arie Irman",
+      "Ulrich Schramm",
+      "Jeffrey Kelling"
+    ],
+    "categories": [
+      "physics.acc-ph",
+      "cs.LG"
+    ],
+    "published": "2026-04-28T10:45:41+00:00",
+    "updated": "2026-04-28T10:45:41+00:00",
+    "extra": {
+      "primary_category": "physics.acc-ph"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25295v1",
+    "source": "arxiv",
+    "title": "Optimization-Free Topological Sort for Causal Discovery via the Schur Complement of Score Jacobians",
+    "abstract": "Continuous causal discovery typically couples representation learning with structural optimization via non-convex acyclicity penalties, which subjects solvers to local optima and restricts scalability in high-dimensional regimes. We propose a decoupled paradigm that shifts the causal discovery bottleneck from non-convex optimization to statistical score estimation. We introduce the Score-Schur Topological Sort (SSTS), an algorithm that extracts topological order directly from unconstrained generative models, bypassing constrained structure optimization. We establish that the causal hierarchy leaves a geometric signature within the score function: iterative graph marginalization is mathematically equivalent to computing the Schur complement of the Score-Jacobian Information Matrix (SJIM) under linear conditions. This translates the acyclicity constraint into an algebraic procedure with a dominant cost of O(d^3) operations. For non-linear systems, we formulate the expectation gap of Schur marginalization and introduce Block-SSTS to compress extraction depth, bounding structural error. Empirically, SSTS allows causal structural analysis on non-linear graphs up to d=1000. At this scale, our framework indicates that once the non-convex optimization bottleneck is mathematically bypassed, the structural fidelity of continuous causal discovery is bounded by the finite-sample estimation variance of the global score geometry. By reducing graph extraction to matrix operations, this work reframes scalable causal discovery from a constrained optimization problem to a statistical estimation challenge.",
+    "url": "http://arxiv.org/abs/2604.25295v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25295v1",
+    "authors": [
+      "Rui Wu",
+      "Hong Xie"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-28T07:03:04+00:00",
+    "updated": "2026-04-28T07:03:04+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25244v1",
+    "source": "arxiv",
+    "title": "Learning Structure, Energy, and Dynamics: A Survey of Artificial Intelligence for Protein Dynamics",
+    "abstract": "Protein dynamics underlie many biological functions, yet remain difficult to characterize due to the high computational cost of molecular dynamics simulations and the scarcity of dynamic structural data. This survey reviews recent advances in artificial intelligence for protein dynamics from three perspectives: learning from structural ensembles and trajectories, learning from physical energy signals, and learning to accelerate molecular simulations. We summarize representative methods for conformation ensemble generation, trajectory generation, Boltzmann generators, physics-aware adaptation, machine learning potentials, coarse-grained modeling, and collective variable discovery. We further discuss available datasets and key open challenges, such as scalability, thermodynamic consistency, kinetic fidelity, and integration with experimental constraints.",
+    "url": "http://arxiv.org/abs/2604.25244v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25244v1",
+    "authors": [
+      "Haocheng Tang",
+      "Liang Shi",
+      "Ya-Shi Zhang",
+      "Xixian Liu",
+      "Jian Tang",
+      "Jiarui Lu"
+    ],
+    "categories": [
+      "q-bio.BM",
+      "cs.LG"
+    ],
+    "published": "2026-04-28T05:49:11+00:00",
+    "updated": "2026-04-28T05:49:11+00:00",
+    "extra": {
+      "primary_category": "q-bio.BM"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25181v1",
+    "source": "arxiv",
+    "title": "Shearlet Neural Operators for Anisotropic-Shock-Dominated and Multi-scale parametric partial differential equations",
+    "abstract": "Neural operators have emerged as powerful data-driven surrogates for learning solution operators of parametric partial differential equations (PDEs). However, widely used Fourier Neural Operators (FNOs) rely on global Fourier representations, which can be inefficient for resolving anisotropic structures, sharp gradients, and spatially localized discontinuities that arise in shock-dominated and multiscale regimes. To address these limitations, we introduce the Shearlet Neural Operator (SNO), a neural operator architecture that replaces the Fourier transform with a shearlet-based representation. Shearlets offer directional, multiscale, and spatially localized atoms with near-optimal sparse approximation of anisotropic features, providing an inductive bias aligned with PDE solutions containing edges, fronts, and shocks. SNO learns in the shearlet domain and reconstructs predictions via the inverse transform, retaining efficient spectral computation while improving locality and directional selectivity. Across seven benchmark PDE families, including strongly anisotropic advection, anisotropic diffusion, and nonlinear conservation laws with straight, curved, interacting, spiral, and polygonal shock structures, SNO consistently improves predictive accuracy and feature fidelity over FNO baselines, with the largest gains observed in anisotropic and discontinuity-dominated settings.",
+    "url": "http://arxiv.org/abs/2604.25181v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25181v1",
+    "authors": [
+      "Fabio Pereira dos Santos",
+      "Julio de Castro Vargas Fernandes",
+      "Adriano Mauricio de Almeida Cortes"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-28T03:38:32+00:00",
+    "updated": "2026-04-28T03:38:32+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25172v1",
+    "source": "arxiv",
+    "title": "Conditional Flow Matching for Probabilistic Downscaling of Maximum 3-day Snowfall in Alaska",
+    "abstract": "Precipitation in complex terrain is governed by orographic processes operating at scales of a few kilometers, yet climate models typically run at resolutions of 50--100~km where this topographic detail is absent. Dynamical downscaling with high-resolution regional models such as WRF can resolve these processes, but the computational cost -- months of wall-clock time per scenario -- precludes the large ensembles needed for uncertainty quantification. We present WxFlow, a conditional generative model based on flow matching that learns to map coarse-resolution climate model output and high-resolution topography to calibrated probabilistic ensembles of fine-scale precipitation fields. Applied to 4~km WRF simulations of maximum 3-day snowfall over southeast Alaska, WxFlow achieves 87.8\\% improvement in spectral fidelity and dramatically lower Continuous Ranked Probability Scores relative to conventional lapse-rate-corrected bicubic downscaling, while generating 50-member ensembles in seconds on a laptop. Ensemble spread is spatially coherent and governed by topography, reflecting physically plausible uncertainty structure. All code is available at https://github.com/glide-ism/wrf-flow.",
+    "url": "http://arxiv.org/abs/2604.25172v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25172v1",
+    "authors": [
+      "Douglas Brinkerhoff",
+      "Elizabeth Fischer"
+    ],
+    "categories": [
+      "physics.comp-ph",
+      "cs.LG",
+      "physics.ao-ph"
+    ],
+    "published": "2026-04-28T03:21:23+00:00",
+    "updated": "2026-04-28T03:21:23+00:00",
+    "extra": {
+      "primary_category": "physics.comp-ph"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25159v1",
+    "source": "arxiv",
+    "title": "Accurate and Robust Generative Approach for Overcoming Data Sparsity and Imbalance in Landslide Modeling with A Tabular Foundation Model",
+    "abstract": "Landslide investigation relies on sufficient and well-balanced observational data influenced by geological, hydrological, and anthropogenic factors. Available landslide inventories are often sparse and imbalanced, which limits understanding of triggering conditions and failure mechanisms. Data generation provides an effective approach to help capture feature dependencies from limited landslide observations. However, existing generation approaches for landslides often struggle to capture complex relationships among features and lack robustness across multiple scenarios and interacting factors. Here, we propose an accurate and robust approach for generating multi-feature landslide datasets by utilizing a tabular foundation model. By leveraging the capacity to learn from limited observations, the proposed approach effectively preserves the multivariate dependencies and statistical characteristics inherent in landslide occurrences. Comparative experiments on 20 landslide inventories demonstrate that the generated datasets closely align with observed distributions, maintain realistic feature dependencies, and exhibit robustness across different environmental contexts. This work provides an effective approach to overcome data sparsity and imbalance and strengthens landslide susceptibility modeling and risk assessment under limited observations.",
+    "url": "http://arxiv.org/abs/2604.25159v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25159v1",
+    "authors": [
+      "Kaixuan Shao",
+      "Gang Mei",
+      "Yinghan Wu",
+      "Nengxiong Xu",
+      "Jianbing Peng"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-28T02:59:58+00:00",
+    "updated": "2026-04-28T02:59:58+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25137v1",
+    "source": "arxiv",
+    "title": "Quantum Dynamics via Score Matching on Bohmian Trajectories",
+    "abstract": "We solve the time-dependent Schr\u00f6dinger equation by learning the score function, the gradient of the log-probability density, on Bohmian trajectories. In Bohm's formulation of quantum mechanics, particles follow deterministic paths under the classical potential supplemented by a quantum potential depending on the score function of the evolving density. These non-crossing Bohmian trajectories form a continuous normalizing flow governed by the score. We parametrize the score with a neural network and minimize a self-consistent Fisher divergence between the network and the score of the resulting density. We prove that the zero-loss minimizer of this self-consistent objective recovers Schr\u00f6dinger dynamics for nodeless wave functions, a condition naturally met in quantum vibrations of atoms. We demonstrate the approach on wavepacket splitting in a double-well potential and anharmonic vibrations of a Morse chain. By recasting real-time quantum dynamics as a self-consistent score-driven normalizing flow, this framework opens the time-dependent Schr\u00f6dinger equation to the rapidly advancing toolkit of modern generative modeling.",
+    "url": "http://arxiv.org/abs/2604.25137v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25137v1",
+    "authors": [
+      "Lei Wang"
+    ],
+    "categories": [
+      "quant-ph",
+      "cs.LG",
+      "physics.chem-ph",
+      "physics.comp-ph"
+    ],
+    "published": "2026-04-28T02:25:48+00:00",
+    "updated": "2026-04-28T02:25:48+00:00",
+    "extra": {
+      "primary_category": "quant-ph"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25119v1",
+    "source": "arxiv",
+    "title": "Evaluation without Generation: Non-Generative Assessment of Harmful Model Specialization with Applications to CSAM",
+    "abstract": "Auditing the fine-tunes of open-weight generative models for harmful specialization has become a new governance challenge for model hosting platforms. The standard toolkit, generative evaluation via curated prompts or red-teaming, does not scale to platform-level auditing and breaks down entirely for domains like CSAM where generation is legally constrained. This motivates the Evaluation without Generation problem: assessing model capabilities without producing outputs. We argue that in such settings, capability must be inferred from the model's state, either its parameters or internal representations, rather than its outputs. We introduce Gaussian probing, a method that characterizes how LoRA adaptors perturb a model's internal representations by measuring responses to Gaussian latent ensembles. Unlike raw-weight baselines, Gaussian probing reliably distinguishes benign from harmful specialization without sampling outputs. We demonstrate effectiveness in high-risk domains, including detecting models specialized for child sexual abuse material (CSAM), where output-based evaluation is legally and ethically constrained. Our results show that Gaussian probing provides a scalable non-generative alternative for evaluating high-risk generative systems and remains robust to weight rescaling, a representative adversarial manipulation.",
+    "url": "http://arxiv.org/abs/2604.25119v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25119v1",
+    "authors": [
+      "Vinith M. Suriyakumar",
+      "Ayush Sekhari",
+      "Lena Stempfle",
+      "Robertson Wang",
+      "Michael Simpson",
+      "Rebecca Portnoff",
+      "Marzyeh Ghassemi",
+      "Ashia C. Wilson"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.CY"
+    ],
+    "published": "2026-04-28T01:54:25+00:00",
+    "updated": "2026-04-28T01:54:25+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24959v1",
+    "source": "arxiv",
+    "title": "CoreFlow: Low-Rank Matrix Generative Models",
+    "abstract": "Learning matrix-valued distributions from high-dimensional and possibly incomplete training data is challenging: ambient-space generative modeling is computationally expensive and statistically fragile when the matrix dimension is large but the sample size is limited. We propose CoreFlow, a geometry-preserving low-rank flow model that learns shared row/column subspaces across the matrix distribution, and then trains a continuous normalizing flow only on the induced low-dimensional core. CoreFlow is designed for settings where shared low-rank matrix geometry is present, especially in high-dimensional limited-sample regimes. This separates shared matrix geometry from sample-specific variation, preserves matrix structure, and substantially improves training efficiency. The same framework also handles incomplete training matrices through masked Riemannian updates and iterative completion. Across real and synthetic benchmarks, CoreFlow substantially improves spectral and moment-level generation quality in few-sample regimes while remaining competitive in data-rich settings, even under compression to 9% of the ambient dimension and with up to 40% missing training entries.",
+    "url": "http://arxiv.org/abs/2604.24959v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24959v1",
+    "authors": [
+      "Dongze Wu",
+      "Linglingzhi Zhu",
+      "Yao Xie"
+    ],
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-04-27T19:56:06+00:00",
+    "updated": "2026-04-27T19:56:06+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24936v1",
+    "source": "arxiv",
+    "title": "A Unifying Framework for Unsupervised Concept Extraction",
+    "abstract": "Techniques for concept extraction, such as sparse autoencoders and transcoders, aim to extract high-level symbolic concepts from low-level nonsymbolic representations. When these extracted concepts are used for downstream tasks such as model steering and unlearning, it is essential to understand their guarantees, or lack thereof. In this work, we present a unified theoretical framework for unsupervised concept extraction, in which we frame the task of concept extraction as identifying a generative model. We present a general meta-theorem for identifiability, which reduces the problem of establishing identifiability guarantees to the problem of characterizing the intersection of two sets. As we demonstrate on a range of widely-used approaches, this meta-theorem substantially simplifies the task of proving such guarantees, thus paving the way for the development of new, principled approaches for concept extraction.",
+    "url": "http://arxiv.org/abs/2604.24936v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24936v1",
+    "authors": [
+      "Chandler Squires",
+      "Pradeep Ravikumar"
+    ],
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-04-27T19:24:36+00:00",
+    "updated": "2026-04-27T19:24:36+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24913v1",
+    "source": "arxiv",
+    "title": "Generative diffusion models for spatiotemporal influenza forecasting",
+    "abstract": "Forecasting infectious disease incidence can provide important information to guide public health planning, yet is difficult because epidemic dynamics are complex. Current mechanistic and statistical approaches often struggle to capture multimodal uncertainty or emergent trends. Influpaint adapts denoising diffusion probabilistic models to epidemic forecasting. By encoding influenza seasons as spatiotemporal images in which pixel intensity represents incidence, Influpaint learns a rich distribution of disease dynamics from a hybrid dataset of surveillance and simulated trajectories. Forecasting is formulated as a conditional generation (inpainting) task from partial observations. We show that Influpaint generates realistic, diverse epidemic trajectories and achieves forecast accuracy that is competitive with leading ensemble methods in retrospective evaluation. In real-time evaluation during the 2023--2025 U.S. CDC FluSight challenges, performance improved substantially across seasons, with highly accurate but somewhat overconfident projections in 2024--2025. The best performance was achieved with a training dataset containing 30% surveillance and 70% simulated trajectories. These results show that diffusion models can capture important spatiotemporal structure in influenza dynamics and provide a flexible framework for probabilistic infectious disease forecasting.",
+    "url": "http://arxiv.org/abs/2604.24913v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24913v1",
+    "authors": [
+      "Joseph Lemaitre",
+      "Justin Lessler"
+    ],
+    "categories": [
+      "cs.LG",
+      "q-bio.PE"
+    ],
+    "published": "2026-04-27T18:48:40+00:00",
+    "updated": "2026-04-27T18:48:40+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24909v1",
+    "source": "arxiv",
+    "title": "Contrastive Image-Metadata Pre-Training for Materials Transmission Electron Microscopy",
+    "abstract": "The vast majority of transmission electron microscopy (TEM) data never gets published and ends up on a backup drive until deleted to free up space. These left-over datasets are rich in detail and variation, often paired with automatically saved metadata of instrument state and acquisition parameters. In this work, we introduce a dataset of 7,330 high-angle annular dark-field scanning-TEM (HAADF-STEM) images from a single instrument to learn a joint embedding space between image metadata and HAADF image. These embeddings link image style with acquisition parameters, which allows us to train a generative style transfer network that can convert experimental images into the style they would have had if they were recorded with different instrument parameters. We evaluate the performance of the network and explore the usefulness of the technique for physical denoising.",
+    "url": "http://arxiv.org/abs/2604.24909v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24909v1",
+    "authors": [
+      "Georgia Channing",
+      "Debora Keller",
+      "Marta D. Rossell",
+      "Philip Torr",
+      "Rolf Erni",
+      "Stig Helveg",
+      "Henrik Eliasson"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.CE"
+    ],
+    "published": "2026-04-27T18:42:07+00:00",
+    "updated": "2026-04-27T18:42:07+00:00",
+    "extra": {
+      "primary_category": "cs.LG"
+    }
+  },
+  {
+    "uid": "arxiv:2604.24906v1",
+    "source": "arxiv",
+    "title": "An analysis of sensor selection for fruit picking with suction-based grippers",
+    "abstract": "Robotic fruit harvesting often fails to reliably detect whether a fruit has been successfully picked, limiting efficiency and increasing crop damage. This problem is difficult due to compliant fruit and grippers, variable stem attachment, and occlusions in orchard environments. Prior work has explored vision-based perception and multi-sensor learning approaches for pick state estimation. However, minimal sensor sets and phase-dependent sensing strategies for accurate pick and slip detection remain largely unexplored. In this work, we design and evaluate a multimodal sensing suite integrated into a compliant suction-based apple gripper. Our approach is unique because it identifies which sensors are most informative at different phases of the pick, enabling predictive detection of failures before they occur. The contributions of this paper are a phase-dependent evaluation of multimodal sensors and the identification of minimal sensor sets for reliable pick state classification. Experiments in a real apple orchard show that Random Forest and Multilayer Perceptron classifiers detect successful picks and impending failures with over 90% accuracy, and Random Forest predicts pick/slip events within 0.09 s of human-annotated ground truth.",
+    "url": "http://arxiv.org/abs/2604.24906v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.24906v1",
+    "authors": [
+      "Eva Krueger",
+      "Marcus Rosette",
+      "Joseph R. Davidson"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.LG",
+      "eess.SY"
+    ],
+    "published": "2026-04-27T18:39:21+00:00",
+    "updated": "2026-04-27T18:39:21+00:00",
+    "extra": {
+      "primary_category": "cs.RO"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25296v1",
+    "source": "arxiv",
+    "title": "Learning from Medical Entity Trees: An Entity-Centric Medical Data Engineering Framework for MLLMs",
+    "abstract": "Multimodal Large Language Models (MLLMs) have shown transformative potential in medical applications, yet their performance is hindered by conventional data curation strategies that rely on coarse-grained partitioning by modality or department. Such fragmented approaches fail to capture the hierarchical and interconnected nature of clinical medical knowledge, limiting the models' ability to perform fine-grained recognition and complex reasoning. In this paper, we propose a novel Entity-Centric Medical Data Engineering framework. We automatically extract entities from authoritative medical literature to construct a Medical Entity Tree (MET), a hierarchical structure that systematically encodes diseases, anatomical structures, modalities, and symptoms into a unified knowledge repository. Building upon the MET, we propose an advanced data engine that includes: (1) node-guided retrieval to anchor raw data to specific medical concepts, (2) a two-stage hybrid filtering and alignment pipeline to ensure precise visual-semantic correspondence, and (3) knowledge-aware data synthesis to generate enriched captions and targeted reasoning VQA pairs, leveraging structural constraints. Extensive evaluations across six medical benchmarks demonstrate that our approach significantly enhances the medical capabilities of general-purpose MLLMs, improving their ability to handle complex clinical queries and achieve state-of-the-art performance in diverse medical contexts.",
+    "url": "http://arxiv.org/abs/2604.25296v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25296v1",
+    "authors": [
+      "Jianghang Lin",
+      "Haihua Yang",
+      "Deli Yu",
+      "Kai Wu",
+      "Kai Ye",
+      "Jinghao Lin",
+      "Zihan Wang",
+      "Yuhang Wu",
+      "Liujuan Cao"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-04-28T07:05:26+00:00",
+    "updated": "2026-04-28T07:05:26+00:00",
+    "extra": {
+      "primary_category": "cs.CL"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25180v1",
+    "source": "arxiv",
+    "title": "On a Keller-Segel type equation to model Brain Microvascular Endothelial Cells growth's patterns",
+    "abstract": "This article presents a partial differential equation (PDE) of Keller-Segel (KS) type that reproduces patterns commonly observed during the growth of brain microvasculature. We provide mathematical insights into the mechanisms underlying the emergence of these patterns. In addition, we derive a data-driven equation that ensures a consistent temporal evolution of the chemoattractant associated with the observed microvascular dynamics. Beyond numerical simulations, the aim of this study is to advance a comprehensive mathematical modeling framework, spanning blood flow in cerebral arterial networks to biochemical processes, in order to better understand how vascular impairments may contribute to neurodegenerative diseases.",
+    "url": "http://arxiv.org/abs/2604.25180v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25180v1",
+    "authors": [
+      "B Ambrosio",
+      "A Garroudji",
+      "S Fitzsimons",
+      "H Zaag",
+      "F. M. Elahi"
+    ],
+    "categories": [
+      "math.DS",
+      "q-bio.QM"
+    ],
+    "published": "2026-04-28T03:38:04+00:00",
+    "updated": "2026-04-28T03:38:04+00:00",
+    "extra": {
+      "primary_category": "math.DS"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25752v1",
+    "source": "arxiv",
+    "title": "Quantum sensing-enabled deuterium NMR spectroscopy with nanoscale sensitivity at low magnetic fields",
+    "abstract": "Nuclear magnetic resonance (NMR) spectroscopy provides unparalleled access to molecular structure and dynamics but is traditionally limited by weak signal strength, requiring large sample volumes and high magnetic fields. Here, we demonstrate nanoscale deuterium (2H) NMR spectroscopy using nitrogen vacancy (NV) centers in diamond, reproducing the characteristic quadrupolar powder line shapes that are present in the conventional bulk NMR spectra. By detecting statistical spin fluctuations from nanometer scale detection volumes, our approach delivers a sensitivity enhancement of six to eight orders of magnitude over inductive detection while operating at magnetic fields two orders of magnitude lower than those used in conventional NMR. Temperature dependent measurements of a deuterated polymer and molecular solid reveal distinct motional averaging and phase transitions with nanoscale sensitivity. Powder-like NV detected 2H NMR establishes a powerful tool for probing molecular dynamics on the nanoscale and, in the ultimate limit, at the single molecule level - capabilities beyond those of most existing spectroscopic techniques.",
+    "url": "http://arxiv.org/abs/2604.25752v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25752v1",
+    "authors": [
+      "Dileep Singh",
+      "Riley W. Hooper",
+      "Christoph Findler",
+      "Utsab Banerjee",
+      "Dominik B. Bucher"
+    ],
+    "categories": [
+      "physics.app-ph",
+      "physics.chem-ph",
+      "quant-ph"
+    ],
+    "published": "2026-04-28T15:16:06+00:00",
+    "updated": "2026-04-28T15:16:06+00:00",
+    "extra": {
+      "primary_category": "physics.app-ph"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25581v1",
+    "source": "arxiv",
+    "title": "Self-consistent vertex corrected $GW$ with static and dynamic screening using tensor hypercontraction: assessment of molecular ionization potentials",
+    "abstract": "In this work, we benchmark tensor hypercontraction (THC)-accelerated fully self-consistent $GW$ (sc$GW$) and vertex-corrected self-consistent $GW$ (sc$GW\u0393$) methods for predicting molecular first ionization potentials (IPs). The vertex function, $\u0393$, is inserted into the self-energy in a fully self-consistent manner, and representative sc$GW$ and sc$GW\u0393$ variants are assessed across the $G_0W_0\\Gamma29$ and $GW100$ data sets. We find that the THC decomposition introduces negligible errors into self-consistent $GW$ ionization potentials, indicating that the acceleration preserves the underlying fully self-consistent results. Across both benchmark sets, vertex-corrected sc$GW\u0393$ methods primarily produce systematic shifts in the IPs relative to sc$GW$ rather than consistent accuracy improvements. These results identify THC as a reliable route to lower-cost sc$GW$ and sc$GW\u0393$ calculations",
+    "url": "http://arxiv.org/abs/2604.25581v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25581v1",
+    "authors": [
+      "Munkhorgil Wang",
+      "Ming Wen",
+      "Pavel Pokhilko",
+      "Chia-Nan Yeh",
+      "Miguel A. Morales",
+      "Dominika Zgid"
+    ],
+    "categories": [
+      "cond-mat.str-el",
+      "physics.chem-ph"
+    ],
+    "published": "2026-04-28T12:49:56+00:00",
+    "updated": "2026-04-28T12:49:56+00:00",
+    "extra": {
+      "primary_category": "cond-mat.str-el"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25460v1",
+    "source": "arxiv",
+    "title": "Excitation of Low-Frequency Modes and the Effects of Protein Dynamics on Spectral Densities of Bacteriochlorophyll Molecules",
+    "abstract": "In the theory of open quantum systems, spectral densities are key quantities for modeling the dynamics and spectroscopic properties of the system under investigation. In the case of light-harvesting complexes, they encode the frequency-dependent coupling of electronic excitations in pigment molecules to their environment, reflecting contributions from both intrinsic vibrational modes and the protein surrounding. In particular, the low-frequency components of the spectral densities are crucial for exciton transfer between pigment molecules. Apparently, slow internal modes of bacteriocholophyll molecules in the gas phase are less well represented by common force fields based on classical molecular dynamics (MD) simulations. Here, we demonstrate that Born-Oppenheimer molecular dynamics (BOMD) based on the numerically efficient density functional-based tight-binding approach can accurately recover these low-frequency features, whereas normal mode analysis captures them only partially. In contrasting approaches for determining spectral densities, the low-frequency region of the spectral densities obtained is only associated with protein fluctuations; the usage of BOMD, however, also captures the low-frequency contributions arising from slow intramolecular vibrations of the pigment molecules themselves. Notably, this behavior is consistently observed for both the flexible B800 and the more rigid B850 rings in light-harvesting 2 (LH2) complexes of purple bacteria, as well as in the Fenna-Matthews-Olson (FMO) complex of green sulfur bacteria. Interestingly, we also find that the spectral densities of the pigments in the B850 ring of LH2 are not influenced by the environment, i.e., the gaps between ground and first excited state are not changed significantly by the fluctuations of the protein environment.",
+    "url": "http://arxiv.org/abs/2604.25460v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25460v1",
+    "authors": [
+      "Sayan Maity",
+      "Tristan A. Mauck",
+      "Ulrich Kleinekath\u00f6fer"
+    ],
+    "categories": [
+      "physics.chem-ph",
+      "cond-mat.mes-hall",
+      "physics.bio-ph",
+      "physics.comp-ph"
+    ],
+    "published": "2026-04-28T10:06:52+00:00",
+    "updated": "2026-04-28T10:06:52+00:00",
+    "extra": {
+      "primary_category": "physics.chem-ph"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25262v1",
+    "source": "arxiv",
+    "title": "Benchmarking Universal Machine-Learned Interatomic Potentials for High-Temperature Metal-Organic Framework Chemistry",
+    "abstract": "Universal machine-learned interatomic potentials (uMLIPs) offer a promising approach to performing atomistic simulations at near-DFT accuracy with greatly reduced computational cost. Here, we present a new high-temperature benchmarking dataset of 40~ps ab~initio molecular dynamics (AIMD) trajectories simulated at 300, 1000, and 2000 K for nine zinc- and zirconium-based metal-organic frameworks (MOFs): ZIF-8, CALF-20, MOF-10, MOF-5, MIP-206, UiO-66, UiO-67, UiO-66-NH2, and NU-1000. These trajectories capture equilibrium dynamics, thermally induced distortions, and early-stage decomposition events, including linker degradation and metal node aggregation. Subsequently, we use this dataset to benchmark five leading uMLIPs: ORB-v3, MACE-MP-0a, MACE-MPA-0, fairchem ODAC23, and fairchem OMAT. Our results reveal that ORB-v3 and fairchem OMAT achieve the lowest energy, force, and stress errors across all temperatures. However, all models exhibit significant error under high-temperature conditions. Long-timescale molecular dynamics simulations produced with ORB-v3 demonstrate that the generative error of uMLIPs far exceeds model losses captured during static validation, highlighting the limitations of current universal models for simulating high-temperature MOF dynamics. This work provides a benchmark for assessing the robustness of uMLIPs in extreme regimes and guides future development of potentials capable of accurately modeling the chemistry of high-temperature MOF dynamics.",
+    "url": "http://arxiv.org/abs/2604.25262v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25262v1",
+    "authors": [
+      "Connor W. Edwards",
+      "Jack D. Evans"
+    ],
+    "categories": [
+      "cond-mat.mtrl-sci",
+      "physics.chem-ph"
+    ],
+    "published": "2026-04-28T06:11:25+00:00",
+    "updated": "2026-04-28T06:11:25+00:00",
+    "extra": {
+      "primary_category": "cond-mat.mtrl-sci"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25105v1",
+    "source": "arxiv",
+    "title": "Prominent Signatures of Energy Transfer in Action-Detected Spectra of a Cyanobacterial Photosynthetic Protein",
+    "abstract": "Action-detected two-dimensional electronic spectroscopy (A-2DES) could potentially be a versatile chemical tool with applicability across a range of photophysical observables such as photocurrent, photoionization, or fluorescence. However, a prominent absence of excited state energy/charge transfer dynamics signals in archetypal photosynthetic proteins has suggested severe limitations of A-2DES in probing large aggregates where sensitivity to excited state dynamics is proposed to go down as 1/N, where N is the aggregate size. We report measurements of energy transfer dynamics in a cyanobacterial protein through both conventional and fluorescence 2DES (F-2DES), where the dynamics reported by F-2DES is quite prominent and comparable to that measured by conventional 2DES. Analysis of our experiments combined with coarse-grained simulations of the spectra suggest that the 1/N limit argument, which assumes infinitely fast intra-exciton manifold equilibration, is modified in case of cyanobacterial proteins because of slow annihilation. Our results suggest that action detection may in fact be well-suited to probe exciton diffusion across weakly coupled systems.",
+    "url": "http://arxiv.org/abs/2604.25105v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25105v1",
+    "authors": [
+      "Sayan Ghosh",
+      "Amitav Sahu",
+      "Stephanie Gonzalez-Migoni",
+      "Thomas L. C. Jansen",
+      "Vivek Tiwari"
+    ],
+    "categories": [
+      "physics.chem-ph"
+    ],
+    "published": "2026-04-28T01:27:17+00:00",
+    "updated": "2026-04-28T01:27:17+00:00",
+    "extra": {
+      "primary_category": "physics.chem-ph"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25037v1",
+    "source": "arxiv",
+    "title": "Thermal conductivity of aligned polymers with kinks",
+    "abstract": "Thermal conductivity of aligned polymer molecules can be exceptionally high along the alignment direction due to energy transport through strong covalent bonds. At the same time, it is highly sensitive to molecular conformation, varying by orders of magnitude as a result of gauche kinks. Here, we theoretically investigate phonon transport in kinked polymers by numerically evaluating thermal conductivity and interpreting the results in terms of phonon scattering from randomly distributed kinks. For strongly aligned polymers with restricted deviations from a linear backbone, we find that heat transport becomes superdiffusive at long lengths, with thermal conductivity scaling as $\u03ba\\propto L^{1/3}$. At shorter lengths, thermal conductivity exhibits non-monotonic behavior: it increases at very short scales due to ballistic transport of almost all phonons, then decreases at intermediate lengths due to the Anderson localization of most phonon modes. These results are consistent with experiments and molecular dynamics simulations, and they elucidate the microscopic mechanisms governing heat transport in polymers.",
+    "url": "http://arxiv.org/abs/2604.25037v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25037v1",
+    "authors": [
+      "Igor V. Parshin",
+      "Igor V. Rubtsov",
+      "Alexander L. Burin"
+    ],
+    "categories": [
+      "physics.chem-ph",
+      "cond-mat.dis-nn"
+    ],
+    "published": "2026-04-27T22:41:23+00:00",
+    "updated": "2026-04-27T22:41:23+00:00",
+    "extra": {
+      "primary_category": "physics.chem-ph"
+    }
+  },
+  {
+    "uid": "arxiv:2604.25010v1",
+    "source": "arxiv",
+    "title": "Hidden optical nonlinearities in linear spectra of quantum emitter arrays",
+    "abstract": "Classical optical frameworks such as the discrete dipole approximation (DDA) assume that the linear spectrum of coupled quantum emitters can be computed solely from the linear susceptibilities of individual constituents. However, recent polariton studies show that cavity linear response can encode nonlinear optical susceptibilities. Here, we demonstrate that this phenomenon is more general: emitter-emitter interactions allow nonlinearities of individual emitters to emerge in the linear response of arrays, without cavities or permutational symmetry. To illustrate this phenomenon, we show linear spectra for coupled heterodimers and linear chains, and demonstrate that Raman features of individual monomers show up as vibrational sidebands of collective resonances. Moreover, tuning Raman-type anharmonicities enables systematic control of spectral features, establishing a genuine quantum optical effect in molecular aggregates and quantum emitter arrays, which goes beyond mean-field descriptions in light-matter interactions.",
+    "url": "http://arxiv.org/abs/2604.25010v1",
+    "pdf_url": "https://arxiv.org/pdf/2604.25010v1",
+    "authors": [
+      "Sricharan Raghavan-Chitra",
+      "Arghadip Koner",
+      "Joel Yuen-Zhou"
+    ],
+    "categories": [
+      "physics.optics",
+      "physics.atm-clus",
+      "physics.chem-ph",
+      "quant-ph"
+    ],
+    "published": "2026-04-27T21:22:01+00:00",
+    "updated": "2026-04-27T21:22:01+00:00",
+    "extra": {
+      "primary_category": "physics.optics"
+    }
+  }
+]
